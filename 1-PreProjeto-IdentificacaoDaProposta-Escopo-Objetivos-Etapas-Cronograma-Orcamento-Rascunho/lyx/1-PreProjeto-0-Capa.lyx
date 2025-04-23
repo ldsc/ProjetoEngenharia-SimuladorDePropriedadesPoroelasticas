@@ -165,12 +165,12 @@ DESENVOLVIMENTO DO SOFTWARE
 \begin_inset Newline newline
 \end_inset
 
-XXX
+CALCULADORA DE PROPRIEDADES POROELÁSTICAS
 \begin_inset Newline newline
 \end_inset
 
-DISCIPLINA LEP - 0XXXX:
- Introdução ao Projeto de Engenharia
+DISCIPLINA LEP - 01449:
+ Projeto de Software Aplicado à Engenharia
 \begin_inset Newline newline
 \end_inset
 
@@ -188,22 +188,24 @@ Setor de Modelagem Matemática Computacional
 \align center
 
 \size large
-Versão 1:
+Versão 1
 \begin_inset Newline newline
 \end_inset
 
-AUTORES
-\begin_inset Newline newline
-\end_inset
+Matheus Sousa Bastos 
+\end_layout
 
-Versão 2:
-\begin_inset Newline newline
-\end_inset
+\begin_layout Standard
+\align center
 
-AUTORES
-\begin_inset Newline newline
-\end_inset
+\size large
+Nicolau Azevedo Prates
+\end_layout
 
+\begin_layout Standard
+\align center
+
+\size large
 Prof.
  André Duarte Bueno
 \end_layout
@@ -247,7 +249,7 @@ MACAÉ - RJ
 \begin_inset Newline newline
 \end_inset
 
-Janeiro - 2023
+Maio - 2025
 \begin_inset Note Note
 status open
 
