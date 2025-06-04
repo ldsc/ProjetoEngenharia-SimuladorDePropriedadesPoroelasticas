@@ -1,0 +1,455 @@
+
+\chapter{Projeto \label{chap:Projeto-do-Sistema}}
+
+\lhead{\thechapter - Projeto} 
+
+Neste capítulo do projeto de engenharia veremos questões associadas
+ao projeto do sistema, incluindo protocolos, recursos, plataformas
+suportadas, inplicações nos diagramas feitos anteriormente, diagramas
+de componentes e implantação. Na segunda parte revisamos os diagramas
+levando em conta as decisões do projeto do sistema.
+
+\section{Projeto do Sistema\index{Projeto do sistema}\label{sec:Projeto-do-sistema}}
+
+Depois da análise orientada a objeto desenvolve-se o projeto do sistema,
+qual envolve etapas como a definição dos protocolos, da interface
+API, o uso de recursos, a subdivisão do sistema em subsistemas, a
+alocação dos subsistemas ao hardware e a seleção das estruturas de
+controle, a seleção das plataformas do sistema, das bibliotecas externas,
+dos padrões de projeto, além da tomada de decisões conceituais e políticas
+que formam a infraestrutura do projeto.
+
+Deve-se definir padrões de documentação, padrões para o nome das classes,
+padrões de retorno e de parâmetros em métodos, características da
+interface do usuário e características de desempenho. 
+
+Segundo \cite{prog-UML-Rumbaugh,prog-UML-blaha}, o projeto do sistema
+é a estratégia de alto nível para resolver o problema e elaborar uma
+solução. Você deve se preocupar com itens como: 
+\begin{enumerate}
+\item Protocolos\index{Protocolos}
+
+\begin{itemize}
+\item Definição dos protocolos de comunicação entre os diversos elementos
+externos \\
+(como dispositivos). Por exemplo: se o sistema envolve o uso dos nós
+de um cluster, devem ser considerados aspectos como o protocolo de
+comunicação entre os nós do cluster.
+
+\begin{itemize}
+\item Neste projeto blablabla
+\end{itemize}
+\item Definição dos protocolos de comunicação entre os diversos elementos
+internos \\
+(como objetos). 
+
+\begin{itemize}
+\item Neste projeto blablabla
+\end{itemize}
+\item Definição da interface API de suas bibliotecas e sistemas.
+
+\begin{itemize}
+\item Neste projeto blablabla
+\end{itemize}
+\item Definição do formato dos arquivos gerados pelo software. Por exemplo:
+prefira formatos abertos, como arquivos txt e xml.
+
+\begin{itemize}
+\item Neste projeto blablabla
+\end{itemize}
+\end{itemize}
+\item Recursos\index{Recursos}
+
+\begin{itemize}
+\item Identificação e alocação dos recursos globais, como os recursos do
+sistema serão alocados, utilizados, compartilhados e liberados. Implicam
+modificações no diagrama de componentes.
+
+\begin{itemize}
+\item Neste projeto blablabla
+\end{itemize}
+\item Identificação da necessidade do uso de banco de dados. Implicam em
+modificações nos diagramas de atividades e de componentes.
+
+\begin{itemize}
+\item Neste projeto blablabla
+\end{itemize}
+\item Identificação da necessidade de sistemas de armazenamento de massa.
+Por exemplo: um \emph{storage} em um sistema de cluster ou sistemas
+de backup.
+
+\begin{itemize}
+\item Neste projeto blablabla
+\end{itemize}
+\end{itemize}
+\item Controle\index{Controle}
+
+\begin{itemize}
+\item Identificação e seleção da implementação de controle, seqüencial ou
+concorrente, baseado em procedimentos ou eventos. Implicam modificações
+no diagrama de execução. 
+
+\begin{itemize}
+\item Neste projeto blablabla
+\end{itemize}
+\item Identificação das condições extremas e de prioridades.
+
+\begin{itemize}
+\item Neste projeto blablabla
+\end{itemize}
+\item Identificação da necessidade de otimização. Por exemplo: prefira sistemas
+com grande capacidade de memória; prefira vários hds pequenos a um
+grande.
+
+\begin{itemize}
+\item Neste projeto blablabla
+\end{itemize}
+\item Identificação e definição de \emph{loops} de controle e das escalas
+de tempo. 
+
+\begin{itemize}
+\item Neste projeto blablabla
+\end{itemize}
+\item Identificação de concorrências -- quais algoritmos podem ser implementados
+usando processamento paralelo. 
+
+\begin{itemize}
+\item Neste projeto blablabla
+\end{itemize}
+\end{itemize}
+\item Plataformas\index{Plataformas}
+
+\begin{itemize}
+\item Identificação das estruturas arquitetônicas comuns. 
+
+\begin{itemize}
+\item Neste projeto blablabla
+\end{itemize}
+\item Identificação de subsistemas relacionados à plataforma selecionada.
+Podem implicar em modificações no diagrama de pacotes e no diagrama
+de componentes. 
+
+\begin{itemize}
+\item Neste projeto blablabla
+\end{itemize}
+\item Identificação e definição das plataformas a serem suportadas: hardware,
+sistema operacional e linguagem de software.
+
+\begin{itemize}
+\item Neste projeto blablabla
+\end{itemize}
+\item Seleção das bibliotecas externas a serem utilizadas.
+
+\begin{itemize}
+\item Neste projeto blablabla
+\end{itemize}
+\item Seleção da biblioteca utilizada para montar a interface gráfica do
+software -- GDI.
+
+\begin{itemize}
+\item Neste projeto blablabla
+\end{itemize}
+\item Seleção do ambiente de desenvolvimento para montar a interface de
+desenvolvimento -- IDE. 
+
+\begin{itemize}
+\item Neste projeto blablabla
+\end{itemize}
+\end{itemize}
+\item Padrões de projeto
+
+\begin{itemize}
+\item Normalmente os padrões de projeto são identificados e passam a fazer
+parte de uma biblioteca de padrões da empresa. Mas isto só ocorre
+após a realização de diversos projetos.
+
+\begin{itemize}
+\item Neste projeto blablabla
+\end{itemize}
+\end{itemize}
+\end{enumerate}
+
+\section{Projeto Orientado a Objeto -- POO\index{POO}\index{Projeto orientado a objeto}\label{sec:Projeto-orientado-a-objeto}}
+
+O projeto orientado a objeto é a etapa posterior ao projeto do sistema.
+Baseia-se na análise, mas considera as decisões do projeto do sistema.
+Acrescenta a análise desenvolvida e as características da plataforma
+escolhida (hardware, sistema operacional e linguagem de softwareção).
+Passa pelo maior detalhamento do funcionamento do software, acrescentando
+atributos e métodos que envolvem a solução de problemas específicos
+não identificados durante a análise.
+
+Envolve a otimização da estrutura de dados e dos algoritmos, a minimização
+do tempo de execução, de memória e de custos. Existe um desvio de
+ênfase para os conceitos da plataforma selecionada. 
+
+Exemplo: na análise você define que existe um método para salvar um
+arquivo em disco, define um atributo nomeDoArquivo, mas não se preocupa
+com detalhes específicos da linguagem. Já no projeto, você inclui
+as bibliotecas necessárias para acesso ao disco, cria um objeto específico
+para acessar o disco, podendo, portanto, acrescentar novas classes
+àquelas desenvolvidas na análise. 
+
+\subsubsection{Efeitos do projeto no modelo\index{modelo} estrutural\label{subsec:Efeito-do-projeto-no-modelo-estrutural}}
+\begin{itemize}
+\item Adicionar nos diagramas de pacotes as bibliotecas e subsistemas selecionados
+no projeto do sistema (exemplo: a biblioteca gráfica selecionada).
+
+\begin{itemize}
+\item Neste projeto blablabla
+\end{itemize}
+\item Novas classes e associações oriundas das bibliotecas selecionadas
+e da linguagem escolhida devem ser acrescentadas ao modelo.
+
+\begin{itemize}
+\item Neste projeto blablabla
+\end{itemize}
+\item Estabelecer as dependências e restrições associadas à plataforma escolhida.
+
+\begin{itemize}
+\item Neste projeto blablabla
+\end{itemize}
+\end{itemize}
+
+\subsubsection{Efeitos do projeto no modelo\index{modelo} dinâmico\label{subsec:Efeito-do-projeto-no-modelo-dinamico}}
+\begin{itemize}
+\item Revisar os diagramas de seqüência e de comunicação considerando a
+plataforma escolhida.
+
+\begin{itemize}
+\item Neste projeto blablabla
+\end{itemize}
+\item Verificar a necessidade de se revisar, ampliar e adicionar novos diagramas
+de máquinas de estado e de atividades. 
+
+\begin{itemize}
+\item Neste projeto blablabla
+\end{itemize}
+\end{itemize}
+
+\subsubsection{Efeitos do projeto nos atributos\index{atributos}\label{subsec:Efeito-do-projeto-nos-atributos}}
+\begin{itemize}
+\item Atributos novos podem ser adicionados a uma classe, como, por exemplo,
+atributos específicos de uma determinada linguagem de softwareção
+(acesso a disco, ponteiros, constantes e informações correlacionadas).
+
+\begin{itemize}
+\item Neste projeto blablabla
+\end{itemize}
+\end{itemize}
+
+\subsubsection{Efeitos do projeto nos métodos\index{métodos}\index{Efeitos do projeto nos métodos}}
+\begin{itemize}
+\item Em função da plataforma escolhida, verifique as possíveis alterações
+nos métodos. O projeto do sistema costuma afetar os métodos de acesso
+aos diversos dispositivos (exemplo: hd, rede).
+
+\begin{itemize}
+\item Neste projeto blablabla
+\end{itemize}
+\item De maneira geral os métodos devem ser divididos em dois tipos: i)
+tomada de decisões, métodos políticos ou de controle; devem ser claros,
+legíveis, flexíveis e usam polimorfismo. ii) realização de processamentos,
+podem ser otimizados e em alguns casos o polimorfismo deve ser evitado.
+
+\begin{itemize}
+\item Neste projeto blablabla
+\end{itemize}
+\item Algoritmos complexos podem ser subdivididos. Verifique quais métodos
+podem ser otimizados. Pense em utilizar algoritmos prontos como os
+da STL (algoritmos genéricos).
+
+\begin{itemize}
+\item Neste projeto blablabla
+\end{itemize}
+\item Responda a pergunta: os métodos da classes estão dando resposta às
+responsabilidades da classe?
+
+\begin{itemize}
+\item Neste projeto blablabla
+\end{itemize}
+\item Revise os diagramas de classes, de seqüência e de máquina de estado.
+
+\begin{itemize}
+\item Neste projeto blablabla
+\end{itemize}
+\end{itemize}
+
+\subsubsection{Efeitos do projeto nas heranças\index{heranças}\index{Efeitos do projeto nas heranças}\index{Heranças}}
+\begin{itemize}
+\item Reorganização das classes e dos métodos (criar métodos genéricos com
+parâmetros que nem sempre são necessários e englobam métodos existentes).
+
+\begin{itemize}
+\item Neste projeto blablabla
+\end{itemize}
+\item Abstração do comportamento comum (duas classes podem ter uma superclasse
+em comum). 
+
+\begin{itemize}
+\item Neste projeto blablabla
+\end{itemize}
+\item Utilização de delegação para compartilhar a implementação (quando
+você cria uma herança irreal para reaproveitar código). Usar com cuidado.
+
+\begin{itemize}
+\item Neste projeto blablabla
+\end{itemize}
+\item Revise as heranças no diagrama de classes.
+
+\begin{itemize}
+\item Neste projeto blablabla
+\end{itemize}
+\end{itemize}
+
+\subsubsection{Efeitos do projeto nas associações\index{Efeitos do projeto nas associações}\index{Associações}}
+\begin{itemize}
+\item Deve-se definir na fase de projeto como as associações serão implementadas,
+se obedecerão um determinado padrão ou não. 
+
+\begin{itemize}
+\item Neste projeto blablabla
+\end{itemize}
+\item Se existe uma relação de \textquotedbl muitos\textquotedbl , pode-se
+implementar a associação com a utilização de um dicionário, que é
+um mapa das associações entre objetos. Assim, o objeto A acessa o
+dicionário fornecendo uma chave (um nome para o objeto que deseja
+acessar) e o dicionário retorna um valor (um ponteiro) para o objeto
+correto. 
+
+\begin{itemize}
+\item Neste projeto blablabla
+\end{itemize}
+\item Evite percorrer várias associações para acessar dados de classes distantes.
+Pense em adicionar associações diretas.
+
+\begin{itemize}
+\item Neste projeto blablabla
+\end{itemize}
+\end{itemize}
+
+\subsubsection{Efeitos do projeto nas otimizações\index{otimizações}}
+\begin{itemize}
+\item Faça uma análise de aspectos relativos à otimização do sistema. Lembrando
+que a otimização deve ser desenvolvida por analistas/desenvolvedores
+experientes.
+
+\begin{itemize}
+\item Neste projeto blablabla
+\end{itemize}
+\item Identifique pontos a serem otimizados em que podem ser utilizados
+processos concorrentes.
+
+\begin{itemize}
+\item Neste projeto blablabla
+\end{itemize}
+\item Pense em incluir bibliotecas otimizadas.
+\item Se o acesso a determinados objetos (atributos/métodos) requer um caminho
+longo (exemplo: A->B->C->D.atributo), pense em incluir associações
+extras (exemplo: A-D.atributo).
+
+\begin{itemize}
+\item Neste projeto blablabla
+\end{itemize}
+\item Atributos auxiliares podem ser incluídos.
+
+\begin{itemize}
+\item Neste projeto blablabla
+\end{itemize}
+\item A ordem de execução pode ser alterada.
+
+\begin{itemize}
+\item Neste projeto blablabla
+\end{itemize}
+\item Revise as associações nos diagramas de classes.
+
+\begin{itemize}
+\item Neste projeto blablabla
+\end{itemize}
+\end{itemize}
+Depois de revisados os diagramas da análise você pode montar dois
+diagramas relacionados à infraestrutura do sistema. As dependências
+dos arquivos e bibliotecas podem ser descritos pelo diagrama de componentes,
+e as relações e dependências entre o sistema e o hardware podem ser
+ilustradas com o diagrama de implantação.
+
+\section{Diagrama de Componentes\index{Diagrama de componentes}\label{sec:Diagrama-de-componentes}}
+
+O diagrama de componentes mostra a forma como os componentes do software
+se relacionam, suas dependências. Inclui itens como: componentes,
+subsistemas, executáveis, nós, associações, dependências, generalizações,
+restrições e notas. Exemplos de componentes são bibliotecas estáticas,
+bibliotecas dinâmicas, dlls, componentes Java, executáveis, arquivos
+de disco, código-fonte. 
+
+Veja na Figura \ref{cap:Diagrama-de-componentes} um exemplo de diagrama
+de componentes. Observe que este inclui muitas dependências, ilustrando
+as relações entre os arquivos. Por exemplo: o subsistema biblioteca
+inclui os arquivos das classes A e B, e a geração dos objetos A.obj
+e B.obj depende dos arquivos A.h, A.cpp, B.h e B.cpp. A geração da
+biblioteca depende dos arquivos A.obj e B.obj. O subsistema biblioteca
+Qt, um subsistema exerno, inclui os arquivos de código da biblioteca
+Qt e a biblioteca em si. O subsistema banco de dados representa o
+banco de dados utilizado pelo sistema e tem uma interface de acesso
+que é utilizada pelo software para acesso aos dados armazenados no
+banco de dados. O software executável a ser gerado depende da biblioteca
+gerada, dos arquivos da biblioteca Qt, do módulo de arquivos MinhaJanela
+e do banco de dados.
+
+Algumas observações úteis para o diagrama de componentes:
+\begin{itemize}
+\item De posse do diagrama de componentes, temos a lista de todos os arquivos
+necessários para compilar e rodar o software.
+\item Observe que um assunto/pacote pode se transformar em uma biblioteca
+e será incluído no diagrama de componentes.
+\item A ligação entre componentes pode incluir um estereótipo indicando
+o tipo de relacionamento ou algum protocolo utilizado.
+\end{itemize}
+Neste projeto blablabla
+
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[width=1\textwidth]{imagens/DiagramaDeComponentes-Assuntos-Pacotes}
+\par\end{centering}
+\caption{Diagrama de componentes\label{cap:Diagrama-de-componentes}}
+\end{figure}
+
+
+\section{Diagrama de Implantação\index{Diagrama de implantação}\index{Diagrama de execução}\label{sec:Diagrama-de-execu=0000E7=0000E3o}}
+
+O diagrama de implantação é um diagrama de alto nível que inclui relações
+entre o sistema e o hardware e que se preocupa com os aspectos da
+arquitetura computacional escolhida. Seu enfoque é o hardware, a configuração
+dos nós em tempo de execução. 
+
+O diagrama de implantação deve incluir os elementos necessários para
+que o sistema seja colocado em funcionamento: computador, periféricos,
+processadores, dispositivos, nós, relacionamentos de dependência,
+associação, componentes, subsistemas, restrições e notas.
+
+Veja na Figura \ref{cap:Diagrama-de-implanta=0000E7=0000E3o.} um
+exemplo de diagrama de implantação de um cluster. Observe a presença
+de um servidor conectado a um switch. Os nós do cluster (ou clientes)
+também estão conectados ao switch. Os resultados das simulações são
+armazenados em um servidor de arquivos (\emph{storage}).
+
+Pode-se utilizar uma anotação de localização para identificar onde
+determinado componente está residente, por exemplo \{localização:
+sala 3\}.
+
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[width=1\textwidth]{imagens/DiagramaDeExecucao}
+\par\end{centering}
+\caption{Diagrama de implantação\label{cap:Diagrama-de-implanta=0000E7=0000E3o.}}
+\end{figure}
+
+\begin{description}
+\item [{Nota:}] ~\\
+Não perca de vista a visão do todo; do projeto de engenharia como
+um todo. Cada capítulo, cada seção, cada parágrafo deve se encaixar.
+Este é um diferencial fundamental do engenheiro em relação ao técnico,
+a capacidade de desenvolver projetos, de ver o todo e suas diferentes
+partes, de modelar processos/sistemas/produtos de engenharia.
+\end{description}
+

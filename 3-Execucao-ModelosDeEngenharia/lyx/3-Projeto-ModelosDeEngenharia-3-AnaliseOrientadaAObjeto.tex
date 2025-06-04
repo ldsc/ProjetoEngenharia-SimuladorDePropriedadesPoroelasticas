@@ -1,0 +1,151 @@
+\lhead{\thechapter\space - Análise Orientada a Objeto}  
+
+\chapter{AOO\index{AOO} -- Análise Orientada a Objeto\label{chap:An=0000E1lise Orientada a Objeto}\index{Análise orientada a objeto}\label{sec:AOO}}
+
+A terceira etapa do desenvolvimento de um projeto de engenharia, no
+nosso caso um software aplicado a engenharia de petróleo, é a AOO
+-- Análise Orientada a Objeto. A AOO utiliza algumas regras para
+identificar os objetos de interesse, as relacões entre os pacotes,
+as classes, os atributos, os métodos, as heranças, as associações,
+as agregações, as composições e as dependências. 
+
+O modelo de análise deve ser conciso, simplificado e deve mostrar
+o que deve ser feito, não se preocupando como isso será realizado.
+
+O resultado da análise é um conjunto de diagramas que identificam
+os objetos e seus relacionamentos.
+
+\section{Diagramas de classes\label{sec:Diagramas-de-classes}}
+
+O diagrama de classes é apresentado na Figura \ref{cap:Diagrama-de-classes}. 
+
+\begin{figure}[p]
+\begin{centering}
+\includegraphics[width=1\textwidth]{imagens/DiagramaDeClasses}
+\par\end{centering}
+\caption{Diagrama de classes\label{cap:Diagrama-de-classes}}
+\end{figure}
+
+Nota: ~ \\
+deve ocupar toda a página impressa! se necessário rotacionar 90 graus;
+SE NECESSÁRIO DIVIDIR EM 2 PÁGINAS; o importante é que toda figura/tabela
+deve ser bem legível (fonte mínima = 10).
+
+\subsection{Dicionário de classes\label{subsec:Dicion=0000E1rio-de-classes}}
+\begin{itemize}
+\item Classe CNomeClasse: representa.....
+\item Classe CNomeClasse: representa.....
+\item Classe CNomeClasse: representa.....
+\end{itemize}
+
+\section{Diagrama de seqüência -- eventos\index{Eventos} e mensagens\index{Mensagens}\index{Diagrama de sequência}\label{subsec:diagrama de sequ=0000EAncia}}
+
+\textit{\emph{O diagrama de seqüência enfatiza a troca de eventos
+e mensagens e sua ordem temporal. Contém informações sobre o fluxo
+de controle do software. Costuma ser montado a partir de um diagrama
+de caso de uso e estabelece o relacionamento dos atores (usuários
+e sistemas externos) com alguns objetos do sistema.}}
+
+\subsection{\textit{\emph{Diagrama de sequência geral\label{subsec: Diagrama de sequ=0000EAncia geral}}}}
+
+Veja o \textit{\emph{diagrama de seqüência na}} Figura \ref{cap:Diagrama-de-sequencia}.
+\begin{itemize}
+\item {[}Aqui a ênfase é o entendimento da sequência com que as mensagens
+são trocadas, a ordem temporal.{]}
+\end{itemize}
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[width=1\textwidth]{imagens/DiagramaDeSequencia-Eventos}
+\par\end{centering}
+\caption{Diagrama de seqüência\label{cap:Diagrama-de-sequencia}}
+\end{figure}
+
+
+\subsection{\textit{\emph{Diagrama de sequência específico\label{subsec: Diagrama de sequ=0000EAncia espec=0000EDfico}}}}
+
+...
+\begin{itemize}
+\item {[}deve mostrar uma sequência específica; NÃO É PARA REPETIR O GERAL
+COM 1-2 coisas diferentes!
+\end{itemize}
+é um novo diagrama; detalhando algo! {]}
+
+\section{Diagrama de comunicação\index{comunicação} -- colaboração\index{colaboração}\label{subsec:Diagrama-de-Comunica=0000E7=0000E3o}\index{Diagrama de colaboração}\label{par:Diagrama-de-colabora=0000E7=0000E3o:} }
+
+No diagrama de comunicação o foco é a interação e a troca de mensagens
+e dados entre os objetos. 
+\begin{itemize}
+\item {[}Pode ser a repetição de um diagrama de sequência; mas note que
+o formato do gráfico é diferente, aqui a ênfase é o entendimento das
+mensagens que chegam e saem de cada objeto.{]}
+\end{itemize}
+Veja na Figura \ref{subsec:Diagrama-de-Comunica=0000E7=0000E3o} o
+diagrama de comunicação mostrando a sequência de blablabla. Observe
+que ....
+
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[width=1\textwidth]{imagens/DiagramaDeComunicacao}
+\par\end{centering}
+\caption{Diagrama de comunicação\label{cap:Diagrama-de-comunica=0000E7=0000E3o}}
+\end{figure}
+
+
+\section{Diagrama de estado\index{estado}\index{Diagrama de estado}\label{subsec:diagrama de estados}}
+
+Um diagrama de máquina de estado representa os diversos estados que
+o objeto assume e os eventos que ocorrem ao longo de sua vida ou mesmo
+ao longo de um processo (histórico do objeto). É usado para modelar
+aspectos dinâmicos do objeto.
+
+Veja na Figura \ref{cap:Diagrama-de-maquina-de-estado} o diagrama
+de máquina de estado para o objeto XXX. Observe que....
+\begin{itemize}
+\item Lembre-se, são os estados de um objeto específico e não uma sequência
+de cálculo; as sequência já foram mostrados nos diagramas de sequência
+e comunicação!!
+\item Vou repetir; Não faça o diagrama de máquina de estado como sendo uma
+repetição dos diagramas de sequência! 
+\item Este diagrama trata dos estados de um objeto único/específico!
+\end{itemize}
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[width=1\textwidth]{imagens/DiagramaDeEstado-ClasseSimulador}
+\par\end{centering}
+\caption{Diagrama de máquina de estado\label{cap:Diagrama-de-maquina-de-estado}}
+\end{figure}
+
+
+\section{Diagrama de atividades\label{sec: Diagrama de atividades}}
+
+.....
+
+Veja na Figura \ref{cap:Diagrama-de-atividades} o diagrama de atividades
+correspondente a uma atividade específica do diagrama de máguina de
+estado. Observe que....
+
+...descrever em detalhes uma atividade específica..não pode ser a
+sequência de uso geral, trata-se de um caso específico, detalhado
+do diagrama de máquina de estado.
+\begin{itemize}
+\item Lembrar que o diagrama de sequência é a representação de um método
+de cálculo específico. 
+\item Não é para fazer o diagrama de atividades do método de gerenciamento!!!
+\item Coloque aqui um diagrama de atividades que mostra contas/cálculos! 
+\end{itemize}
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[width=1\textwidth]{imagens/DiagramaDeAtividade-1}
+\par\end{centering}
+\caption{Diagrama de atividades\label{cap:Diagrama-de-atividades}}
+\end{figure}
+
+\begin{description}
+\item [{Nota:}] ~\\
+Não perca de vista a visão do todo; do projeto de engenharia como
+um todo. Cada capítulo, cada seção, cada parágrafo deve se encaixar.
+Este é um diferencial fundamental do engenheiro em relação ao técnico,
+a capacidade de desenvolver projetos, de ver o todo e suas diferentes
+partes, de modelar processos/sistemas/produtos de engenharia.
+\end{description}
+
