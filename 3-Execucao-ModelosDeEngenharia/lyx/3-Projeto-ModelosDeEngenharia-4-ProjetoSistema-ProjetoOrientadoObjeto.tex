@@ -3,6 +3,31 @@
 
 \lhead{\thechapter - Projeto} 
 
+<<<<<<< HEAD
+Neste capÃ­tulo do projeto de engenharia veremos questÃµes associadas
+ao projeto do sistema, incluindo protocolos, recursos, plataformas
+suportadas, inplicaÃ§Ãµes nos diagramas feitos anteriormente, diagramas
+de componentes e implantaÃ§Ã£o. Na segunda parte revisamos os diagramas
+levando em conta as decisÃµes do projeto do sistema.
+
+\section{Projeto do Sistema\index{Projeto do sistema}\label{sec:Projeto-do-sistema}}
+
+Depois da anÃ¡lise orientada a objeto desenvolve-se o projeto do sistema,
+qual envolve etapas como a definiÃ§Ã£o dos protocolos, da interface
+API, o uso de recursos, a subdivisÃ£o do sistema em subsistemas, a
+alocaÃ§Ã£o dos subsistemas ao hardware e a seleÃ§Ã£o das estruturas de
+controle, a seleÃ§Ã£o das plataformas do sistema, das bibliotecas externas,
+dos padrÃµes de projeto, alÃ©m da tomada de decisÃµes conceituais e polÃ­ticas
+que formam a infraestrutura do projeto.
+
+Deve-se definir padrÃµes de documentaÃ§Ã£o, padrÃµes para o nome das classes,
+padrÃµes de retorno e de parÃ¢metros em mÃ©todos, caracterÃ­sticas da
+interface do usuÃ¡rio e caracterÃ­sticas de desempenho. 
+
+Segundo \cite{prog-UML-Rumbaugh,prog-UML-blaha}, o projeto do sistema
+Ã© a estratÃ©gia de alto nÃ­vel para resolver o problema e elaborar uma
+soluÃ§Ã£o. VocÃª deve se preocupar com itens como: 
+=======
 Neste capítulo do projeto de engenharia veremos questões associadas
 ao projeto do sistema, incluindo protocolos, recursos, plataformas
 suportadas, inplicações nos diagramas feitos anteriormente, diagramas
@@ -26,32 +51,53 @@ interface do usuário e características de desempenho.
 Segundo \cite{prog-UML-Rumbaugh,prog-UML-blaha}, o projeto do sistema
 é a estratégia de alto nível para resolver o problema e elaborar uma
 solução. Você deve se preocupar com itens como: 
+>>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 \begin{enumerate}
 \item Protocolos\index{Protocolos}
 
 \begin{itemize}
+<<<<<<< HEAD
+\item DefiniÃ§Ã£o dos protocolos de comunicaÃ§Ã£o entre os diversos elementos
+externos \\
+(como dispositivos). Por exemplo: se o sistema envolve o uso dos nÃ³s
+de um cluster, devem ser considerados aspectos como o protocolo de
+comunicaÃ§Ã£o entre os nÃ³s do cluster.
+=======
 \item Definição dos protocolos de comunicação entre os diversos elementos
 externos \\
 (como dispositivos). Por exemplo: se o sistema envolve o uso dos nós
 de um cluster, devem ser considerados aspectos como o protocolo de
 comunicação entre os nós do cluster.
+>>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 
 \begin{itemize}
 \item Neste projeto blablabla
 \end{itemize}
+<<<<<<< HEAD
+\item DefiniÃ§Ã£o dos protocolos de comunicaÃ§Ã£o entre os diversos elementos
+=======
 \item Definição dos protocolos de comunicação entre os diversos elementos
+>>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 internos \\
 (como objetos). 
 
 \begin{itemize}
 \item Neste projeto blablabla
 \end{itemize}
+<<<<<<< HEAD
+\item DefiniÃ§Ã£o da interface API de suas bibliotecas e sistemas.
+=======
 \item Definição da interface API de suas bibliotecas e sistemas.
+>>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 
 \begin{itemize}
 \item Neste projeto blablabla
 \end{itemize}
+<<<<<<< HEAD
+\item DefiniÃ§Ã£o do formato dos arquivos gerados pelo software. Por exemplo:
+=======
 \item Definição do formato dos arquivos gerados pelo software. Por exemplo:
+>>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 prefira formatos abertos, como arquivos txt e xml.
 
 \begin{itemize}
@@ -61,20 +107,35 @@ prefira formatos abertos, como arquivos txt e xml.
 \item Recursos\index{Recursos}
 
 \begin{itemize}
+<<<<<<< HEAD
+\item IdentificaÃ§Ã£o e alocaÃ§Ã£o dos recursos globais, como os recursos do
+sistema serÃ£o alocados, utilizados, compartilhados e liberados. Implicam
+modificaÃ§Ãµes no diagrama de componentes.
+=======
 \item Identificação e alocação dos recursos globais, como os recursos do
 sistema serão alocados, utilizados, compartilhados e liberados. Implicam
 modificações no diagrama de componentes.
+>>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 
 \begin{itemize}
 \item Neste projeto blablabla
 \end{itemize}
+<<<<<<< HEAD
+\item IdentificaÃ§Ã£o da necessidade do uso de banco de dados. Implicam em
+modificaÃ§Ãµes nos diagramas de atividades e de componentes.
+=======
 \item Identificação da necessidade do uso de banco de dados. Implicam em
 modificações nos diagramas de atividades e de componentes.
+>>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 
 \begin{itemize}
 \item Neste projeto blablabla
 \end{itemize}
+<<<<<<< HEAD
+\item IdentificaÃ§Ã£o da necessidade de sistemas de armazenamento de massa.
+=======
 \item Identificação da necessidade de sistemas de armazenamento de massa.
+>>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 Por exemplo: um \emph{storage} em um sistema de cluster ou sistemas
 de backup.
 
@@ -85,32 +146,55 @@ de backup.
 \item Controle\index{Controle}
 
 \begin{itemize}
+<<<<<<< HEAD
+\item IdentificaÃ§Ã£o e seleÃ§Ã£o da implementaÃ§Ã£o de controle, seqÃ¼encial ou
+concorrente, baseado em procedimentos ou eventos. Implicam modificaÃ§Ãµes
+no diagrama de execuÃ§Ã£o. 
+=======
 \item Identificação e seleção da implementação de controle, seqüencial ou
 concorrente, baseado em procedimentos ou eventos. Implicam modificações
 no diagrama de execução. 
+>>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 
 \begin{itemize}
 \item Neste projeto blablabla
 \end{itemize}
+<<<<<<< HEAD
+\item IdentificaÃ§Ã£o das condiÃ§Ãµes extremas e de prioridades.
+=======
 \item Identificação das condições extremas e de prioridades.
+>>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 
 \begin{itemize}
 \item Neste projeto blablabla
 \end{itemize}
+<<<<<<< HEAD
+\item IdentificaÃ§Ã£o da necessidade de otimizaÃ§Ã£o. Por exemplo: prefira sistemas
+com grande capacidade de memÃ³ria; prefira vÃ¡rios hds pequenos a um
+=======
 \item Identificação da necessidade de otimização. Por exemplo: prefira sistemas
 com grande capacidade de memória; prefira vários hds pequenos a um
+>>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 grande.
 
 \begin{itemize}
 \item Neste projeto blablabla
 \end{itemize}
+<<<<<<< HEAD
+\item IdentificaÃ§Ã£o e definiÃ§Ã£o de \emph{loops} de controle e das escalas
+=======
 \item Identificação e definição de \emph{loops} de controle e das escalas
+>>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 de tempo. 
 
 \begin{itemize}
 \item Neste projeto blablabla
 \end{itemize}
+<<<<<<< HEAD
+\item IdentificaÃ§Ã£o de concorrÃªncias -- quais algoritmos podem ser implementados
+=======
 \item Identificação de concorrências -- quais algoritmos podem ser implementados
+>>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 usando processamento paralelo. 
 
 \begin{itemize}
@@ -120,48 +204,82 @@ usando processamento paralelo.
 \item Plataformas\index{Plataformas}
 
 \begin{itemize}
+<<<<<<< HEAD
+\item IdentificaÃ§Ã£o das estruturas arquitetÃ´nicas comuns. 
+=======
 \item Identificação das estruturas arquitetônicas comuns. 
+>>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 
 \begin{itemize}
 \item Neste projeto blablabla
 \end{itemize}
+<<<<<<< HEAD
+\item IdentificaÃ§Ã£o de subsistemas relacionados Ã  plataforma selecionada.
+Podem implicar em modificaÃ§Ãµes no diagrama de pacotes e no diagrama
+=======
 \item Identificação de subsistemas relacionados à plataforma selecionada.
 Podem implicar em modificações no diagrama de pacotes e no diagrama
+>>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 de componentes. 
 
 \begin{itemize}
 \item Neste projeto blablabla
 \end{itemize}
+<<<<<<< HEAD
+\item IdentificaÃ§Ã£o e definiÃ§Ã£o das plataformas a serem suportadas: hardware,
+=======
 \item Identificação e definição das plataformas a serem suportadas: hardware,
+>>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 sistema operacional e linguagem de software.
 
 \begin{itemize}
 \item Neste projeto blablabla
 \end{itemize}
+<<<<<<< HEAD
+\item SeleÃ§Ã£o das bibliotecas externas a serem utilizadas.
+=======
 \item Seleção das bibliotecas externas a serem utilizadas.
+>>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 
 \begin{itemize}
 \item Neste projeto blablabla
 \end{itemize}
+<<<<<<< HEAD
+\item SeleÃ§Ã£o da biblioteca utilizada para montar a interface grÃ¡fica do
+=======
 \item Seleção da biblioteca utilizada para montar a interface gráfica do
+>>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 software -- GDI.
 
 \begin{itemize}
 \item Neste projeto blablabla
 \end{itemize}
+<<<<<<< HEAD
+\item SeleÃ§Ã£o do ambiente de desenvolvimento para montar a interface de
+=======
 \item Seleção do ambiente de desenvolvimento para montar a interface de
+>>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 desenvolvimento -- IDE. 
 
 \begin{itemize}
 \item Neste projeto blablabla
 \end{itemize}
 \end{itemize}
+<<<<<<< HEAD
+\item PadrÃµes de projeto
+
+\begin{itemize}
+\item Normalmente os padrÃµes de projeto sÃ£o identificados e passam a fazer
+parte de uma biblioteca de padrÃµes da empresa. Mas isto sÃ³ ocorre
+apÃ³s a realizaÃ§Ã£o de diversos projetos.
+=======
 \item Padrões de projeto
 
 \begin{itemize}
 \item Normalmente os padrões de projeto são identificados e passam a fazer
 parte de uma biblioteca de padrões da empresa. Mas isto só ocorre
 após a realização de diversos projetos.
+>>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 
 \begin{itemize}
 \item Neste projeto blablabla
@@ -171,6 +289,26 @@ após a realização de diversos projetos.
 
 \section{Projeto Orientado a Objeto -- POO\index{POO}\index{Projeto orientado a objeto}\label{sec:Projeto-orientado-a-objeto}}
 
+<<<<<<< HEAD
+O projeto orientado a objeto Ã© a etapa posterior ao projeto do sistema.
+Baseia-se na anÃ¡lise, mas considera as decisÃµes do projeto do sistema.
+Acrescenta a anÃ¡lise desenvolvida e as caracterÃ­sticas da plataforma
+escolhida (hardware, sistema operacional e linguagem de softwareÃ§Ã£o).
+Passa pelo maior detalhamento do funcionamento do software, acrescentando
+atributos e mÃ©todos que envolvem a soluÃ§Ã£o de problemas especÃ­ficos
+nÃ£o identificados durante a anÃ¡lise.
+
+Envolve a otimizaÃ§Ã£o da estrutura de dados e dos algoritmos, a minimizaÃ§Ã£o
+do tempo de execuÃ§Ã£o, de memÃ³ria e de custos. Existe um desvio de
+Ãªnfase para os conceitos da plataforma selecionada. 
+
+Exemplo: na anÃ¡lise vocÃª define que existe um mÃ©todo para salvar um
+arquivo em disco, define um atributo nomeDoArquivo, mas nÃ£o se preocupa
+com detalhes especÃ­ficos da linguagem. JÃ¡ no projeto, vocÃª inclui
+as bibliotecas necessÃ¡rias para acesso ao disco, cria um objeto especÃ­fico
+para acessar o disco, podendo, portanto, acrescentar novas classes
+Ã quelas desenvolvidas na anÃ¡lise. 
+=======
 O projeto orientado a objeto é a etapa posterior ao projeto do sistema.
 Baseia-se na análise, mas considera as decisões do projeto do sistema.
 Acrescenta a análise desenvolvida e as características da plataforma
@@ -189,38 +327,61 @@ com detalhes específicos da linguagem. Já no projeto, você inclui
 as bibliotecas necessárias para acesso ao disco, cria um objeto específico
 para acessar o disco, podendo, portanto, acrescentar novas classes
 àquelas desenvolvidas na análise. 
+>>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 
 \subsubsection{Efeitos do projeto no modelo\index{modelo} estrutural\label{subsec:Efeito-do-projeto-no-modelo-estrutural}}
 \begin{itemize}
 \item Adicionar nos diagramas de pacotes as bibliotecas e subsistemas selecionados
+<<<<<<< HEAD
+no projeto do sistema (exemplo: a biblioteca grÃ¡fica selecionada).
+=======
 no projeto do sistema (exemplo: a biblioteca gráfica selecionada).
+>>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 
 \begin{itemize}
 \item Neste projeto blablabla
 \end{itemize}
+<<<<<<< HEAD
+\item Novas classes e associaÃ§Ãµes oriundas das bibliotecas selecionadas
+=======
 \item Novas classes e associações oriundas das bibliotecas selecionadas
+>>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 e da linguagem escolhida devem ser acrescentadas ao modelo.
 
 \begin{itemize}
 \item Neste projeto blablabla
 \end{itemize}
+<<<<<<< HEAD
+\item Estabelecer as dependÃªncias e restriÃ§Ãµes associadas Ã  plataforma escolhida.
+=======
 \item Estabelecer as dependências e restrições associadas à plataforma escolhida.
+>>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 
 \begin{itemize}
 \item Neste projeto blablabla
 \end{itemize}
 \end{itemize}
 
+<<<<<<< HEAD
+\subsubsection{Efeitos do projeto no modelo\index{modelo} dinÃ¢mico\label{subsec:Efeito-do-projeto-no-modelo-dinamico}}
+\begin{itemize}
+\item Revisar os diagramas de seqÃ¼Ãªncia e de comunicaÃ§Ã£o considerando a
+=======
 \subsubsection{Efeitos do projeto no modelo\index{modelo} dinâmico\label{subsec:Efeito-do-projeto-no-modelo-dinamico}}
 \begin{itemize}
 \item Revisar os diagramas de seqüência e de comunicação considerando a
+>>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 plataforma escolhida.
 
 \begin{itemize}
 \item Neste projeto blablabla
 \end{itemize}
 \item Verificar a necessidade de se revisar, ampliar e adicionar novos diagramas
+<<<<<<< HEAD
+de mÃ¡quinas de estado e de atividades. 
+=======
 de máquinas de estado e de atividades. 
+>>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 
 \begin{itemize}
 \item Neste projeto blablabla
@@ -230,108 +391,187 @@ de máquinas de estado e de atividades.
 \subsubsection{Efeitos do projeto nos atributos\index{atributos}\label{subsec:Efeito-do-projeto-nos-atributos}}
 \begin{itemize}
 \item Atributos novos podem ser adicionados a uma classe, como, por exemplo,
+<<<<<<< HEAD
+atributos especÃ­ficos de uma determinada linguagem de softwareÃ§Ã£o
+(acesso a disco, ponteiros, constantes e informaÃ§Ãµes correlacionadas).
+=======
 atributos específicos de uma determinada linguagem de softwareção
 (acesso a disco, ponteiros, constantes e informações correlacionadas).
+>>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 
 \begin{itemize}
 \item Neste projeto blablabla
 \end{itemize}
 \end{itemize}
 
+<<<<<<< HEAD
+\subsubsection{Efeitos do projeto nos mÃ©todos\index{mÃ©todos}\index{Efeitos do projeto nos mÃ©todos}}
+\begin{itemize}
+\item Em funÃ§Ã£o da plataforma escolhida, verifique as possÃ­veis alteraÃ§Ãµes
+nos mÃ©todos. O projeto do sistema costuma afetar os mÃ©todos de acesso
+=======
 \subsubsection{Efeitos do projeto nos métodos\index{métodos}\index{Efeitos do projeto nos métodos}}
 \begin{itemize}
 \item Em função da plataforma escolhida, verifique as possíveis alterações
 nos métodos. O projeto do sistema costuma afetar os métodos de acesso
+>>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 aos diversos dispositivos (exemplo: hd, rede).
 
 \begin{itemize}
 \item Neste projeto blablabla
 \end{itemize}
+<<<<<<< HEAD
+\item De maneira geral os mÃ©todos devem ser divididos em dois tipos: i)
+tomada de decisÃµes, mÃ©todos polÃ­ticos ou de controle; devem ser claros,
+legÃ­veis, flexÃ­veis e usam polimorfismo. ii) realizaÃ§Ã£o de processamentos,
+=======
 \item De maneira geral os métodos devem ser divididos em dois tipos: i)
 tomada de decisões, métodos políticos ou de controle; devem ser claros,
 legíveis, flexíveis e usam polimorfismo. ii) realização de processamentos,
+>>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 podem ser otimizados e em alguns casos o polimorfismo deve ser evitado.
 
 \begin{itemize}
 \item Neste projeto blablabla
 \end{itemize}
+<<<<<<< HEAD
+\item Algoritmos complexos podem ser subdivididos. Verifique quais mÃ©todos
+podem ser otimizados. Pense em utilizar algoritmos prontos como os
+da STL (algoritmos genÃ©ricos).
+=======
 \item Algoritmos complexos podem ser subdivididos. Verifique quais métodos
 podem ser otimizados. Pense em utilizar algoritmos prontos como os
 da STL (algoritmos genéricos).
+>>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 
 \begin{itemize}
 \item Neste projeto blablabla
 \end{itemize}
+<<<<<<< HEAD
+\item Responda a pergunta: os mÃ©todos da classes estÃ£o dando resposta Ã s
+=======
 \item Responda a pergunta: os métodos da classes estão dando resposta às
+>>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 responsabilidades da classe?
 
 \begin{itemize}
 \item Neste projeto blablabla
 \end{itemize}
+<<<<<<< HEAD
+\item Revise os diagramas de classes, de seqÃ¼Ãªncia e de mÃ¡quina de estado.
+=======
 \item Revise os diagramas de classes, de seqüência e de máquina de estado.
+>>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 
 \begin{itemize}
 \item Neste projeto blablabla
 \end{itemize}
 \end{itemize}
 
+<<<<<<< HEAD
+\subsubsection{Efeitos do projeto nas heranÃ§as\index{heranÃ§as}\index{Efeitos do projeto nas heranÃ§as}\index{HeranÃ§as}}
+\begin{itemize}
+\item ReorganizaÃ§Ã£o das classes e dos mÃ©todos (criar mÃ©todos genÃ©ricos com
+parÃ¢metros que nem sempre sÃ£o necessÃ¡rios e englobam mÃ©todos existentes).
+=======
 \subsubsection{Efeitos do projeto nas heranças\index{heranças}\index{Efeitos do projeto nas heranças}\index{Heranças}}
 \begin{itemize}
 \item Reorganização das classes e dos métodos (criar métodos genéricos com
 parâmetros que nem sempre são necessários e englobam métodos existentes).
+>>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 
 \begin{itemize}
 \item Neste projeto blablabla
 \end{itemize}
+<<<<<<< HEAD
+\item AbstraÃ§Ã£o do comportamento comum (duas classes podem ter uma superclasse
+=======
 \item Abstração do comportamento comum (duas classes podem ter uma superclasse
+>>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 em comum). 
 
 \begin{itemize}
 \item Neste projeto blablabla
 \end{itemize}
+<<<<<<< HEAD
+\item UtilizaÃ§Ã£o de delegaÃ§Ã£o para compartilhar a implementaÃ§Ã£o (quando
+vocÃª cria uma heranÃ§a irreal para reaproveitar cÃ³digo). Usar com cuidado.
+=======
 \item Utilização de delegação para compartilhar a implementação (quando
 você cria uma herança irreal para reaproveitar código). Usar com cuidado.
+>>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 
 \begin{itemize}
 \item Neste projeto blablabla
 \end{itemize}
+<<<<<<< HEAD
+\item Revise as heranÃ§as no diagrama de classes.
+=======
 \item Revise as heranças no diagrama de classes.
+>>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 
 \begin{itemize}
 \item Neste projeto blablabla
 \end{itemize}
 \end{itemize}
 
+<<<<<<< HEAD
+\subsubsection{Efeitos do projeto nas associaÃ§Ãµes\index{Efeitos do projeto nas associaÃ§Ãµes}\index{AssociaÃ§Ãµes}}
+\begin{itemize}
+\item Deve-se definir na fase de projeto como as associaÃ§Ãµes serÃ£o implementadas,
+se obedecerÃ£o um determinado padrÃ£o ou nÃ£o. 
+=======
 \subsubsection{Efeitos do projeto nas associações\index{Efeitos do projeto nas associações}\index{Associações}}
 \begin{itemize}
 \item Deve-se definir na fase de projeto como as associações serão implementadas,
 se obedecerão um determinado padrão ou não. 
+>>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 
 \begin{itemize}
 \item Neste projeto blablabla
 \end{itemize}
+<<<<<<< HEAD
+\item Se existe uma relaÃ§Ã£o de \textquotedbl muitos\textquotedbl , pode-se
+implementar a associaÃ§Ã£o com a utilizaÃ§Ã£o de um dicionÃ¡rio, que Ã©
+um mapa das associaÃ§Ãµes entre objetos. Assim, o objeto A acessa o
+dicionÃ¡rio fornecendo uma chave (um nome para o objeto que deseja
+acessar) e o dicionÃ¡rio retorna um valor (um ponteiro) para o objeto
+=======
 \item Se existe uma relação de \textquotedbl muitos\textquotedbl , pode-se
 implementar a associação com a utilização de um dicionário, que é
 um mapa das associações entre objetos. Assim, o objeto A acessa o
 dicionário fornecendo uma chave (um nome para o objeto que deseja
 acessar) e o dicionário retorna um valor (um ponteiro) para o objeto
+>>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 correto. 
 
 \begin{itemize}
 \item Neste projeto blablabla
 \end{itemize}
+<<<<<<< HEAD
+\item Evite percorrer vÃ¡rias associaÃ§Ãµes para acessar dados de classes distantes.
+Pense em adicionar associaÃ§Ãµes diretas.
+=======
 \item Evite percorrer várias associações para acessar dados de classes distantes.
 Pense em adicionar associações diretas.
+>>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 
 \begin{itemize}
 \item Neste projeto blablabla
 \end{itemize}
 \end{itemize}
 
+<<<<<<< HEAD
+\subsubsection{Efeitos do projeto nas otimizaÃ§Ãµes\index{otimizaÃ§Ãµes}}
+\begin{itemize}
+\item FaÃ§a uma anÃ¡lise de aspectos relativos Ã  otimizaÃ§Ã£o do sistema. Lembrando
+que a otimizaÃ§Ã£o deve ser desenvolvida por analistas/desenvolvedores
+=======
 \subsubsection{Efeitos do projeto nas otimizações\index{otimizações}}
 \begin{itemize}
 \item Faça uma análise de aspectos relativos à otimização do sistema. Lembrando
 que a otimização deve ser desenvolvida por analistas/desenvolvedores
+>>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 experientes.
 
 \begin{itemize}
@@ -344,38 +584,92 @@ processos concorrentes.
 \item Neste projeto blablabla
 \end{itemize}
 \item Pense em incluir bibliotecas otimizadas.
+<<<<<<< HEAD
+\item Se o acesso a determinados objetos (atributos/mÃ©todos) requer um caminho
+longo (exemplo: A->B->C->D.atributo), pense em incluir associaÃ§Ãµes
+=======
 \item Se o acesso a determinados objetos (atributos/métodos) requer um caminho
 longo (exemplo: A->B->C->D.atributo), pense em incluir associações
+>>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 extras (exemplo: A-D.atributo).
 
 \begin{itemize}
 \item Neste projeto blablabla
 \end{itemize}
+<<<<<<< HEAD
+\item Atributos auxiliares podem ser incluÃ­dos.
+=======
 \item Atributos auxiliares podem ser incluídos.
+>>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 
 \begin{itemize}
 \item Neste projeto blablabla
 \end{itemize}
+<<<<<<< HEAD
+\item A ordem de execuÃ§Ã£o pode ser alterada.
+=======
 \item A ordem de execução pode ser alterada.
+>>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 
 \begin{itemize}
 \item Neste projeto blablabla
 \end{itemize}
+<<<<<<< HEAD
+\item Revise as associaÃ§Ãµes nos diagramas de classes.
+=======
 \item Revise as associações nos diagramas de classes.
+>>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 
 \begin{itemize}
 \item Neste projeto blablabla
 \end{itemize}
 \end{itemize}
+<<<<<<< HEAD
+Depois de revisados os diagramas da anÃ¡lise vocÃª pode montar dois
+diagramas relacionados Ã  infraestrutura do sistema. As dependÃªncias
+dos arquivos e bibliotecas podem ser descritos pelo diagrama de componentes,
+e as relaÃ§Ãµes e dependÃªncias entre o sistema e o hardware podem ser
+ilustradas com o diagrama de implantaÃ§Ã£o.
+=======
 Depois de revisados os diagramas da análise você pode montar dois
 diagramas relacionados à infraestrutura do sistema. As dependências
 dos arquivos e bibliotecas podem ser descritos pelo diagrama de componentes,
 e as relações e dependências entre o sistema e o hardware podem ser
 ilustradas com o diagrama de implantação.
+>>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 
 \section{Diagrama de Componentes\index{Diagrama de componentes}\label{sec:Diagrama-de-componentes}}
 
 O diagrama de componentes mostra a forma como os componentes do software
+<<<<<<< HEAD
+se relacionam, suas dependÃªncias. Inclui itens como: componentes,
+subsistemas, executÃ¡veis, nÃ³s, associaÃ§Ãµes, dependÃªncias, generalizaÃ§Ãµes,
+restriÃ§Ãµes e notas. Exemplos de componentes sÃ£o bibliotecas estÃ¡ticas,
+bibliotecas dinÃ¢micas, dlls, componentes Java, executÃ¡veis, arquivos
+de disco, cÃ³digo-fonte. 
+
+Veja na Figura \ref{cap:Diagrama-de-componentes} um exemplo de diagrama
+de componentes. Observe que este inclui muitas dependÃªncias, ilustrando
+as relaÃ§Ãµes entre os arquivos. Por exemplo: o subsistema biblioteca
+inclui os arquivos das classes A e B, e a geraÃ§Ã£o dos objetos A.obj
+e B.obj depende dos arquivos A.h, A.cpp, B.h e B.cpp. A geraÃ§Ã£o da
+biblioteca depende dos arquivos A.obj e B.obj. O subsistema biblioteca
+Qt, um subsistema exerno, inclui os arquivos de cÃ³digo da biblioteca
+Qt e a biblioteca em si. O subsistema banco de dados representa o
+banco de dados utilizado pelo sistema e tem uma interface de acesso
+que Ã© utilizada pelo software para acesso aos dados armazenados no
+banco de dados. O software executÃ¡vel a ser gerado depende da biblioteca
+gerada, dos arquivos da biblioteca Qt, do mÃ³dulo de arquivos MinhaJanela
+e do banco de dados.
+
+Algumas observaÃ§Ãµes Ãºteis para o diagrama de componentes:
+\begin{itemize}
+\item De posse do diagrama de componentes, temos a lista de todos os arquivos
+necessÃ¡rios para compilar e rodar o software.
+\item Observe que um assunto/pacote pode se transformar em uma biblioteca
+e serÃ¡ incluÃ­do no diagrama de componentes.
+\item A ligaÃ§Ã£o entre componentes pode incluir um estereÃ³tipo indicando
+=======
 se relacionam, suas dependências. Inclui itens como: componentes,
 subsistemas, executáveis, nós, associações, dependências, generalizações,
 restrições e notas. Exemplos de componentes são bibliotecas estáticas,
@@ -403,6 +697,7 @@ necessários para compilar e rodar o software.
 \item Observe que um assunto/pacote pode se transformar em uma biblioteca
 e será incluído no diagrama de componentes.
 \item A ligação entre componentes pode incluir um estereótipo indicando
+>>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 o tipo de relacionamento ou algum protocolo utilizado.
 \end{itemize}
 Neste projeto blablabla
@@ -415,6 +710,28 @@ Neste projeto blablabla
 \end{figure}
 
 
+<<<<<<< HEAD
+\section{Diagrama de ImplantaÃ§Ã£o\index{Diagrama de implantaÃ§Ã£o}\index{Diagrama de execuÃ§Ã£o}\label{sec:Diagrama-de-execu=0000E7=0000E3o}}
+
+O diagrama de implantaÃ§Ã£o Ã© um diagrama de alto nÃ­vel que inclui relaÃ§Ãµes
+entre o sistema e o hardware e que se preocupa com os aspectos da
+arquitetura computacional escolhida. Seu enfoque Ã© o hardware, a configuraÃ§Ã£o
+dos nÃ³s em tempo de execuÃ§Ã£o. 
+
+O diagrama de implantaÃ§Ã£o deve incluir os elementos necessÃ¡rios para
+que o sistema seja colocado em funcionamento: computador, perifÃ©ricos,
+processadores, dispositivos, nÃ³s, relacionamentos de dependÃªncia,
+associaÃ§Ã£o, componentes, subsistemas, restriÃ§Ãµes e notas.
+
+Veja na Figura \ref{cap:Diagrama-de-implanta=0000E7=0000E3o.} um
+exemplo de diagrama de implantaÃ§Ã£o de um cluster. Observe a presenÃ§a
+de um servidor conectado a um switch. Os nÃ³s do cluster (ou clientes)
+tambÃ©m estÃ£o conectados ao switch. Os resultados das simulaÃ§Ãµes sÃ£o
+armazenados em um servidor de arquivos (\emph{storage}).
+
+Pode-se utilizar uma anotaÃ§Ã£o de localizaÃ§Ã£o para identificar onde
+determinado componente estÃ¡ residente, por exemplo \{localizaÃ§Ã£o:
+=======
 \section{Diagrama de Implantação\index{Diagrama de implantação}\index{Diagrama de execução}\label{sec:Diagrama-de-execu=0000E7=0000E3o}}
 
 O diagrama de implantação é um diagrama de alto nível que inclui relações
@@ -435,20 +752,31 @@ armazenados em um servidor de arquivos (\emph{storage}).
 
 Pode-se utilizar uma anotação de localização para identificar onde
 determinado componente está residente, por exemplo \{localização:
+>>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 sala 3\}.
 
 \begin{figure}[H]
 \begin{centering}
 \includegraphics[width=1\textwidth]{imagens/DiagramaDeExecucao}
 \par\end{centering}
+<<<<<<< HEAD
+\caption{Diagrama de implantaÃ§Ã£o\label{cap:Diagrama-de-implanta=0000E7=0000E3o.}}
+=======
 \caption{Diagrama de implantação\label{cap:Diagrama-de-implanta=0000E7=0000E3o.}}
+>>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 \end{figure}
 
 \begin{description}
 \item [{Nota:}] ~\\
+<<<<<<< HEAD
+NÃ£o perca de vista a visÃ£o do todo; do projeto de engenharia como
+um todo. Cada capÃ­tulo, cada seÃ§Ã£o, cada parÃ¡grafo deve se encaixar.
+Este Ã© um diferencial fundamental do engenheiro em relaÃ§Ã£o ao tÃ©cnico,
+=======
 Não perca de vista a visão do todo; do projeto de engenharia como
 um todo. Cada capítulo, cada seção, cada parágrafo deve se encaixar.
 Este é um diferencial fundamental do engenheiro em relação ao técnico,
+>>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 a capacidade de desenvolver projetos, de ver o todo e suas diferentes
 partes, de modelar processos/sistemas/produtos de engenharia.
 \end{description}
