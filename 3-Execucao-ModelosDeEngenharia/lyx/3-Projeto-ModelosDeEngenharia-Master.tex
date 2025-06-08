@@ -2,11 +2,7 @@
 %% Do not edit unless you really know what you are doing.
 \documentclass[12pt,oneside,brazil,normaltoc, sumarioincompleto]{extbook}
 \usepackage[T1]{fontenc}
-<<<<<<< HEAD
 \usepackage[utf8]{inputenc}
-=======
-\usepackage[latin9]{inputenc}
->>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 \usepackage{babel}
 \usepackage{array}
 \usepackage{float}
@@ -23,11 +19,7 @@
  breaklinks=true,pdfborder={0 0 0},pdfborderstyle={},backref=page,colorlinks=false]
  {hyperref}
 \hypersetup{pdftitle={Projeto Engenharia: Desenvolvimento Software Aplicado XXXXX},
-<<<<<<< HEAD
  pdfauthor={Nome membros equipe; Professor AndrÃ© Duarte Bueno; },
-=======
- pdfauthor={Nome membros equipe; Professor André Duarte Bueno; },
->>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
  pdfsubject={Descrever assunto},
  pdfkeywords={Copiar do resumo}}
 
@@ -39,26 +31,15 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
 %-----------------------------------------------------------------
-<<<<<<< HEAD
 % Para incluir formataÃ§Ãµes especificas para apresentaÃ§Ãµes
 %-----------------------------------------------------------------
 %https://tex.stackexchange.com/questions/5894/latex-conditional-expression
 % Abaixo inserimos o pacote etoolbox que permite a gestÃ£o de if..else
-=======
-% Para incluir formatações especificas para apresentações
-%-----------------------------------------------------------------
-%https://tex.stackexchange.com/questions/5894/latex-conditional-expression
-% Abaixo inserimos o pacote etoolbox que permite a gestão de if..else
->>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 \usepackage{etoolbox}
 % Cria o flag
 \newtoggle{FormatoApresentacaoTRUE}
 \newtoggle{IncluirBibliografiaNoCapituloTRUE}
-<<<<<<< HEAD
 %Seta o flag - deixe true se for para gerar apresentaÃ§Ã£o de aula e false para formato livro
-=======
-%Seta o flag - deixe true se for para gerar apresentação de aula e false para formato livro
->>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 %\toggletrue{FormatoApresentacaoTRUE}
 \togglefalse{FormatoApresentacaoTRUE}
 %\toggletrue{IncluirBibliografiaNoCapituloTRUE}
@@ -69,11 +50,7 @@
 %\iftoggle{FormatoApresentacaoTRUE}{\newpage}{}
 
 %---------------------------------------------------------------
-<<<<<<< HEAD
 % Para adicionar/excluir uma seÃ§Ã£o inteira
-=======
-% Para adicionar/excluir uma seção inteira
->>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 %---------------------------------------------------------------
 %https://tex.stackexchange.com/questions/193295/lyx-conditional-sections
 % Abaixo criamos um novo if
@@ -81,11 +58,7 @@
 %\FormatoApresentacaoWidefalse
 \IncluirSecaoProgramacaoAvancadatrue
 % Para usar
-<<<<<<< HEAD
 % \ifIncluirSecaoProgramacaoAvancada no inÃ­cio do blobo
-=======
-% \ifIncluirSecaoProgramacaoAvancada no início do blobo
->>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 % \fi para finalizar o bloco
 
 %---------------------------------------------------------------
@@ -121,22 +94,13 @@
 
 %\usepackage[scaled=0.9]{helvet} % or [scaled=0.92], if you like
 
-<<<<<<< HEAD
 %% Pacote de citaÃ§Ãµes para formato abnt
-=======
-%% Pacote de citações para formato abnt
->>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 %%\usepackage[num]{abntcite}
 %%\usepackage[alf]{abntcite}
 
 %%\usepackage[cam,a4,center]{crop}
-<<<<<<< HEAD
 %% a4 Ã© o tamanho fÃ­sico
 %% center Ã© para centralizar
-=======
-%% a4 é o tamanho físico
-%% center é para centralizar
->>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 %% cam inclui quatro marcas diferentes
 
 %%\usepackage[cam,width=20truecm,height=28truecm,center]{crop}
@@ -165,11 +129,7 @@
 
 \include{3-Projeto-ModelosDeEngenharia-5-ListaCaracteristicas-FeaturesASeremImplementadas}
 
-<<<<<<< HEAD
 \noindent\lhead{ReferÃªncias} \chead{} \rhead{}\bibliographystyle{apalike}
-=======
-\noindent\lhead{Referências} \chead{} \rhead{}\bibliographystyle{apalike}
->>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 \bibliography{bibliografia}
 
 \appendix

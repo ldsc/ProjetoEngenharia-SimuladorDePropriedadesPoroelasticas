@@ -3,7 +3,6 @@
 
 \lhead{\thechapter - Projeto} 
 
-<<<<<<< HEAD
 Neste cap√≠tulo do projeto de engenharia veremos quest√µes associadas
 ao projeto do sistema, incluindo protocolos, recursos, plataformas
 suportadas, inplica√ß√µes nos diagramas feitos anteriormente, diagramas
@@ -24,272 +23,91 @@ Deve-se definir padr√µes de documenta√ß√£o, padr√µes para o nome das classes,
 padr√µes de retorno e de par√¢metros em m√©todos, caracter√≠sticas da
 interface do usu√°rio e caracter√≠sticas de desempenho. 
 
-Segundo \cite{prog-UML-Rumbaugh,prog-UML-blaha}, o projeto do sistema
-√© a estrat√©gia de alto n√≠vel para resolver o problema e elaborar uma
-solu√ß√£o. Voc√™ deve se preocupar com itens como: 
-=======
-Neste capÌtulo do projeto de engenharia veremos questıes associadas
-ao projeto do sistema, incluindo protocolos, recursos, plataformas
-suportadas, inplicaÁıes nos diagramas feitos anteriormente, diagramas
-de componentes e implantaÁ„o. Na segunda parte revisamos os diagramas
-levando em conta as decisıes do projeto do sistema.
-
-\section{Projeto do Sistema\index{Projeto do sistema}\label{sec:Projeto-do-sistema}}
-
-Depois da an·lise orientada a objeto desenvolve-se o projeto do sistema,
-qual envolve etapas como a definiÁ„o dos protocolos, da interface
-API, o uso de recursos, a subdivis„o do sistema em subsistemas, a
-alocaÁ„o dos subsistemas ao hardware e a seleÁ„o das estruturas de
-controle, a seleÁ„o das plataformas do sistema, das bibliotecas externas,
-dos padrıes de projeto, alÈm da tomada de decisıes conceituais e polÌticas
-que formam a infraestrutura do projeto.
-
-Deve-se definir padrıes de documentaÁ„o, padrıes para o nome das classes,
-padrıes de retorno e de par‚metros em mÈtodos, caracterÌsticas da
-interface do usu·rio e caracterÌsticas de desempenho. 
-
-Segundo \cite{prog-UML-Rumbaugh,prog-UML-blaha}, o projeto do sistema
-È a estratÈgia de alto nÌvel para resolver o problema e elaborar uma
-soluÁ„o. VocÍ deve se preocupar com itens como: 
->>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
+O projeto do sistema √© a estrat√©gia de alto n√≠vel para resolver o problema e elaborar uma
+solu√ß√£o.
 \begin{enumerate}
 \item Protocolos\index{Protocolos}
 
 \begin{itemize}
-<<<<<<< HEAD
-\item Defini√ß√£o dos protocolos de comunica√ß√£o entre os diversos elementos
-externos \\
-(como dispositivos). Por exemplo: se o sistema envolve o uso dos n√≥s
-de um cluster, devem ser considerados aspectos como o protocolo de
-comunica√ß√£o entre os n√≥s do cluster.
-=======
-\item DefiniÁ„o dos protocolos de comunicaÁ„o entre os diversos elementos
-externos \\
-(como dispositivos). Por exemplo: se o sistema envolve o uso dos nÛs
-de um cluster, devem ser considerados aspectos como o protocolo de
-comunicaÁ„o entre os nÛs do cluster.
->>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
+\item O sistema √© concebido para ser uma aplica√ß√£o desktop aut√¥noma, com capacidade de importar dados e exportar resultados. A comunica√ß√£o com dispositivos externos (como sensores laboratoriais, espectr√¥metros, etc.) n√£o ser√° necess√°ria nesta primeira vers√£o. No entanto, o software dever√°:
 
 \begin{itemize}
-\item Neste projeto blablabla
+\item Ler arquivos de entrada com composi√ß√µes mineral√≥gicas em formatos abertos, preferencialmente .csv e .xlsx
+\item Exportar os resultados dos c√°lculos em formatos igualmente abertos em .txt (relat√≥rios simples); .csv (planilhas com resultados); .png (gr√°ficos e visualiza√ß√µes)
 \end{itemize}
-<<<<<<< HEAD
-\item Defini√ß√£o dos protocolos de comunica√ß√£o entre os diversos elementos
-=======
-\item DefiniÁ„o dos protocolos de comunicaÁ„o entre os diversos elementos
->>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
-internos \\
-(como objetos). 
+\item O sistema ser√° implementado seguindo o paradigma de programa√ß√£o orientada a objetos, sendo os principais componentes do sistema representados como objetos com responsabilidades bem definidas.
+
+A comunica√ß√£o entre objetos seguir√° os princ√≠pios do acoplamento fraco e alta coes√£o, utilizando:
 
 \begin{itemize}
-\item Neste projeto blablabla
+\item Chamadas diretas de m√©todos
+\item Passagem de par√¢metros por inst√¢ncia (composi√ß√£o e agrega√ß√£o)
+\item Padr√£o de projeto MVC (Model-View-Controller), separando: Modelos f√≠sicos e matem√°ticos (Model); Interface com o usu√°rio (View); L√≥gica de controle e fluxo de dados (Controller)
 \end{itemize}
-<<<<<<< HEAD
-\item Defini√ß√£o da interface API de suas bibliotecas e sistemas.
-=======
-\item DefiniÁ„o da interface API de suas bibliotecas e sistemas.
->>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
+
+\item O sistema utilizar√° os seguintes formatos abertos para arquivos de entrada:
 
 \begin{itemize}
-\item Neste projeto blablabla
+\item .csv: para dados de composi√ß√£o mineral√≥gica, m√≥dulos dos minerais, nomes de fases, etc.
+\item .json: (opcional) para configura√ß√µes de execu√ß√£o (modelo a usar, limites, par√¢metros fixos)
 \end{itemize}
-<<<<<<< HEAD
-\item Defini√ß√£o do formato dos arquivos gerados pelo software. Por exemplo:
-=======
-\item DefiniÁ„o do formato dos arquivos gerados pelo software. Por exemplo:
->>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
-prefira formatos abertos, como arquivos txt e xml.
+
+\item O sistema utilizar√° os seguintes formatos abertos para arquivos de sa√≠da:
 
 \begin{itemize}
-\item Neste projeto blablabla
+\item .csv: resultados tabulares
+\item .txt: logs e relat√≥rios leg√≠veis
+\item .png / .pdf: gr√°ficos comparativos
 \end{itemize}
-\end{itemize}
+
+
 \item Recursos\index{Recursos}
 
 \begin{itemize}
-<<<<<<< HEAD
-\item Identifica√ß√£o e aloca√ß√£o dos recursos globais, como os recursos do
-sistema ser√£o alocados, utilizados, compartilhados e liberados. Implicam
-modifica√ß√µes no diagrama de componentes.
-=======
-\item IdentificaÁ„o e alocaÁ„o dos recursos globais, como os recursos do
-sistema ser„o alocados, utilizados, compartilhados e liberados. Implicam
-modificaÁıes no diagrama de componentes.
->>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
+\item O sistema utiliza um banco de dados embutido contendo as propriedades el√°sticas conhecidas dos minerais (m√≥dulo de compressibilidade K, m√≥dulo de cisalhamento G, profundidade da amostra, porosidade). Este banco de dados permite a automa√ß√£o da busca de propriedades f√≠sicas a partir da identifica√ß√£o do nome do mineral, eliminando a necessidade de inser√ß√£o manual dos par√¢metros. 
+Exemplo de estrutura da tabela minerais:
 
-\begin{itemize}
-\item Neste projeto blablabla
-\end{itemize}
-<<<<<<< HEAD
-\item Identifica√ß√£o da necessidade do uso de banco de dados. Implicam em
-modifica√ß√µes nos diagramas de atividades e de componentes.
-=======
-\item IdentificaÁ„o da necessidade do uso de banco de dados. Implicam em
-modificaÁıes nos diagramas de atividades e de componentes.
->>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
+\begin{table}[h!]
+\centering
+\begin{tabular}{lcc}
+\hline
+\textbf{nome} & \textbf{k} & \textbf{g} \\
+\hline
+albita    & 55 & 29.5 \\
+anidrita  & 55 & 30   \\
+anortita  & 84 & 40   \\
+aragonita & 47 & 38.5 \\
+\vdots    & \vdots & \vdots \\
+\hline
+\end{tabular}
+\end{table}
 
-\begin{itemize}
-\item Neste projeto blablabla
-\end{itemize}
-<<<<<<< HEAD
-\item Identifica√ß√£o da necessidade de sistemas de armazenamento de massa.
-=======
-\item IdentificaÁ„o da necessidade de sistemas de armazenamento de massa.
->>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
-Por exemplo: um \emph{storage} em um sistema de cluster ou sistemas
-de backup.
 
-\begin{itemize}
-\item Neste projeto blablabla
-\end{itemize}
-\end{itemize}
-\item Controle\index{Controle}
 
-\begin{itemize}
-<<<<<<< HEAD
-\item Identifica√ß√£o e sele√ß√£o da implementa√ß√£o de controle, seq√ºencial ou
-concorrente, baseado em procedimentos ou eventos. Implicam modifica√ß√µes
-no diagrama de execu√ß√£o. 
-=======
-\item IdentificaÁ„o e seleÁ„o da implementaÁ„o de controle, seq¸encial ou
-concorrente, baseado em procedimentos ou eventos. Implicam modificaÁıes
-no diagrama de execuÁ„o. 
->>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
-
-\begin{itemize}
-\item Neste projeto blablabla
-\end{itemize}
-<<<<<<< HEAD
-\item Identifica√ß√£o das condi√ß√µes extremas e de prioridades.
-=======
-\item IdentificaÁ„o das condiÁıes extremas e de prioridades.
->>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
-
-\begin{itemize}
-\item Neste projeto blablabla
-\end{itemize}
-<<<<<<< HEAD
-\item Identifica√ß√£o da necessidade de otimiza√ß√£o. Por exemplo: prefira sistemas
-com grande capacidade de mem√≥ria; prefira v√°rios hds pequenos a um
-=======
-\item IdentificaÁ„o da necessidade de otimizaÁ„o. Por exemplo: prefira sistemas
-com grande capacidade de memÛria; prefira v·rios hds pequenos a um
->>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
-grande.
-
-\begin{itemize}
-\item Neste projeto blablabla
-\end{itemize}
-<<<<<<< HEAD
-\item Identifica√ß√£o e defini√ß√£o de \emph{loops} de controle e das escalas
-=======
-\item IdentificaÁ„o e definiÁ„o de \emph{loops} de controle e das escalas
->>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
-de tempo. 
-
-\begin{itemize}
-\item Neste projeto blablabla
-\end{itemize}
-<<<<<<< HEAD
-\item Identifica√ß√£o de concorr√™ncias -- quais algoritmos podem ser implementados
-=======
-\item IdentificaÁ„o de concorrÍncias -- quais algoritmos podem ser implementados
->>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
-usando processamento paralelo. 
-
-\begin{itemize}
-\item Neste projeto blablabla
-\end{itemize}
-\end{itemize}
 \item Plataformas\index{Plataformas}
 
 \begin{itemize}
-<<<<<<< HEAD
-\item Identifica√ß√£o das estruturas arquitet√¥nicas comuns. 
-=======
-\item IdentificaÁ„o das estruturas arquitetÙnicas comuns. 
->>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
+\item Padr√£o de Nomes
 
 \begin{itemize}
-\item Neste projeto blablabla
+\item Classes: CamelCase, ex: CImput
+\item M√©todos: snake$_$case, ex: ReadFromCSV
 \end{itemize}
-<<<<<<< HEAD
-\item Identifica√ß√£o de subsistemas relacionados √† plataforma selecionada.
-Podem implicar em modifica√ß√µes no diagrama de pacotes e no diagrama
-=======
-\item IdentificaÁ„o de subsistemas relacionados ‡ plataforma selecionada.
-Podem implicar em modificaÁıes no diagrama de pacotes e no diagrama
->>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
-de componentes. 
+
+\item Padr√£o de retorno e par√¢metros, que devem retornar: 
 
 \begin{itemize}
-\item Neste projeto blablabla
+\item Objetos contendo os resultados (dicion√°rios ou inst√¢ncias de classes)
+\item Em caso de erro, exce√ß√µes customizadas devem ser lan√ßadas
 \end{itemize}
-<<<<<<< HEAD
-\item Identifica√ß√£o e defini√ß√£o das plataformas a serem suportadas: hardware,
-=======
-\item IdentificaÁ„o e definiÁ„o das plataformas a serem suportadas: hardware,
->>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
-sistema operacional e linguagem de software.
 
-\begin{itemize}
-\item Neste projeto blablabla
-\end{itemize}
-<<<<<<< HEAD
-\item Sele√ß√£o das bibliotecas externas a serem utilizadas.
-=======
-\item SeleÁ„o das bibliotecas externas a serem utilizadas.
->>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 
-\begin{itemize}
-\item Neste projeto blablabla
-\end{itemize}
-<<<<<<< HEAD
-\item Sele√ß√£o da biblioteca utilizada para montar a interface gr√°fica do
-=======
-\item SeleÁ„o da biblioteca utilizada para montar a interface gr·fica do
->>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
-software -- GDI.
 
-\begin{itemize}
-\item Neste projeto blablabla
-\end{itemize}
-<<<<<<< HEAD
-\item Sele√ß√£o do ambiente de desenvolvimento para montar a interface de
-=======
-\item SeleÁ„o do ambiente de desenvolvimento para montar a interface de
->>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
-desenvolvimento -- IDE. 
-
-\begin{itemize}
-\item Neste projeto blablabla
-\end{itemize}
-\end{itemize}
-<<<<<<< HEAD
-\item Padr√µes de projeto
-
-\begin{itemize}
-\item Normalmente os padr√µes de projeto s√£o identificados e passam a fazer
-parte de uma biblioteca de padr√µes da empresa. Mas isto s√≥ ocorre
-ap√≥s a realiza√ß√£o de diversos projetos.
-=======
-\item Padrıes de projeto
-
-\begin{itemize}
-\item Normalmente os padrıes de projeto s„o identificados e passam a fazer
-parte de uma biblioteca de padrıes da empresa. Mas isto sÛ ocorre
-apÛs a realizaÁ„o de diversos projetos.
->>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
-
-\begin{itemize}
-\item Neste projeto blablabla
-\end{itemize}
 \end{itemize}
 \end{enumerate}
 
 \section{Projeto Orientado a Objeto -- POO\index{POO}\index{Projeto orientado a objeto}\label{sec:Projeto-orientado-a-objeto}}
 
-<<<<<<< HEAD
 O projeto orientado a objeto √© a etapa posterior ao projeto do sistema.
 Baseia-se na an√°lise, mas considera as decis√µes do projeto do sistema.
 Acrescenta a an√°lise desenvolvida e as caracter√≠sticas da plataforma
@@ -308,80 +126,38 @@ com detalhes espec√≠ficos da linguagem. J√° no projeto, voc√™ inclui
 as bibliotecas necess√°rias para acesso ao disco, cria um objeto espec√≠fico
 para acessar o disco, podendo, portanto, acrescentar novas classes
 √†quelas desenvolvidas na an√°lise. 
-=======
-O projeto orientado a objeto È a etapa posterior ao projeto do sistema.
-Baseia-se na an·lise, mas considera as decisıes do projeto do sistema.
-Acrescenta a an·lise desenvolvida e as caracterÌsticas da plataforma
-escolhida (hardware, sistema operacional e linguagem de softwareÁ„o).
-Passa pelo maior detalhamento do funcionamento do software, acrescentando
-atributos e mÈtodos que envolvem a soluÁ„o de problemas especÌficos
-n„o identificados durante a an·lise.
-
-Envolve a otimizaÁ„o da estrutura de dados e dos algoritmos, a minimizaÁ„o
-do tempo de execuÁ„o, de memÛria e de custos. Existe um desvio de
-Ínfase para os conceitos da plataforma selecionada. 
-
-Exemplo: na an·lise vocÍ define que existe um mÈtodo para salvar um
-arquivo em disco, define um atributo nomeDoArquivo, mas n„o se preocupa
-com detalhes especÌficos da linguagem. J· no projeto, vocÍ inclui
-as bibliotecas necess·rias para acesso ao disco, cria um objeto especÌfico
-para acessar o disco, podendo, portanto, acrescentar novas classes
-‡quelas desenvolvidas na an·lise. 
->>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 
 \subsubsection{Efeitos do projeto no modelo\index{modelo} estrutural\label{subsec:Efeito-do-projeto-no-modelo-estrutural}}
 \begin{itemize}
 \item Adicionar nos diagramas de pacotes as bibliotecas e subsistemas selecionados
-<<<<<<< HEAD
 no projeto do sistema (exemplo: a biblioteca gr√°fica selecionada).
-=======
-no projeto do sistema (exemplo: a biblioteca gr·fica selecionada).
->>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 
 \begin{itemize}
 \item Neste projeto blablabla
 \end{itemize}
-<<<<<<< HEAD
 \item Novas classes e associa√ß√µes oriundas das bibliotecas selecionadas
-=======
-\item Novas classes e associaÁıes oriundas das bibliotecas selecionadas
->>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 e da linguagem escolhida devem ser acrescentadas ao modelo.
 
 \begin{itemize}
 \item Neste projeto blablabla
 \end{itemize}
-<<<<<<< HEAD
 \item Estabelecer as depend√™ncias e restri√ß√µes associadas √† plataforma escolhida.
-=======
-\item Estabelecer as dependÍncias e restriÁıes associadas ‡ plataforma escolhida.
->>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 
 \begin{itemize}
 \item Neste projeto blablabla
 \end{itemize}
 \end{itemize}
 
-<<<<<<< HEAD
 \subsubsection{Efeitos do projeto no modelo\index{modelo} din√¢mico\label{subsec:Efeito-do-projeto-no-modelo-dinamico}}
 \begin{itemize}
 \item Revisar os diagramas de seq√º√™ncia e de comunica√ß√£o considerando a
-=======
-\subsubsection{Efeitos do projeto no modelo\index{modelo} din‚mico\label{subsec:Efeito-do-projeto-no-modelo-dinamico}}
-\begin{itemize}
-\item Revisar os diagramas de seq¸Íncia e de comunicaÁ„o considerando a
->>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 plataforma escolhida.
 
 \begin{itemize}
 \item Neste projeto blablabla
 \end{itemize}
 \item Verificar a necessidade de se revisar, ampliar e adicionar novos diagramas
-<<<<<<< HEAD
 de m√°quinas de estado e de atividades. 
-=======
-de m·quinas de estado e de atividades. 
->>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 
 \begin{itemize}
 \item Neste projeto blablabla
@@ -391,187 +167,108 @@ de m·quinas de estado e de atividades.
 \subsubsection{Efeitos do projeto nos atributos\index{atributos}\label{subsec:Efeito-do-projeto-nos-atributos}}
 \begin{itemize}
 \item Atributos novos podem ser adicionados a uma classe, como, por exemplo,
-<<<<<<< HEAD
 atributos espec√≠ficos de uma determinada linguagem de software√ß√£o
 (acesso a disco, ponteiros, constantes e informa√ß√µes correlacionadas).
-=======
-atributos especÌficos de uma determinada linguagem de softwareÁ„o
-(acesso a disco, ponteiros, constantes e informaÁıes correlacionadas).
->>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 
 \begin{itemize}
 \item Neste projeto blablabla
 \end{itemize}
 \end{itemize}
 
-<<<<<<< HEAD
 \subsubsection{Efeitos do projeto nos m√©todos\index{m√©todos}\index{Efeitos do projeto nos m√©todos}}
 \begin{itemize}
 \item Em fun√ß√£o da plataforma escolhida, verifique as poss√≠veis altera√ß√µes
 nos m√©todos. O projeto do sistema costuma afetar os m√©todos de acesso
-=======
-\subsubsection{Efeitos do projeto nos mÈtodos\index{mÈtodos}\index{Efeitos do projeto nos mÈtodos}}
-\begin{itemize}
-\item Em funÁ„o da plataforma escolhida, verifique as possÌveis alteraÁıes
-nos mÈtodos. O projeto do sistema costuma afetar os mÈtodos de acesso
->>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 aos diversos dispositivos (exemplo: hd, rede).
 
 \begin{itemize}
 \item Neste projeto blablabla
 \end{itemize}
-<<<<<<< HEAD
 \item De maneira geral os m√©todos devem ser divididos em dois tipos: i)
 tomada de decis√µes, m√©todos pol√≠ticos ou de controle; devem ser claros,
 leg√≠veis, flex√≠veis e usam polimorfismo. ii) realiza√ß√£o de processamentos,
-=======
-\item De maneira geral os mÈtodos devem ser divididos em dois tipos: i)
-tomada de decisıes, mÈtodos polÌticos ou de controle; devem ser claros,
-legÌveis, flexÌveis e usam polimorfismo. ii) realizaÁ„o de processamentos,
->>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 podem ser otimizados e em alguns casos o polimorfismo deve ser evitado.
 
 \begin{itemize}
 \item Neste projeto blablabla
 \end{itemize}
-<<<<<<< HEAD
 \item Algoritmos complexos podem ser subdivididos. Verifique quais m√©todos
 podem ser otimizados. Pense em utilizar algoritmos prontos como os
 da STL (algoritmos gen√©ricos).
-=======
-\item Algoritmos complexos podem ser subdivididos. Verifique quais mÈtodos
-podem ser otimizados. Pense em utilizar algoritmos prontos como os
-da STL (algoritmos genÈricos).
->>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 
 \begin{itemize}
 \item Neste projeto blablabla
 \end{itemize}
-<<<<<<< HEAD
 \item Responda a pergunta: os m√©todos da classes est√£o dando resposta √†s
-=======
-\item Responda a pergunta: os mÈtodos da classes est„o dando resposta ‡s
->>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 responsabilidades da classe?
 
 \begin{itemize}
 \item Neste projeto blablabla
 \end{itemize}
-<<<<<<< HEAD
 \item Revise os diagramas de classes, de seq√º√™ncia e de m√°quina de estado.
-=======
-\item Revise os diagramas de classes, de seq¸Íncia e de m·quina de estado.
->>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 
 \begin{itemize}
 \item Neste projeto blablabla
 \end{itemize}
 \end{itemize}
 
-<<<<<<< HEAD
 \subsubsection{Efeitos do projeto nas heran√ßas\index{heran√ßas}\index{Efeitos do projeto nas heran√ßas}\index{Heran√ßas}}
 \begin{itemize}
 \item Reorganiza√ß√£o das classes e dos m√©todos (criar m√©todos gen√©ricos com
 par√¢metros que nem sempre s√£o necess√°rios e englobam m√©todos existentes).
-=======
-\subsubsection{Efeitos do projeto nas heranÁas\index{heranÁas}\index{Efeitos do projeto nas heranÁas}\index{HeranÁas}}
-\begin{itemize}
-\item ReorganizaÁ„o das classes e dos mÈtodos (criar mÈtodos genÈricos com
-par‚metros que nem sempre s„o necess·rios e englobam mÈtodos existentes).
->>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 
 \begin{itemize}
 \item Neste projeto blablabla
 \end{itemize}
-<<<<<<< HEAD
 \item Abstra√ß√£o do comportamento comum (duas classes podem ter uma superclasse
-=======
-\item AbstraÁ„o do comportamento comum (duas classes podem ter uma superclasse
->>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 em comum). 
 
 \begin{itemize}
 \item Neste projeto blablabla
 \end{itemize}
-<<<<<<< HEAD
 \item Utiliza√ß√£o de delega√ß√£o para compartilhar a implementa√ß√£o (quando
 voc√™ cria uma heran√ßa irreal para reaproveitar c√≥digo). Usar com cuidado.
-=======
-\item UtilizaÁ„o de delegaÁ„o para compartilhar a implementaÁ„o (quando
-vocÍ cria uma heranÁa irreal para reaproveitar cÛdigo). Usar com cuidado.
->>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 
 \begin{itemize}
 \item Neste projeto blablabla
 \end{itemize}
-<<<<<<< HEAD
 \item Revise as heran√ßas no diagrama de classes.
-=======
-\item Revise as heranÁas no diagrama de classes.
->>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 
 \begin{itemize}
 \item Neste projeto blablabla
 \end{itemize}
 \end{itemize}
 
-<<<<<<< HEAD
 \subsubsection{Efeitos do projeto nas associa√ß√µes\index{Efeitos do projeto nas associa√ß√µes}\index{Associa√ß√µes}}
 \begin{itemize}
 \item Deve-se definir na fase de projeto como as associa√ß√µes ser√£o implementadas,
 se obedecer√£o um determinado padr√£o ou n√£o. 
-=======
-\subsubsection{Efeitos do projeto nas associaÁıes\index{Efeitos do projeto nas associaÁıes}\index{AssociaÁıes}}
-\begin{itemize}
-\item Deve-se definir na fase de projeto como as associaÁıes ser„o implementadas,
-se obedecer„o um determinado padr„o ou n„o. 
->>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 
 \begin{itemize}
 \item Neste projeto blablabla
 \end{itemize}
-<<<<<<< HEAD
 \item Se existe uma rela√ß√£o de \textquotedbl muitos\textquotedbl , pode-se
 implementar a associa√ß√£o com a utiliza√ß√£o de um dicion√°rio, que √©
 um mapa das associa√ß√µes entre objetos. Assim, o objeto A acessa o
 dicion√°rio fornecendo uma chave (um nome para o objeto que deseja
 acessar) e o dicion√°rio retorna um valor (um ponteiro) para o objeto
-=======
-\item Se existe uma relaÁ„o de \textquotedbl muitos\textquotedbl , pode-se
-implementar a associaÁ„o com a utilizaÁ„o de um dicion·rio, que È
-um mapa das associaÁıes entre objetos. Assim, o objeto A acessa o
-dicion·rio fornecendo uma chave (um nome para o objeto que deseja
-acessar) e o dicion·rio retorna um valor (um ponteiro) para o objeto
->>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 correto. 
 
 \begin{itemize}
 \item Neste projeto blablabla
 \end{itemize}
-<<<<<<< HEAD
 \item Evite percorrer v√°rias associa√ß√µes para acessar dados de classes distantes.
 Pense em adicionar associa√ß√µes diretas.
-=======
-\item Evite percorrer v·rias associaÁıes para acessar dados de classes distantes.
-Pense em adicionar associaÁıes diretas.
->>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 
 \begin{itemize}
 \item Neste projeto blablabla
 \end{itemize}
 \end{itemize}
 
-<<<<<<< HEAD
 \subsubsection{Efeitos do projeto nas otimiza√ß√µes\index{otimiza√ß√µes}}
 \begin{itemize}
 \item Fa√ßa uma an√°lise de aspectos relativos √† otimiza√ß√£o do sistema. Lembrando
 que a otimiza√ß√£o deve ser desenvolvida por analistas/desenvolvedores
-=======
-\subsubsection{Efeitos do projeto nas otimizaÁıes\index{otimizaÁıes}}
-\begin{itemize}
-\item FaÁa uma an·lise de aspectos relativos ‡ otimizaÁ„o do sistema. Lembrando
-que a otimizaÁ„o deve ser desenvolvida por analistas/desenvolvedores
->>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 experientes.
 
 \begin{itemize}
@@ -584,133 +281,47 @@ processos concorrentes.
 \item Neste projeto blablabla
 \end{itemize}
 \item Pense em incluir bibliotecas otimizadas.
-<<<<<<< HEAD
 \item Se o acesso a determinados objetos (atributos/m√©todos) requer um caminho
 longo (exemplo: A->B->C->D.atributo), pense em incluir associa√ß√µes
-=======
-\item Se o acesso a determinados objetos (atributos/mÈtodos) requer um caminho
-longo (exemplo: A->B->C->D.atributo), pense em incluir associaÁıes
->>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 extras (exemplo: A-D.atributo).
 
 \begin{itemize}
 \item Neste projeto blablabla
 \end{itemize}
-<<<<<<< HEAD
 \item Atributos auxiliares podem ser inclu√≠dos.
-=======
-\item Atributos auxiliares podem ser incluÌdos.
->>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 
 \begin{itemize}
 \item Neste projeto blablabla
 \end{itemize}
-<<<<<<< HEAD
 \item A ordem de execu√ß√£o pode ser alterada.
-=======
-\item A ordem de execuÁ„o pode ser alterada.
->>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 
 \begin{itemize}
 \item Neste projeto blablabla
 \end{itemize}
-<<<<<<< HEAD
 \item Revise as associa√ß√µes nos diagramas de classes.
-=======
-\item Revise as associaÁıes nos diagramas de classes.
->>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 
 \begin{itemize}
 \item Neste projeto blablabla
 \end{itemize}
 \end{itemize}
-<<<<<<< HEAD
 Depois de revisados os diagramas da an√°lise voc√™ pode montar dois
 diagramas relacionados √† infraestrutura do sistema. As depend√™ncias
 dos arquivos e bibliotecas podem ser descritos pelo diagrama de componentes,
 e as rela√ß√µes e depend√™ncias entre o sistema e o hardware podem ser
 ilustradas com o diagrama de implanta√ß√£o.
-=======
-Depois de revisados os diagramas da an·lise vocÍ pode montar dois
-diagramas relacionados ‡ infraestrutura do sistema. As dependÍncias
-dos arquivos e bibliotecas podem ser descritos pelo diagrama de componentes,
-e as relaÁıes e dependÍncias entre o sistema e o hardware podem ser
-ilustradas com o diagrama de implantaÁ„o.
->>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 
 \section{Diagrama de Componentes\index{Diagrama de componentes}\label{sec:Diagrama-de-componentes}}
 
-O diagrama de componentes mostra a forma como os componentes do software
-<<<<<<< HEAD
-se relacionam, suas depend√™ncias. Inclui itens como: componentes,
-subsistemas, execut√°veis, n√≥s, associa√ß√µes, depend√™ncias, generaliza√ß√µes,
-restri√ß√µes e notas. Exemplos de componentes s√£o bibliotecas est√°ticas,
-bibliotecas din√¢micas, dlls, componentes Java, execut√°veis, arquivos
-de disco, c√≥digo-fonte. 
-
-Veja na Figura \ref{cap:Diagrama-de-componentes} um exemplo de diagrama
-de componentes. Observe que este inclui muitas depend√™ncias, ilustrando
-as rela√ß√µes entre os arquivos. Por exemplo: o subsistema biblioteca
-inclui os arquivos das classes A e B, e a gera√ß√£o dos objetos A.obj
-e B.obj depende dos arquivos A.h, A.cpp, B.h e B.cpp. A gera√ß√£o da
-biblioteca depende dos arquivos A.obj e B.obj. O subsistema biblioteca
-Qt, um subsistema exerno, inclui os arquivos de c√≥digo da biblioteca
-Qt e a biblioteca em si. O subsistema banco de dados representa o
-banco de dados utilizado pelo sistema e tem uma interface de acesso
-que √© utilizada pelo software para acesso aos dados armazenados no
-banco de dados. O software execut√°vel a ser gerado depende da biblioteca
-gerada, dos arquivos da biblioteca Qt, do m√≥dulo de arquivos MinhaJanela
-e do banco de dados.
-
-Algumas observa√ß√µes √∫teis para o diagrama de componentes:
-\begin{itemize}
-\item De posse do diagrama de componentes, temos a lista de todos os arquivos
-necess√°rios para compilar e rodar o software.
-\item Observe que um assunto/pacote pode se transformar em uma biblioteca
-e ser√° inclu√≠do no diagrama de componentes.
-\item A liga√ß√£o entre componentes pode incluir um estere√≥tipo indicando
-=======
-se relacionam, suas dependÍncias. Inclui itens como: componentes,
-subsistemas, execut·veis, nÛs, associaÁıes, dependÍncias, generalizaÁıes,
-restriÁıes e notas. Exemplos de componentes s„o bibliotecas est·ticas,
-bibliotecas din‚micas, dlls, componentes Java, execut·veis, arquivos
-de disco, cÛdigo-fonte. 
-
-Veja na Figura \ref{cap:Diagrama-de-componentes} um exemplo de diagrama
-de componentes. Observe que este inclui muitas dependÍncias, ilustrando
-as relaÁıes entre os arquivos. Por exemplo: o subsistema biblioteca
-inclui os arquivos das classes A e B, e a geraÁ„o dos objetos A.obj
-e B.obj depende dos arquivos A.h, A.cpp, B.h e B.cpp. A geraÁ„o da
-biblioteca depende dos arquivos A.obj e B.obj. O subsistema biblioteca
-Qt, um subsistema exerno, inclui os arquivos de cÛdigo da biblioteca
-Qt e a biblioteca em si. O subsistema banco de dados representa o
-banco de dados utilizado pelo sistema e tem uma interface de acesso
-que È utilizada pelo software para acesso aos dados armazenados no
-banco de dados. O software execut·vel a ser gerado depende da biblioteca
-gerada, dos arquivos da biblioteca Qt, do mÛdulo de arquivos MinhaJanela
-e do banco de dados.
-
-Algumas observaÁıes ˙teis para o diagrama de componentes:
-\begin{itemize}
-\item De posse do diagrama de componentes, temos a lista de todos os arquivos
-necess·rios para compilar e rodar o software.
-\item Observe que um assunto/pacote pode se transformar em uma biblioteca
-e ser· incluÌdo no diagrama de componentes.
-\item A ligaÁ„o entre componentes pode incluir um estereÛtipo indicando
->>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
-o tipo de relacionamento ou algum protocolo utilizado.
-\end{itemize}
-Neste projeto blablabla
+Segue o diagrama de componentes:
 
 \begin{figure}[H]
 \begin{centering}
-\includegraphics[width=1\textwidth]{imagens/DiagramaDeComponentes-Assuntos-Pacotes}
+\includegraphics[width=1\textwidth]{imagens/Componentes.png}
 \par\end{centering}
 \caption{Diagrama de componentes\label{cap:Diagrama-de-componentes}}
 \end{figure}
 
 
-<<<<<<< HEAD
 \section{Diagrama de Implanta√ß√£o\index{Diagrama de implanta√ß√£o}\index{Diagrama de execu√ß√£o}\label{sec:Diagrama-de-execu=0000E7=0000E3o}}
 
 O diagrama de implanta√ß√£o √© um diagrama de alto n√≠vel que inclui rela√ß√µes
@@ -731,52 +342,20 @@ armazenados em um servidor de arquivos (\emph{storage}).
 
 Pode-se utilizar uma anota√ß√£o de localiza√ß√£o para identificar onde
 determinado componente est√° residente, por exemplo \{localiza√ß√£o:
-=======
-\section{Diagrama de ImplantaÁ„o\index{Diagrama de implantaÁ„o}\index{Diagrama de execuÁ„o}\label{sec:Diagrama-de-execu=0000E7=0000E3o}}
-
-O diagrama de implantaÁ„o È um diagrama de alto nÌvel que inclui relaÁıes
-entre o sistema e o hardware e que se preocupa com os aspectos da
-arquitetura computacional escolhida. Seu enfoque È o hardware, a configuraÁ„o
-dos nÛs em tempo de execuÁ„o. 
-
-O diagrama de implantaÁ„o deve incluir os elementos necess·rios para
-que o sistema seja colocado em funcionamento: computador, perifÈricos,
-processadores, dispositivos, nÛs, relacionamentos de dependÍncia,
-associaÁ„o, componentes, subsistemas, restriÁıes e notas.
-
-Veja na Figura \ref{cap:Diagrama-de-implanta=0000E7=0000E3o.} um
-exemplo de diagrama de implantaÁ„o de um cluster. Observe a presenÁa
-de um servidor conectado a um switch. Os nÛs do cluster (ou clientes)
-tambÈm est„o conectados ao switch. Os resultados das simulaÁıes s„o
-armazenados em um servidor de arquivos (\emph{storage}).
-
-Pode-se utilizar uma anotaÁ„o de localizaÁ„o para identificar onde
-determinado componente est· residente, por exemplo \{localizaÁ„o:
->>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 sala 3\}.
 
 \begin{figure}[H]
 \begin{centering}
 \includegraphics[width=1\textwidth]{imagens/DiagramaDeExecucao}
 \par\end{centering}
-<<<<<<< HEAD
 \caption{Diagrama de implanta√ß√£o\label{cap:Diagrama-de-implanta=0000E7=0000E3o.}}
-=======
-\caption{Diagrama de implantaÁ„o\label{cap:Diagrama-de-implanta=0000E7=0000E3o.}}
->>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 \end{figure}
 
 \begin{description}
 \item [{Nota:}] ~\\
-<<<<<<< HEAD
 N√£o perca de vista a vis√£o do todo; do projeto de engenharia como
 um todo. Cada cap√≠tulo, cada se√ß√£o, cada par√°grafo deve se encaixar.
 Este √© um diferencial fundamental do engenheiro em rela√ß√£o ao t√©cnico,
-=======
-N„o perca de vista a vis„o do todo; do projeto de engenharia como
-um todo. Cada capÌtulo, cada seÁ„o, cada par·grafo deve se encaixar.
-Este È um diferencial fundamental do engenheiro em relaÁ„o ao tÈcnico,
->>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
 a capacidade de desenvolver projetos, de ver o todo e suas diferentes
 partes, de modelar processos/sistemas/produtos de engenharia.
 \end{description}

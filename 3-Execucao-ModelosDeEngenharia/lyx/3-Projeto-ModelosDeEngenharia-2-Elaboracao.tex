@@ -1,152 +1,92 @@
-<<<<<<< HEAD
 \lhead{\thechapter\space - Elaboração}  
 
 \chapter{Elaboração\index{Elaboração}\label{sec:Elabora=0000E7=0000E3o}}
 
-Depois da definição dos objetivos, da especificação do software e
-da montagem dos primeiros diagramas de caso de uso, a equipe de desenvolvimento
-do projeto de engenharia passa por um processo de elaboração que envolve
-o estudo de conceitos relacionados ao sistema a ser desenvolvido,
-a análise de domínio e a identificação de pacotes. 
-
-Na elaboração fazemos uma análise dos requisitos, ajustando os requisitos
-iniciais de forma a desenvolver um sistema útil, que atenda às necessidades
-do usuário e, na medida do possível, permita seu reuso e futura extensão.
-
-Eliminam-se os requisitos \textquotedbl impossíveis\textquotedbl{}
-e ajusta-se a idéia do sistema de forma que este seja flexível, considerando-se
-aspectos como custos e prazos.
-
 \section{Análise de domínio\label{sec:An=0000E1lise-de-dom=0000EDnio}}
 
-Após estudo dos requisitos/especificações do sistema, algumas entrevistas,
-estudos na biblioteca e disciplinas do curso foi possível identificar
-nosso domínio de trabalho:
+Após estudo dos requisitos/especificações do sistema, algumas entrevistas, estudos na biblioteca e disciplinas do curso foi possível identificar nosso domínio de trabalho:
 \begin{itemize}
-\item Definição e caracterização do domínio a ser investigado 
-\item Descrição das áreas/disciplinas relacionadas.
-\item Descrição de questões associadas a espaço/tempo (espaço físico, local,
-instalação).
-=======
-\lhead{\thechapter\space - Elabora��o}  
-
-\chapter{Elabora��o\index{Elabora��o}\label{sec:Elabora=0000E7=0000E3o}}
-
-Depois da defini��o dos objetivos, da especifica��o do software e
-da montagem dos primeiros diagramas de caso de uso, a equipe de desenvolvimento
-do projeto de engenharia passa por um processo de elabora��o que envolve
-o estudo de conceitos relacionados ao sistema a ser desenvolvido,
-a an�lise de dom�nio e a identifica��o de pacotes. 
-
-Na elabora��o fazemos uma an�lise dos requisitos, ajustando os requisitos
-iniciais de forma a desenvolver um sistema �til, que atenda �s necessidades
-do usu�rio e, na medida do poss�vel, permita seu reuso e futura extens�o.
-
-Eliminam-se os requisitos \textquotedbl imposs�veis\textquotedbl{}
-e ajusta-se a id�ia do sistema de forma que este seja flex�vel, considerando-se
-aspectos como custos e prazos.
-
-\section{An�lise de dom�nio\label{sec:An=0000E1lise-de-dom=0000EDnio}}
-
-Ap�s estudo dos requisitos/especifica��es do sistema, algumas entrevistas,
-estudos na biblioteca e disciplinas do curso foi poss�vel identificar
-nosso dom�nio de trabalho:
-\begin{itemize}
-\item Defini��o e caracteriza��o do dom�nio a ser investigado 
-\item Descri��o das �reas/disciplinas relacionadas.
-\item Descri��o de quest�es associadas a espa�o/tempo (espa�o f�sico, local,
-instala��o).
->>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
-\item Fotografias de sistemas equivalentes/parecidos.
-\item ...
+\item Área de aplicação: Engenharia de Petróleo, Petrofísica, Geomecânica
+\item Problema central: Determinar propriedades elástcias (módulo de cisalhamento e compressibilidade) de rochas com composições mineralógicas variadas, algo comum em formações sedimentares.
 \end{itemize}
 
-<<<<<<< HEAD
 \section{Formulação teórica\label{sec:Formula=0000E7=0000E3o-te=0000F3rica}}
+A determinação das propriedades elásticas efetivas de rochas com múltiplos constituintes minerais exige o uso de modelos de homogeneização que aproximem o comportamento macroscópico do meio composto. Neste trabalho, são utilizados os modelos de Voigt-Reuss-Hill (VRH) e os limites de Hashin-Shtrikman (HS) para a estimativa do módulo de compressibilidade K e do módulo de cisalhamento G da rocha.
 
-...coloque aqui texto explicando a formulação física-matemática, a
-descrição das equações que serão utilizadas...
+\subsection{Modelo de Voigt-Reuss-Hill (VRH)}
+O modelo de Voigt assume deformação uniforme entre os constituintes da mistura, resultando em uma média aritmética ponderada das propriedades dos minerais:
+\begin{equation}
+K_V = \sum_{i=1}^{n} f_i K_i
+\end{equation}
+\begin{equation}
+G_V = \sum_{i=1}^{n} f_i G_i
+\end{equation}
 
-...aqui entram figuras, tabelas explicativas, equações a serem utilizadas
-no software...
+Já o modelo de Reuss considera tensão uniforme entre os constituintes, levando a uma média harmônica ponderada:
 
-...logo depois, com os dados levantados na análise de domínio, e esta
-formulação teórica, iremos identificar os pacotes, os assuntos com
-os quais iremos trabalhar...
+\begin{equation}
+\frac{1}{K_R} = \sum_{i=1}^{n} \frac{f_i}{K_i}
+\end{equation}
+\begin{equation}
+\frac{1}{G_R} = \sum_{i=1}^{n} \frac{f_i}{G_i}
+\end{equation}
 
-... no final da formulação teórica, indicar livros e artigos que tem
-mais informação sobre o assunto...
+A média de Voigt-Reuss-Hill (VRH) é obtida como a média aritmética simples entre os valores de Voigt e Reuss:
 
-...se vai usar modelos numéricos, colocar seção 3.3.x falando deles;
-no final citar/referenciar fontes...
+\begin{equation}
+K_{VRH} = \frac{K_V + K_R}{2}
+\end{equation}
+\begin{equation}
+G_{VRH} = \frac{G_V + G_R}{2}
+\end{equation}
+
+\subsection{Limites de Hashin-Shtrikman (HS)}
+
+Os limites de Hashin-Shtrikman oferecem uma estimativa teórica rigorosa dos valores mínimo e máximo possíveis para as propriedades elásticas de materiais isotrópicos compostos por duas ou mais fases. Supondo $K_1$ e $G_1$ como os módulos do mineral com maior rigidez e $K_2$ e $G_2$ como os módulos do mineral mais fraco, com frações volumétricas $f_1$ e $f_2$, os limites são dados por:
+
+\begin{equation}
+K_{HS}^{+} = K_2 + \frac{f_1}{\dfrac{1}{K_1 - K_2} + \dfrac{f_2}{K_2 + \dfrac{4}{3}G_2}}
+\end{equation}
+
+\begin{equation}
+G_{HS}^{+} = G_2 + \frac{f_1}{\dfrac{1}{G_1 - G_2} + \dfrac{f_2}{G_2 + \zeta}}
+\end{equation}
+
+\begin{equation}
+K_{HS}^{-} = K_1 + \frac{f_2}{\dfrac{1}{K_2 - K_1} + \dfrac{f_1}{K_1 + \dfrac{4}{3}G_1}}
+\end{equation}
+\begin{equation}
+G_{HS}^{-} = G_1 + \frac{f_2}{\dfrac{1}{G_2 - G_1} + \dfrac{f_1}{G_1 + \zeta'}}
+\end{equation}
+Onde:
+\begin{equation}
+\zeta = \frac{G_2(9K_2 + 8G_2)}{6(K_2 + 2G_2)}
+\quad ; \quad
+\zeta' = \frac{G_1(9K_1 + 8G_1)}{6(K_1 + 2G_1)}
+\end{equation}
+
+Esses limites fornecem uma faixa possível para as propriedades efetivas, sendo úteis para validar os resultados obtidos com modelos mais simplificados como VRH.
 
 \section{Identificação de pacotes -- assuntos}
 
-...aqui...
+Este projeto fundamenta-se em um conjunto de pacotes teóricos e computacionais voltados para o estudo das propriedades elásticas de rochas com múltiplas composições mineralógicas. A seguir são descritos os principais pacotes envolvidos, com sua respectiva função no desenvolvimento do modelo.
+
 \begin{itemize}
-\item Nome Pacote: Descrição. O que é, para que serve, como se relaciona
-com os demais pacotes.
-\item Nome Pacote: Descrição. O que é, para que serve, como se relaciona
-com os demais pacotes.
-\item Nome Pacote: Descrição. O que é, para que serve, como se relaciona
-=======
-\section{Formula��o te�rica\label{sec:Formula=0000E7=0000E3o-te=0000F3rica}}
+\item Rock Physics: Conjunto de teorias que conectam propriedades elásticas da rocha (como módulo de cisalhamento e compressibilidade) com suas características petrofísicas, como composição mineralógica, porosidade e saturação. Este pacote fornece a base conceitual para a formulação dos modelos de mistura empregados neste trabalho.
+\item Mineral Physics: Ramo que estuda as propriedades físicas dos minerais puros, como o módulo de compressibilidade (K) e o módulo de cisalhamento (G). Esses valores são fundamentais como dados de entrada para os modelos de homogeneização. Os dados típicos são obtidos da literatura especializada.
+\item Método de homogeneização que fornece uma média das propriedades elásticas baseada em hipóteses de deformação (Voigt) e tensão (Reuss) uniformes. A média de Voigt-Reuss-Hill representa uma estimativa intermediária entre os extremos teóricos.
+\item Gnuplot, ferramenta de visualização utilizada para representar graficamente os resultados dos modelos, como comparação entre VRH e HS, análises de sensibilidade e tendências com variação mineralógica.
+\item Teoria dos meios efetivos: Pacote teórico que abrange todos os modelos de homogeneização para materiais compostos, como VRH, HS, DEM (Differential Effective Medium) e outros. Justifica conceitualmente o uso dos modelos implementados neste trabalho.
 
-...coloque aqui texto explicando a formula��o f�sica-matem�tica, a
-descri��o das equa��es que ser�o utilizadas...
-
-...aqui entram figuras, tabelas explicativas, equa��es a serem utilizadas
-no software...
-
-...logo depois, com os dados levantados na an�lise de dom�nio, e esta
-formula��o te�rica, iremos identificar os pacotes, os assuntos com
-os quais iremos trabalhar...
-
-... no final da formula��o te�rica, indicar livros e artigos que tem
-mais informa��o sobre o assunto...
-
-...se vai usar modelos num�ricos, colocar se��o 3.3.x falando deles;
-no final citar/referenciar fontes...
-
-\section{Identifica��o de pacotes -- assuntos}
-
-...aqui...
-\begin{itemize}
-\item Nome Pacote: Descri��o. O que �, para que serve, como se relaciona
-com os demais pacotes.
-\item Nome Pacote: Descri��o. O que �, para que serve, como se relaciona
-com os demais pacotes.
-\item Nome Pacote: Descri��o. O que �, para que serve, como se relaciona
->>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
-com os demais pacotes.
 \end{itemize}
 
 \section{Diagrama de pacotes -- assuntos\label{sec: Diagrama de pacotes =002013 assuntos}}
 
-...aqui...
-
-coloque aqui texto falando do diagrama de pacotes, referencie a figura.
-Veja Figura \ref{fig:Diagrama-de-Pacotes}.
-
 \begin{figure}[H]
 \begin{centering}
-\includegraphics[width=1\textwidth]{imagens/DiagramaDeComponentes-Assuntos-Pacotes}
+\includegraphics[width=1\textwidth]{imagens/Pacotes.jpeg }
 \par\end{centering}
 \caption{Diagrama de Pacotes\label{fig:Diagrama-de-Pacotes}}
 \end{figure}
 
-\begin{description}
-\item [{Nota:}] ~\\
-<<<<<<< HEAD
-Não perca de vista a visão do todo; do projeto de engenharia como
-um todo. Cada capítulo, cada seção, cada parágrafo deve se encaixar.
-Este é um diferencial fundamental do engenheiro em relação ao técnico,
-=======
-N�o perca de vista a vis�o do todo; do projeto de engenharia como
-um todo. Cada cap�tulo, cada se��o, cada par�grafo deve se encaixar.
-Este � um diferencial fundamental do engenheiro em rela��o ao t�cnico,
->>>>>>> 9cc8289ee257736c1a1b3309851f70a5b4b254e3
-a capacidade de desenvolver projetos, de ver o todo e suas diferentes
-partes, de modelar processos/sistemas/produtos de engenharia.
-\end{description}
 
