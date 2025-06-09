@@ -1,0 +1,52 @@
+@startuml
+' --- Título e Direção do Leiaute ---
+title Diagrama de Caso de Uso Geral
+left to right direction
+
+' --- Estilo Visual ---
+skinparam actor {
+    BackgroundColor #FEFBDC
+    BorderColor #D3B45F
+}
+skinparam usecase {
+    BackgroundColor #FEFBDC
+    BorderColor #D3B45F
+}
+skinparam rectangle {
+    BorderColor #000000
+}
+
+' --- Definição dos Atores e Entidades ---
+' Ator primário à esquerda
+actor "Usuário" as User
+
+' Atores e entidades secundárias à direita
+actor "Amostra" as AmostraObj
+actor "EquipamentoDRX" as EquipDRX
+' O <arquivoDRX> é um artefato, mas é desenhado como ator no exemplo.
+' O estereótipo <<arquivo>> é usado para clareza semântica.
+actor "<arquivoDRX>" as ArquivoDRX <<arquivo>>
+
+
+' --- Caixa do Sistema e Casos de Uso ---
+rectangle Sistema {
+  usecase "CriaAmostra" as UC1
+  usecase "CarregarArquivo" as UC2
+  usecase "GerarCrossplots" as UC3
+  usecase "MostrarRelatórios" as UC4
+}
+
+
+' --- Definição dos Relacionamentos ---
+' O Usuário se conecta aos casos de uso
+User -- UC1
+User -- UC2
+User -- UC3
+User -- UC4
+
+' Relacionamentos entre as entidades da direita e o sistema
+AmostraObj .up.> UC1
+EquipDRX -up-|> AmostraObj
+ArquivoDRX -up-|> AmostraObj
+
+@enduml

@@ -1,0 +1,68 @@
+@startuml
+autonumber
+
+' Classes/participantes
+participant "c:CInput" as CI <<Controlador>>
+participant "a:ArquivoDRX" as ARQ <<Entidade Externa>>
+participant "s:CCalcSimulador" as CCS <<Controlador Principal>>
+participant "d:CMineralsDatabase" as CMD <<Base de Dados>>
+participant "cs:CCalcShear" as CCShear <<Serviço de Cálculo>>
+participant "cr:CReservoirData" as CRD <<Dados do Reservatório>>
+participant "cb:CCalcBulk" as CCBulk <<Serviço de Cálculo>>
+participant "pm:CPlotManager" as CPM <<Gerenciador de Plotagem>>
+
+' --- Fluxo: Carregar Arquivo ---
+U -> CI: CarregarArquivo()
+activate CI
+
+CI -> ARQ: LerDados(caminhoArquivo)
+activate ARQ
+ARQ --> CI: DadosLidos
+deactivate ARQ
+
+CI -> CCS: SetInput(DadosLidos)
+activate CCS
+CCS -> CMD: AtualizarDados(DadosLidos)
+activate CMD
+CMD --> CCS: DadosAtualizados
+deactivate CMD
+CCS --> CI: ConfirmaçãoDadosInput
+deactivate CCS
+CI --> U: Arquivo carregado com sucesso
+
+' --- Fluxo: Gerar Crossplots ---
+U -> CCS: GerarCrossplots()
+activate CCS
+
+CCS -> CCShear: CalcularValoresDeCisalhamento(Dados)
+activate CCShear
+CCShear -> CRD: ObterPropriedadesReservatorio(Dados)
+activate CRD
+CRD --> CCShear: PropriedadesReservatorio
+deactivate CRD
+CCShear --> CCS: ValoresCisalhamento
+deactivate CCShear
+
+CCS -> CCBulk: CalcularValoresDeBulk(Dados)
+activate CCBulk
+CCBulk -> CRD: ObterPropriedadesReservatorio(Dados)
+activate CRD
+CRD --> CCBulk: PropriedadesReservatorio
+deactivate CRD
+CCBulk --> CCS: ValoresBulk
+deactivate CCBulk
+
+CCS -> CPM: PrepararPlots(ValoresCisalhamento, ValoresBulk, DadosOriginais)
+activate CPM
+CPM --> CCS: DadosParaPlotProntos
+deactivate CPM
+
+CCS --> U: Crossplots Gerados (requer visualização)
+deactivate CCS
+
+U -> CPM: ExibirCrossplots()
+activate CPM
+CPM --> U: [Exibe janela/gráficos]
+deactivate CPM
+
+@enduml

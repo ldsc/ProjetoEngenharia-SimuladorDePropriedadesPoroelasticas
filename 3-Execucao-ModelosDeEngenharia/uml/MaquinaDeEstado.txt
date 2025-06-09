@@ -1,0 +1,48 @@
+@startuml
+' Título do Diagrama
+title Diagrama de Máquina de Estado - CSimulador
+
+' Estilo visual para emular o exemplo
+skinparam state {
+    BackgroundColor #FEFBDC
+    BorderColor #D3B45F
+    FontColor #000000
+    ArrowColor #555555
+}
+skinparam note {
+    BackgroundColor #F0FFFF
+    BorderColor #5D9E9E
+}
+
+' Definição dos Estados
+state "Aguardando no Menu" as Menu
+state "Recebendo Dados da Amostra" as Input
+state "Calculando Propriedades" as Calc
+state "Exibindo Gráfico/Relatório" as View
+state "Finalizando" as Shutdown
+
+' Definição das Transições entre os Estados
+' Início da aplicação
+[*] --> Menu : Iniciar Programa
+
+' Fluxo de processamento de amostra
+Menu --> Input   : usuárioEscolhe("Processar Amostra")
+Input --> Calc   : dadosFornecidosComSucesso
+Calc --> Menu    : cálculoConcluído / armazenarResultado()
+
+' Fluxo de visualização de resultados
+Menu --> View    : usuárioEscolhe("Visualizar Resultados")
+View --> Menu    : fecharVisualização
+
+' Fluxo de encerramento
+Menu --> Shutdown : usuárioEscolhe("Sair")
+Shutdown --> [*] : finalizar()
+
+
+' Nota explicativa, como no diagrama de referência
+note as N1
+  <b>Diagrama de Máquina de Estado para o CSimulator</b>
+  Mostra o ciclo de vida do objeto principal da aplicação
+  em resposta às interações do usuário através do menu.
+end note
+@enduml

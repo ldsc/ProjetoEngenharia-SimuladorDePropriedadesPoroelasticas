@@ -1,0 +1,46 @@
+@startuml
+' Título e Direção do Layout
+title Diagrama de Pacotes - Domínio Teórico
+top to bottom direction
+
+' Estilização para emular o exemplo
+skinparam defaultFontName Arial
+skinparam package {
+    BackgroundColor #FEFBDC
+    BorderColor #000000
+    ArrowColor #000000
+    FontColor #000000
+    Shadowing false
+}
+skinparam note {
+    BackgroundColor #D8F2FA
+    BorderColor #448DB5
+    Padding 10
+}
+
+' Pacotes de suporte/ferramentas
+package "Mineral Physics" as MinPhys {
+  note "Fornece os módulos (K, G)\ndos minerais puros como\ndados de entrada." as N_MinPhys
+}
+
+package "Gnuplot" as Gnuplot {
+  note "Ferramenta externa utilizada\npara a visualização gráfica\ndos resultados." as N_Gnuplot
+}
+
+
+' Pacote principal com a hierarquia teórica aninhada
+package "Rock Physics" as RockPhys {
+  note "Base conceitual que conecta\npropriedades elásticas e\ncaracterísticas petrofísicas." as N_RockPhys
+  
+  package "Teoria dos Meios Efetivos" as EMT {
+    note "Justifica conceitualmente\nos modelos de homogeneização." as N_EMT
+    
+    package "Método de Homogeneização\n(Voigt-Reuss-Hill)" as VRH {
+    }
+  }
+}
+
+' Definição dos relacionamentos
+VRH ..> MinPhys : "utiliza dados de"
+VRH ..> Gnuplot : "envia resultados para"
+@enduml

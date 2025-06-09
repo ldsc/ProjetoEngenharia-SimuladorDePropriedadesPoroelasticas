@@ -1,0 +1,126 @@
+@startuml
+' --- Título e Estilo ---
+title Diagrama de Classes - Estrutura Completa
+skinparam linetype ortho
+skinparam classAttributeIconSize 0
+
+' --- Definição das Classes ---
+class CSimulador {
+  -m_input: CInput
+  -m_database: CMineralDatabase
+  -m_calculator: CElasticCalculator
+  -m_reservoirData: CReservoirData
+  -m_plotManager: CPlotManager
+  +CSimulador()
+  +~CSimulador()
+  +Run()
+  -Initialize()
+  -Menu()
+  -ProcessSamples()
+  -Finalize()
+}
+
+class CInput {
+  +CInput()
+  +~CInput()
+  +PromptManualInput(): SampleInput
+  +ReadFromFile(filePath): SampleInput
+  +ReadMultipleFromFile(filePath): vector<SampleInput>
+  -ParseCSVLine(line, mineralsOut)
+}
+
+class CPlotManager {
+  +CPlotManager()
+  +PlotDepthProfile(data)
+  +PlotPorosityProfile(data)
+  +PlotVariationByMineral(db, principal, secundario)
+}
+
+class CElasticCalculator {
+  -m_database: CMineralDatabase&
+  +CElasticCalculator(db)
+  +Calculate(input): Result
+  -CalcVoigt(minerals, bulk): float
+  -CalcReuss(minerals, bulk): float
+}
+
+class CShearCalculator {
+  -m_database: CMineralDatabase&
+  +CShearCalculator(db)
+  +CalcVoigt(minerals, bulk): float
+  +CalcReuss(minerals, bulk): float
+}
+
+class CReservoirData {
+  -m_samples: vector<EnrichedSample>
+  +CReservoirData()
+  +AddSample(input, result)
+  +GetSamples(): const vector<EnrichedSample>&
+  +PrintSummary()
+  +GetKGVvsDepth(depths, bulk, shear)
+  +GetKGVvsPorosity(porosities, bulk, shear)
+  +GetKGVvsDepthFull(depths, kB, kV, kR, kH, gB, gV, gR, gH)
+  +GetKGVvsPorosityFull(porosities, kB, kV, kR, kH, gB, gV, gR, gH)
+}
+
+class CMineralDatabase {
+  -m_minerals: unordered_map
+  -new_attribute: undef
+  -m_databaseFilePath
+  +CMineralDatabase(filePath)
+  +HasMineral(name): bool
+  +GetBulkModulus(name): float
+  +GetShearModulus(name): float
+  +AddMineral(name, k, g)
+  +SaveToFile(filePath): bool
+  +PrintAllMineralsSorted()
+  -LoadFromFile(filePath)
+}
+
+class CBulkCalculator {
+  -m_database: CMineralDatabase
+  +CBulkCalculator(db)
+  -CalcVoigt(minerals, bulk): float
+  -CalcReuss(minerals, bulk): float
+}
+
+class CMineral {
+  -name
+  -concentration
+}
+
+class CAmostra {
+  -m_bulk
+  -m_shear
+}
+
+' --- Relacionamentos ---
+CSimulador *-- CInput : "-m_inputManager"
+CSimulador *-- CPlotManager : "-m_plotManager"
+CSimulador o-- CElasticCalculator : "-m_calculator"
+CSimulador *-- CReservoirData : "-m_reservoirData"
+CSimulador *-- CMineralDatabase : "-m_database"
+
+
+CBulkCalculator o-- CMineralDatabase : "-m_database"
+CShearCalculator o-- CMineralDatabase : "-m_database"
+CMineralDatabase <-- CMineral
+CMineralDatabase <-- CAmostra
+CShearCalculator --> CElasticCalculator
+CBulkCalculator --> CElasticCalculator
+
+' --- Controle de Leiaute ---
+CInput -[hidden]down- CPlotManager
+CPlotManager -[hidden]down- CElasticCalculator
+CElasticCalculator -[hidden]down- CReservoirData
+CPlotManager -[hidden]right- CSimulador
+CElasticCalculator -[hidden]left- CMineralDatabase
+CMineral -[hidden]up- CMineralDatabase
+CAmostra -[hidden]down- CMineralDatabase
+CBulkCalculator -[hidden]down- CMineralDatabase
+CShearCalculator -[hidden]down- CMineralDatabase
+
+note "class-or-package\nstd" as StdNote
+StdNote -[hidden]r- CInput
+
+@enduml
