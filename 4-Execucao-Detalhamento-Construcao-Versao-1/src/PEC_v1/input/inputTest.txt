@@ -1,8 +1,0 @@
-reservatorio: Teste1
-amostra: Amostra1
-profundidade: 1000
-porosidade: 12.5
-
-quartzo 60
-albita 30
-kerogenio 10
