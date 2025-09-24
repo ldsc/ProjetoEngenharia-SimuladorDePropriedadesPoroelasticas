@@ -1,0 +1,46 @@
+
+\chapter{Lista das Características/\emph{Features}\label{chap:Lista-das-Caracter=0000EDsticas}}
+
+Neste capítulo, lista-se as características do sistema desenvolvido, organizadas de forma incremental de acordo com as versões do projeto. Esta abordagem visa a demonstrar a evolução da arquitetura e da funcionalidade do software, desde sua concepção inicial até a versão final apresentada neste trabalho.
+
+\section{Lista de características \textless\textless features\textgreater\textgreater}
+
+Após a análise dos requisitos e considerando a natureza acadêmica e didática do projeto, a implementação foi dividida em duas versões principais, culminando na seguinte lista de funcionalidades:
+
+\subsection*{Versão 1.0 - Núcleo de Cálculo Poroelástico}
+\begin{itemize}
+    \item \textbf{Cálculo dos Módulos Elásticos:} O sistema deve ser capaz de calcular os módulos de compressibilidade (K) e de cisalhamento (G) efetivos de um compósito mineral utilizando as médias de Voigt, Reuss e Hill.
+        \subitem \textit{Classes implementadas:} \texttt{CElasticCalculator}, \texttt{CBulkCalculator}, \texttt{CShearCalculator}.
+    
+    \item \textbf{Gerenciamento da Base de Dados de Minerais:} O sistema deve carregar e gerenciar uma base de dados de minerais a partir de um arquivo externo (\texttt{.csv}), permitindo a consulta das propriedades elásticas de cada mineral pelo nome.
+        \subitem \textit{Classe implementada:} \texttt{CMineralDatabase}.
+
+    \item \textbf{Leitura de Arquivo de Entrada Simplificado:} O sistema deve ser capaz de ler um arquivo de texto com a definição de uma única amostra de rocha, incluindo sua composição mineralógica e porosidade.
+        \subitem \textit{Classe implementada:} \texttt{CInput}.
+        
+    \item \textbf{Visualização Gráfica:} O sistema deve gerar gráficos que correlacionem as propriedades elásticas calculadas com a variação da composição entre dois minerais.
+        \subitem \textit{Classe implementada:} \texttt{CPlotManager}.
+
+    \item \textbf{Orquestração Central:} O sistema deve possuir uma classe principal para coordenar o fluxo de execução, desde a leitura dos dados até a apresentação dos resultados.
+        \subitem \textit{Classe implementada:} \texttt{CSimulador}.
+\end{itemize}
+
+\subsection*{Versão 2.0 - Arquitetura Refinada e Análise Multi-Amostra}
+\begin{itemize}
+    \item \textbf{Abstração da Entidade Amostra:} Para aprimorar a coesão e o encapsulamento, o conceito de "amostra de rocha" foi abstraído em uma classe própria, responsável por conter todos os seus dados característicos.
+        \subitem \textit{Classe implementada:} \texttt{CAmostra}.
+
+    \item \textbf{Abstração da Entidade Mineral:} De forma análoga, a entidade "mineral" foi encapsulada em sua própria classe, refinando a estrutura da base de dados e tornando o código mais claro e orientado a objeto.
+        \subitem \textit{Classe implementada:} \texttt{CMineral}.
+
+    \item \textbf{Processamento de Múltiplas Amostras:} O sistema foi aprimorado para ler e processar arquivos de entrada contendo a definição de múltiplas amostras de diferentes profundidades e porosidades.
+        \subitem \textit{Evolução da classe:} \texttt{CInput}.
+
+    \item \textbf{Gerenciamento de Dados de Reservatório:} Foi introduzida uma classe para agregar e gerenciar o conjunto de todas as amostras processadas e seus respectivos resultados, facilitando a análise consolidada.
+        \subitem \textit{Classe implementada:} \texttt{CReservoirData}.
+        
+    \item \textbf{Geração de Perfis de Profundidade e Porosidade:} A capacidade de visualização foi expandida para permitir a plotagem de perfis contínuos, mostrando a variação dos módulos elásticos (K e G) em função da profundidade ou da porosidade para o conjunto de amostras analisadas.
+        \subitem \textit{Evolução da classe:} \texttt{CPlotManager}.
+\end{itemize}
+\end{itemize}
+

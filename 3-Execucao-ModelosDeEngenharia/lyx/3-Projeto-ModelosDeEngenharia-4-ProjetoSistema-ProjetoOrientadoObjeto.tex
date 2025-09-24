@@ -1,0 +1,195 @@
+
+\chapter{Projeto \label{chap:Projeto-do-Sistema}}
+
+\lhead{\thechapter - Projeto} 
+
+Neste capítulo do projeto de engenharia veremos questões associadas
+ao projeto do sistema, incluindo protocolos, recursos, plataformas
+suportadas, inplicações nos diagramas feitos anteriormente, diagramas
+de componentes e implantação. Na segunda parte revisamos os diagramas
+levando em conta as decisões do projeto do sistema.
+
+\section{Projeto do Sistema\index{Projeto do sistema}\label{sec:Projeto-do-sistema}}
+
+Depois da análise orientada a objeto desenvolve-se o projeto do sistema,
+qual envolve etapas como a definição dos protocolos, da interface
+API, o uso de recursos, a subdivisão do sistema em subsistemas, a
+alocação dos subsistemas ao hardware e a seleção das estruturas de
+controle, a seleção das plataformas do sistema, das bibliotecas externas,
+dos padrões de projeto, além da tomada de decisões conceituais e políticas
+que formam a infraestrutura do projeto.
+
+Deve-se definir padrões de documentação, padrões para o nome das classes,
+padrões de retorno e de parâmetros em métodos, características da
+interface do usuário e características de desempenho. 
+
+O projeto do sistema é a estratégia de alto nível para resolver o problema e elaborar uma
+solução.
+\begin{enumerate}
+\item Protocolos\index{Protocolos}
+
+\begin{itemize}
+\item O sistema é concebido para ser uma aplicação desktop autônoma, com capacidade de importar dados e exportar resultados. A comunicação com dispositivos externos (como sensores laboratoriais, espectrômetros, etc.) não será necessária nesta primeira versão. No entanto, o software deverá:
+
+\begin{itemize}
+\item Ler arquivos de entrada com composições mineralógicas em formatos abertos, preferencialmente .csv e .xlsx
+\item Exportar os resultados dos cálculos em formatos igualmente abertos em .txt (relatórios simples); .csv (planilhas com resultados); .png (gráficos e visualizações)
+\end{itemize}
+\item O sistema será implementado seguindo o paradigma de programação orientada a objetos, sendo os principais componentes do sistema representados como objetos com responsabilidades bem definidas.
+
+A comunicação entre objetos seguirá os princípios do acoplamento fraco e alta coesão, utilizando:
+
+\begin{itemize}
+\item Chamadas diretas de métodos
+\item Passagem de parâmetros por instância (composição e agregação)
+\item Padrão de projeto MVC (Model-View-Controller), separando: Modelos físicos e matemáticos (Model); Interface com o usuário (View); Lógica de controle e fluxo de dados (Controller)
+\end{itemize}
+
+\item O sistema utilizará os seguintes formatos abertos para arquivos de entrada:
+
+\begin{itemize}
+\item .csv: para dados de composição mineralógica, módulos dos minerais, nomes de fases, etc.
+\item .json: (opcional) para configurações de execução (modelo a usar, limites, parâmetros fixos)
+\end{itemize}
+
+\item O sistema utilizará os seguintes formatos abertos para arquivos de saída:
+
+\begin{itemize}
+\item .csv: resultados tabulares
+\item .txt: logs e relatórios legíveis
+\item .png / .pdf: gráficos comparativos
+\end{itemize}
+
+
+\item Recursos\index{Recursos}
+
+\begin{itemize}
+\item O sistema utiliza um banco de dados embutido contendo as propriedades elásticas conhecidas dos minerais (módulo de compressibilidade K, módulo de cisalhamento G, profundidade da amostra, porosidade). Este banco de dados permite a automação da busca de propriedades físicas a partir da identificação do nome do mineral, eliminando a necessidade de inserção manual dos parâmetros. 
+Exemplo de estrutura da tabela minerais:
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{lcc}
+\hline
+\textbf{nome} & \textbf{k} & \textbf{g} \\
+\hline
+albita    & 55 & 29.5 \\
+anidrita  & 55 & 30   \\
+anortita  & 84 & 40   \\
+aragonita & 47 & 38.5 \\
+\vdots    & \vdots & \vdots \\
+\hline
+\end{tabular}
+\end{table}
+
+
+
+\item Plataformas\index{Plataformas}
+
+\begin{itemize}
+\item Padrão de Nomes
+
+\begin{itemize}
+\item Classes: Utilizam o prefixo C seguido pelo formato PascalCase (ex: CInput, CSimulador).
+\item Métodos e Funções: Adotam o formato PascalCase (ex: ParseSampleBlock, GetBulkModulus).
+\item Variáveis Membro (Atributos): São prefixadas com m$_$ e seguem o formato camelCase (ex: m$_$reservatorio, m$_$database).
+
+\end{itemize}
+\end{itemize}
+
+\item Padrão de retorno e parâmetros, que devem retornar: 
+
+\begin{itemize}
+\item Retorno de Dados: Os métodos que realizam cálculos ou processamentos retornam, preferencialmente, objetos que encapsulam os resultados, como instâncias de classes (CAmostra, Result) ou coleções padrão (std::vector).
+\item Tratamento de Erros: Em caso de falhas, como a não localização de um mineral na base de dados, o sistema adota a estratégia de notificar o erro através de mensagens no fluxo de erro padrão (std::cerr), permitindo que a execução prossiga de forma controlada. A implementação de um sistema de exceções customizadas é vislumbrada como um aprimoramento futuro para um tratamento de erros ainda mais robusto.
+\end{itemize}
+
+\end{itemize}
+\end{enumerate}
+
+\section{Projeto Orientado a Objeto -- POO\index{POO}\index{Projeto orientado a objeto}\label{sec:Projeto-orientado-a-objeto}}
+
+O projeto orientado a objeto é a etapa posterior ao projeto do sistema. Baseia-se na análise, mas considera as decisões do projeto do sistema. Acrescenta à análise desenvolvida as características da plataforma escolhida (hardware, sistema operacional e linguagem de programação). Passa pelo maior detalhamento do funcionamento do software, acrescentando atributos e métodos que envolvem a solução de problemas específicos não identificados durante a análise.
+
+Envolve a otimização da estrutura de dados e dos algoritmos, a minimização do tempo de execução, de memória e de custos. Existe um desvio de ênfase para os conceitos da plataforma selecionada.
+
+\subsubsection*{Efeitos do projeto no modelo estrutural}
+\begin{itemize}
+    \item Neste projeto, o modelo estrutural foi enriquecido com a inclusão de componentes da Biblioteca Padrão (STL) do C++. Pacotes como \texttt{<vector>}, \texttt{<string>}, \texttt{<map>}, \texttt{<fstream>} e \texttt{<sstream>} foram fundamentais para a implementação das estruturas de dados e das operações de entrada/saída. Adicionalmente, a decisão de utilizar a ferramenta externa Gnuplot para a visualização de dados introduziu uma dependência de sistema, refletida na arquitetura através da classe \texttt{CPlotManager}, cuja responsabilidade é fazer a interface com este subsistema.
+
+    \item A escolha da linguagem C++ e de suas bibliotecas padrão resultou na concretização de classes e associações. Por exemplo, a classe \texttt{CInput} utiliza \texttt{std::ifstream} para a leitura de arquivos, e a \texttt{CPlotManager} emprega \texttt{std::ofstream} para gerar os scripts \texttt{.gp} e os arquivos de dados \texttt{.dat}. A classe \texttt{CAmostra} utiliza \texttt{std::map<std::string, float>} para materializar a associação entre a amostra e sua composição mineralógica, uma decisão de projeto que garante eficiência na busca por minerais.
+
+    \item A plataforma escolhida impõe a dependência de um compilador C++11 (ou superior) para garantir a compatibilidade com os recursos da STL utilizados. A interação com o Gnuplot estabelece a restrição de que este software deve estar instalado e acessível no \texttt{PATH} do sistema operacional para que a funcionalidade de plotagem de gráficos opere corretamente.
+\end{itemize}
+
+\subsubsection*{Efeitos do projeto no modelo dinâmico}
+\begin{itemize}
+    \item A escolha da plataforma C++ e da biblioteca padrão influenciou diretamente os diagramas de sequência. Uma operação como "processar amostras" se desdobra em uma sequência detalhada: o objeto \texttt{CSimulador} invoca \texttt{CInput::ReadFile}, que internamente utiliza \texttt{std::ifstream} para ler o arquivo de entrada. Para cada bloco de amostra lido, \texttt{CSimulador} instancia \texttt{CAmostra} e invoca \texttt{CElasticCalculator::Calculate}. Este, por sua vez, interage com \texttt{CMineralDatabase} para obter as propriedades de cada mineral antes de retornar o resultado. Este nível de detalhe é uma consequência direta das decisões de projeto.
+
+    \item A classe \texttt{CSimulador} implementa um laço de execução em seu método \texttt{Run()}, que opera com base em um menu interativo gerenciado pelo método \texttt{Menu()}. Este comportamento pode ser modelado por um diagrama de máquina de estados, onde cada opção do menu representa uma transição para um estado diferente da aplicação (ex: "Carregando Dados", "Calculando Propriedades", "Gerando Gráficos", "Finalizado"). A análise inicial poderia não ter previsto este nível de interação, que foi adicionado durante o projeto para melhorar a usabilidade da ferramenta.
+\end{itemize}
+
+\subsubsection*{Efeitos do projeto nos atributos}
+\begin{itemize}
+    \item Neste projeto, a transição da análise para o projeto introduziu atributos específicos da implementação. A classe \texttt{CMineralDatabase}, por exemplo, possui o atributo \texttt{m\_databaseFilePath}, que armazena o caminho para o arquivo \texttt{.csv}, um detalhe de implementação para o acesso ao disco. Da mesma forma, as classes \texttt{CElasticCalculator}, \texttt{CBulkCalculator} e \texttt{CShearCalculator} contêm uma referência constante à base de dados (\texttt{m\_db}), um ponteiro de implementação que otimiza o acesso aos dados dos minerais sem a necessidade de recarregá-los.
+\end{itemize}
+
+\subsubsection*{Efeitos do projeto nos métodos}
+\begin{itemize}
+    \item Os métodos da classe \texttt{CPlotManager} são um claro exemplo do impacto da plataforma escolhida. A necessidade de interagir com o Gnuplot levou à criação de métodos como \texttt{ExportCurve}, que realiza acesso a disco para criar arquivos \texttt{.dat}, e \texttt{GeneratePlotScript}, que não apenas escreve um script em um arquivo, mas também executa um comando de sistema (\texttt{system()}) para invocar um processo externo.
+    
+    \item No sistema, observa-se a distinção entre métodos políticos e de processamento. O método \texttt{CSimulador::Menu()} é eminentemente político, orquestrando o fluxo de controle da aplicação com base na entrada do usuário. Em contrapartida, os métodos \texttt{CalculateVoigt}, \texttt{CalculateReuss} e \texttt{CalculateHill} nas classes \texttt{CBulkCalculator} e \texttt{CShearCalculator} são puramente de processamento, focados na execução otimizada de fórmulas matemáticas.
+    
+    \item Os métodos implementados respondem diretamente às responsabilidades de suas classes. A responsabilidade da \texttt{CReservoirData} é armazenar e fornecer dados agregados. Seus métodos, como \texttt{GetKGVsDepth} e \texttt{GetKGVsPorosity}, cumprem precisamente esta função, preparando os dados no formato exato que a \texttt{CPlotManager} necessita.
+\end{itemize}
+
+\subsubsection*{Efeitos do projeto nas heranças}
+\begin{itemize}
+    \item Neste projeto, optou-se pela \textbf{composição em detrimento da herança}. Não há hierarquias de herança, uma decisão de projeto deliberada que favorece a flexibilidade e um acoplamento mais fraco. Por exemplo, a classe \texttt{CElasticCalculator} \textit{contém} instâncias de \texttt{CBulkCalculator} e \texttt{CShearCalculator}, em vez de herdar delas. Esta abordagem simplifica o design, pois as responsabilidades de cálculo são delegadas a objetos especializados.
+\end{itemize}
+
+\subsubsection*{Efeitos do projeto nas associações}
+\begin{itemize}
+    \item As associações foram implementadas utilizando os contêineres da STL. A associação "um-para-muitos" entre \texttt{CReservoirData} e \texttt{CAmostra} é materializada por um std::vector<Enriched Sample>. Esta escolha permite o armazenamento ordenado e o acesso indexado às amostras processadas.
+    
+    \item A associação entre uma \texttt{CAmostra} e seus minerais é implementada com um \texttt{std::map\allowbreak<\allowbreak std::string,\allowbreak float\allowbreak>}. Este "dicionário" é ideal, pois usa o nome do mineral como chave para um acesso rápido (complexidade logarítmica) à sua proporção, além de garantir a unicidade.
+\end{itemize}
+
+\subsubsection*{Efeitos do projeto nas otimizações}
+\begin{itemize}
+    \item A principal otimização no design de dados é o uso de \texttt{std::map} na classe \texttt{CMineralDatabase} para armazenar os minerais. Isso garante que a busca por um mineral durante os cálculos seja realizada em tempo logarítmico, o que é significativamente mais eficiente do que uma busca linear.
+    
+    \item O sistema opera de forma sequencial. Uma futura otimização poderia envolver a utilização de concorrência (\texttt{std::thread} ou \texttt{std::async}) para processar múltiplas amostras em paralelo, otimizando o uso de processadores multi-core.
+    
+    \item O design plano e com baixo acoplamento, onde \texttt{CSimulador} mantém referências diretas aos subsistemas, já previne caminhos de acesso longos, tornando desnecessária a adição de associações extras para fins de otimização.
+\end{itemize}
+
+\section{Diagrama de Componentes\index{Diagrama de componentes}\label{sec:Diagrama-de-componentes}}
+
+Segue o diagrama de componentes:
+
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[width=1\textwidth]{imagens/Componentes.png}
+\par\end{centering}
+\caption{Diagrama de componentes\label{cap:Diagrama-de-componentes}}
+\end{figure}
+
+
+\section{Diagrama de Implantação\index{Diagrama de implantação}\index{Diagrama de execução}\label{sec:Diagrama-de-execu=0000E7=0000E3o}}
+
+O diagrama de implantação é um diagrama de alto nível que inclui relações entre o sistema e o hardware e que se preocupa com os aspectos da arquitetura computacional escolhida. Seu enfoque é o hardware, a configuração dos nós em tempo de execução.
+
+O diagrama de implantação deve incluir os elementos necessários para que o sistema seja colocado em funcionamento: computador, periféricos, processadores, dispositivos, nós, relacionamentos de dependência, associação, componentes, subsistemas, restrições e notas.   
+
+Neste projeto, o sistema de cálculo poroelástico foi concebido para ser executado em um ambiente de workstation local, como um computador pessoal ou um servidor de menor porte, sem a necessidade de uma infraestrutura de cluster distribuído. A interação com o usuário ocorre através da interface de linha de comando, e a geração de gráficos depende da instalação local do Gnuplot.
+
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[width=1\textwidth]{imagens/Implatacao.png}
+\par\end{centering}
+\caption{Diagrama de implantação\label{cap:Diagrama-de-implanta=0000E7=0000E3o.}}
+\end{figure}
+
+
+

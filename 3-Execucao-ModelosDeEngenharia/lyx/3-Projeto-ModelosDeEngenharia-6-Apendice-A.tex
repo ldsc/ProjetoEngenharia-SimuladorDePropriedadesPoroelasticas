@@ -1,0 +1,62 @@
+\chapter{Modelagem Matemática e Algoritmos de Cálculo}
+\lhead{Apêndice \thechapter: Modelagem Matemática e Algoritmos}\rhead{\thepage}
+
+Descreve-se neste apêndice o detalhamento dos modelos matemáticos utilizados para a estimativa das propriedades elásticas efetivas do compósito rochoso, bem como o algoritmo central que implementa estes cálculos no sistema desenvolvido. Este material, embora fundamental para a reprodutibilidade e compreensão profunda dos resultados, é apresentado aqui por seu elevado nível de detalhe técnico.
+
+\section{Modelos de Média Poroelástica}
+
+Para estimar as propriedades elásticas de uma rocha (um material compósito), a partir das propriedades de seus minerais constituintes, foram empregados os modelos de média de Voigt, Reuss e Hill. Estes modelos fornecem, respectivamente, os limites superior e inferior, e uma média empírica para os módulos elásticos efetivos.
+
+Dada uma rocha composta por $N$ minerais, onde cada mineral $i$ possui uma fração volumétrica $f_i$, um módulo de compressibilidade $K_i$ e um módulo de cisalhamento $G_i$, os módulos efetivos do compósito ($K_{eff}$, $G_{eff}$) são calculados da seguinte forma:
+
+\paragraph{Média de Voigt (Limite Superior)}
+Este modelo assume que todos os constituintes sofrem a mesma deformação.
+\begin{equation}
+    K_{Voigt} = \sum_{i=1}^{N} f_i K_i
+\end{equation}
+\begin{equation}
+    G_{Voigt} = \sum_{i=1}^{N} f_i G_i
+\end{equation}
+
+\paragraph{Média de Reuss (Limite Inferior)}
+Este modelo assume que todos os constituintes estão sujeitos à mesma tensão.
+\begin{equation}
+    K_{Reuss} = \left( \sum_{i=1}^{N} \frac{f_i}{K_i} \right)^{-1}
+\end{equation}
+\begin{equation}
+    G_{Reuss} = \left( \sum_{i=1}^{N} \frac{f_i}{G_i} \right)^{-1}
+\end{equation}
+
+\paragraph{Média de Voigt-Reuss-Hill}
+Considerada uma aproximação empírica mais realista, é a média aritmética simples dos limites de Voigt e Reuss.
+\begin{equation}
+    K_{Hill} = \frac{K_{Voigt} + K_{Reuss}}{2}
+\end{equation}
+\begin{equation}
+    G_{Hill} = \frac{G_{Voigt} + G_{Reuss}}{2}
+\end{equation}
+
+\section{Algoritmo de Cálculo dos Módulos Elásticos}
+
+O núcleo de processamento do sistema, encapsulado na classe \texttt{CElasticCalculator}, segue um algoritmo bem definido para determinar as propriedades de uma amostra. O processo pode ser descrito em alto nível pelo seguinte pseudocódigo:
+
+\begin{verbatim}
+FUNÇÃO Calculate(amostra):
+    // 1. Calcula os módulos de compressibilidade (K)
+    k_voigt = m_bulkCalc.CalculateVoigt(amostra)
+    k_reuss = m_bulkCalc.CalculateReuss(amostra)
+    k_hill = (k_voigt + k_reuss) / 2.0
+    
+    // 2. Calcula os módulos de cisalhamento (G)
+    g_voigt = m_shearCalc.CalculateVoigt(amostra)
+    g_reuss = m_shearCalc.CalculateReuss(amostra)
+    g_hill = (g_voigt + g_reuss) / 2.0
+    
+    // 3. Agrega e retorna os resultados
+    RETORNE um objeto Result contendo:
+        k_voigt, k_reuss, k_hill,
+        g_voigt, g_reuss, g_hill
+FIM FUNÇÃO
+\end{verbatim}
+Este algoritmo demonstra a delegação de responsabilidades no sistema: a classe \texttt{CElasticCalculator} orquestra o cálculo, enquanto as classes \texttt{CBulkCalculator} e \texttt{CShearCalculator} realizam os cálculos específicos para cada módulo, acessando a base de dados de minerais conforme a necessidade.
+
