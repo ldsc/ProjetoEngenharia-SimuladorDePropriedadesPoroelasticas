@@ -1,0 +1,54 @@
+@startuml
+!theme plain
+
+' Define a direção do diagrama para ser de cima para baixo
+top to bottom direction
+
+' Título do diagrama
+title Diagrama de Implantação do Sistema de Cálculo Poroelástico
+
+' Nó Cliente (Usuário e Workstation)
+node "Workstation Local" as workstation {
+    component "Terminal/Console" as terminal
+    component "Sistema Operacional \n(macOS/Linux/Windows)" as os
+    component "C++ Compiler \n(g++/Clang)" as compiler
+    component "Gnuplot" as gnuplot
+}
+
+' Artefato do Sistema de Cálculo Poroelástico
+artifact "Sistema Poroelástico \n(PEC_v2.exe ou a.out)" as pec_system
+
+' Pastas de dados
+folder "Dados de Entrada" as input_folder {
+    file "minerais.csv" as minerals_db
+    file "input.txt" as input_file
+}
+
+folder "Arquivos de Saída" as output_folder {
+    file "Gráficos .png" as png_files
+    file "Dados .dat" as dat_files
+    file "Scripts .gp" as gp_scripts
+}
+
+
+' Relacionamentos
+workstation --> pec_system : "Executa, Compila, Interage"
+terminal --> pec_system : "  Interação via CLI"
+os --> pec_system : "  Executa em"
+compiler --> pec_system : "  Compila para"
+
+pec_system --> gnuplot : "Invoca comandos (system())"
+
+pec_system --> input_folder : "Lê"
+pec_system --> output_folder : "Escreve"
+
+gnuplot --> output_folder : "Lê .dat/.gp \n e Escreve .png"
+
+
+' Notas para o diagrama
+note right of gnuplot
+    Software externo essencial 
+    para a visualização gráfica.
+end note
+
+@enduml
