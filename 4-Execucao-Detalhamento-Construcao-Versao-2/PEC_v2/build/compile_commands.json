@@ -1,0 +1,68 @@
+[
+{
+  "directory": "/Users/matheussousa/Desktop/PEC_V2/PEC_v2/build",
+  "command": "/usr/bin/clang++ -I/Users/matheussousa/Desktop/PEC_V2/PEC_v2/include -g -std=gnu++17 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -mmacosx-version-min=12.7 -Wall -Wextra -pedantic -Wno-unused-parameter -o CMakeFiles/PoreElasticCalculator.dir/main.cpp.o -c /Users/matheussousa/Desktop/PEC_V2/PEC_v2/main.cpp",
+  "file": "/Users/matheussousa/Desktop/PEC_V2/PEC_v2/main.cpp",
+  "output": "CMakeFiles/PoreElasticCalculator.dir/main.cpp.o"
+},
+{
+  "directory": "/Users/matheussousa/Desktop/PEC_V2/PEC_v2/build",
+  "command": "/usr/bin/clang++ -I/Users/matheussousa/Desktop/PEC_V2/PEC_v2/include -g -std=gnu++17 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -mmacosx-version-min=12.7 -Wall -Wextra -pedantic -Wno-unused-parameter -o CMakeFiles/PoreElasticCalculator.dir/src/CAmostra.cpp.o -c /Users/matheussousa/Desktop/PEC_V2/PEC_v2/src/CAmostra.cpp",
+  "file": "/Users/matheussousa/Desktop/PEC_V2/PEC_v2/src/CAmostra.cpp",
+  "output": "CMakeFiles/PoreElasticCalculator.dir/src/CAmostra.cpp.o"
+},
+{
+  "directory": "/Users/matheussousa/Desktop/PEC_V2/PEC_v2/build",
+  "command": "/usr/bin/clang++ -I/Users/matheussousa/Desktop/PEC_V2/PEC_v2/include -g -std=gnu++17 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -mmacosx-version-min=12.7 -Wall -Wextra -pedantic -Wno-unused-parameter -o CMakeFiles/PoreElasticCalculator.dir/src/CBulkCalculator.cpp.o -c /Users/matheussousa/Desktop/PEC_V2/PEC_v2/src/CBulkCalculator.cpp",
+  "file": "/Users/matheussousa/Desktop/PEC_V2/PEC_v2/src/CBulkCalculator.cpp",
+  "output": "CMakeFiles/PoreElasticCalculator.dir/src/CBulkCalculator.cpp.o"
+},
+{
+  "directory": "/Users/matheussousa/Desktop/PEC_V2/PEC_v2/build",
+  "command": "/usr/bin/clang++ -I/Users/matheussousa/Desktop/PEC_V2/PEC_v2/include -g -std=gnu++17 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -mmacosx-version-min=12.7 -Wall -Wextra -pedantic -Wno-unused-parameter -o CMakeFiles/PoreElasticCalculator.dir/src/CElasticCalculator.cpp.o -c /Users/matheussousa/Desktop/PEC_V2/PEC_v2/src/CElasticCalculator.cpp",
+  "file": "/Users/matheussousa/Desktop/PEC_V2/PEC_v2/src/CElasticCalculator.cpp",
+  "output": "CMakeFiles/PoreElasticCalculator.dir/src/CElasticCalculator.cpp.o"
+},
+{
+  "directory": "/Users/matheussousa/Desktop/PEC_V2/PEC_v2/build",
+  "command": "/usr/bin/clang++ -I/Users/matheussousa/Desktop/PEC_V2/PEC_v2/include -g -std=gnu++17 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -mmacosx-version-min=12.7 -Wall -Wextra -pedantic -Wno-unused-parameter -o CMakeFiles/PoreElasticCalculator.dir/src/CInput.cpp.o -c /Users/matheussousa/Desktop/PEC_V2/PEC_v2/src/CInput.cpp",
+  "file": "/Users/matheussousa/Desktop/PEC_V2/PEC_v2/src/CInput.cpp",
+  "output": "CMakeFiles/PoreElasticCalculator.dir/src/CInput.cpp.o"
+},
+{
+  "directory": "/Users/matheussousa/Desktop/PEC_V2/PEC_v2/build",
+  "command": "/usr/bin/clang++ -I/Users/matheussousa/Desktop/PEC_V2/PEC_v2/include -g -std=gnu++17 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -mmacosx-version-min=12.7 -Wall -Wextra -pedantic -Wno-unused-parameter -o CMakeFiles/PoreElasticCalculator.dir/src/CMineral.cpp.o -c /Users/matheussousa/Desktop/PEC_V2/PEC_v2/src/CMineral.cpp",
+  "file": "/Users/matheussousa/Desktop/PEC_V2/PEC_v2/src/CMineral.cpp",
+  "output": "CMakeFiles/PoreElasticCalculator.dir/src/CMineral.cpp.o"
+},
+{
+  "directory": "/Users/matheussousa/Desktop/PEC_V2/PEC_v2/build",
+  "command": "/usr/bin/clang++ -I/Users/matheussousa/Desktop/PEC_V2/PEC_v2/include -g -std=gnu++17 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -mmacosx-version-min=12.7 -Wall -Wextra -pedantic -Wno-unused-parameter -o CMakeFiles/PoreElasticCalculator.dir/src/CMineralDatabase.cpp.o -c /Users/matheussousa/Desktop/PEC_V2/PEC_v2/src/CMineralDatabase.cpp",
+  "file": "/Users/matheussousa/Desktop/PEC_V2/PEC_v2/src/CMineralDatabase.cpp",
+  "output": "CMakeFiles/PoreElasticCalculator.dir/src/CMineralDatabase.cpp.o"
+},
+{
+  "directory": "/Users/matheussousa/Desktop/PEC_V2/PEC_v2/build",
+  "command": "/usr/bin/clang++ -I/Users/matheussousa/Desktop/PEC_V2/PEC_v2/include -g -std=gnu++17 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -mmacosx-version-min=12.7 -Wall -Wextra -pedantic -Wno-unused-parameter -o CMakeFiles/PoreElasticCalculator.dir/src/CPlotManager.cpp.o -c /Users/matheussousa/Desktop/PEC_V2/PEC_v2/src/CPlotManager.cpp",
+  "file": "/Users/matheussousa/Desktop/PEC_V2/PEC_v2/src/CPlotManager.cpp",
+  "output": "CMakeFiles/PoreElasticCalculator.dir/src/CPlotManager.cpp.o"
+},
+{
+  "directory": "/Users/matheussousa/Desktop/PEC_V2/PEC_v2/build",
+  "command": "/usr/bin/clang++ -I/Users/matheussousa/Desktop/PEC_V2/PEC_v2/include -g -std=gnu++17 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -mmacosx-version-min=12.7 -Wall -Wextra -pedantic -Wno-unused-parameter -o CMakeFiles/PoreElasticCalculator.dir/src/CReservoirData.cpp.o -c /Users/matheussousa/Desktop/PEC_V2/PEC_v2/src/CReservoirData.cpp",
+  "file": "/Users/matheussousa/Desktop/PEC_V2/PEC_v2/src/CReservoirData.cpp",
+  "output": "CMakeFiles/PoreElasticCalculator.dir/src/CReservoirData.cpp.o"
+},
+{
+  "directory": "/Users/matheussousa/Desktop/PEC_V2/PEC_v2/build",
+  "command": "/usr/bin/clang++ -I/Users/matheussousa/Desktop/PEC_V2/PEC_v2/include -g -std=gnu++17 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -mmacosx-version-min=12.7 -Wall -Wextra -pedantic -Wno-unused-parameter -o CMakeFiles/PoreElasticCalculator.dir/src/CShaerCalculator.cpp.o -c /Users/matheussousa/Desktop/PEC_V2/PEC_v2/src/CShaerCalculator.cpp",
+  "file": "/Users/matheussousa/Desktop/PEC_V2/PEC_v2/src/CShaerCalculator.cpp",
+  "output": "CMakeFiles/PoreElasticCalculator.dir/src/CShaerCalculator.cpp.o"
+},
+{
+  "directory": "/Users/matheussousa/Desktop/PEC_V2/PEC_v2/build",
+  "command": "/usr/bin/clang++ -I/Users/matheussousa/Desktop/PEC_V2/PEC_v2/include -g -std=gnu++17 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -mmacosx-version-min=12.7 -Wall -Wextra -pedantic -Wno-unused-parameter -o CMakeFiles/PoreElasticCalculator.dir/src/CSimulador.cpp.o -c /Users/matheussousa/Desktop/PEC_V2/PEC_v2/src/CSimulador.cpp",
+  "file": "/Users/matheussousa/Desktop/PEC_V2/PEC_v2/src/CSimulador.cpp",
+  "output": "CMakeFiles/PoreElasticCalculator.dir/src/CSimulador.cpp.o"
+}
+]
