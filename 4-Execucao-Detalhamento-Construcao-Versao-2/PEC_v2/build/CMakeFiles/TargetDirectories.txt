@@ -1,0 +1,3 @@
+/Users/matheussousa/Desktop/PEC_V2/PEC_v2/build/CMakeFiles/PoreElasticCalculator.dir
+/Users/matheussousa/Desktop/PEC_V2/PEC_v2/build/CMakeFiles/edit_cache.dir
+/Users/matheussousa/Desktop/PEC_V2/PEC_v2/build/CMakeFiles/rebuild_cache.dir
