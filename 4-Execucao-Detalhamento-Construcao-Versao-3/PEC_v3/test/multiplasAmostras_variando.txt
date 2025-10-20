@@ -1,0 +1,89 @@
+reservatorio: Reservatorio_Variavel
+amostra: Amostra_1
+profundidade: 1000
+porosidade: 10.0
+
+quartzo 100
+albita 0
+kerogenio 0
+
+reservatorio: Reservatorio_Variavel
+amostra: Amostra_2
+profundidade: 1050
+porosidade: 10.5
+
+quartzo 95
+albita 3
+kerogenio 2
+
+reservatorio: Reservatorio_Variavel
+amostra: Amostra_3
+profundidade: 1100
+porosidade: 11.0
+
+quartzo 90
+albita 6
+kerogenio 4
+
+reservatorio: Reservatorio_Variavel
+amostra: Amostra_4
+profundidade: 1150
+porosidade: 11.5
+
+quartzo 85
+albita 9
+kerogenio 6
+
+reservatorio: Reservatorio_Variavel
+amostra: Amostra_5
+profundidade: 1200
+porosidade: 12.0
+
+quartzo 80
+albita 12
+kerogenio 8
+
+reservatorio: Reservatorio_Variavel
+amostra: Amostra_6
+profundidade: 1250
+porosidade: 12.5
+
+quartzo 75
+albita 15
+kerogenio 10
+
+reservatorio: Reservatorio_Variavel
+amostra: Amostra_7
+profundidade: 1300
+porosidade: 13.0
+
+quartzo 70
+albita 18
+kerogenio 12
+
+reservatorio: Reservatorio_Variavel
+amostra: Amostra_8
+profundidade: 1350
+porosidade: 13.5
+
+quartzo 65
+albita 21
+kerogenio 14
+
+reservatorio: Reservatorio_Variavel
+amostra: Amostra_9
+profundidade: 1400
+porosidade: 14.0
+
+quartzo 60
+albita 24
+kerogenio 16
+
+reservatorio: Reservatorio_Variavel
+amostra: Amostra_10
+profundidade: 1450
+porosidade: 14.5
+
+quartzo 55
+albita 27
+kerogenio 18
