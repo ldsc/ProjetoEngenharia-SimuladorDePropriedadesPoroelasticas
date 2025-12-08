@@ -1,209 +1,210 @@
 
 # Table of Contents
 
-1.  [Nome do Desafio Tecnológico](#orga63642c)
-    1.  [Coloque aqui o nome do desafio tecnológico](#org2ebec41)
-    2.  [Coloque aqui link para documentos relacionados ao desafio tecnológico (links para detalhes do desafio)](#org855260d)
-2.  [Nome do Software (ou Biblioteca):](#org8132f6f)
-3.  [Resumo e/ou informação extra:](#org72ffa40)
-4.  [Versão:](#org10111d4)
-5.  [Data:](#orgf581e60)
-6.  [Autor de Contato:](#org50824d1)
-7.  [Lista dos Autores:](#orgdcfbf20)
-8.  [Áreas de pesquisa vinculadas:](#org3e9046d)
-9.  [Vinculo com:](#org3a88e7c)
-10. [Paradigmas:](#orgbece9a4)
-11. [Tipo de Interface:](#orgdcc4e41)
-12. [Plataformas Suportadas:](#org5edb591)
-13. [Linguagens Utilizadas:](#orgb633128)
-14. [Bibliotecas Utilizadas (dependências):](#org22706d5)
-15. [Softwares utilizados (dependências)](#orga7939eb)
-16. [Tipo de Licença:](#orga5804b1)
-17. [Novas Versões](#orgf4e6c94)
-18. [Links:](#org3498266)
-19. [Vinculo com:](#org7997b0d)
-20. [Links:](#org1611c19)
-21. [Todo](#org0b6cfa5)
-    1.  [Você pode colocar aqui atividades a serem desenvolvidas](#org1c7467e)
+1.  [Nome do Desafio Tecnológico](#orgf60404e)
+    1.  [ProjetoEngenharia-SimuladorDePropriedadesPoroelasticas](#orgb48a795)
+    2.  [https://github.com/ldsc/ProjetoEngenharia-SimuladorDePropriedadesPoroelasticas](#orgef8def1)
+2.  [Nome do Software:](#org306e29a)
+3.  [Resumo e/ou informação extra:](#org78f2222)
+4.  [Versão:](#org9dd9a48)
+5.  [Data:](#org8301597)
+6.  [Autores de Contato:](#org260c077)
+7.  [Lista dos Autores:](#orgbcb907a)
+8.  [Áreas de pesquisa vinculadas:](#orgcc39e80)
+9.  [Vínculo com:](#org22bff78)
+10. [Paradigmas:](#org66b23db)
+11. [Tipo de Interface:](#org7d2cb4b)
+12. [Plataformas Suportadas:](#org61b30a7)
+13. [Linguagens Utilizadas:](#org82236e9)
+14. [Bibliotecas/Softwares Utilizados (Dependências):](#orgb2d77a6)
+15. [Funcionalidades Principais:](#org833cf44)
+16. [Manual do Usuário e Desenvolvedor:](#org233f597)
+17. [Instalação e Compilação:](#orgf8155fe)
+18. [Trabalhos Futuros e Sugestões de Melhoria:](#org6648983)
+19. [Licença:](#org863bfd9)
 
 
 
-<a id="orga63642c"></a>
+<a id="orgf60404e"></a>
 
 # Nome do Desafio Tecnológico
 
 
-<a id="org2ebec41"></a>
+<a id="orgb48a795"></a>
 
-## Coloque aqui o nome do desafio tecnológico
-
-
-<a id="org855260d"></a>
-
-## Coloque aqui link para documentos relacionados ao desafio tecnológico (links para detalhes do desafio)
+## ProjetoEngenharia-SimuladorDePropriedadesPoroelasticas
 
 
-<a id="org8132f6f"></a>
+<a id="orgef8def1"></a>
 
-# Nome do Software (ou Biblioteca):
-
--   Coloque aqui o nome do simulador desenvolvido.
+## <https://github.com/ldsc/ProjetoEngenharia-SimuladorDePropriedadesPoroelasticas>
 
 
-<a id="org72ffa40"></a>
+<a id="org306e29a"></a>
+
+# Nome do Software:
+
+-   PEC - Poro Elastic Calculator
+
+
+<a id="org78f2222"></a>
 
 # Resumo e/ou informação extra:
 
--   
+-   O PEC (Poro Elastic Calculator) é uma ferramenta computacional desenvolvida em C++ voltada para a área de Física de Rochas.
+-   O software calcula as propriedades elásticas efetivas (Módulo de Compressibilidade - K e Módulo de Cisalhamento - G) de rochas porosas com base em sua composição mineralógica e porosidade.
+-   Utiliza as teorias de meio efetivo de Voigt, Reuss e Hill para determinar os limites superior e inferior e a média das propriedades elásticas.
+-   O sistema inclui geração automática de gráficos (perfis de profundidade, crossplots e análises de sensibilidade mineralógica) utilizando o Gnuplot como motor de renderização.
 
 
-<a id="org10111d4"></a>
+<a id="org9dd9a48"></a>
 
 # Versão:
 
--   1.0.
+-   3.0 (Versão final com banco de dados de minerais e plotagem automatizada).
 
 
-<a id="orgf581e60"></a>
+<a id="org8301597"></a>
 
 # Data:
 
--   2025/1 - primeiro semestre.
+-   2025/2 - Segundo semestre.
 
 
-<a id="org50824d1"></a>
+<a id="org260c077"></a>
 
-# Autor de Contato:
+# Autores de Contato:
 
--   André Duarte Bueno <andreduartebueno@gmail.com>
--   Coloque aqui nome e contato do lider da equipe
+-   Matheus Sousa Bastos <matheus.bastos@lenep.uenf.br>
+-   Nicolau Azevedo Prates <nicolau.prates@lenep.uenf.br>
 
 
-<a id="orgdcfbf20"></a>
+<a id="orgbcb907a"></a>
 
 # Lista dos Autores:
 
--   &#x2026;
--   André Duarte Bueno <andreduartebueno@gmail.com>
+-   Matheus Sousa Bastos
+-   Nicolau Azevedo Prates
+-   Prof. André Duarte Bueno (Orientador) <bueno@lenep.uenf.br>
 
 
-<a id="org3e9046d"></a>
+<a id="orgcc39e80"></a>
 
 # Áreas de pesquisa vinculadas:
 
+-   Engenharia de Petróleo e Exploração
+-   Física de Rochas (Rock Physics)
+-   Petrofísica
 -   Modelagem Matemática Computacional
--   &#x2026;Engenharia de Reservatório?
--   &#x2026;Geofísica?
--   &#x2026;Petrofísica?
--   &#x2026;Geologia e geoquímica?
 
 
-<a id="org3a88e7c"></a>
+<a id="org22bff78"></a>
 
-# Vinculo com:
+# Vínculo com:
 
--   [Trabalho da disciplina Projeto de Software Aplicado à Engenharia](https://sites.google.com/view/professorandreduartebueno/ensino/projeto-de-software-aplicado).
--   A metodologia utilizada é descrita [aqui](https://github.com/ldsc/LDSC-ProjetoEngenharia-0-Metodologia-Instrucoes-Etapas).
--   Uma lista de outros projetos desenvolvidos no LDSC é disponibilizado [aqui](https://github.com/ldsc/LDSC-ProjetoEngenharia-0-Metodologia-Instrucoes-Etapas).
+-   Trabalho da disciplina Projeto de Software Aplicado a Engenharia.
+    <https://sites.google.com/view/professorandreduartebueno/ensino/projeto-de-software-aplicado?authuser=0>
+-   Laboratório de Engenharia e Exploração de Petróleo (LENEP/UENF).
+-   Curso de Engenharia de Petróleo
+    <https://sites.google.com/view/engenhariadepetroleo/in%C3%ADcio>
 
 
-<a id="orgbece9a4"></a>
+<a id="org66b23db"></a>
 
 # Paradigmas:
 
--   POO - Programação Orientada a Objeto (códigos em C++)
+-   Orientação a Objetos (C++).
+-   Design Patterns (Facade, Strategy - conforme documentação técnica).
 
 
-<a id="orgdcc4e41"></a>
+<a id="org7d2cb4b"></a>
 
 # Tipo de Interface:
 
--   Terminal e gráfica (gnuplot).
--   Qt? [opcional]
+-   Texto (CLI/Terminal) com saída gráfica via janelas externas (Gnuplot).
 
 
-<a id="org5edb591"></a>
+<a id="org61b30a7"></a>
 
 # Plataformas Suportadas:
 
--   Windows e GNU/Linux e Mac OS X (não testada).
+-   Windows
+-   Linux
 
 
-<a id="orgb633128"></a>
+<a id="org82236e9"></a>
 
 # Linguagens Utilizadas:
 
--   C++.
+-   C++ (Standard 17 recomendado).
 
 
-<a id="org22706d5"></a>
+<a id="orgb2d77a6"></a>
 
-# Bibliotecas Utilizadas (dependências):
+# Bibliotecas/Softwares Utilizados (Dependências):
 
--   CGnuplot - <https://github.com/ldsc/CGnuplot>
--   QCustomPlot - <https://www.qcustomplot.com/>
--   ?
-
-
-<a id="orga7939eb"></a>
-
-# Softwares utilizados (dependências)
-
--   gnuplot <http://www.gnuplot.info/>
+-   ****Gnuplot:**** Essencial para a geração dos gráficos. O executável do Gnuplot deve estar acessível no PATH do sistema.
+    Veja <https://github.com/ldsc/LDSC-Ajuda-DocumentosAuxiliares/tree/main/02-Softwares/03-Softwares/02-Gnuplot>
+-   Biblioteca Padrão do C++ (STL).
 
 
-<a id="orga5804b1"></a>
+<a id="org833cf44"></a>
 
-# Tipo de Licença:
+# Funcionalidades Principais:
 
--   GPL
-
-
-<a id="orgf4e6c94"></a>
-
-# Novas Versões
-
--   Entre em contato com o Prof. André Duarte Bueno <bueno@lenep.uenf.br>
-    para que o mesmo gere um novo projeto no github do ldsc para que você (e sua equipe) possam trabalhar na nova versão.
--   Se este projeto tem como número de versão 1.0 a nova versão deverá ser 2.0 e assim sucessivamente.
--   Os nomes dos autores originais deve ser preservada na nova versão, ou seja, adicione a informação do número da versão, os nomes dos membros da nova equipe, mas jamais apague os nomes dos autores originais (isto seria plágio).
--   Na descrição do projeto informe que trata-se de uma nova versão, que tem como base a versão anterior e DESTAQUE COM CLAREZA E OBJETIVIDADE QUAIS AS NOVIDADES DA NOVA VERSÃO.
+1.  ****Banco de Dados de Minerais:****
+    -   Leitura e gerenciamento de propriedades (K, G) de minerais a partir de arquivos CSV.
+2.  ****Entrada de Dados Flexível:****
+    -   Suporte a entrada manual via terminal ou leitura em lote via arquivos CSV/TXT.
+3.  ****Cálculo Elástico:****
+    -   Determinação de K e G usando as médias de Voigt (limite superior de rigidez), Reuss (limite inferior) e Hill (média aritmética).
+4.  ****Visualização (Plotting):****
+    -   Perfil de Propriedades Elásticas vs. Profundidade.
+    -   Crossplot Propriedades Elásticas vs. Porosidade.
+    -   Análise de sensibilidade: Variação das propriedades em função da fração de um mineral específico.
 
 
-<a id="org3498266"></a>
+<a id="org233f597"></a>
 
-# Links:
+# Manual do Usuário e Desenvolvedor:
 
--   [Site do Professor André Duarte Bueno](https://sites.google.com/view/professorandreduartebueno/).
--   [Site do LDSC no github](https://github.com/ldsc).
--   [Site do LENEP](https://uenf.br/cct/lenep).
+-   Os manuais completos em PDF (convertidos para o padrão LyX) encontram-se na pasta `docs/` deste repositório.
 
 
-<a id="org7997b0d"></a>
+<a id="orgf8155fe"></a>
 
-# Vinculo com:
+# Instalação e Compilação:
 
--   Em alguns casos a versão 1 foi desenvolvida utilizando a metodologia antiga. Nestes casos é necessário copiar os dados da nova versão para a versão antiga. De forma que as próximas versões devem usar a metodologia descrita [aqui](https://github.com/ldsc/LDSC-ProjetoEngenharia-0-Metodologia-Instrucoes-Etapas).
-    Havendo dúvidas consulte o professor.
--   [Trabalho da disciplina Projeto de Software Aplicado à Engenharia](https://sites.google.com/view/professorandreduartebueno/ensino/projeto-de-software-aplicado).
--   Uma lista de outros projetos desenvolvidos no LDSC é disponibilizado [aqui](https://github.com/ldsc/LDSC-ProjetoEngenharia-0-Metodologia-Instrucoes-Etapas).
+    # Exemplo de compilação via g++ (Linux/Unix)
+    # Certifique-se de estar na raiz do projeto ou ajustar os caminhos
+    g++ main.cpp src/*.cpp -o PEC_Simulador -std=c++17
+    
+    # Execução
+    ./PEC_Simulador
 
-
-<a id="org1611c19"></a>
-
-# Links:
-
--   [Site do Professor André Duarte Bueno](https://sites.google.com/view/professorandreduartebueno/).
--   [Site do LDSC no github](https://github.com/ldsc).
--   [Site do LENEP](https://uenf.br/cct/lenep).
+-   O diretório \`database/\` contendo \`minerais.csv\` deve estar acessível ao executável.
 
 
-<a id="org0b6cfa5"></a>
+<a id="org6648983"></a>
 
-# Todo
+# Trabalhos Futuros e Sugestões de Melhoria:
+
+Para a continuidade deste projeto, sugerem-se as seguintes implementações:
+
+1.  ****Interface Gráfica (GUI):****
+    -   Substituir a interação via terminal por uma interface gráfica utilizando ****Qt****, facilitando a entrada de dados mineralógicos e visualização imediata dos resultados.
+2.  ****Modelos de Física de Rochas Avançados:****
+    -   Implementar o modelo de ****Hashin-Shtrikman**** (limites mais estreitos e precisos que Voigt-Reuss).
+    -   Implementar a equação de ****Gassmann**** para realizar substituição de fluidos (ex: trocar água por óleo/gás e recalcular os módulos).
+3.  ****Persistência de Dados:****
+    -   Migrar o banco de dados de CSV para ****SQLite****, permitindo consultas mais complexas sobre as propriedades dos minerais.
+4.  ****Visualização Integrada:****
+    -   Substituir a chamada de sistema ao Gnuplot por uma biblioteca de plotagem integrada ao C++ (como QCustomPlot ou Matplot++), eliminando a dependência externa.
 
 
-<a id="org1c7467e"></a>
+<a id="org863bfd9"></a>
 
-## TODO Você pode colocar aqui atividades a serem desenvolvidas
+# Licença:
+
+-   GPL / Acadêmica (Software Livre para fins educacionais).
 

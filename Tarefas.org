@@ -1,61 +1,77 @@
-#+TITLE:    LDSC-ProjetoEngenharia-1-PropostaDeDesafio-TituloDoDesafioTecnologico
-* 1 Titulo
-** 1.1 titulo
-***
-* Informações:
-- Link: https://github.com/ldsc/LDSC-ProjetoEngenharia-1-PropostaDeDesafio-TituloDoDesafioTecnologico
+#+TITLE: Relatório de Avaliação de Projeto de Engenharia - PEC (Poro Elastic Calculator)
+#+AUTHOR: Prof. André Duarte Bueno
+#+DATE: 2025-12-08
 
-- Repositório com modelo de proposta de desafio tecnológico.
+* Informações do Projeto
+- *Caminho da Entrega:* =/run/media/bueno/eb2e190a-81e6-4e7b-b9af-358489197d54/bueno/Documentos/workdir/ProjetoEngenharia-SimuladorDePropriedadesPoroelasticas/4-Execucao-Detalhamento-Construcao-Versao-3/PEC_v3=
+- *Versão Analisada:* Versão 3 (de 3 versões identificadas).
+- Link: https://github.com/ldsc/ProjetoEngenharia-SimuladorDePropriedadesPoroelasticas
 
-* Versão: 
-- 1.0.
+* Relatório de Avaliação
+- *Alunos:* Matheus Sousa Bastos, Nicolau Azevedo Prates
+- *Avaliador:* Prof. André Duarte Bueno
+- *Status da Entrega:* INCOMPLETA E FORA DO PADRÃO
+- *Prazo para Adequação:* 7 dias.
 
-* Data:
-- 2023/2 - segundo semestre.
-  
-* Autor de Contato:
-- André Duarte Bueno <andreduartebueno@gmail.com>
+** 1. O Problema da Não-Padronização (Leitura Obrigatória)
+*Por que somos obrigados a usar os modelos (LyX) e processos definidos?*
 
-* Áreas de pesquisa vinculadas: 
-- Administração
-- Projeto de Engenharia
-- Gestão de Projetos de Engenharia
-- Algoritmos
-- Modelagem de Software - UML
-- Programação Orientada a Objeto
-- Programação em C++
-- Engenharia de Petróleo
+Notei que a equipe optou por ignorar as ferramentas de documentação solicitadas na metodologia (LyX/LaTeX) e utilizou ferramentas próprias (Editores Online) para gerar os manuais. Além disso, arquivos essenciais do projeto de engenharia foram entregues vazios.
 
-* Vinculo com: 
-- [[https://sites.google.com/view/professorandreduartebueno/ensino/fundamentos-de-programa%C3%A7%C3%A3o-em-c][Disciplina Fundamentos de Ciência da Computação]]
-- [[https://sites.google.com/view/professorandreduartebueno/ensino/introdu%C3%A7%C3%A3o-ao-projeto-de-engenharia][Disciplina Introdução ao Projeto de Engenharia]]
-- [[https://sites.google.com/view/professorandreduartebueno/ensino/prog-orientada-objeto-c-2024][Disciplina Programação Orientada a Objeto com C++]]
-- [[https://sites.google.com/view/professorandreduartebueno/ensino/projeto-de-software-aplicado][Disciplina Projeto de Software Aplicado]]
-  
-* Links:
-- [[https://sites.google.com/view/professorandreduartebueno/][Site do Professor André Duarte Bueno]].
-- [[https://github.com/ldsc][Site do LDSC no github]].
-- [[https://uenf.br/cct/lenep][Site do LENEP]].
+Na vida acadêmica, pode parecer que "o importante é o software funcionar". No entanto, na *Engenharia Profissional*, o processo é tão importante quanto o produto.
 
-* Tarefas
-** TODO Preencher o desafio
-DEADLINE: <2025-06-12 qui> SCHEDULED: <2025-06-11 qua>
-** TODO Melhorar descrição do escopo do problema, apresentar situações reais que levem levem a construção de diagramas de caso de uso. Cenários de uso.
-** TODO Objetivos específicos
-*** tem de ter saida gráfica
-*** ler/salvar arquivos
-** TODO Referências
-*** TODO adicionar livros e artigos da área
+1. *Escalabilidade e Manutenção:* Uma empresa de engenharia (seja Petrobras, Schlumberger, Google) possui milhares de documentos. Se cada engenheiro decidir usar sua própria ferramenta ou formatação, a gestão do conhecimento torna-se impossível. Ninguém consegue dar manutenção no documento do outro.
+2. *Rastreabilidade:* Os modelos fornecidos (Projeto Detalhado, Modelagem) obrigam você a pensar em etapas que programadores amadores ignoram: Análise de Risco, Diagramas de Classe, Cronogramas e Requisitos Não-Funcionais.
+3. *Auditoria:* Em projetos reais, você não é auditado apenas pelo código, mas pela documentação de conformidade. Entregar um documento fora do padrão é motivo de rejeição contratual.
 
-** TODO Projeto
-*** TODO Só cópiar os dados e adicionar cronograma realista!
-*** TODO não temos custo...
-** TODO Lyx
-*** TODO converter tex para lyx
-** TODO especificação
-*** TODO mais detalhada
+A teimosia em fazer "do seu jeito" não demonstra proatividade, demonstra incapacidade de seguir especificações de projeto. Nesta disciplina, simulamos o ambiente real: o "cliente" (professor) definiu a especificação (Metodologia). Vocês não atenderam à especificação de entrega.
 
-** TODO elaboracao
-*** BACKLOG Termo [unidade]: descrição
-*** BACKLOG [#B] estado informar qual objeto (classe)
-*** BACKLOG atividade classe::nomeMetodo
+** 2. Análise da Documentação Entregue
+Identifiquei falhas críticas que impedem a aprovação imediata:
+
+*** A. Arquivos Não Preenchidos (Grave)
+Dois documentos vitais para a engenharia do projeto foram ignorados:
+
+- =2-ProjetoDetalhado-Master.pdf=: O arquivo entregue é o modelo em branco. Contém textos como "XXX", datas de "Janeiro 2023" e seções inteiras vazias. Isso indica que vocês pularam a etapa de planejamento detalhado, riscos e custos.
+- =3-Projeto-ModelosDeEngenharia-Master.pdf=: Este arquivo não foi entregue ou não foi identificado na remessa inicial. É nele que deveriam constar os diagramas UML (Classes, Sequência, Atividades) feitos antes ou durante a codificação. Embora o "Manual Técnico" de vocês tenha alguns diagramas, eles devem constar no documento formal de engenharia seguindo a metodologia.
+
+*** B. Manuais Fora do Padrão
+Vocês entregaram 3 arquivos separados (=Manual_Usuario=, =Manual_Tecnico=, =Manual_Desenvolvedor=) com formatação visual (design gráfico) feita em ferramenta externa.
+
+- *O Problema:* Embora visualmente agradáveis, eles não seguem a estrutura do documento mestre da disciplina.
+- *A Correção:* Vocês devem pegar o conteúdo (texto e imagens) que já produziram e inseri-lo no Template LyX oficial da disciplina. O "Manual Técnico" e "Manual do Desenvolvedor" geralmente são fundidos na documentação técnica do projeto.
+- *Importante:* Lembrem que outras equipes irão dar continuidade ao projeto usando o LyX. A padronização é vital para o legado do código.
+
+** 3. Análise do Código Fonte
+O código em C++ apresenta boa qualidade técnica, demonstrando que vocês sabem programar, mas falharam na entrega dos arquivos.
+
+*** Pontos Positivos:
+- Uso correto de Orientação a Objetos (Herança em =CElasticCalculator=, Polimorfismo).
+- Separação de responsabilidades (=CInput=, =CPlotManager=, =CReservoirData=).
+- Uso de STL (=std::vector=, =std::map=).
+
+** 4. Plano de Ação para Aprovação (7 Dias)
+Para serem aprovados, vocês devem corrigir as pendências abaixo. A "Prova Final" será a entrega correta destes itens.
+
+*** TODO Tarefa 1: Preencher o Projeto Detalhado
+- Abram o arquivo LyX do Projeto Detalhado.
+- Preencham as seções de Escopo, Objetivos, Metodologia, Cronograma (o realizado), e Riscos.
+- Removam todo texto de template ("XXX", instruções do professor).
+
+*** TODO Tarefa 2: Formalizar a Modelagem
+- Preencham o arquivo de Modelagem de Engenharia.
+- Insiram os diagramas UML que vocês já fizeram (classes) e criem os que faltam (Casos de Uso, Sequência de uma simulação).
+- Isso deve ser feito no template oficial.
+
+*** TODO Tarefa 3: Migrar Manuais para o Padrão e Trabalhos Futuros
+- Peguem o texto dos PDFs =Manual_Usuario_PEC.pdf= e =Manual_Desenvolvedor_PEC.pdf= e transcrevam para os capítulos correspondentes no LyX oficial (Capítulo de Manuais).
+- Gerem um único PDF consolidado ou os PDFs separados conforme a estrutura do modelo, mas usando o LyX.
+- *Adição Obrigatória:* Incluir na documentação do desenvolvedor (dentro do LyX) uma seção de *"Sugestões para Trabalhos Futuros"*. Sugiram melhorias como: Interface Gráfica (Qt), novos modelos de física de rochas, ou otimização de performance.
+
+*** TODO Tarefa 4: Repositório GitHub Completo
+O repositório deve conter:
+- Código Fonte completo (arquivos =.h= e =.cpp=).
+- Pasta =docs/= com os PDFs gerados pelo LyX (não os PDFs feitos no Canva/Word).
+- Arquivo =README.md= (convertido de =README.org=) descrevendo o projeto, como instalar e usar.
+
+*Resumo:* Vocês têm um bom software, mas um processo de entrega fora do padrão. A engenharia exige ambos. Regularizem a documentação para o padrão solicitado.
