@@ -1,0 +1,588 @@
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children no
+\language american
+\language_package default
+\inputencoding utf8
+\fontencoding auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement class
+\float_alignment class
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\index Index
+\shortcut idx
+\color #008080
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tablestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content true
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+chapter{Introdução}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Apresenta-se aqui a proposta de desenvolvimento do software 
+\series bold
+PoreElasticCalculator (PEC)
+\series default
+.
+ Um software aplicado à engenharia de petróleo que visa automatizar o cálculo de propriedades poroelásticas de rochas reservatório através da Teoria do Meio Efetivo,
+ facilitando a análise petrofísica e geomecânica.
+\end_layout
+
+\begin_layout Section
+Identificação da Proposta
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Número da proposta:
+
+\series default
+ LDSC-2025-1-PEC 
+\begin_inset Newline newline
+\end_inset
+
+ 
+\series bold
+Tipo de investimento/divulgação:
+
+\series default
+ PROJETO DE PESQUISA E DESENVOLVIMENTO / DESENVOLVIMENTO DE SOFTWARE 
+\begin_inset Newline newline
+\end_inset
+
+ 
+\series bold
+Tipo de instrumento contratual:
+
+\series default
+ Trabalho de disciplina
+\end_layout
+
+\begin_layout Section
+Identificação do Projeto
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Título do projeto:
+
+\series default
+ 
+\begin_inset Quotes eld
+\end_inset
+
+Desenvolvimento de Simulador Computacional para Estimativa de Propriedades Poroelásticas
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\begin_inset Newline newline
+\end_inset
+
+ 
+\series bold
+Palavras-chave:
+
+\series default
+ Petrofísica;
+ C++17;
+ Voigt-Reuss-Hill;
+ Modelagem Computacional.
+\end_layout
+
+\begin_layout Section
+Identificação da Universidade,
+ Instituições e Empresas Participantes
+\end_layout
+
+\begin_layout Subsection
+Universidade
+\end_layout
+
+\begin_layout Itemize
+UNIVERSIDADE ESTADUAL DO NORTE FLUMINENSE DARCY RIBEIRO (UENF) 
+\end_layout
+
+\begin_layout Itemize
+CENTRO DE CIÊNCIA E TECNOLOGIA (CCT) 
+\end_layout
+
+\begin_layout Itemize
+DEPARTAMENTO DE ENGENHARIA DE PETRÓLEO (LENEP) 
+\end_layout
+
+\begin_layout Itemize
+SETOR DE MODELAGEM MATEMÁTICA COMPUTACIONAL 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Representante pela universidade:
+
+\series default
+ Prof.
+ André Duarte Bueno (bueno@lenep.uenf.br) 
+\end_layout
+
+\begin_layout Subsection
+Equipe
+\end_layout
+
+\begin_layout Itemize
+Matheus Sousa Bastos 
+\end_layout
+
+\begin_layout Itemize
+Nicolau Azevedo Prates 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Representante pela equipe:
+
+\series default
+ Matheus Sousa Bastos 
+\end_layout
+
+\begin_layout Section
+Resumo
+\end_layout
+
+\begin_layout Standard
+O projeto consiste na criação do 
+\series bold
+PoreElasticCalculator (PEC)
+\series default
+,
+ uma ferramenta computacional desenvolvida em C++ (padrão C++17) para auxiliar na caracterização de reservatórios.
+ O software estima propriedades elásticas (Módulos Bulk e Shear) utilizando as médias de Voigt,
+ Reuss e Hill,
+ permitindo modelar rochas heterogêneas compostas por múltiplos minerais.
+ O sistema oferece funcionalidades de processamento em lote,
+ persistência de dados e geração automática de gráficos via Gnuplot.
+\end_layout
+
+\begin_layout Section
+Escopo do Problema
+\end_layout
+
+\begin_layout Standard
+O escopo limita-se à modelagem estática das propriedades elásticas efetivas de meios porosos isotrópicos.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Importância:
+
+\series default
+ Permite estimar propriedades mecânicas onde dados de laboratório são inexistentes.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Abrangência:
+
+\series default
+ Rochas clásticas e carbonáticas com mineralogia mista.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Diferencial:
+
+\series default
+ Código aberto,
+ leve e focado em fins educacionais e de pesquisa,
+ contrastando com softwares comerciais de alto custo.
+ 
+\end_layout
+
+\begin_layout Section
+Objetivos
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Objetivo Geral:
+
+\series default
+ Desenvolver um software de engenharia robusto para a estimativa automatizada de módulos elásticos,
+ aplicando conceitos de Programação Orientada a Objeto (POO).
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Objetivos Específicos:
+
+\series default
+ 
+\end_layout
+
+\begin_layout Itemize
+Modelar física e matematicamente o problema das médias elásticas (Voigt-Reuss-Hill).
+ 
+\end_layout
+
+\begin_layout Itemize
+Realizar modelagem estática (Diagramas de Classe,
+ Pacotes) e dinâmica (Fluxogramas).
+ 
+\end_layout
+
+\begin_layout Itemize
+Implementar o núcleo de cálculo numérico em C++17.
+ 
+\end_layout
+
+\begin_layout Itemize
+Desenvolver interface de linha de comando (CLI) para entrada de dados.
+ 
+\end_layout
+
+\begin_layout Itemize
+Integrar biblioteca de plotagem (Gnuplot) para visualização de resultados.
+ 
+\end_layout
+
+\begin_layout Itemize
+Simular cenários de variação mineralógica para validação.
+ 
+\end_layout
+
+\begin_layout Itemize
+Elaborar manuais técnicos (Desenvolvedor e Usuário).
+ 
+\end_layout
+
+\begin_layout Section
+Justificativas
+\end_layout
+
+\begin_layout Standard
+O desenvolvimento de soluções nacionais e abertas para a indústria do petróleo é estratégico.
+ O PEC justifica-se pela necessidade de ferramentas ágeis que permitam aos estudantes e pesquisadores realizarem análises de sensibilidade petrofísica sem depender de licenças comerciais onerosas.
+\end_layout
+
+\begin_layout Section
+Resultados Esperados
+\end_layout
+
+\begin_layout Standard
+Um simulador de engenharia funcional (executável),
+ com código fonte documentado,
+ capaz de ler arquivos de entrada,
+ processar cálculos de física de rochas e exportar relatórios gráficos e textuais.
+\end_layout
+
+\begin_layout Section
+Metodologia
+\end_layout
+
+\begin_layout Standard
+A metodologia de desenvolvimento seguirá o modelo iterativo e incremental,
+ com ciclos de desenvolvimento focados em funcionalidades específicas.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Matriz de Riscos e Mitigação
+\end_layout
+
+\end_inset
+
+
+\begin_inset VSpace 0.2cm
+\end_inset
+
+ 
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="3">
+<features tabularvalignment="middle">
+<column alignment="none" valignment="top" width="5cm">
+<column alignment="none" valignment="top" width="4cm">
+<column alignment="none" valignment="top" width="5cm">
+<row>
+<cell alignment="none" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+rowcolor{graylight}
+\end_layout
+
+\end_inset
+
+ 
+\series bold
+Risco
+\series default
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Probabilidade
+\series default
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Estratégia de Mitigação
+\series default
+ 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Dificuldade com integração Gnuplot 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Média 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Uso de scripts de teste isolados e documentação oficial.
+ 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Erros nos modelos matemáticos 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Baixa 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Validação cruzada com dados da literatura (Mavko et al.).
+ 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Atraso no cronograma 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Média 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Reuniões semanais de acompanhamento (Scrum).
+ 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Mecanismos de Acompanhamento
+\end_layout
+
+\begin_layout Standard
+Utilização da metodologia SCRUM adaptada,
+ com gestão de tarefas via GitHub e reuniões de controle com o orientador.
+\end_layout
+
+\end_body
+\end_document

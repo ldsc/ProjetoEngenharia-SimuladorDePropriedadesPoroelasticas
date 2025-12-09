@@ -1,0 +1,373 @@
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children no
+\language american
+\language_package default
+\inputencoding utf8
+\fontencoding auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement class
+\float_alignment class
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\index Index
+\shortcut idx
+\color #008080
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tablestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content true
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+chapter*{Referências Bibliográficas}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+[Abrantes,
+ 2020] Abrantes,
+ J.
+ (2020).
+ 
+\shape italic
+Projeto e Engenharia de Produtos
+\shape default
+.
+ Ciencia Moderna.
+ ISBN-13:
+ 978-8539910847.
+\end_layout
+
+\begin_layout Standard
+\noindent
+[Autores,
+ 2017] Autores,
+ V.
+ (2017).
+ 
+\shape italic
+Projetos de engenharia - uma introdução
+\shape default
+.
+ LTC.
+ ISBN-13:
+ 978-8521634454.
+\end_layout
+
+\begin_layout Standard
+\noindent
+[Blaha and Rumbaugh,
+ 2006] Blaha,
+ M.
+ and Rumbaugh,
+ J.
+ (2006).
+ 
+\shape italic
+Modelagem e Projetos Baseados em Objetos com UML 2
+\shape default
+.
+ Campus,
+ Rio de Janeiro.
+\end_layout
+
+\begin_layout Standard
+\noindent
+[Bueno,
+ 2003] Bueno,
+ A.
+ D.
+ (2003).
+ 
+\shape italic
+Programação Orientada a Objeto com C++ - Aprenda a Programar em Ambiente Multiplataforma com Software Livre
+\shape default
+.
+ Novatec,
+ São Paulo,
+ 1 edition.
+\end_layout
+
+\begin_layout Standard
+\noindent
+[de Logística e Tecnologia da Informação,
+ 2011] de Logística e Tecnologia da Informação,
+ S.
+ (2011).
+ 
+\shape italic
+Fundamentos em Gestão de Projetos - Construindo Competências para Gerenciar Projetos BRASIL
+\shape default
+.
+ Ministério do Planejamento,
+ Orçamento e Gestão (MPOG).
+\end_layout
+
+\begin_layout Standard
+\noindent
+[de Moura Menezes,
+ 2018] de Moura Menezes,
+ L.
+ C.
+ (2018).
+ 
+\shape italic
+Gestão de Projetos
+\shape default
+.
+ Atlas.
+\end_layout
+
+\begin_layout Standard
+\noindent
+[Heldman,
+ 2005] Heldman,
+ K.
+ (2005).
+ 
+\shape italic
+Gerência de projetos
+\shape default
+.
+ Elsevier.
+ ISBN 13:
+ 978-8535216844,
+ Rio de Janeiro.
+\end_layout
+
+\begin_layout Standard
+\noindent
+[Inc,
+ 2021] Inc,
+ P.
+ M.
+ I.
+ (2021).
+ 
+\shape italic
+A Guide to the Project Management Body of Knowledge and the Standard for Project Management
+\shape default
+.
+ PMI Project Management Institute.
+ ISBN 13:
+ 978-1628256642.
+\end_layout
+
+\begin_layout Standard
+\noindent
+[Mavko et al.,
+ 2009] Mavko,
+ G.;
+ Mukerji,
+ T.;
+ Dvorkin,
+ J.
+ (2009).
+ 
+\shape italic
+The Rock Physics Handbook
+\shape default
+.
+ Cambridge University Press.
+\end_layout
+
+\begin_layout Standard
+\noindent
+[Pahl,
+ 2005] Pahl,
+ G.
+ (2005).
+ 
+\shape italic
+Projeto na Engenharia:
+ Fundamentos do Desenvolvimento Eficaz de Produtos - Métodos e Aplicações
+\shape default
+.
+ Blucher.
+ ISBN-13:
+ 978-8521203636.
+\end_layout
+
+\begin_layout Standard
+\noindent
+[Pires,
+ 2012] Pires,
+ A.
+ M.
+ S.
+ (2012).
+ 
+\shape italic
+Projeto de Instalações Elétricas e Telecomunicações
+\shape default
+.
+ Instituto Superior de Engenharia de Coimbra.
+\end_layout
+
+\begin_layout Standard
+\noindent
+[Rosa,
+ 2007] Rosa,
+ M.
+ O.
+ (2007).
+ 
+\shape italic
+Gerenciamento de projetos de governo
+\shape default
+.
+ PMI-DF - PMInforma.
+\end_layout
+
+\begin_layout Standard
+\noindent
+[Rumbaugh et al.,
+ 1994] Rumbaugh,
+ J.,
+ Blaha,
+ M.,
+ Premerlani,
+ W.,
+ Eddy,
+ F.,
+ and Lorensen,
+ W.
+ (1994).
+ 
+\shape italic
+Modelagem e Projetos Baseados em Objetos
+\shape default
+.
+ Edit.
+ Campus,
+ Rio de Janeiro.
+\end_layout
+
+\begin_layout Standard
+\noindent
+[Stroustrup,
+ 2013] Stroustrup,
+ B.
+ (2013).
+ 
+\shape italic
+The C++ Programming Language
+\shape default
+.
+ 4th Edition.
+ Addison-Wesley.
+\end_layout
+
+\begin_layout Standard
+\noindent
+[Valeriano,
+ 2015] Valeriano,
+ D.
+ (2015).
+ 
+\shape italic
+Moderno Gerênciamento de Projetos
+\shape default
+.
+ Pearson.
+\end_layout
+
+\begin_layout Standard
+\noindent
+[Woiler,
+ 1996] Woiler,
+ S.
+ (1996).
+ 
+\shape italic
+Projetos:
+ planejamento,
+ elaboração,
+ análise
+\shape default
+.
+ Atlas.
+\end_layout
+
+\end_body
+\end_document
