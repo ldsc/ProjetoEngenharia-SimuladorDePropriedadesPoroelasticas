@@ -1,0 +1,604 @@
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass report
+\use_default_options true
+\maintain_unincluded_children no
+\language brazilian
+\language_package default
+\inputencoding utf8
+\fontencoding auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement class
+\float_alignment class
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\index Index
+\shortcut idx
+\color #008080
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tablestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content true
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+chapter{Introdução}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Segundo o CREA/CONFEA um dos quesitos fundamentais que diferenciam a atuação de um tecnólogo da atuação de um engenheiro é a capacidade de desenvolver um projeto de engenharia.
+ Neste trabalho,
+ apresenta-se a pré-proposta de um projeto em engenharia de software aplicado a solução de um problema específico da engenharia de petróleo.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Apresenta-se aqui a proposta de desenvolvimento do software 
+\backslash
+textbf{Calculadora de Propriedades Poroelásticas}.
+ Um software aplicado a engenharia de petróleo e que visa utilizar equações de aproximação conhecidas na literatura para calcular propriedades elásticas em rochas com mineralogias diversas.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+section{Identificação da Proposta}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+noindent 
+\backslash
+textbf{Tipo de investimento /divulgação:}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item PROJETO DE PESQUISA E DESENVOLVIMENTO / DESENVOLVIMENTO DE SOFTWARE (Versão 1)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+noindent 
+\backslash
+textbf{Coordenador:}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item André Duarte Bueno
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+noindent 
+\backslash
+textbf{Gerência técnica:}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item Nome Empresa/Instituição:
+ Petrofísica/Geofísica
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item Nome Gerente:
+ Fernando Moraes
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item E-mail:
+ fernando@lenep.uenf.br
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+noindent 
+\backslash
+textbf{Equipe:}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item Matheus Bastos (matheusbastos@lenep.uenf.br)
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item Nicolau Prates (nicolauprates@lenep.uenf.br)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+noindent 
+\backslash
+textbf{Vínculo institucional do processo:}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item UNIVERSIDADE ESTADUAL DO NORTE FLUMINENSE DARCY RIBEIRO/UENF
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item CENTRO DE CIÊNCIA E TECNOLOGIA - CCT
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item DEPARTAMENTO DE ENGENHARIA DE PETRÓLEO - LENEP
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item SETOR DE MODELAGEM MATEMÁTICA COMPUTACIONAL
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+noindent 
+\backslash
+textbf{Detalhes do Projeto:}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item 
+\backslash
+textbf{Duração:} 1 Semestre
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item 
+\backslash
+textbf{Data de submissão:} 30/04/2025
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item 
+\backslash
+textbf{Número da proposta:} LDSC-2025-1-P50
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item 
+\backslash
+textbf{Tipo de instrumento contratual:} Trabalho de disciplina
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item 
+\backslash
+textbf{Título do projeto:} Calculadora de Propriedades Poroelásticas
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item 
+\backslash
+textbf{Palavras-chave:} Petrofísica,
+ Geofísica,
+ Cisalhamento,
+ Compressibilidade,
+ Geologia
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+section{Resumo}
+\end_layout
+
+\begin_layout Plain Layout
+
+Este projeto tem como objetivo o desenvolvimento de um software capaz de calcular propriedades elásticas de rochas com composições mineralógicas distintas.
+ A ferramenta será fundamentada em conceitos de física das rochas,
+ particularmente nas relações entre os principais módulos elásticos (módulo de cisalhamento,
+ módulo de compressibilidade,
+ módulo de Young e razão de Poisson) e seu comportamento sob diferentes condições de porosidade,
+ saturação e anisotropia.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+section{Escopo do Problema}
+\end_layout
+
+\begin_layout Plain Layout
+
+A caracterização precisa das propriedades elásticas de rochas é essencial para diversas áreas da geociência,
+ especialmente na interpretação sísmica,
+ modelagem geomecânica e engenharia de reservatórios.
+ Contudo,
+ a variabilidade mineralógica e a presença de fluidos tornam essa tarefa complexa.
+ Modelos teóricos como Voigt-Reuss-Hill,
+ Gassmann e Marion são utilizados para estimar os módulos elásticos médios.
+ No entanto,
+ sua aplicação prática exige ferramentas computacionais que incorporem tais modelos de forma integrada e flexível,
+ lacuna que este software busca preencher.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+section{Objetivos}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{Objetivo geral:} Desenvolver um software para simulação e cálculo das propriedades elásticas de rochas,
+ utilizando diferentes modelos teóricos e considerando variáveis como composição mineralógica,
+ porosidade,
+ saturação de fluidos e anisotropia induzida por tensões.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+noindent 
+\backslash
+textbf{Objetivos específicos:}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item Implementar os principais módulos elásticos:
+ módulo de Young,
+ cisalhamento,
+ compressibilidade e razão de Poisson.
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item Incorporar modelos de estimativa média (Voigt,
+ Reuss,
+ Hill e Hashin-Shtrikman).
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item Simular efeitos da saturação de fluidos (Teoria de Gassmann e modelo de Marion).
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item Avaliar os efeitos da anisotropia induzida por tensões.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+section{Metodologia}
+\end_layout
+
+\begin_layout Plain Layout
+
+A metodologia segue o desenvolvimento padrão de engenharia de software com ciclos de concepção,
+ análise,
+ projeto e implementação (Conforme Figura 1.1 citada no original).
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+section{Informações Adicionais Específicas}
+\end_layout
+
+\begin_layout Plain Layout
+
+Referências utilizadas em sala de aula incluem obras de Mavko,
+ Stroustrup e Bueno.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
