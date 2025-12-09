@@ -1,0 +1,471 @@
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children no
+\language american
+\language_package default
+\inputencoding utf8
+\fontencoding auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement class
+\float_alignment class
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\index Index
+\shortcut idx
+\color #008080
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tablestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content true
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+chapter{Modelagem Matemática e Algoritmos de Cálculo}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+lhead
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+Apêndice 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+thechapter
+\end_layout
+
+\end_inset
+
+:
+ Modelagem Matemática e Algoritmos
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+rhead
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+thepage
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Descreve-se neste apêndice o detalhamento dos modelos matemáticos utilizados para a estimativa das propriedades elásticas efetivas do compósito rochoso,
+ bem como o algoritmo central que implementa estes cálculos no sistema desenvolvido.
+ Este material,
+ embora fundamental para a reprodutibilidade e compreensão profunda dos resultados,
+ é apresentado aqui por seu elevado nível de detalhe técnico.
+\end_layout
+
+\begin_layout Section
+Modelos de Média Poroelástica
+\end_layout
+
+\begin_layout Standard
+Para estimar as propriedades elásticas de uma rocha (um material compósito),
+ a partir das propriedades de seus minerais constituintes,
+ foram empregados os modelos de média de Voigt,
+ Reuss e Hill.
+ Estes modelos fornecem,
+ respectivamente,
+ os limites superior e inferior,
+ e uma média empírica para os módulos elásticos efetivos.
+\end_layout
+
+\begin_layout Standard
+Dada uma rocha composta por 
+\begin_inset Formula $N$
+\end_inset
+
+ minerais,
+ onde cada mineral 
+\begin_inset Formula $i$
+\end_inset
+
+ possui uma fração volumétrica 
+\begin_inset Formula $f_{i}$
+\end_inset
+
+,
+ um módulo de compressibilidade 
+\begin_inset Formula $K_{i}$
+\end_inset
+
+ e um módulo de cisalhamento 
+\begin_inset Formula $G_{i}$
+\end_inset
+
+,
+ os módulos efetivos do compósito (
+\begin_inset Formula $K_{eff}$
+\end_inset
+
+,
+ 
+\begin_inset Formula $G_{eff}$
+\end_inset
+
+) são calculados da seguinte forma:
+\end_layout
+
+\begin_layout Paragraph
+Média de Voigt (Limite Superior)
+\end_layout
+
+\begin_layout Standard
+Este modelo assume que todos os constituintes sofrem a mesma deformação.
+ 
+\begin_inset Formula 
+\begin{equation}
+K_{Voigt}=\sum_{i=1}^{N}f_{i}K_{i}
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+G_{Voigt}=\sum_{i=1}^{N}f_{i}G_{i}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Média de Reuss (Limite Inferior)
+\end_layout
+
+\begin_layout Standard
+Este modelo assume que todos os constituintes estão sujeitos à mesma tensão.
+ 
+\begin_inset Formula 
+\begin{equation}
+K_{Reuss}=\left(\sum_{i=1}^{N}\frac{f_{i}}{K_{i}}\right)^{-1}
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+G_{Reuss}=\left(\sum_{i=1}^{N}\frac{f_{i}}{G_{i}}\right)^{-1}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Média de Voigt-Reuss-Hill
+\end_layout
+
+\begin_layout Standard
+Considerada uma aproximação empírica mais realista,
+ é a média aritmética simples dos limites de Voigt e Reuss.
+ 
+\begin_inset Formula 
+\begin{equation}
+K_{Hill}=\frac{K_{Voigt}+K_{Reuss}}{2}
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+G_{Hill}=\frac{G_{Voigt}+G_{Reuss}}{2}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Algoritmo de Cálculo dos Módulos Elásticos
+\end_layout
+
+\begin_layout Standard
+O núcleo de processamento do sistema,
+ encapsulado na classe 
+\family typewriter
+CElasticCalculator
+\family default
+,
+ segue um algoritmo bem definido para determinar as propriedades de uma amostra.
+ O processo pode ser descrito em alto nível pelo seguinte pseudocódigo:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language={C++},style=myCppStyle"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+FUNCAO Calculate(amostra):
+\end_layout
+
+\begin_layout Plain Layout
+
+    // 1.
+ Calcula os modulos de compressibilidade (K)
+\end_layout
+
+\begin_layout Plain Layout
+
+    k_voigt = m_bulkCalc.CalculateVoigt(amostra)
+\end_layout
+
+\begin_layout Plain Layout
+
+    k_reuss = m_bulkCalc.CalculateReuss(amostra)
+\end_layout
+
+\begin_layout Plain Layout
+
+    k_hill = (k_voigt + k_reuss) / 2.0
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+    // 2.
+ Calcula os modulos de cisalhamento (G)
+\end_layout
+
+\begin_layout Plain Layout
+
+    g_voigt = m_shearCalc.CalculateVoigt(amostra)
+\end_layout
+
+\begin_layout Plain Layout
+
+    g_reuss = m_shearCalc.CalculateReuss(amostra)
+\end_layout
+
+\begin_layout Plain Layout
+
+    g_hill = (g_voigt + g_reuss) / 2.0
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+    // 3.
+ Agrega e retorna os resultados
+\end_layout
+
+\begin_layout Plain Layout
+
+    RETORNE um objeto Result contendo:
+\end_layout
+
+\begin_layout Plain Layout
+
+        k_voigt,
+ k_reuss,
+ k_hill,
+\end_layout
+
+\begin_layout Plain Layout
+
+        g_voigt,
+ g_reuss,
+ g_hill
+\end_layout
+
+\begin_layout Plain Layout
+
+FIM FUNCAO
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Este algoritmo demonstra a delegação de responsabilidades no sistema:
+ a classe 
+\family typewriter
+CElasticCalculator
+\family default
+ orquestra o cálculo,
+ enquanto as classes 
+\family typewriter
+CBulkCalculator
+\family default
+ e 
+\family typewriter
+CShearCalculator
+\family default
+ realizam os cálculos específicos para cada módulo,
+ acessando a base de dados de minerais conforme a necessidade.
+ 
+\end_layout
+
+\end_body
+\end_document

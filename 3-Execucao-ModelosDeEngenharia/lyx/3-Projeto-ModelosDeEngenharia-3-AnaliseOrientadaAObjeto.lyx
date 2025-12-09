@@ -1,0 +1,1261 @@
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children no
+\language american
+\language_package default
+\inputencoding utf8
+\fontencoding auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement class
+\float_alignment class
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\index Index
+\shortcut idx
+\color #008080
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tablestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content true
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+lhead
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+thechapter
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+- Análise Orientada a Objeto
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+chapter{AOO
+\backslash
+index{AOO} -- Análise Orientada a Objeto
+\backslash
+label{chap:An=0000E1lise Orientada a Objeto}
+\backslash
+index{Análise orientada a objeto}
+\backslash
+label{sec:AOO}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Diagramas de classes
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Diagramas-de-classes"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+O diagrama de classes é apresentado na Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cap:Diagrama-de-classes"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagens/Classes.png
+	width 100text%
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Diagrama de classes
+\begin_inset CommandInset label
+LatexCommand label
+name "cap:Diagrama-de-classes"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Dicionário de classes
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Dicion=0000E1rio-de-classes"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+CSimulator 
+\begin_inset Newline newline
+\end_inset
+
+Responsabilidade:
+ Classe principal que orquestra a execução do programa.
+ É responsável por inicializar todos os componentes,
+ gerenciar o menu de interação com o usuário e controlar o fluxo de dados entre os módulos de entrada,
+ cálculo e visualização.
+ 
+\begin_inset Newline newline
+\end_inset
+
+Atributos:
+ -m
+\begin_inset Formula $_{\ensuremath{}}$
+\end_inset
+
+input:
+ CInput:
+ Instância do gerenciador de entrada de dados.
+ -m
+\begin_inset Formula $_{\ensuremath{}}$
+\end_inset
+
+database:
+ CMineralDatabase:
+ Instância do banco de dados de minerais.
+ -m
+\begin_inset Formula $_{\ensuremath{}}$
+\end_inset
+
+calculator:
+ CElasticCalculator:
+ Instância do módulo de cálculo de propriedades elásticas.
+ -m
+\begin_inset Formula $_{\ensuremath{}}$
+\end_inset
+
+reservoirData:
+ CReservoirData:
+ Instância do repositório de dados das amostras processadas.
+ -m
+\begin_inset Formula $_{\ensuremath{}}$
+\end_inset
+
+plotManager:
+ CPlotManager:
+ Instância do gerenciador de visualização gráfica.
+ 
+\begin_inset Newline newline
+\end_inset
+
+Métodos:
+ +CSimulator() / +
+\begin_inset space ~
+\end_inset
+
+CSimulator():
+ Construtor e destrutor da classe.
+ +Run():
+ Inicia e gerencia o laço de execução principal da aplicação.
+ -Initialize():
+ Prepara e aloca os recursos para os módulos do sistema.
+ -Menu():
+ Exibe as opções disponíveis e captura a escolha do usuário.
+ -ProcessSamples():
+ Dispara o fluxo de processamento para uma nova amostra.
+ -Finalize():
+ Libera os recursos alocados antes de encerrar a aplicação.
+\end_layout
+
+\begin_layout Itemize
+CInput
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Newline newline
+\end_inset
+
+Responsabilidade:
+ Gerencia a aquisição de dados das amostras,
+ seja por meio de entrada manual do usuário no console ou pela leitura e interpretação de arquivos de dados formatados.
+ 
+\begin_inset Newline newline
+\end_inset
+
+Métodos:
+ +CInput() / +
+\begin_inset space ~
+\end_inset
+
+CInput():
+ Construtor e destrutor da classe.
+ +PromptManualInput():
+ Solicita interativamente os dados da amostra ao usuário.
+ +ReadFromCSV():
+ Lê dados de um arquivo no formato CSV (não utilizado na versão final,
+ conforme código-fonte).
+ +ReadFromFile():
+ Lê os dados de uma única amostra de um arquivo de texto.
+ +PrintSampleInput():
+ Exibe os dados de entrada de uma amostra no console para verificação.
+ +ReadMultipleFromFile():
+ Lê uma ou mais amostras de um arquivo de texto.
+ -ParseCSVLine():
+ Interpreta uma única linha de um arquivo de dados para extrair a composição mineralógica.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+CMineralDatabase
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Newline newline
+\end_inset
+
+Responsabilidade:
+ Encapsula o acesso à base de dados de minerais.
+ É responsável por carregar,
+ salvar e fornecer as propriedades elásticas (módulo de compressibilidade e de cisalhamento) de cada mineral.
+ 
+\begin_inset Newline newline
+\end_inset
+
+Atributos:
+ -m
+\begin_inset Formula $_{\ensuremath{}}$
+\end_inset
+
+minerals:
+ Estrutura de dados que armazena as propriedades dos minerais carregados em memória.
+ -m
+\begin_inset Formula $_{\ensuremath{}}$
+\end_inset
+
+databaseFilePath:
+ Caminho para o arquivo físico da base de dados.
+ Métodos:
+ +CMineralDatabase(filePath):
+ Construtor que inicializa o objeto e carrega os dados do arquivo especificado.
+ +HasMineral(name):
+ Verifica a existência de um mineral na base de dados.
+ +GetBulkModulus(name):
+ Retorna o módulo de compressibilidade (K) de um mineral.
+ +GetShearModulus(name):
+ Retorna o módulo de cisalhamento (G) de um mineral.
+ +AddMineral(name,
+ k,
+ g):
+ Adiciona um novo mineral à base de dados em memória.
+ +SaveToFile(filePath):
+ Salva o estado atual da base de dados em um arquivo.
+ +PrintAllMineralsSorted():
+ Exibe todos os minerais da base de dados em ordem alfabética.
+ -LoadFromFile(filePath):
+ Lógica interna para ler e interpretar o arquivo da base de dados.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+CElasticCalculator
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Newline newline
+\end_inset
+
+Responsabilidade:
+ Constitui o núcleo de cálculo do sistema.
+ Implementa os modelos de homogeneização de Voigt e Reuss para estimar os módulos elásticos efetivos da matriz rochosa.
+ 
+\begin_inset Newline newline
+\end_inset
+
+Atributos:
+ -m
+\begin_inset Formula $_{\ensuremath{}}$
+\end_inset
+
+database:
+ CMineralDatabase&:
+ Referência para a base de dados de minerais,
+ utilizada para consultar as propriedades durante o cálculo.
+ 
+\begin_inset Newline newline
+\end_inset
+
+Métodos:
+ +CElasticCalculator(db):
+ Construtor que recebe uma referência ao banco de dados de minerais.
+ +Calculate(input):
+ Orquestra o cálculo para uma amostra,
+ invocando os métodos de Voigt e Reuss e retornando os resultados.
+ -CalcVoigt(minerals,
+ bulk):
+ Implementa a média de Voigt para o módulo de compressibilidade ou de cisalhamento.
+ -CalcReuss(minerals,
+ bulk):
+ Implementa a média de Reuss para o módulo de compressibilidade ou de cisalhamento.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+CReservoirData
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Newline newline
+\end_inset
+
+Responsabilidade:
+ Atua como um repositório para as amostras processadas.
+ Armazena os dados de entrada junto com os resultados calculados para uso posterior em relatórios e gráficos.
+ 
+\begin_inset Newline newline
+\end_inset
+
+Atributos:
+ -m
+\begin_inset Formula $_{\ensuremath{}}$
+\end_inset
+
+samples:
+ Vetor que armazena o conjunto de todas as amostras processadas durante a sessão.
+ 
+\begin_inset Newline newline
+\end_inset
+
+Métodos:
+ +CReservoirData():
+ Construtor da classe.
+ +AddSample(input,
+ result):
+ Adiciona uma nova amostra e seus resultados calculados ao repositório.
+ +GetSamples():
+ Retorna uma referência para o vetor completo de amostras.
+ +PrintSummary():
+ Exibe no console um resumo com os principais resultados de todas as amostras.
+ +GetKGVvsDepth():
+ Extrai e organiza os dados para plotagem de propriedades vs.
+ profundidade.
+ +GetKGVvsPorosity():
+ Extrai e organiza os dados para plotagem de propriedades vs.
+ porosidade.
+ +GetKGVvsDepthFull():
+ Retorna todos os limites (Voigt,
+ Reuss,
+ Hill) para os perfis de profundidade.
+ +GetKGVvsPorosityFull():
+ Retorna todos os limites (Voigt,
+ Reuss,
+ Hill) para os perfis de porosidade.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+CPlotManager
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Newline newline
+\end_inset
+
+Responsabilidade:
+ Módulo dedicado à visualização de dados.
+ Utiliza os resultados consolidados em CReservoirData para gerar e exibir gráficos,
+ facilitando a análise e interpretação dos resultados.
+ 
+\begin_inset Newline newline
+\end_inset
+
+Métodos:
+ +CPlotManager():
+ Construtor da classe.
+ +PlotDepthProfile(data):
+ Gera o gráfico dos módulos elásticos em função da profundidade para as amostras fornecidas.
+ +PlotPorosityProfile(data):
+ Gera o gráfico dos módulos elásticos em função da porosidade.
+ +PlotVariationByMineral(db,
+ ...):
+ Cria gráficos de sensibilidade à variação percentual entre dois minerais.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Diagrama de seqüência – eventos
+\begin_inset Index idx
+range none
+pageformat default
+status collapsed
+
+\begin_layout Plain Layout
+Eventos
+\end_layout
+
+\end_inset
+
+ e mensagens
+\begin_inset Index idx
+range none
+pageformat default
+status collapsed
+
+\begin_layout Plain Layout
+Mensagens
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+range none
+pageformat default
+status collapsed
+
+\begin_layout Plain Layout
+Diagrama de sequência
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:diagrama de sequ=0000EAncia"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+
+\shape italic
+\emph on
+Diagrama de sequência geral
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec: Diagrama de sequ=0000EAncia geral"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Veja o 
+\shape italic
+\emph on
+diagrama de seqüência na
+\shape default
+\emph default
+ Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cap:Diagrama-de-sequencia"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagens/SequenciaGeral.jpeg
+	width 100text%
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Diagrama de seqüência geral
+\begin_inset CommandInset label
+LatexCommand label
+name "cap:Diagrama-de-sequencia"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+
+\shape italic
+\emph on
+Diagrama de sequência específico
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec: Diagrama de sequ=0000EAncia espec=0000EDfico"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagens/SequenciaEspecifico.jpeg
+	width 100text%
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Diagrama de seqüência específico
+\begin_inset CommandInset label
+LatexCommand label
+name "cap:Diagrama-de-sequencia-especifico"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Diagrama de comunicação
+\begin_inset Index idx
+range none
+pageformat default
+status collapsed
+
+\begin_layout Plain Layout
+comunicação
+\end_layout
+
+\end_inset
+
+ – colaboração
+\begin_inset Index idx
+range none
+pageformat default
+status collapsed
+
+\begin_layout Plain Layout
+colaboração
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Diagrama-de-Comunica=0000E7=0000E3o"
+
+\end_inset
+
+
+\begin_inset Index idx
+range none
+pageformat default
+status collapsed
+
+\begin_layout Plain Layout
+Diagrama de colaboração
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "par:Diagrama-de-colabora=0000E7=0000E3o:"
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+No diagrama de comunicação o foco é a interação e a troca de mensagens e dados entre os objetos.
+\end_layout
+
+\begin_layout Standard
+Veja na Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Diagrama-de-Comunica=0000E7=0000E3o"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ o diagrama de comunicação mostrando a sequência de interação,
+ onde a aplicação solicita leitura do arquivo da amostra para dar prosseguimento com o cálculo das propriedades,
+ onde busca os dados do banco de dados.
+ A aplicação armazena os dados e gera os resultados,
+ e por fim solicita a geração dos gráficos de perfil.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagens/Comunicacao.png
+	width 100text%
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Diagrama de comunicação
+\begin_inset CommandInset label
+LatexCommand label
+name "cap:Diagrama-de-comunica=0000E7=0000E3o"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Diagrama de estado
+\begin_inset Index idx
+range none
+pageformat default
+status collapsed
+
+\begin_layout Plain Layout
+estado
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+range none
+pageformat default
+status collapsed
+
+\begin_layout Plain Layout
+Diagrama de estado
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:diagrama de estados"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Veja na Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cap:Diagrama-de-maquina-de-estado"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ o diagrama de máquina de estado para o objeto CSimulador
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagens/MaquinaDeEstado.png
+	width 100text%
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Diagrama de máquina de estado
+\begin_inset CommandInset label
+LatexCommand label
+name "cap:Diagrama-de-maquina-de-estado"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Diagrama de atividades
+\begin_inset CommandInset label
+LatexCommand label
+name "sec: Diagrama de atividades"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+w
+\end_layout
+
+\begin_layout Standard
+Veja na Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cap:Diagrama-de-atividades"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ o diagrama de atividades.
+\end_layout
+
+\begin_layout Standard
+O processo se inicia no Nó Inicial,
+ levando diretamente à primeira Atividade,
+ que é 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+"
+\end_layout
+
+\end_inset
+
+Apresentar Menu Principal
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+"
+\end_layout
+
+\end_inset
+
+.
+ Neste ponto,
+ uma decisão importante é oferecida ao usuário:
+ se a opção for 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+"
+\end_layout
+
+\end_inset
+
+Sair
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+"
+\end_layout
+
+\end_inset
+
+,
+ o fluxo é desviado diretamente para a finalização do programa;
+ caso contrário,
+ ao escolher 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+"
+\end_layout
+
+\end_inset
+
+Processar Amostra
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+"
+\end_layout
+
+\end_inset
+
+,
+ o sistema avança para uma segunda decisão que define o método de entrada dos dados,
+ seja através da atividade 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+"
+\end_layout
+
+\end_inset
+
+Carregar de Arquivo
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+"
+\end_layout
+
+\end_inset
+
+ ou da criação manual.
+ Uma vez que os dados da amostra são fornecidos por um desses caminhos,
+ o fluxo converge e prossegue de forma sequencial para a fase de processamento,
+ onde a atividade central de 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+"
+\end_layout
+
+\end_inset
+
+Executar cálculos de propriedades poroelásticas
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+"
+\end_layout
+
+\end_inset
+
+ é realizada.
+\end_layout
+
+\begin_layout Standard
+Com o término dos cálculos,
+ indicado pelo estado 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+"
+\end_layout
+
+\end_inset
+
+Resultados calculados e disponíveis
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+"
+\end_layout
+
+\end_inset
+
+,
+ uma nova decisão permite ao usuário escolher entre 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+"
+\end_layout
+
+\end_inset
+
+Gerar Gráficos
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+"
+\end_layout
+
+\end_inset
+
+ ou 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+"
+\end_layout
+
+\end_inset
+
+Mostrar Relatórios
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+"
+\end_layout
+
+\end_inset
+
+ para a análise final.
+ Concluída esta etapa,
+ o diagrama chega ao seu ciclo de execução principal,
+ onde a última decisão do fluxo pergunta se o usuário 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+"
+\end_layout
+
+\end_inset
+
+Deseja realizar outra operação?
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+"
+\end_layout
+
+\end_inset
+
+.
+ Uma resposta afirmativa reinicia todo o processo,
+ retornando o controle ao menu principal para um novo ciclo de trabalho.
+ Caso a resposta seja negativa,
+ o fluxo segue para a atividade 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+"
+\end_layout
+
+\end_inset
+
+Finalizar Software
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+"
+\end_layout
+
+\end_inset
+
+ e culmina no Nó Final,
+ que representa o encerramento completo da aplicação.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagens/Atividade-FluxoDoSoftware.png
+	width 100text%
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Diagrama de atividades
+\begin_inset CommandInset label
+LatexCommand label
+name "cap:Diagrama-de-atividades"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

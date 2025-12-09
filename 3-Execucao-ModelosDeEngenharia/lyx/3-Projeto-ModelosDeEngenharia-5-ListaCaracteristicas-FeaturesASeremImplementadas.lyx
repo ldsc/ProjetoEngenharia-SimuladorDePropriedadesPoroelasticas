@@ -1,0 +1,578 @@
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children no
+\language american
+\language_package default
+\inputencoding utf8
+\fontencoding auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement class
+\float_alignment class
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\index Index
+\shortcut idx
+\color #008080
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tablestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content true
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+chapter{Lista das Características/
+\backslash
+emph{Features}
+\backslash
+label{chap:Lista-das-Caracter=0000EDsticas}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Neste capítulo,
+ lista-se as características do sistema desenvolvido,
+ organizadas de forma incremental de acordo com as versões do projeto.
+ Esta abordagem visa a demonstrar a evolução da arquitetura e da funcionalidade do software,
+ desde sua concepção inicial até a versão final apresentada neste trabalho.
+\end_layout
+
+\begin_layout Section
+Lista de características 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+textless
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+textless
+\end_layout
+
+\end_inset
+
+ features
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+textgreater
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+textgreater
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Após a análise dos requisitos e considerando a natureza acadêmica e didática do projeto,
+ a implementação foi dividida em duas versões principais,
+ culminando na seguinte lista de funcionalidades:
+\end_layout
+
+\begin_layout Subsection*
+Versão 1.0 - Núcleo de Cálculo Poroelástico
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Cálculo dos Módulos Elásticos:
+
+\series default
+ O sistema deve ser capaz de calcular os módulos de compressibilidade (K) e de cisalhamento (G) efetivos de um compósito mineral utilizando as médias de Voigt,
+ Reuss e Hill.
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subitem
+\end_layout
+
+\end_inset
+
+ 
+\shape italic
+Classes implementadas:
+
+\shape default
+ 
+\family typewriter
+CElasticCalculator
+\family default
+,
+ 
+\family typewriter
+CBulkCalculator
+\family default
+,
+ 
+\family typewriter
+CShearCalculator
+\family default
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Gerenciamento da Base de Dados de Minerais:
+
+\series default
+ O sistema deve carregar e gerenciar uma base de dados de minerais a partir de um arquivo externo (
+\family typewriter
+.csv
+\family default
+),
+ permitindo a consulta das propriedades elásticas de cada mineral pelo nome.
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subitem
+\end_layout
+
+\end_inset
+
+ 
+\shape italic
+Classe implementada:
+
+\shape default
+ 
+\family typewriter
+CMineralDatabase
+\family default
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Leitura de Arquivo de Entrada Simplificado:
+
+\series default
+ O sistema deve ser capaz de ler um arquivo de texto com a definição de uma única amostra de rocha,
+ incluindo sua composição mineralógica e porosidade.
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subitem
+\end_layout
+
+\end_inset
+
+ 
+\shape italic
+Classe implementada:
+
+\shape default
+ 
+\family typewriter
+CInput
+\family default
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Visualização Gráfica:
+
+\series default
+ O sistema deve gerar gráficos que correlacionem as propriedades elásticas calculadas com a variação da composição entre dois minerais.
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subitem
+\end_layout
+
+\end_inset
+
+ 
+\shape italic
+Classe implementada:
+
+\shape default
+ 
+\family typewriter
+CPlotManager
+\family default
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Orquestração Central:
+
+\series default
+ O sistema deve possuir uma classe principal para coordenar o fluxo de execução,
+ desde a leitura dos dados até a apresentação dos resultados.
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subitem
+\end_layout
+
+\end_inset
+
+ 
+\shape italic
+Classe implementada:
+
+\shape default
+ 
+\family typewriter
+CSimulador
+\family default
+.
+ 
+\end_layout
+
+\begin_layout Subsection*
+Versão 2.0 - Arquitetura Refinada e Análise Multi-Amostra
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Abstração da Entidade Amostra:
+
+\series default
+ Para aprimorar a coesão e o encapsulamento,
+ o conceito de 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+"
+\end_layout
+
+\end_inset
+
+amostra de rocha
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+"
+\end_layout
+
+\end_inset
+
+ foi abstraído em uma classe própria,
+ responsável por conter todos os seus dados característicos.
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subitem
+\end_layout
+
+\end_inset
+
+ 
+\shape italic
+Classe implementada:
+
+\shape default
+ 
+\family typewriter
+CAmostra
+\family default
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Abstração da Entidade Mineral:
+
+\series default
+ De forma análoga,
+ a entidade 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+"
+\end_layout
+
+\end_inset
+
+mineral
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+"
+\end_layout
+
+\end_inset
+
+ foi encapsulada em sua própria classe,
+ refinando a estrutura da base de dados e tornando o código mais claro e orientado a objeto.
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subitem
+\end_layout
+
+\end_inset
+
+ 
+\shape italic
+Classe implementada:
+
+\shape default
+ 
+\family typewriter
+CMineral
+\family default
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Processamento de Múltiplas Amostras:
+
+\series default
+ O sistema foi aprimorado para ler e processar arquivos de entrada contendo a definição de múltiplas amostras de diferentes profundidades e porosidades.
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subitem
+\end_layout
+
+\end_inset
+
+ 
+\shape italic
+Evolução da classe:
+
+\shape default
+ 
+\family typewriter
+CInput
+\family default
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Gerenciamento de Dados de Reservatório:
+
+\series default
+ Foi introduzida uma classe para agregar e gerenciar o conjunto de todas as amostras processadas e seus respectivos resultados,
+ facilitando a análise consolidada.
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subitem
+\end_layout
+
+\end_inset
+
+ 
+\shape italic
+Classe implementada:
+
+\shape default
+ 
+\family typewriter
+CReservoirData
+\family default
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Geração de Perfis de Profundidade e Porosidade:
+
+\series default
+ A capacidade de visualização foi expandida para permitir a plotagem de perfis contínuos,
+ mostrando a variação dos módulos elásticos (K e G) em função da profundidade ou da porosidade para o conjunto de amostras analisadas.
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subitem
+\end_layout
+
+\end_inset
+
+ 
+\shape italic
+Evolução da classe:
+
+\shape default
+ 
+\family typewriter
+CPlotManager
+\family default
+.
+ 
+\end_layout
+
+\end_body
+\end_document

@@ -1,0 +1,1435 @@
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children no
+\language american
+\language_package default
+\inputencoding utf8
+\fontencoding auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement class
+\float_alignment class
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\index Index
+\shortcut idx
+\color #008080
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tablestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content true
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+chapter{Projeto 
+\backslash
+label{chap:Projeto-do-Sistema}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+lhead
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+thechapter
+\end_layout
+
+\end_inset
+
+ - Projeto
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Neste capítulo do projeto de engenharia veremos questões associadas ao projeto do sistema,
+ incluindo protocolos,
+ recursos,
+ plataformas suportadas,
+ inplicações nos diagramas feitos anteriormente,
+ diagramas de componentes e implantação.
+ Na segunda parte revisamos os diagramas levando em conta as decisões do projeto do sistema.
+\end_layout
+
+\begin_layout Section
+Projeto do Sistema
+\begin_inset Index idx
+range none
+pageformat default
+status collapsed
+
+\begin_layout Plain Layout
+Projeto do sistema
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Projeto-do-sistema"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Depois da análise orientada a objeto desenvolve-se o projeto do sistema,
+ qual envolve etapas como a definição dos protocolos,
+ da interface API,
+ o uso de recursos,
+ a subdivisão do sistema em subsistemas,
+ a alocação dos subsistemas ao hardware e a seleção das estruturas de controle,
+ a seleção das plataformas do sistema,
+ das bibliotecas externas,
+ dos padrões de projeto,
+ além da tomada de decisões conceituais e políticas que formam a infraestrutura do projeto.
+\end_layout
+
+\begin_layout Standard
+Deve-se definir padrões de documentação,
+ padrões para o nome das classes,
+ padrões de retorno e de parâmetros em métodos,
+ características da interface do usuário e características de desempenho.
+\end_layout
+
+\begin_layout Standard
+O projeto do sistema é a estratégia de alto nível para resolver o problema e elaborar uma solução.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Protocolos
+\begin_inset Index idx
+range none
+pageformat default
+status collapsed
+
+\begin_layout Plain Layout
+Protocolos
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+O sistema é concebido para ser uma aplicação desktop autônoma,
+ com capacidade de importar dados e exportar resultados.
+ A comunicação com dispositivos externos (como sensores laboratoriais,
+ espectrômetros,
+ etc.) não será necessária nesta primeira versão.
+ No entanto,
+ o software deverá:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Ler arquivos de entrada com composições mineralógicas em formatos abertos,
+ preferencialmente .csv e .xlsx 
+\end_layout
+
+\begin_layout Itemize
+Exportar os resultados dos cálculos em formatos igualmente abertos em .txt (relatórios simples);
+ .csv (planilhas com resultados);
+ .png (gráficos e visualizações) 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+O sistema será implementado seguindo o paradigma de programação orientada a objetos,
+ sendo os principais componentes do sistema representados como objetos com responsabilidades bem definidas.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+A comunicação entre objetos seguirá os princípios do acoplamento fraco e alta coesão,
+ utilizando:
+\end_layout
+
+\begin_layout Itemize
+Chamadas diretas de métodos 
+\end_layout
+
+\begin_layout Itemize
+Passagem de parâmetros por instância (composição e agregação) 
+\end_layout
+
+\begin_layout Itemize
+Padrão de projeto MVC (Model-View-Controller),
+ separando:
+ Modelos físicos e matemáticos (Model);
+ Interface com o usuário (View);
+ Lógica de controle e fluxo de dados (Controller) 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+O sistema utilizará os seguintes formatos abertos para arquivos de entrada:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+.csv:
+ para dados de composição mineralógica,
+ módulos dos minerais,
+ nomes de fases,
+ etc.
+ 
+\end_layout
+
+\begin_layout Itemize
+.json:
+ (opcional) para configurações de execução (modelo a usar,
+ limites,
+ parâmetros fixos) 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+O sistema utilizará os seguintes formatos abertos para arquivos de saída:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+.csv:
+ resultados tabulares 
+\end_layout
+
+\begin_layout Itemize
+.txt:
+ logs e relatórios legíveis 
+\end_layout
+
+\begin_layout Itemize
+.png / .pdf:
+ gráficos comparativos 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Recursos
+\begin_inset Index idx
+range none
+pageformat default
+status collapsed
+
+\begin_layout Plain Layout
+Recursos
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+O sistema utiliza um banco de dados embutido contendo as propriedades elásticas conhecidas dos minerais (módulo de compressibilidade K,
+ módulo de cisalhamento G,
+ profundidade da amostra,
+ porosidade).
+ Este banco de dados permite a automação da busca de propriedades físicas a partir da identificação do nome do mineral,
+ eliminando a necessidade de inserção manual dos parâmetros.
+ Exemplo de estrutura da tabela minerais:
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Float table
+placement h!
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="3">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+nome
+\series default
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+k
+\series default
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+g
+\series default
+ 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+albita 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+55 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+29.5 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+anidrita 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+55 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+30 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+anortita 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+84 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+40 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+aragonita 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+47 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+38.5 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+vdots
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+vdots
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+vdots
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Plataformas
+\begin_inset Index idx
+range none
+pageformat default
+status collapsed
+
+\begin_layout Plain Layout
+Plataformas
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Padrão de Nomes
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Classes:
+ CamelCase,
+ ex:
+ CImput 
+\end_layout
+
+\begin_layout Itemize
+Métodos:
+ snake
+\begin_inset Formula $_{\ensuremath{}}$
+\end_inset
+
+case,
+ ex:
+ ReadFromCSV 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Padrão de retorno e parâmetros,
+ que devem retornar:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Objetos contendo os resultados (dicionários ou instâncias de classes) 
+\end_layout
+
+\begin_layout Itemize
+Em caso de erro,
+ exceções customizadas devem ser lançadas 
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Section
+Projeto Orientado a Objeto – POO
+\begin_inset Index idx
+range none
+pageformat default
+status collapsed
+
+\begin_layout Plain Layout
+POO
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+range none
+pageformat default
+status collapsed
+
+\begin_layout Plain Layout
+Projeto orientado a objeto
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Projeto-orientado-a-objeto"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+O projeto orientado a objeto é a etapa posterior ao projeto do sistema.
+ Baseia-se na análise,
+ mas considera as decisões do projeto do sistema.
+ Acrescenta a análise desenvolvida e as características da plataforma escolhida (hardware,
+ sistema operacional e linguagem de softwareção).
+ Passa pelo maior detalhamento do funcionamento do software,
+ acrescentando atributos e métodos que envolvem a solução de problemas específicos não identificados durante a análise.
+\end_layout
+
+\begin_layout Standard
+Envolve a otimização da estrutura de dados e dos algoritmos,
+ a minimização do tempo de execução,
+ de memória e de custos.
+ Existe um desvio de ênfase para os conceitos da plataforma selecionada.
+\end_layout
+
+\begin_layout Standard
+Exemplo:
+ na análise você define que existe um método para salvar um arquivo em disco,
+ define um atributo nomeDoArquivo,
+ mas não se preocupa com detalhes específicos da linguagem.
+ Já no projeto,
+ você inclui as bibliotecas necessárias para acesso ao disco,
+ cria um objeto específico para acessar o disco,
+ podendo,
+ portanto,
+ acrescentar novas classes àquelas desenvolvidas na análise.
+\end_layout
+
+\begin_layout Subsubsection
+Efeitos do projeto no modelo
+\begin_inset Index idx
+range none
+pageformat default
+status collapsed
+
+\begin_layout Plain Layout
+modelo
+\end_layout
+
+\end_inset
+
+ estrutural
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Efeito-do-projeto-no-modelo-estrutural"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Adicionar nos diagramas de pacotes as bibliotecas e subsistemas selecionados no projeto do sistema (exemplo:
+ a biblioteca gráfica selecionada).
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Neste projeto blablabla 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Novas classes e associações oriundas das bibliotecas selecionadas e da linguagem escolhida devem ser acrescentadas ao modelo.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Neste projeto blablabla 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Estabelecer as dependências e restrições associadas à plataforma escolhida.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Neste projeto blablabla 
+\end_layout
+
+\end_deeper
+\begin_layout Subsubsection
+Efeitos do projeto no modelo
+\begin_inset Index idx
+range none
+pageformat default
+status collapsed
+
+\begin_layout Plain Layout
+modelo
+\end_layout
+
+\end_inset
+
+ dinâmico
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Efeito-do-projeto-no-modelo-dinamico"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Revisar os diagramas de seqüência e de comunicação considerando a plataforma escolhida.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Neste projeto blablabla 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Verificar a necessidade de se revisar,
+ ampliar e adicionar novos diagramas de máquinas de estado e de atividades.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Neste projeto blablabla 
+\end_layout
+
+\end_deeper
+\begin_layout Subsubsection
+Efeitos do projeto nos atributos
+\begin_inset Index idx
+range none
+pageformat default
+status collapsed
+
+\begin_layout Plain Layout
+atributos
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Efeito-do-projeto-nos-atributos"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Atributos novos podem ser adicionados a uma classe,
+ como,
+ por exemplo,
+ atributos específicos de uma determinada linguagem de softwareção (acesso a disco,
+ ponteiros,
+ constantes e informações correlacionadas).
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Neste projeto blablabla 
+\end_layout
+
+\end_deeper
+\begin_layout Subsubsection
+Efeitos do projeto nos métodos
+\begin_inset Index idx
+range none
+pageformat default
+status collapsed
+
+\begin_layout Plain Layout
+métodos
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+range none
+pageformat default
+status collapsed
+
+\begin_layout Plain Layout
+Efeitos do projeto nos métodos
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Em função da plataforma escolhida,
+ verifique as possíveis alterações nos métodos.
+ O projeto do sistema costuma afetar os métodos de acesso aos diversos dispositivos (exemplo:
+ hd,
+ rede).
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Neste projeto blablabla 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+De maneira geral os métodos devem ser divididos em dois tipos:
+ i) tomada de decisões,
+ métodos políticos ou de controle;
+ devem ser claros,
+ legíveis,
+ flexíveis e usam polimorfismo.
+ ii) realização de processamentos,
+ podem ser otimizados e em alguns casos o polimorfismo deve ser evitado.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Neste projeto blablabla 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Algoritmos complexos podem ser subdivididos.
+ Verifique quais métodos podem ser otimizados.
+ Pense em utilizar algoritmos prontos como os da STL (algoritmos genéricos).
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Neste projeto blablabla 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Responda a pergunta:
+ os métodos da classes estão dando resposta às responsabilidades da classe?
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Neste projeto blablabla 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Revise os diagramas de classes,
+ de seqüência e de máquina de estado.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Neste projeto blablabla 
+\end_layout
+
+\end_deeper
+\begin_layout Subsubsection
+Efeitos do projeto nas heranças
+\begin_inset Index idx
+range none
+pageformat default
+status collapsed
+
+\begin_layout Plain Layout
+heranças
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+range none
+pageformat default
+status collapsed
+
+\begin_layout Plain Layout
+Efeitos do projeto nas heranças
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+range none
+pageformat default
+status collapsed
+
+\begin_layout Plain Layout
+Heranças
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Reorganização das classes e dos métodos (criar métodos genéricos com parâmetros que nem sempre são necessários e englobam métodos existentes).
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Neste projeto blablabla 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Abstração do comportamento comum (duas classes podem ter uma superclasse em comum).
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Neste projeto blablabla 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Utilização de delegação para compartilhar a implementação (quando você cria uma herança irreal para reaproveitar código).
+ Usar com cuidado.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Neste projeto blablabla 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Revise as heranças no diagrama de classes.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Neste projeto blablabla 
+\end_layout
+
+\end_deeper
+\begin_layout Subsubsection
+Efeitos do projeto nas associações
+\begin_inset Index idx
+range none
+pageformat default
+status collapsed
+
+\begin_layout Plain Layout
+Efeitos do projeto nas associações
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+range none
+pageformat default
+status collapsed
+
+\begin_layout Plain Layout
+Associações
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Deve-se definir na fase de projeto como as associações serão implementadas,
+ se obedecerão um determinado padrão ou não.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Neste projeto blablabla 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Se existe uma relação de 
+\begin_inset Quotes qld
+\end_inset
+
+muitos
+\begin_inset Quotes qrd
+\end_inset
+
+,
+ pode-se implementar a associação com a utilização de um dicionário,
+ que é um mapa das associações entre objetos.
+ Assim,
+ o objeto A acessa o dicionário fornecendo uma chave (um nome para o objeto que deseja acessar) e o dicionário retorna um valor (um ponteiro) para o objeto correto.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Neste projeto blablabla 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Evite percorrer várias associações para acessar dados de classes distantes.
+ Pense em adicionar associações diretas.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Neste projeto blablabla 
+\end_layout
+
+\end_deeper
+\begin_layout Subsubsection
+Efeitos do projeto nas otimizações
+\begin_inset Index idx
+range none
+pageformat default
+status collapsed
+
+\begin_layout Plain Layout
+otimizações
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Faça uma análise de aspectos relativos à otimização do sistema.
+ Lembrando que a otimização deve ser desenvolvida por analistas/desenvolvedores experientes.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Neste projeto blablabla 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Identifique pontos a serem otimizados em que podem ser utilizados processos concorrentes.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Neste projeto blablabla 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Pense em incluir bibliotecas otimizadas.
+ 
+\end_layout
+
+\begin_layout Itemize
+Se o acesso a determinados objetos (atributos/métodos) requer um caminho longo (exemplo:
+ A->B->C->D.atributo),
+ pense em incluir associações extras (exemplo:
+ A-D.atributo).
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Neste projeto blablabla 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Atributos auxiliares podem ser incluídos.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Neste projeto blablabla 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+A ordem de execução pode ser alterada.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Neste projeto blablabla 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Revise as associações nos diagramas de classes.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Neste projeto blablabla 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Depois de revisados os diagramas da análise você pode montar dois diagramas relacionados à infraestrutura do sistema.
+ As dependências dos arquivos e bibliotecas podem ser descritos pelo diagrama de componentes,
+ e as relações e dependências entre o sistema e o hardware podem ser ilustradas com o diagrama de implantação.
+\end_layout
+
+\begin_layout Section
+Diagrama de Componentes
+\begin_inset Index idx
+range none
+pageformat default
+status collapsed
+
+\begin_layout Plain Layout
+Diagrama de componentes
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Diagrama-de-componentes"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Segue o diagrama de componentes:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../../../../../Users/Pinguim/AppData/Local/Temp/lyx_tmpdir.qsMvVoIQmzMs/imagens/Componentes.png
+	width 100text%
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Diagrama de componentes
+\begin_inset CommandInset label
+LatexCommand label
+name "cap:Diagrama-de-componentes"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Diagrama de Implantação
+\begin_inset Index idx
+range none
+pageformat default
+status collapsed
+
+\begin_layout Plain Layout
+Diagrama de implantação
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+range none
+pageformat default
+status collapsed
+
+\begin_layout Plain Layout
+Diagrama de execução
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Diagrama-de-execu=0000E7=0000E3o"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+O diagrama de implantação é um diagrama de alto nível que inclui relações entre o sistema e o hardware e que se preocupa com os aspectos da arquitetura computacional escolhida.
+ Seu enfoque é o hardware,
+ a configuração dos nós em tempo de execução.
+\end_layout
+
+\begin_layout Standard
+O diagrama de implantação deve incluir os elementos necessários para que o sistema seja colocado em funcionamento:
+ computador,
+ periféricos,
+ processadores,
+ dispositivos,
+ nós,
+ relacionamentos de dependência,
+ associação,
+ componentes,
+ subsistemas,
+ restrições e notas.
+\end_layout
+
+\begin_layout Standard
+Veja na Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cap:Diagrama-de-implanta=0000E7=0000E3o."
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ um exemplo de diagrama de implantação de um cluster.
+ Observe a presença de um servidor conectado a um switch.
+ Os nós do cluster (ou clientes) também estão conectados ao switch.
+ Os resultados das simulações são armazenados em um servidor de arquivos (
+\emph on
+storage
+\emph default
+).
+\end_layout
+
+\begin_layout Standard
+Pode-se utilizar uma anotação de localização para identificar onde determinado componente está residente,
+ por exemplo {localização:
+ sala 3}.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../../../../../Users/Pinguim/AppData/Local/Temp/lyx_tmpdir.qsMvVoIQmzMs/imagens/DiagramaDeExecucao
+	width 100text%
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Diagrama de implantação
+\begin_inset CommandInset label
+LatexCommand label
+name "cap:Diagrama-de-implanta=0000E7=0000E3o."
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Nota:
+ 
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+ Não perca de vista a visão do todo;
+ do projeto de engenharia como um todo.
+ Cada capítulo,
+ cada seção,
+ cada parágrafo deve se encaixar.
+ Este é um diferencial fundamental do engenheiro em relação ao técnico,
+ a capacidade de desenvolver projetos,
+ de ver o todo e suas diferentes partes,
+ de modelar processos/sistemas/produtos de engenharia.
+ 
+\end_layout
+
+\end_deeper
+\end_deeper
+\end_body
+\end_document

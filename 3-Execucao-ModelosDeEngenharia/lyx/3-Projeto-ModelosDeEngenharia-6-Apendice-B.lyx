@@ -1,0 +1,593 @@
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children no
+\language american
+\language_package default
+\inputencoding utf8
+\fontencoding auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement class
+\float_alignment class
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\index Index
+\shortcut idx
+\color #008080
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tablestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content true
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+chapter{Código-Fonte Selecionado}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+lhead
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+Apêndice 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+thechapter
+\end_layout
+
+\end_inset
+
+:
+ Código-Fonte Selecionado
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+rhead
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+thepage
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Este apêndice apresenta o código-fonte das interfaces (arquivos de cabeçalho 
+\family typewriter
+.h
+\family default
+) das principais classes desenvolvidas no projeto.
+ A escolha por apresentar as interfaces visa a oferecer uma visão clara e concisa da arquitetura orientada a objeto,
+ das responsabilidades de cada classe e de suas inter-relações,
+ sem o detalhamento excessivo dos arquivos de implementação.
+\end_layout
+
+\begin_layout Section
+Classe CSimulador
+\end_layout
+
+\begin_layout Standard
+Responsável pela orquestração geral do sistema,
+ gerenciando o fluxo de execução e a interação entre os componentes.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language={C++},style=myCppStyle"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+#ifndef CPECAPPLICATION_H
+\end_layout
+
+\begin_layout Plain Layout
+
+#define CPECAPPLICATION_H
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+#include "CInput.h"
+\end_layout
+
+\begin_layout Plain Layout
+
+#include "CElasticCalculator.h"
+\end_layout
+
+\begin_layout Plain Layout
+
+#include "CMineralDatabase.h"
+\end_layout
+
+\begin_layout Plain Layout
+
+#include "CReservoirData.h"
+\end_layout
+
+\begin_layout Plain Layout
+
+#include "CPlotManager.h"
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+class CSimulador {
+\end_layout
+
+\begin_layout Plain Layout
+
+public:
+\end_layout
+
+\begin_layout Plain Layout
+
+    CSimulador();
+\end_layout
+
+\begin_layout Plain Layout
+
+    void Run();
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+private:
+\end_layout
+
+\begin_layout Plain Layout
+
+    CInput m_inputManager;
+\end_layout
+
+\begin_layout Plain Layout
+
+    CMineralDatabase m_database;
+\end_layout
+
+\begin_layout Plain Layout
+
+    CElasticCalculator m_calculator;
+\end_layout
+
+\begin_layout Plain Layout
+
+    CReservoirData m_reservoirData;
+\end_layout
+
+\begin_layout Plain Layout
+
+    CPlotManager m_plotManager;
+\end_layout
+
+\begin_layout Plain Layout
+
+    bool m_running;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    void Menu();
+\end_layout
+
+\begin_layout Plain Layout
+
+    void Initialize();
+\end_layout
+
+\begin_layout Plain Layout
+
+    void Finalize();
+\end_layout
+
+\begin_layout Plain Layout
+
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+#endif
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Classe CElasticCalculator
+\end_layout
+
+\begin_layout Standard
+Encapsula a lógica de cálculo dos módulos elásticos,
+ utilizando composição para delegar os cálculos específicos.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language={C++},style=myCppStyle"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+#ifndef CELASTICCALCULATOR_H
+\end_layout
+
+\begin_layout Plain Layout
+
+#define CELASTICCAL-CULATOR_H
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+#include "CMineralDatabase.h"
+\end_layout
+
+\begin_layout Plain Layout
+
+#include "CAmostra.h"
+\end_layout
+
+\begin_layout Plain Layout
+
+#include "CBulkCalculator.h"
+\end_layout
+
+\begin_layout Plain Layout
+
+#include "CShearCalculator.h"
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+class CElasticCalculator {
+\end_layout
+
+\begin_layout Plain Layout
+
+public:
+\end_layout
+
+\begin_layout Plain Layout
+
+    struct Result {
+\end_layout
+
+\begin_layout Plain Layout
+
+        float bulkVoigt,
+ bulkReuss,
+ bulkHill;
+\end_layout
+
+\begin_layout Plain Layout
+
+        float shearVoigt,
+ shearReuss,
+ shearHill;
+\end_layout
+
+\begin_layout Plain Layout
+
+    };
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    explicit CElasticCalculator(const CMineralDatabase& db);
+\end_layout
+
+\begin_layout Plain Layout
+
+    Result Calculate(const CAmostra& amostra) const;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+private:
+\end_layout
+
+\begin_layout Plain Layout
+
+    CBulkCalculator m_bulkCalc;
+\end_layout
+
+\begin_layout Plain Layout
+
+    CShearCalculator m_shearCalc;
+\end_layout
+
+\begin_layout Plain Layout
+
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+#endif // CELASTICCALCULATOR_H
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Classe CAmostra
+\end_layout
+
+\begin_layout Standard
+Representa a entidade de dados de uma amostra de rocha,
+ encapsulando todas as suas propriedades.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language={C++},style=myCppStyle"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+#ifndef CAMOSTRAH #define CAMOSTRAH
+\end_layout
+
+\begin_layout Standard
+#include <string> #include <map>
+\end_layout
+
+\begin_layout Standard
+class CAmostra 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+ public:
+ CAmostra();
+ CAmostra(const std::string& reservatorio,
+ const std::string& nome,
+ float profundidade,
+ float porosidade,
+ const std::map<std::string,
+ float>& minerais);
+\end_layout
+
+\begin_layout Standard
+const std::string& NomeReservatorio() const;
+ const std::string& NomeAmostra() const;
+ float Profundidade() const;
+ float Porosidade() const;
+ const std::map<std::string,
+ float>& Minerais() const;
+\end_layout
+
+\begin_layout Standard
+private:
+ std::string mreservatorio;
+ std::string mnome;
+ float mprofundidade;
+ float mporosidade;
+ std::map<std::string,
+ float> mminerais;
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Standard
+#endif 
+\end_layout
+
+\end_body
+\end_document
