@@ -1,0 +1,352 @@
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass report
+\use_default_options true
+\maintain_unincluded_children no
+\language brazilian
+\language_package default
+\inputencoding utf8
+\fontencoding auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement class
+\float_alignment class
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\index Index
+\shortcut idx
+\color #008080
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tablestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content true
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+chapter{Descrição da Proposta}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Apresenta-se aqui a proposta de desenvolvimento de um projeto de engenharia que visa a implementação de uma ferramenta computacional robusta e multiplataforma para a modelagem de propriedades físicas de rochas reservatório.
+ O software,
+ denominado 
+\backslash
+textbf{PoreElasticCalculator (PEC)},
+ tem como objetivo principal automatizar o cálculo de módulos elásticos efetivos —
+ especificamente a Compressibilidade ($K$) e o Cisalhamento ($G$) —
+ em meios porosos heterogêneos,
+ aplicando os fundamentos da Teoria do Meio Efetivo (EMT).
+ O sistema é projetado para processar composições mineralógicas complexas através de uma arquitetura orientada a objetos em C++,
+ aplicando os limites teóricos de Voigt e Reuss bem como a média de Hill.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+section{Título da proposta}
+\end_layout
+
+\begin_layout Plain Layout
+
+Simulador de Propriedades Poroelásticas (PEC)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+section{Convocação}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+noindent
+\end_layout
+
+\begin_layout Plain Layout
+
+$
+\backslash
+square$ Projeto da UENF 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+$
+\backslash
+square$ Projeto do CCT 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+$
+\backslash
+boxtimes$ Projeto do LENEP:
+ Prof.
+ Andre Bueno 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+$
+\backslash
+square$ Projeto de extensão:
+ nome da empresa de engenharia
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+section{Atendimento obrigação?}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+noindent
+\end_layout
+
+\begin_layout Plain Layout
+
+$
+\backslash
+square$ sim - anp.
+ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+$
+\backslash
+boxtimes$ sim disciplinas modelagem computacional:
+ Introdução ao Projeto de Engenharia,
+ Programação Orientada a Objeto em C++ e Projeto de Software Aplicado à Engenharia.
+ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+$
+\backslash
+square$ sim - TCC do curso de engenharia de petróleo.
+ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+$
+\backslash
+square$ não.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+section{Área,
+ tema e sub-tema}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+noindent
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{Área:} Engenharia de Petróleo 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{Tema:} Petrofísica Computacional 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{Sub-tema:} Modelagem Elástica (Voigt-Reuss-Hill)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+section{Descrição do desafio tecnológico}
+\end_layout
+
+\begin_layout Plain Layout
+
+O desafio consiste em desenvolver um software multiplataforma (C++) para calcular módulos elásticos de rochas ($K$ e $G$) a partir de dados mineralógicos.
+ O sistema deve processar arquivos de entrada,
+ aplicar modelos físicos (Voigt,
+ Reuss,
+ Hill) e gerar gráficos automatizados via Gnuplot para análise de propriedades em função da profundidade e porosidade.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+section{Objetivo geral}
+\end_layout
+
+\begin_layout Plain Layout
+
+Criar uma ferramenta robusta de física de rochas que automatize cálculos repetitivos e forneça visualização de dados,
+ servindo como suporte para interpretação geofísica e caracterização de reservatórios.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
