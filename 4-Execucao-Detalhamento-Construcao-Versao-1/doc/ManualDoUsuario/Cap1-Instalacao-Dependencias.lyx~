@@ -1,0 +1,416 @@
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass extbook
+\begin_preamble
+\usepackage {graphicx}
+\usepackage {longtable}
+\usepackage {indentfirst}
+\renewenvironment{center}{\par\centering}{\par}
+
+% Comentar linhas abaixo se não estiver usando pacote abntex
+% ou se o pacote ainda não foi instalado.
+% neste caso sugere-se usar citações no padrão apalike (lembra o da anbt).
+%\usepackage[alf ,abnt-etal-cite=2 , abnt-year-extra-label=yes , abnt-etal-list=0]{abntcite}
+%\usepackage {helvet}
+%\renewcommand {\familydefault}{\sfdefault}
+
+% Para uso de listagens de código
+\usepackage{color}
+\definecolor{azulclaro}{rgb}{0.6,1,1}%   rgb color model
+% Informa que vai usar o pacote listings, 
+% disponibilizado em /usr/share/texmf/doc/latex/styles/listings.dvi
+\usepackage{listings}
+\end_preamble
+\options normaltoc, sumarioincompleto
+\use_default_options false
+\master DocumentoMestre-Trabalho-ProgramacaoPratica.lyx
+\maintain_unincluded_children no
+\language brazilian
+\language_package auto
+\inputencoding utf8
+\fontencoding auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing onehalf
+\use_hyperref true
+\pdf_title "Título da Monografia - Dissertação - Tese"
+\pdf_author "Nome do Autor"
+\pdf_subject "Descrever assunto"
+\pdf_keywords "Copiar do resumo"
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen true
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks true
+\pdf_pdfborder true
+\pdf_colorlinks false
+\pdf_backref page
+\pdf_pdfusetitle true
+\papersize a4
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style apalike
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\index Índice
+\shortcut idx
+\color #008000
+\end_index
+\paperwidth 210mm
+\paperheight 297mm
+\leftmargin 30mm
+\topmargin 25mm
+\rightmargin 20mm
+\bottommargin 20mm
+\secnumdepth 2
+\tocdepth 1
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle fancy
+\tablestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\end_header
+
+\begin_body
+
+\begin_layout Part
+Manual do Usuário 
+\begin_inset Newline newline
+\end_inset
+
+PORO ELASTIC CALCULATOR
+\begin_inset Index idx
+range none
+pageformat default
+status open
+
+\begin_layout Plain Layout
+Manual do Usuário
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Manual-do-Usuário"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Instalação
+\begin_inset Index idx
+range none
+pageformat default
+status open
+
+\begin_layout Plain Layout
+Instalação
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A seguir instruções para instalação do software.
+\end_layout
+
+\begin_layout Section
+Baixando o software
+\end_layout
+
+\begin_layout Standard
+O software Pore Elastic Calculator (PEC) é distribuído como código-fonte aberto.
+ Para obter a versão mais recente,
+ o usuário deve acessar o repositório do projeto no GitHub fornecido pelos desenvolvedores,
+ disponível em 
+\begin_inset CommandInset href
+LatexCommand href
+target "https://github.com/ldsc/ProjetoEngenharia-SimuladorDePropriedadesPoroelasticas/tree/main/4-Execucao-Detalhamento-Construcao-Versao-3"
+literal "false"
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+O projeto está estruturado com as seguintes pastas:
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{itemize} 
+\backslash
+item 
+\backslash
+textbf{src/}:
+ Contém todos os arquivos de código-fonte (.cpp).
+ 
+\backslash
+item 
+\backslash
+textbf{build/}:
+ Contém todos os arquivos de código-fonte (.h) 
+\backslash
+item 
+\backslash
+textbf{database/}:
+ Contém o arquivo 
+\backslash
+textit{minerais.csv} com as propriedades físicas.
+ 
+\backslash
+item 
+\backslash
+textbf{plots/}:
+ Diretório onde os gráficos gerados serão salvos.
+ 
+\backslash
+end{itemize}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Dependências
+\begin_inset Index idx
+range none
+pageformat default
+status open
+
+\begin_layout Plain Layout
+Dependências
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para garantir o funcionamento correto do PEC,
+ o sistema do usuário deve atender aos seguintes requisitos de software:
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{itemize} 
+\backslash
+item 
+\backslash
+textbf{Compilador C++:} Suporte ao padrão C++17 (GCC 8+,
+ Clang 6+,
+ MSVC 2017+ ou MinGW-w64).
+ 
+\backslash
+item 
+\backslash
+textbf{Gnuplot:} Essencial para a visualização gráfica.
+ 
+\backslash
+begin{itemize} 
+\backslash
+item 
+\backslash
+textit{Linux:} Instalar via gerenciador de pacotes (sudo apt install gnuplot).
+ 
+\backslash
+item 
+\backslash
+textit{Windows:} Baixar o instalador oficial e,
+ durante a instalação,
+ marcar a opção "Add application directory to your PATH environment variable".
+ 
+\backslash
+end{itemize} 
+\backslash
+end{itemize}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Compilação e Execução
+\end_layout
+
+\begin_layout Standard
+Para compilar o projeto em ambiente Linux/Unix via terminal,
+ navegue até a pasta do projeto e execute:
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{verbatim} make 
+\backslash
+end{verbatim}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Após a compilação,
+ o executável será gerado.
+ Para iniciar o programa,
+ utilize o comando:
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{verbatim} ./PoreElasticCalculator 
+\backslash
+end{verbatim}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para compilar o projeto em ambiente Windows,
+ recomenda-se o uso do compilador MinGW-w64 via linha de comando (CMD ou PowerShell):
+\end_layout
+
+\begin_layout Itemize
+Abra o Prompt de Comando (CMD) ou PowerShell.
+\end_layout
+
+\begin_layout Itemize
+Navegue até a pasta onde o projeto foi descompactado (use o comando cd).
+\end_layout
+
+\begin_layout Itemize
+Execute o comando de compilação abaixo (certifique-se de estar na raiz do projeto,
+ onde a pasta src é visível):
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{verbatim} g++ -std=c++17 src/*.cpp -o PoreElasticCalculator.exe 
+\backslash
+end{verbatim}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Após a compilação bem-sucedida,
+ execute o programa digitando:
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{verbatim} .
+\backslash
+PoreElasticCalculator.exe 
+\backslash
+end{verbatim}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
