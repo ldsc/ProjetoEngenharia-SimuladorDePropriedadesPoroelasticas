@@ -1,14 +1,14 @@
-#+TITLE: ProjetoEngenharia-SimuladorDePropriedadesPoroelasticas - PEC (Poro Elastic Calculator)
+#+TITLE: ProjetoEngenharia-SimuladorDePropriedadesPoroelasticas - PEC (Pore Elastic Calculator)
 
 * Nome do Desafio Tecnológico
 ** ProjetoEngenharia-SimuladorDePropriedadesPoroelasticas
 ** https://github.com/ldsc/ProjetoEngenharia-SimuladorDePropriedadesPoroelasticas
 
 * Nome do Software:
-- PEC - Poro Elastic Calculator
+- PEC - Pore Elastic Calculator
 
 * Resumo e/ou informação extra:
-- O PEC (Poro Elastic Calculator) é uma ferramenta computacional desenvolvida em C++ voltada para a área de Física de Rochas.
+- O PEC (Pore Elastic Calculator) é uma ferramenta computacional desenvolvida em C++ voltada para a área de Física de Rochas.
 - O software calcula as propriedades elásticas efetivas (Módulo de Compressibilidade - K e Módulo de Cisalhamento - G) de rochas porosas com base em sua composição mineralógica e porosidade.
 - Utiliza as teorias de meio efetivo de Voigt, Reuss e Hill para determinar os limites superior e inferior e a média das propriedades elásticas.
 - O sistema inclui geração automática de gráficos (perfis de profundidade, crossplots e análises de sensibilidade mineralógica) utilizando o Gnuplot como motor de renderização.
@@ -20,7 +20,7 @@
 - 2025/2 - Segundo semestre.
 
 * Autores de Contato:
-- Matheus Sousa Bastos <matheus.bastos@lenep.uenf.br>
+- Matheus Sousa Bastos <matheusbastos@lenep.uenf.br>
 - Nicolau Azevedo Prates <nicolau.prates@lenep.uenf.br>
 
 * Lista dos Autores:
