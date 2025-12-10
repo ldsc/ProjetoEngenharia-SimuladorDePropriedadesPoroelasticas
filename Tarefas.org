@@ -1,4 +1,4 @@
-#+TITLE: Relatório de Avaliação de Projeto de Engenharia - PEC (Poro Elastic Calculator)
+#+TITLE: Relatório de Avaliação de Projeto de Engenharia - PEC (Pore Elastic Calculator)
 #+AUTHOR: Prof. André Duarte Bueno
 #+DATE: 2025-12-08
 
