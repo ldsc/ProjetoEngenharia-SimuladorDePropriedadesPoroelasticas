@@ -1,0 +1,1245 @@
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children no
+\language brazilian
+\language_package default
+\inputencoding utf8
+\fontencoding auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement class
+\float_alignment class
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\index Index
+\shortcut idx
+\color #008080
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tablestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content true
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lhead{
+\backslash
+thechapter
+\backslash
+space - Especificação}  
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+chead{}  
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+rhead{}  
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+chapter{Concepção
+\backslash
+label{chap:Concep=0000E7=0000E3o}
+\backslash
+index{Concepção}}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Apresenta-se neste capítulo do projeto de engenharia a concepção,
+\end_layout
+
+\begin_layout Plain Layout
+
+a especificação do sistema a ser modelado e desenvolvido.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+section{Metodologia
+\backslash
+label{sec:Metodologia}}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+A Figura 
+\backslash
+ref{fig:
+ Metodologia utilizada no desenvolvimento do sistema}
+\end_layout
+
+\begin_layout Plain Layout
+
+apresenta a metodologia a ser utilizada no desenvolvimento do sistema.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{figure}[ph]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{centering}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[width=1
+\backslash
+textwidth,keepaspectratio,height=0.8
+\backslash
+textheight]{imagens/ProjetoEngenharia-Etapas-Geral-wide.png}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\backslash
+end{centering}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+caption{Metodologia utilizada no desenvolvimento do sistema
+\backslash
+label{fig:
+ Metodologia utilizada no desenvolvimento do sistema}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{figure}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+section{Nome do Sistema/Produto
+\backslash
+label{sec:
+ Nome do sistema/produto}}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular*}{14cm}{@{
+\backslash
+extracolsep{
+\backslash
+fill}}|c|>{
+\backslash
+centering}p{8cm}|}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{Nome} & PoroElasticCalculator
+\backslash
+tabularnewline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{Componentes principais} & MineralDatabase,
+ ReservoirData,
+ PECApplication 
+\backslash
+tabularnewline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{Missão} & Calcular propriedades elásticas de amostras de rocha
+\backslash
+tabularnewline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular*}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+section{Especificação
+\backslash
+label{sec:Especifica=0000E7=0000E3o}
+\backslash
+index{Especificação}
+\backslash
+index{especificação}}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+O software PEC (PoroElasticCalculator) tem como objetivo estimar as propriedades elásticas efetivas de rochas sedimentares a partir de sua composição mineralógica,
+ por meio da aplicação de modelos físicos consagrados na literatura de física das rochas.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+O sistema visa auxiliar engenheiros,
+ geofísicos e pesquisadores na avaliação de módulo de compressibilidade (K) e módulo de cisalhamento (G) de amostras naturais ou sintéticas.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+section{Requisitos
+\backslash
+index{Requisitos}
+\backslash
+label{sec:Requisitos} }
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Apresenta-se nesta seção os requisitos funcionais e não funcionais.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsection{Requisitos funcionais
+\backslash
+index{Requisitos funcionais}
+\backslash
+label{subsec:Requisitos-funcionais}}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Apresenta-se a seguir os requisitos funcionais.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular*}{14cm}{@{
+\backslash
+extracolsep{
+\backslash
+fill}}|c|p{11.5cm}|}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{RF-01} & O sistema deve conter uma base de dados dos módulos de cisalhamento e compressibilidade de vários minerais.
+ 
+\backslash
+tabularnewline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular*}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+bigskip{}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular*}{14cm}{@{
+\backslash
+extracolsep{
+\backslash
+fill}}|c|p{11.5cm}|}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{RF-02} & O usuário deverá ter liberdade para colocar manualmente os valores de sua amostra ou carregar um arquivo de saída que já contenha estes dados.
+\backslash
+tabularnewline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular*}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+bigskip{}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular*}{14cm}{@{
+\backslash
+extracolsep{
+\backslash
+fill}}|c|p{11.5cm}|}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{RF-03} & Deve permitir o carregamento de arquivos criados pelo software.
+\backslash
+tabularnewline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular*}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+bigskip{}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular*}{14cm}{@{
+\backslash
+extracolsep{
+\backslash
+fill}}|c|p{11.5cm}|}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{RF-04} & Deve permitir a escolha das equacões de Hashin-Strikeman ou Voig-Reus-Hill.
+\backslash
+tabularnewline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular*}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+bigskip{}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular*}{14cm}{@{
+\backslash
+extracolsep{
+\backslash
+fill}}|c|p{11.5cm}|}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{RF-05} & O O usuário deve ter tal liberdade para escolher as porcentagens mineralógicas da sua amostra.
+\backslash
+tabularnewline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular*}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+bigskip{}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular*}{14cm}{@{
+\backslash
+extracolsep{
+\backslash
+fill}}|c|p{11.5cm}|}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{RF-06} & O usuário poderá plotar seus resultados em um gráfico.
+ O gráfico poderá
+\end_layout
+
+\begin_layout Plain Layout
+
+ser salvo como imagem ou ter seus dados exportados como texto.
+\backslash
+tabularnewline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular*}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+bigskip{}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsection{Requisitos não funcionais
+\backslash
+index{Requisitos não funcionais}
+\backslash
+label{subsec:Requisitos-n=0000E3o-funcionais}}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular*}{14cm}{@{
+\backslash
+extracolsep{
+\backslash
+fill}}|c|p{11cm}|}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{RNF-01} &Os cálculos devem ser feitos utilizando-se as equações de Hashin-Strikeman ou Voig-Reus-Hill.
+\backslash
+tabularnewline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular*}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+bigskip{}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular*}{14cm}{@{
+\backslash
+extracolsep{
+\backslash
+fill}}|c|p{11cm}|}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{RNF-02} & O programa deverá ser multi-plataforma,
+ podendo ser executado em 
+\backslash
+emph{Windows},
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+emph{GNU/Linux} ou 
+\backslash
+emph{MacOS}.
+\backslash
+tabularnewline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular*}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+section{Casos de Uso
+\backslash
+label{sec:Casos-de-uso}
+\backslash
+index{Casos de uso} }
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+A Tabela 
+\backslash
+ref{cap:Exemplo-de-um-caso-de-uso (tabela)} mostra a descrição
+\end_layout
+
+\begin_layout Plain Layout
+
+de um caso de uso.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{table}[H]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+caption{Caso de uso 1
+\backslash
+label{cap:Exemplo-de-um-caso-de-uso (tabela)}}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+~
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering{}%
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{|c|p{10cm}|}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline 
+\end_layout
+
+\begin_layout Plain Layout
+
+Nome do caso de uso:
+ & Geral
+\backslash
+tabularnewline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline 
+\end_layout
+
+\begin_layout Plain Layout
+
+Resumo/descrição:
+ & Etapas a serem cumpridas pelo usuário
+\backslash
+tabularnewline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline 
+\end_layout
+
+\begin_layout Plain Layout
+
+Etapas:
+ & Criar a amostra,
+ carregar os arquivos,
+ gerar os crossplot,
+ analisar os resultados.
+ 
+\backslash
+tabularnewline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline 
+\end_layout
+
+\begin_layout Plain Layout
+
+Cenários alternativos:
+ & O usuário escolhe os valores manualmente,
+ podendo adicionar novos minerais 
+\backslash
+tabularnewline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{table}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsection{Diagrama de caso de uso geral
+\backslash
+label{subsec:
+ Diagrama de caso de uso geral}}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+O diagrama de caso de uso geral da Figura 
+\backslash
+ref{cap:Diagrama-caso-uso-geral}
+\end_layout
+
+\begin_layout Plain Layout
+
+mostra o usuário acessando os sistemas de ajuda do software,
+ calculando
+\end_layout
+
+\begin_layout Plain Layout
+
+as proprieadades elásticas e analisando os resultados.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{figure}[ph]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{centering}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[width=1
+\backslash
+textwidth,keepaspectratio,height=0.3
+\backslash
+textheight]{imagens/UseCaseDiagram.png}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\backslash
+end{centering}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+caption{Diagrama de caso de uso -- Caso de uso geral
+\backslash
+label{cap:Diagrama-caso-uso-geral}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{figure}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsection{Diagrama de caso de uso específico
+\backslash
+label{subsec:
+ Diagrama de caso de uso espec=0000EDfico}}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{figure}[ph]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{centering}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[width=1
+\backslash
+textwidth]{imagens/CasoDeUsoEspecifico-CarregarArquivo.png }
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\backslash
+end{centering}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+caption{Diagrama de caso de uso específico 
+\backslash
+label{cap:Diagrama-de-caso-de-uso-especifico:Titulo}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{figure}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

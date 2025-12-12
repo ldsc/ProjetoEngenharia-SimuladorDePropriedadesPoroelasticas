@@ -1,0 +1,7115 @@
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children no
+\language brazilian
+\language_package default
+\inputencoding utf8
+\fontencoding auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement class
+\float_alignment class
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\index Index
+\shortcut idx
+\color #008080
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tablestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content true
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+% ==========================================================================
+\end_layout
+
+\begin_layout Plain Layout
+
+% CAPÍTULO:
+ CICLOS CONSTRUÇÃO - IMPLEMENTAÇÃO (PARTE 1:
+ HEADERS)
+\end_layout
+
+\begin_layout Plain Layout
+
+% ==========================================================================
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+chapter{Ciclos Construção - Implementação}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Este capítulo documenta integralmente o código-fonte desenvolvido para o software 
+\backslash
+textbf{PoreElasticCalculator (PEC v3)}.
+ O projeto foi concebido sob a filosofia de 
+\backslash
+textit{Open Source},
+ com o objetivo de democratizar o acesso a ferramentas de física de rochas no LENEP.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Abaixo estão os scripts de configuração e,
+ na sequência,
+ as definições de todas as interfaces do sistema (arquivos de cabeçalho).
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+% --------------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+
+% 1.
+ CONFIGURAÇÃO E BUILD
+\end_layout
+
+\begin_layout Plain Layout
+
+% --------------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+section{Configuração e Scripts Auxiliares}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[style=myCppStyle,
+ language=bash,
+ caption={CMakeLists.txt}]
+\end_layout
+
+\begin_layout Plain Layout
+
+cmake_minimum_required(VERSION 3.15)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Nome do projeto e padrao C++
+\end_layout
+
+\begin_layout Plain Layout
+
+project(PoreElasticCalculator VERSION 3.0 LANGUAGES CXX)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# C++17 ou superior
+\end_layout
+
+\begin_layout Plain Layout
+
+set(CMAKE_CXX_STANDARD 17)
+\end_layout
+
+\begin_layout Plain Layout
+
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Diretorios
+\end_layout
+
+\begin_layout Plain Layout
+
+include_directories(include)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Lista de fontes
+\end_layout
+
+\begin_layout Plain Layout
+
+file(GLOB_RECURSE SOURCES
+\end_layout
+
+\begin_layout Plain Layout
+
+    src/*.cpp
+\end_layout
+
+\begin_layout Plain Layout
+
+    include/*.h
+\end_layout
+
+\begin_layout Plain Layout
+
+    main.cpp
+\end_layout
+
+\begin_layout Plain Layout
+
+)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Executavel principal
+\end_layout
+
+\begin_layout Plain Layout
+
+add_executable(${PROJECT_NAME} ${SOURCES})
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Opcoes para warnings
+\end_layout
+
+\begin_layout Plain Layout
+
+if (CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+\end_layout
+
+\begin_layout Plain Layout
+
+    target_compile_options(${PROJECT_NAME} PRIVATE -Wall -Wextra -pedantic -Wno-unused-parameter)
+\end_layout
+
+\begin_layout Plain Layout
+
+elseif (MSVC)
+\end_layout
+
+\begin_layout Plain Layout
+
+    target_compile_options(${PROJECT_NAME} PRIVATE /W4 /permissive-)
+\end_layout
+
+\begin_layout Plain Layout
+
+endif()
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[style=myCppStyle,
+ language=bash,
+ caption={Launch.command (macOS)}]
+\end_layout
+
+\begin_layout Plain Layout
+
+#!/bin/bash
+\end_layout
+
+\begin_layout Plain Layout
+
+cd "$(dirname "$0")/build"
+\end_layout
+
+\begin_layout Plain Layout
+
+./PoreElasticCalculator
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+% --------------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+
+% 2.
+ ARQUIVOS DE CABEÇALHO (.h)
+\end_layout
+
+\begin_layout Plain Layout
+
+% --------------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+section{Interfaces do Sistema (.h)}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+A seguir,
+ apresentam-se todos os arquivos de cabeçalho que definem a estrutura das classes e seus contratos.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsection{Entidades Básicas}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[style=myCppStyle,
+ caption={include/CMineral.h}]
+\end_layout
+
+\begin_layout Plain Layout
+
+#ifndef CMINERAL_H
+\end_layout
+
+\begin_layout Plain Layout
+
+#define CMINERAL_H
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+#include <string>
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+/**
+\end_layout
+
+\begin_layout Plain Layout
+
+ * @class CMineral
+\end_layout
+
+\begin_layout Plain Layout
+
+ * @brief Representa um mineral com modulo de bulk e cisalhamento.
+\end_layout
+
+\begin_layout Plain Layout
+
+ */
+\end_layout
+
+\begin_layout Plain Layout
+
+class CMineral {
+\end_layout
+
+\begin_layout Plain Layout
+
+public:
+\end_layout
+
+\begin_layout Plain Layout
+
+    /**
+\end_layout
+
+\begin_layout Plain Layout
+
+     * @brief Construtor padrao necessario para uso com std::unordered_map.
+\end_layout
+
+\begin_layout Plain Layout
+
+     */
+\end_layout
+
+\begin_layout Plain Layout
+
+    CMineral();
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    /**
+\end_layout
+
+\begin_layout Plain Layout
+
+     * @brief Construtor com nome,
+ bulk e shear.
+\end_layout
+
+\begin_layout Plain Layout
+
+     */
+\end_layout
+
+\begin_layout Plain Layout
+
+    CMineral(const std::string& nome,
+ float bulk,
+ float shear);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    const std::string& Nome() const;
+\end_layout
+
+\begin_layout Plain Layout
+
+    float Bulk() const;
+\end_layout
+
+\begin_layout Plain Layout
+
+    float Shear() const;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+private:
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::string m_nome;
+\end_layout
+
+\begin_layout Plain Layout
+
+    float m_bulk;
+\end_layout
+
+\begin_layout Plain Layout
+
+    float m_shear;
+\end_layout
+
+\begin_layout Plain Layout
+
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+#endif
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[style=myCppStyle,
+ caption={include/CAmostra.h}]
+\end_layout
+
+\begin_layout Plain Layout
+
+#ifndef CAMOSTRA_H
+\end_layout
+
+\begin_layout Plain Layout
+
+#define CAMOSTRA_H
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+#include <string>
+\end_layout
+
+\begin_layout Plain Layout
+
+#include <map>
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+/**
+\end_layout
+
+\begin_layout Plain Layout
+
+ * @class CAmostra
+\end_layout
+
+\begin_layout Plain Layout
+
+ * @brief Representa os dados de uma amostra.
+\end_layout
+
+\begin_layout Plain Layout
+
+ */
+\end_layout
+
+\begin_layout Plain Layout
+
+class CAmostra {
+\end_layout
+
+\begin_layout Plain Layout
+
+public:
+\end_layout
+
+\begin_layout Plain Layout
+
+    CAmostra();
+\end_layout
+
+\begin_layout Plain Layout
+
+    CAmostra(const std::string& reservatorio,
+ const std::string& nome,
+\end_layout
+
+\begin_layout Plain Layout
+
+             float profundidade,
+ float porosidade,
+\end_layout
+
+\begin_layout Plain Layout
+
+             const std::map<std::string,
+ float>& minerais);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    const std::string& NomeReservatorio() const;
+\end_layout
+
+\begin_layout Plain Layout
+
+    const std::string& NomeAmostra() const;
+\end_layout
+
+\begin_layout Plain Layout
+
+    float Profundidade() const;
+\end_layout
+
+\begin_layout Plain Layout
+
+    float Porosidade() const;
+\end_layout
+
+\begin_layout Plain Layout
+
+    const std::map<std::string,
+ float>& Minerais() const;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+private:
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::string m_reservatorio;
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::string m_nome;
+\end_layout
+
+\begin_layout Plain Layout
+
+    float m_profundidade;
+\end_layout
+
+\begin_layout Plain Layout
+
+    float m_porosidade;
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::map<std::string,
+ float> m_minerais;
+\end_layout
+
+\begin_layout Plain Layout
+
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+#endif
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsection{Gestão de Dados e Entrada}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[style=myCppStyle,
+ caption={include/CMineralDatabase.h}]
+\end_layout
+
+\begin_layout Plain Layout
+
+#ifndef CMINERALDATABASE_H
+\end_layout
+
+\begin_layout Plain Layout
+
+#define CMINERALDATABASE_H
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+#include "CMineral.h"
+\end_layout
+
+\begin_layout Plain Layout
+
+#include <unordered_map>
+\end_layout
+
+\begin_layout Plain Layout
+
+#include <string>
+\end_layout
+
+\begin_layout Plain Layout
+
+#include <vector>
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+/**
+\end_layout
+
+\begin_layout Plain Layout
+
+ * @class CMineralDatabase
+\end_layout
+
+\begin_layout Plain Layout
+
+ * @brief Banco de dados de minerais com seus modulos elasticos.
+\end_layout
+
+\begin_layout Plain Layout
+
+ */
+\end_layout
+
+\begin_layout Plain Layout
+
+class CMineralDatabase {
+\end_layout
+
+\begin_layout Plain Layout
+
+public:
+\end_layout
+
+\begin_layout Plain Layout
+
+    explicit CMineralDatabase(const std::string& filePath);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    /**
+\end_layout
+
+\begin_layout Plain Layout
+
+     * @brief Verifica se o mineral existe no banco.
+\end_layout
+
+\begin_layout Plain Layout
+
+     */
+\end_layout
+
+\begin_layout Plain Layout
+
+    bool HasMineral(const std::string& nome) const;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    /**
+\end_layout
+
+\begin_layout Plain Layout
+
+     * @brief Retorna o modulo de bulk do mineral.
+\end_layout
+
+\begin_layout Plain Layout
+
+     */
+\end_layout
+
+\begin_layout Plain Layout
+
+    float GetBulkModulus(const std::string& nome) const;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    /**
+\end_layout
+
+\begin_layout Plain Layout
+
+     * @brief Retorna o modulo de cisalhamento do mineral.
+\end_layout
+
+\begin_layout Plain Layout
+
+     */
+\end_layout
+
+\begin_layout Plain Layout
+
+    float GetShearModulus(const std::string& nome) const;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    /**
+\end_layout
+
+\begin_layout Plain Layout
+
+     * @brief Adiciona um novo mineral ao banco.
+\end_layout
+
+\begin_layout Plain Layout
+
+     */
+\end_layout
+
+\begin_layout Plain Layout
+
+    void AddMineral(const std::string& nome,
+ float k,
+ float g);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    /**
+\end_layout
+
+\begin_layout Plain Layout
+
+     * @brief Imprime todos os minerais ordenados alfabeticamente.
+\end_layout
+
+\begin_layout Plain Layout
+
+     */
+\end_layout
+
+\begin_layout Plain Layout
+
+    void PrintAllMineralsSorted() const;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+private:
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::unordered_map<std::string,
+ CMineral> m_minerals;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    void LoadFromFile(const std::string& filePath);
+\end_layout
+
+\begin_layout Plain Layout
+
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+#endif
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[style=myCppStyle,
+ caption={include/CInput.h}]
+\end_layout
+
+\begin_layout Plain Layout
+
+#ifndef CINPUTMANAGER_H
+\end_layout
+
+\begin_layout Plain Layout
+
+#define CINPUTMANAGER_H
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+#include "CAmostra.h"
+\end_layout
+
+\begin_layout Plain Layout
+
+#include <string>
+\end_layout
+
+\begin_layout Plain Layout
+
+#include <vector>
+\end_layout
+
+\begin_layout Plain Layout
+
+#include <map>
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+/**
+\end_layout
+
+\begin_layout Plain Layout
+
+ * @class CInputManager
+\end_layout
+
+\begin_layout Plain Layout
+
+ * @brief Gerencia a entrada de dados do usuario,
+ seja via terminal ou arquivo.
+\end_layout
+
+\begin_layout Plain Layout
+
+ */
+\end_layout
+
+\begin_layout Plain Layout
+
+class CInput {
+\end_layout
+
+\begin_layout Plain Layout
+
+public:
+\end_layout
+
+\begin_layout Plain Layout
+
+    CInput();
+\end_layout
+
+\begin_layout Plain Layout
+
+    ~CInput();
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    /**
+\end_layout
+
+\begin_layout Plain Layout
+
+     * @brief Solicita entrada manual do usuario via terminal.
+\end_layout
+
+\begin_layout Plain Layout
+
+     * @return CAmostra preenchida.
+\end_layout
+
+\begin_layout Plain Layout
+
+     */
+\end_layout
+
+\begin_layout Plain Layout
+
+    CAmostra PromptManualInput();
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    /**
+\end_layout
+
+\begin_layout Plain Layout
+
+     * @brief Le os dados de entrada a partir de um arquivo CSV.
+\end_layout
+
+\begin_layout Plain Layout
+
+     * @param filePath Caminho para o arquivo CSV.
+\end_layout
+
+\begin_layout Plain Layout
+
+     * @return CAmostra preenchida.
+\end_layout
+
+\begin_layout Plain Layout
+
+     */
+\end_layout
+
+\begin_layout Plain Layout
+
+    CAmostra ReadFromCSV(const std::string& filePath);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    /**
+\end_layout
+
+\begin_layout Plain Layout
+
+     * @brief Le os dados de entrada a partir de um arquivo de texto (CSV ou TXT).
+\end_layout
+
+\begin_layout Plain Layout
+
+     * @param filePath Caminho para o arquivo.
+\end_layout
+
+\begin_layout Plain Layout
+
+     * @return CAmostra preenchida.
+\end_layout
+
+\begin_layout Plain Layout
+
+     */
+\end_layout
+
+\begin_layout Plain Layout
+
+    CAmostra ReadFromFile(const std::string& filePath);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    /**
+\end_layout
+
+\begin_layout Plain Layout
+
+     * @brief Imprime no terminal os dados lidos de uma amostra.
+\end_layout
+
+\begin_layout Plain Layout
+
+     * @param amostra A amostra a ser impressa.
+\end_layout
+
+\begin_layout Plain Layout
+
+     */
+\end_layout
+
+\begin_layout Plain Layout
+
+    void PrintSampleInput(const CAmostra& amostra);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    /**
+\end_layout
+
+\begin_layout Plain Layout
+
+     * @brief Le multiplas amostras de um unico arquivo de entrada.
+\end_layout
+
+\begin_layout Plain Layout
+
+     * @param filePath Caminho para o arquivo.
+\end_layout
+
+\begin_layout Plain Layout
+
+     * @return Vetor de amostras lidas.
+\end_layout
+
+\begin_layout Plain Layout
+
+     */
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::vector<CAmostra> ReadMultipleFromFile(const std::string& filePath);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+private:
+\end_layout
+
+\begin_layout Plain Layout
+
+    /**
+\end_layout
+
+\begin_layout Plain Layout
+
+     * @brief Funcao auxiliar para fazer parsing de uma linha CSV.
+\end_layout
+
+\begin_layout Plain Layout
+
+     */
+\end_layout
+
+\begin_layout Plain Layout
+
+    void ParseCSVLine(const std::string& line,
+ std::map<std::string,
+ float>& mineralsOut);
+\end_layout
+
+\begin_layout Plain Layout
+
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+#endif
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[style=myCppStyle,
+ caption={include/CReservoirData.h}]
+\end_layout
+
+\begin_layout Plain Layout
+
+#ifndef CRESERVOIRDATA_H
+\end_layout
+
+\begin_layout Plain Layout
+
+#define CRESERVOIRDATA_H
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+#include "CAmostra.h"
+\end_layout
+
+\begin_layout Plain Layout
+
+#include "CElasticCalculator.h"
+\end_layout
+
+\begin_layout Plain Layout
+
+#include <vector>
+\end_layout
+
+\begin_layout Plain Layout
+
+#include <set>
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+/**
+\end_layout
+
+\begin_layout Plain Layout
+
+ * @class CReservoirData
+\end_layout
+
+\begin_layout Plain Layout
+
+ * @brief Armazena todas as amostras e seus resultados elasticos.
+\end_layout
+
+\begin_layout Plain Layout
+
+ */
+\end_layout
+
+\begin_layout Plain Layout
+
+class CReservoirData {
+\end_layout
+
+\begin_layout Plain Layout
+
+public:
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::set<std::string> ObterNomesDeMineraisUnicos() const;
+\end_layout
+
+\begin_layout Plain Layout
+
+    struct EnrichedSample {
+\end_layout
+
+\begin_layout Plain Layout
+
+        CAmostra amostra;
+\end_layout
+
+\begin_layout Plain Layout
+
+        CElasticCalculator::Result resultado;
+\end_layout
+
+\begin_layout Plain Layout
+
+        
+\end_layout
+
+\begin_layout Plain Layout
+
+    };
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    void AddSample(const CAmostra& amostra,
+ const CElasticCalculator::Result& resultado);
+\end_layout
+
+\begin_layout Plain Layout
+
+    const std::vector<EnrichedSample>& GetSamples() const;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    void PrintSummary() const;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    void GetKGVsDepth(std::vector<float>& depth,
+\end_layout
+
+\begin_layout Plain Layout
+
+                      std::vector<float>& bulkHill,
+\end_layout
+
+\begin_layout Plain Layout
+
+                      std::vector<float>& shearHill) const;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    void GetKGVsPorosity(std::vector<float>& phi,
+\end_layout
+
+\begin_layout Plain Layout
+
+                         std::vector<float>& bulkHill,
+\end_layout
+
+\begin_layout Plain Layout
+
+                         std::vector<float>& shearHill) const;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    void GetKGVsDepthFull(std::vector<float>& depth,
+\end_layout
+
+\begin_layout Plain Layout
+
+                          std::vector<float>& kV,
+ std::vector<float>& kR,
+ std::vector<float>& kH,
+\end_layout
+
+\begin_layout Plain Layout
+
+                          std::vector<float>& gV,
+ std::vector<float>& gR,
+ std::vector<float>& gH) const;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    void GetKGVsPorosityFull(std::vector<float>& phi,
+\end_layout
+
+\begin_layout Plain Layout
+
+                             std::vector<float>& kV,
+ std::vector<float>& kR,
+ std::vector<float>& kH,
+\end_layout
+
+\begin_layout Plain Layout
+
+                             std::vector<float>& gV,
+ std::vector<float>& gR,
+ std::vector<float>& gH) const;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+private:
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::vector<EnrichedSample> m_amostras;
+\end_layout
+
+\begin_layout Plain Layout
+
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+#endif // CRESERVOIRDATA_H
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsection{Motor de Cálculo (Física)}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[style=myCppStyle,
+ caption={include/CBulkCalculator.h}]
+\end_layout
+
+\begin_layout Plain Layout
+
+#ifndef CBULKCALCULATOR_H
+\end_layout
+
+\begin_layout Plain Layout
+
+#define CBULKCALCULATOR_H
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+#include "CMineralDatabase.h"
+\end_layout
+
+\begin_layout Plain Layout
+
+#include <map>
+\end_layout
+
+\begin_layout Plain Layout
+
+#include <string>
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+/**
+\end_layout
+
+\begin_layout Plain Layout
+
+ * @class CBulkCalculator
+\end_layout
+
+\begin_layout Plain Layout
+
+ * @brief Calcula os modulos de bulk usando os teoremas de Voigt e Reuss.
+\end_layout
+
+\begin_layout Plain Layout
+
+ */
+\end_layout
+
+\begin_layout Plain Layout
+
+class CBulkCalculator {
+\end_layout
+
+\begin_layout Plain Layout
+
+public:
+\end_layout
+
+\begin_layout Plain Layout
+
+    explicit CBulkCalculator(const CMineralDatabase& db);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    float CalcVoigt(const std::map<std::string,
+ float>& composicao) const;
+\end_layout
+
+\begin_layout Plain Layout
+
+    float CalcReuss(const std::map<std::string,
+ float>& composicao) const;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+private:
+\end_layout
+
+\begin_layout Plain Layout
+
+    const CMineralDatabase& m_db;
+\end_layout
+
+\begin_layout Plain Layout
+
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+#endif
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[style=myCppStyle,
+ caption={include/CShearCalculator.h}]
+\end_layout
+
+\begin_layout Plain Layout
+
+#ifndef CSHEARCALCULATOR_H
+\end_layout
+
+\begin_layout Plain Layout
+
+#define CSHEARCALCULATOR_H
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+#include "CMineralDatabase.h"
+\end_layout
+
+\begin_layout Plain Layout
+
+#include <map>
+\end_layout
+
+\begin_layout Plain Layout
+
+#include <string>
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+/**
+\end_layout
+
+\begin_layout Plain Layout
+
+ * @class CShearCalculator
+\end_layout
+
+\begin_layout Plain Layout
+
+ * @brief Calcula os modulos de cisalhamento usando os teoremas de Voigt e Reuss.
+\end_layout
+
+\begin_layout Plain Layout
+
+ */
+\end_layout
+
+\begin_layout Plain Layout
+
+class CShearCalculator {
+\end_layout
+
+\begin_layout Plain Layout
+
+public:
+\end_layout
+
+\begin_layout Plain Layout
+
+    explicit CShearCalculator(const CMineralDatabase& db);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    float CalcVoigt(const std::map<std::string,
+ float>& composicao) const;
+\end_layout
+
+\begin_layout Plain Layout
+
+    float CalcReuss(const std::map<std::string,
+ float>& composicao) const;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+private:
+\end_layout
+
+\begin_layout Plain Layout
+
+    const CMineralDatabase& m_db;
+\end_layout
+
+\begin_layout Plain Layout
+
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+#endif // CSHEARCALCULATOR_H
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[style=myCppStyle,
+ caption={include/CElasticCalculator.h}]
+\end_layout
+
+\begin_layout Plain Layout
+
+#ifndef CELASTICCALCULATOR_H
+\end_layout
+
+\begin_layout Plain Layout
+
+#define CELASTICCALCULATOR_H
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+#include "CMineralDatabase.h"
+\end_layout
+
+\begin_layout Plain Layout
+
+#include "CAmostra.h"
+\end_layout
+
+\begin_layout Plain Layout
+
+#include "CBulkCalculator.h"
+\end_layout
+
+\begin_layout Plain Layout
+
+#include "CShearCalculator.h"
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+/**
+\end_layout
+
+\begin_layout Plain Layout
+
+ * @class CElasticCalculator
+\end_layout
+
+\begin_layout Plain Layout
+
+ * @brief Calcula os modulos elasticos da amostra usando as medias de Voigt,
+ Reuss e Hill.
+\end_layout
+
+\begin_layout Plain Layout
+
+ */
+\end_layout
+
+\begin_layout Plain Layout
+
+class CElasticCalculator {
+\end_layout
+
+\begin_layout Plain Layout
+
+public:
+\end_layout
+
+\begin_layout Plain Layout
+
+    struct Result {
+\end_layout
+
+\begin_layout Plain Layout
+
+        float bulkVoigt,
+ bulkReuss,
+ bulkHill;
+\end_layout
+
+\begin_layout Plain Layout
+
+        float shearVoigt,
+ shearReuss,
+ shearHill;
+\end_layout
+
+\begin_layout Plain Layout
+
+    };
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    explicit CElasticCalculator(const CMineralDatabase& db);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    /**
+\end_layout
+
+\begin_layout Plain Layout
+
+     * @brief Realiza o calculo completo dos modulos para uma amostra.
+\end_layout
+
+\begin_layout Plain Layout
+
+     * @param amostra A amostra de entrada.
+\end_layout
+
+\begin_layout Plain Layout
+
+     * @return Resultado com todos os valores de K e G.
+\end_layout
+
+\begin_layout Plain Layout
+
+     */
+\end_layout
+
+\begin_layout Plain Layout
+
+    Result Calculate(const CAmostra& amostra) const;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+private:
+\end_layout
+
+\begin_layout Plain Layout
+
+    CBulkCalculator m_bulkCalc;
+\end_layout
+
+\begin_layout Plain Layout
+
+    CShearCalculator m_shearCalc;
+\end_layout
+
+\begin_layout Plain Layout
+
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+#endif // CELASTICCALCULATOR_H
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsection{Visualização e Controle}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[style=myCppStyle,
+ caption={include/CPlotManager.h}]
+\end_layout
+
+\begin_layout Plain Layout
+
+#ifndef CPLOTMANAGER_H
+\end_layout
+
+\begin_layout Plain Layout
+
+#define CPLOTMANAGER_H
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+#include "CReservoirData.h"
+\end_layout
+
+\begin_layout Plain Layout
+
+#include "CMineralDatabase.h"
+\end_layout
+
+\begin_layout Plain Layout
+
+#include <string>
+\end_layout
+
+\begin_layout Plain Layout
+
+#include <vector>
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+/**
+\end_layout
+
+\begin_layout Plain Layout
+
+ * @class CPlotManager
+\end_layout
+
+\begin_layout Plain Layout
+
+ * @brief Gerencia a criacao e exibicao/salvamento de graficos usando Gnuplot.
+\end_layout
+
+\begin_layout Plain Layout
+
+ */
+\end_layout
+
+\begin_layout Plain Layout
+
+class CPlotManager {
+\end_layout
+
+\begin_layout Plain Layout
+
+public:
+\end_layout
+
+\begin_layout Plain Layout
+
+    CPlotManager();
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    /**
+\end_layout
+
+\begin_layout Plain Layout
+
+     * @brief Gera os graficos de K e G versus Porosidade.
+\end_layout
+
+\begin_layout Plain Layout
+
+     * @param data Objeto contendo os dados das amostras.
+\end_layout
+
+\begin_layout Plain Layout
+
+     * @param displayOnScreen Se verdadeiro,
+ exibe o grafico em uma janela interativa.
+\end_layout
+
+\begin_layout Plain Layout
+
+     */
+\end_layout
+
+\begin_layout Plain Layout
+
+    void PlotPorosityProfile(const CReservoirData& data,
+ bool displayOnScreen);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    /**
+\end_layout
+
+\begin_layout Plain Layout
+
+     * @brief Gera os graficos de K e G versus Profundidade.
+\end_layout
+
+\begin_layout Plain Layout
+
+     * @param data Objeto contendo os dados das amostras.
+\end_layout
+
+\begin_layout Plain Layout
+
+     * @param displayOnScreen Se verdadeiro,
+ exibe o grafico em uma janela interativa.
+\end_layout
+
+\begin_layout Plain Layout
+
+     */
+\end_layout
+
+\begin_layout Plain Layout
+
+    void PlotDepthProfile(const CReservoirData& data,
+ bool displayOnScreen);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    /**
+\end_layout
+
+\begin_layout Plain Layout
+
+     * @brief Gera os graficos de variacao mineralogica entre dois minerais.
+\end_layout
+
+\begin_layout Plain Layout
+
+     * @param db A base de dados de minerais.
+\end_layout
+
+\begin_layout Plain Layout
+
+     * @param principal O nome do mineral principal (fixo).
+\end_layout
+
+\begin_layout Plain Layout
+
+     * @param secundario O nome do mineral cuja proporcao ira variar.
+\end_layout
+
+\begin_layout Plain Layout
+
+     * @param displayOnScreen Se verdadeiro,
+ exibe o grafico em uma janela interativa.
+\end_layout
+
+\begin_layout Plain Layout
+
+     */
+\end_layout
+
+\begin_layout Plain Layout
+
+    void PlotVariationByMineral(const CMineralDatabase& db,
+\end_layout
+
+\begin_layout Plain Layout
+
+                                const std::string& principal,
+\end_layout
+
+\begin_layout Plain Layout
+
+                                const std::string& secundario,
+\end_layout
+
+\begin_layout Plain Layout
+
+                                bool displayOnScreen);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+private:
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::string m_outputPath;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    /**
+\end_layout
+
+\begin_layout Plain Layout
+
+     * @brief Gera arquivos .dat com dados (x,
+ y) no diretorio de saida.
+\end_layout
+
+\begin_layout Plain Layout
+
+     */
+\end_layout
+
+\begin_layout Plain Layout
+
+    void ExportCurve(const std::string& filename,
+ const std::vector<double>& x,
+ const std::vector<double>& y) const;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    /**
+\end_layout
+
+\begin_layout Plain Layout
+
+     * @brief Gera script Gnuplot,
+ salva o grafico em PNG no diretorio de saida e opcionalmente exibe na tela.
+\end_layout
+
+\begin_layout Plain Layout
+
+     */
+\end_layout
+
+\begin_layout Plain Layout
+
+    void GeneratePlotScript(const std::string& filenameGp,
+\end_layout
+
+\begin_layout Plain Layout
+
+                            const std::string& outputPng,
+\end_layout
+
+\begin_layout Plain Layout
+
+                            const std::string& title,
+\end_layout
+
+\begin_layout Plain Layout
+
+                            const std::string& xlabel,
+\end_layout
+
+\begin_layout Plain Layout
+
+                            const std::string& ylabel,
+\end_layout
+
+\begin_layout Plain Layout
+
+                            const std::vector<std::string>& datFiles,
+\end_layout
+
+\begin_layout Plain Layout
+
+                            const std::vector<std::string>& legends,
+\end_layout
+
+\begin_layout Plain Layout
+
+                            bool displayOnScreen) const;
+\end_layout
+
+\begin_layout Plain Layout
+
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+#endif
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[style=myCppStyle,
+ caption={include/CSimulador.h}]
+\end_layout
+
+\begin_layout Plain Layout
+
+#ifndef CPECAPPLICATION_H
+\end_layout
+
+\begin_layout Plain Layout
+
+#define CPECAPPLICATION_H
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+#include "CInput.h"
+\end_layout
+
+\begin_layout Plain Layout
+
+#include "CElasticCalculator.h"
+\end_layout
+
+\begin_layout Plain Layout
+
+#include "CMineralDatabase.h"
+\end_layout
+
+\begin_layout Plain Layout
+
+#include "CReservoirData.h"
+\end_layout
+
+\begin_layout Plain Layout
+
+#include "CPlotManager.h"
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+/**
+\end_layout
+
+\begin_layout Plain Layout
+
+ * @class CSimulador
+\end_layout
+
+\begin_layout Plain Layout
+
+ * @brief Orquestra a execucao do sistema de calculo poroelastico.
+\end_layout
+
+\begin_layout Plain Layout
+
+ */
+\end_layout
+
+\begin_layout Plain Layout
+
+class CSimulador {
+\end_layout
+
+\begin_layout Plain Layout
+
+public:
+\end_layout
+
+\begin_layout Plain Layout
+
+    CSimulador();
+\end_layout
+
+\begin_layout Plain Layout
+
+    void Run();
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+private:
+\end_layout
+
+\begin_layout Plain Layout
+
+    CInput m_inputManager;
+\end_layout
+
+\begin_layout Plain Layout
+
+    CMineralDatabase m_database;
+\end_layout
+
+\begin_layout Plain Layout
+
+    CElasticCalculator m_calculator;
+\end_layout
+
+\begin_layout Plain Layout
+
+    CReservoirData m_reservoirData;
+\end_layout
+
+\begin_layout Plain Layout
+
+    CPlotManager m_plotManager;
+\end_layout
+
+\begin_layout Plain Layout
+
+    bool m_running;
+\end_layout
+
+\begin_layout Plain Layout
+
+    bool m_displayGraphsOnScreen;
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    void Menu();
+\end_layout
+
+\begin_layout Plain Layout
+
+    void Initialize();
+\end_layout
+
+\begin_layout Plain Layout
+
+    void Finalize();
+\end_layout
+
+\begin_layout Plain Layout
+
+    void ConfigureGraphDisplay();
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+#endif
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+% --------------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+
+% 3.
+ IMPLEMENTAÇÃO (SOURCE FILES - .cpp)
+\end_layout
+
+\begin_layout Plain Layout
+
+% --------------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+section{Implementação (.cpp)}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Esta seção apresenta a implementação concreta da lógica do sistema,
+ organizada por módulos funcionais.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsection{Entidades do Domínio}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[style=myCppStyle,
+ caption={src/CMineral.cpp}]
+\end_layout
+
+\begin_layout Plain Layout
+
+#include "CMineral.h"
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+CMineral::CMineral() :
+ m_nome(""),
+ m_bulk(0.0f),
+ m_shear(0.0f) {}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+CMineral::CMineral(const std::string& nome,
+ float bulk,
+ float shear)
+\end_layout
+
+\begin_layout Plain Layout
+
+    :
+ m_nome(nome),
+ m_bulk(bulk),
+ m_shear(shear) {}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+const std::string& CMineral::Nome() const {
+\end_layout
+
+\begin_layout Plain Layout
+
+    return m_nome;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+float CMineral::Bulk() const {
+\end_layout
+
+\begin_layout Plain Layout
+
+    return m_bulk;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+float CMineral::Shear() const {
+\end_layout
+
+\begin_layout Plain Layout
+
+    return m_shear;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[style=myCppStyle,
+ caption={src/CAmostra.cpp}]
+\end_layout
+
+\begin_layout Plain Layout
+
+#include "CAmostra.h"
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+CAmostra::CAmostra()
+\end_layout
+
+\begin_layout Plain Layout
+
+    :
+ m_profundidade(0.0f),
+ m_porosidade(0.0f) {}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+CAmostra::CAmostra(const std::string& reservatorio,
+ const std::string& nome,
+\end_layout
+
+\begin_layout Plain Layout
+
+                   float profundidade,
+ float porosidade,
+\end_layout
+
+\begin_layout Plain Layout
+
+                   const std::map<std::string,
+ float>& minerais)
+\end_layout
+
+\begin_layout Plain Layout
+
+    :
+ m_reservatorio(reservatorio),
+ m_nome(nome),
+\end_layout
+
+\begin_layout Plain Layout
+
+      m_profundidade(profundidade),
+ m_porosidade(porosidade),
+\end_layout
+
+\begin_layout Plain Layout
+
+      m_minerais(minerais) {}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+const std::string& CAmostra::NomeReservatorio() const {
+\end_layout
+
+\begin_layout Plain Layout
+
+    return m_reservatorio;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+const std::string& CAmostra::NomeAmostra() const {
+\end_layout
+
+\begin_layout Plain Layout
+
+    return m_nome;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+float CAmostra::Profundidade() const {
+\end_layout
+
+\begin_layout Plain Layout
+
+    return m_profundidade;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+float CAmostra::Porosidade() const {
+\end_layout
+
+\begin_layout Plain Layout
+
+    return m_porosidade;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+const std::map<std::string,
+ float>& CAmostra::Minerais() const {
+\end_layout
+
+\begin_layout Plain Layout
+
+    return m_minerais;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsection{Gestão de Dados e Entrada (I/O)}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[style=myCppStyle,
+ caption={src/CMineralDatabase.cpp}]
+\end_layout
+
+\begin_layout Plain Layout
+
+#include "CMineralDatabase.h"
+\end_layout
+
+\begin_layout Plain Layout
+
+#include <fstream>
+\end_layout
+
+\begin_layout Plain Layout
+
+#include <iostream>
+\end_layout
+
+\begin_layout Plain Layout
+
+#include <sstream>
+\end_layout
+
+\begin_layout Plain Layout
+
+#include <algorithm>
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+CMineralDatabase::CMineralDatabase(const std::string& filePath) {
+\end_layout
+
+\begin_layout Plain Layout
+
+    LoadFromFile(filePath);
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+void CMineralDatabase::LoadFromFile(const std::string& filePath) {
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::ifstream file(filePath);
+\end_layout
+
+\begin_layout Plain Layout
+
+    if (!file.is_open()) {
+\end_layout
+
+\begin_layout Plain Layout
+
+        std::cerr << "[ERRO] Nao foi possivel abrir o arquivo de minerais:
+ " << filePath << "
+\backslash
+n";
+\end_layout
+
+\begin_layout Plain Layout
+
+        return;
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::string linha;
+\end_layout
+
+\begin_layout Plain Layout
+
+    bool headerPulado = false;
+\end_layout
+
+\begin_layout Plain Layout
+
+    while (std::getline(file,
+ linha)) {
+\end_layout
+
+\begin_layout Plain Layout
+
+        if (!headerPulado) {
+\end_layout
+
+\begin_layout Plain Layout
+
+            headerPulado = true;
+\end_layout
+
+\begin_layout Plain Layout
+
+            continue;
+\end_layout
+
+\begin_layout Plain Layout
+
+        }
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+        std::stringstream ss(linha);
+\end_layout
+
+\begin_layout Plain Layout
+
+        std::string nome,
+ kStr,
+ gStr;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+        if (std::getline(ss,
+ nome,
+ ',') &&
+\end_layout
+
+\begin_layout Plain Layout
+
+            std::getline(ss,
+ kStr,
+ ',') &&
+\end_layout
+
+\begin_layout Plain Layout
+
+            std::getline(ss,
+ gStr)) {
+\end_layout
+
+\begin_layout Plain Layout
+
+            try {
+\end_layout
+
+\begin_layout Plain Layout
+
+                float k = std::stof(kStr);
+\end_layout
+
+\begin_layout Plain Layout
+
+                float g = std::stof(gStr);
+\end_layout
+
+\begin_layout Plain Layout
+
+                AddMineral(nome,
+ k,
+ g);
+\end_layout
+
+\begin_layout Plain Layout
+
+            } catch (...) {
+\end_layout
+
+\begin_layout Plain Layout
+
+                std::cerr << "[WARN] Erro ao interpretar linha:
+ " << linha << "
+\backslash
+n";
+\end_layout
+
+\begin_layout Plain Layout
+
+            }
+\end_layout
+
+\begin_layout Plain Layout
+
+        }
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    file.close();
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+bool CMineralDatabase::HasMineral(const std::string& nome) const {
+\end_layout
+
+\begin_layout Plain Layout
+
+    return m_minerals.count(nome) > 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+float CMineralDatabase::GetBulkModulus(const std::string& nome) const {
+\end_layout
+
+\begin_layout Plain Layout
+
+    return m_minerals.at(nome).Bulk();
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+float CMineralDatabase::GetShearModulus(const std::string& nome) const {
+\end_layout
+
+\begin_layout Plain Layout
+
+    return m_minerals.at(nome).Shear();
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+void CMineralDatabase::AddMineral(const std::string& nome,
+ float k,
+ float g) {
+\end_layout
+
+\begin_layout Plain Layout
+
+    m_minerals[nome] = CMineral(nome,
+ k,
+ g);
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+void CMineralDatabase::PrintAllMineralsSorted() const {
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::vector<std::string> nomes;
+\end_layout
+
+\begin_layout Plain Layout
+
+    for (const auto& [nome,
+ _] :
+ m_minerals)
+\end_layout
+
+\begin_layout Plain Layout
+
+        nomes.push_back(nome);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::sort(nomes.begin(),
+ nomes.end());
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    for (const auto& nome :
+ nomes) {
+\end_layout
+
+\begin_layout Plain Layout
+
+        const auto& m = m_minerals.at(nome);
+\end_layout
+
+\begin_layout Plain Layout
+
+        std::cout << nome << " => K:
+ " << m.Bulk() << ",
+ G:
+ " << m.Shear() << "
+\backslash
+n";
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[style=myCppStyle,
+ caption={src/CInput.cpp}]
+\end_layout
+
+\begin_layout Plain Layout
+
+#include "CInput.h"
+\end_layout
+
+\begin_layout Plain Layout
+
+#include <iostream>
+\end_layout
+
+\begin_layout Plain Layout
+
+#include <fstream>
+\end_layout
+
+\begin_layout Plain Layout
+
+#include <sstream>
+\end_layout
+
+\begin_layout Plain Layout
+
+#include <algorithm>
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+CInput::CInput() {}
+\end_layout
+
+\begin_layout Plain Layout
+
+CInput::~CInput() {}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+CAmostra CInput::PromptManualInput() {
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::string reservatorio,
+ nome;
+\end_layout
+
+\begin_layout Plain Layout
+
+    float profundidade,
+ porosidade;
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::map<std::string,
+ float> minerais;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::cout << "Nome do reservatorio:
+ ";
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::getline(std::cin,
+ reservatorio);
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::cout << "Nome da amostra:
+ ";
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::getline(std::cin,
+ nome);
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::cout << "Profundidade (m):
+ ";
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::cin >> profundidade;
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::cout << "Porosidade (%):
+ ";
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::cin >> porosidade;
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::cin.ignore();
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::cout << "Digite os minerais e suas porcentagens (ex:
+ quartzo 50 albita 50):
+\backslash
+n";
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::string linha;
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::getline(std::cin,
+ linha);
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::istringstream iss(linha);
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::string mineral;
+\end_layout
+
+\begin_layout Plain Layout
+
+    float frac;
+\end_layout
+
+\begin_layout Plain Layout
+
+    while (iss >> mineral >> frac)
+\end_layout
+
+\begin_layout Plain Layout
+
+        minerais[mineral] = frac;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    return CAmostra(reservatorio,
+ nome,
+ profundidade,
+ porosidade,
+ minerais);
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+CAmostra CInput::ReadFromCSV(const std::string& filePath) {
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::ifstream file(filePath);
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::string linha;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::getline(file,
+ linha);
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::getline(file,
+ linha);
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::stringstream ss(linha);
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::string reservatorio,
+ nome;
+\end_layout
+
+\begin_layout Plain Layout
+
+    float profundidade,
+ porosidade;
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::map<std::string,
+ float> minerais;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::getline(ss,
+ reservatorio,
+ ',');
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::getline(ss,
+ nome,
+ ',');
+\end_layout
+
+\begin_layout Plain Layout
+
+    ss >> profundidade;
+\end_layout
+
+\begin_layout Plain Layout
+
+    ss.ignore(1);
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+    ss >> porosidade;
+\end_layout
+
+\begin_layout Plain Layout
+
+    ss.ignore(1);
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::string mineraisStr;
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::getline(ss,
+ mineraisStr);
+\end_layout
+
+\begin_layout Plain Layout
+
+    ParseCSVLine(mineraisStr,
+ minerais);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    return CAmostra(reservatorio,
+ nome,
+ profundidade,
+ porosidade,
+ minerais);
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+CAmostra CInput::ReadFromFile(const std::string& filePath) {
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::ifstream file(filePath);
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::string linha;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::string reservatorio,
+ nome;
+\end_layout
+
+\begin_layout Plain Layout
+
+    float profundidade = 0.0f,
+ porosidade = 0.0f;
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::map<std::string,
+ float> minerais;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    while (std::getline(file,
+ linha)) {
+\end_layout
+
+\begin_layout Plain Layout
+
+        if (linha.empty()) break;
+\end_layout
+
+\begin_layout Plain Layout
+
+        std::istringstream iss(linha);
+\end_layout
+
+\begin_layout Plain Layout
+
+        std::string token;
+\end_layout
+
+\begin_layout Plain Layout
+
+        iss >> token;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+        if (token == "reservatorio:" || token == "reservatório:")
+\end_layout
+
+\begin_layout Plain Layout
+
+            iss >> reservatorio;
+\end_layout
+
+\begin_layout Plain Layout
+
+        else if (token == "amostra:")
+\end_layout
+
+\begin_layout Plain Layout
+
+            iss >> nome;
+\end_layout
+
+\begin_layout Plain Layout
+
+        else if (token == "profundidade:")
+\end_layout
+
+\begin_layout Plain Layout
+
+            iss >> profundidade;
+\end_layout
+
+\begin_layout Plain Layout
+
+        else if (token == "porosidade:")
+\end_layout
+
+\begin_layout Plain Layout
+
+            iss >> porosidade;
+\end_layout
+
+\begin_layout Plain Layout
+
+        else {
+\end_layout
+
+\begin_layout Plain Layout
+
+            std::string mineral = token;
+\end_layout
+
+\begin_layout Plain Layout
+
+            float perc;
+\end_layout
+
+\begin_layout Plain Layout
+
+            iss >> perc;
+\end_layout
+
+\begin_layout Plain Layout
+
+            minerais[mineral] = perc;
+\end_layout
+
+\begin_layout Plain Layout
+
+        }
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    return CAmostra(reservatorio,
+ nome,
+ profundidade,
+ porosidade,
+ minerais);
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+void CInput::PrintSampleInput(const CAmostra& amostra) {
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::cout << "
+\backslash
+n=== Dados da Amostra ===
+\backslash
+n";
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::cout << "Reservatorio:
+ " << amostra.NomeReservatorio() << "
+\backslash
+n";
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::cout << "Amostra:
+      " << amostra.NomeAmostra() << "
+\backslash
+n";
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::cout << "Profundidade:
+ " << amostra.Profundidade() << " m
+\backslash
+n";
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::cout << "Porosidade:
+   " << amostra.Porosidade() << " %
+\backslash
+n";
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::cout << "
+\backslash
+nComposicao Mineralogica:
+\backslash
+n";
+\end_layout
+
+\begin_layout Plain Layout
+
+    for (const auto& [nome,
+ perc] :
+ amostra.Minerais())
+\end_layout
+
+\begin_layout Plain Layout
+
+        std::cout << " - " << nome << ":
+ " << perc << "%
+\backslash
+n";
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::cout << "==========================
+\backslash
+n
+\backslash
+n";
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+std::vector<CAmostra> CInput::ReadMultipleFromFile(const std::string& filePath) {
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::ifstream file(filePath);
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::vector<CAmostra> amostras;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::string linha;
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::string nomeReservatorio,
+ nomeAmostra;
+\end_layout
+
+\begin_layout Plain Layout
+
+    float profundidade = 0.0f,
+ porosidade = 0.0f;
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::map<std::string,
+ float> minerais;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    auto salvarAmostraSeValida = [&]() {
+\end_layout
+
+\begin_layout Plain Layout
+
+        if (!nomeAmostra.empty() && profundidade > 0.0f && porosidade >= 0.0f && !minerais.empty()) {
+\end_layout
+
+\begin_layout Plain Layout
+
+            amostras.emplace_back(nomeReservatorio,
+ nomeAmostra,
+ profundidade,
+ porosidade,
+ minerais);
+\end_layout
+
+\begin_layout Plain Layout
+
+        }
+\end_layout
+
+\begin_layout Plain Layout
+
+        nomeAmostra.clear();
+\end_layout
+
+\begin_layout Plain Layout
+
+        profundidade = 0.0f;
+\end_layout
+
+\begin_layout Plain Layout
+
+        porosidade = 0.0f;
+\end_layout
+
+\begin_layout Plain Layout
+
+        minerais.clear();
+\end_layout
+
+\begin_layout Plain Layout
+
+    };
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    while (std::getline(file,
+ linha)) {
+\end_layout
+
+\begin_layout Plain Layout
+
+        if (linha.empty()) continue;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+        std::istringstream iss(linha);
+\end_layout
+
+\begin_layout Plain Layout
+
+        std::string token;
+\end_layout
+
+\begin_layout Plain Layout
+
+        iss >> token;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+        if (token == "reservatorio:" || token == "reservatório:") {
+\end_layout
+
+\begin_layout Plain Layout
+
+            salvarAmostraSeValida();
+\end_layout
+
+\begin_layout Plain Layout
+
+            iss >> nomeReservatorio;
+\end_layout
+
+\begin_layout Plain Layout
+
+        }
+\end_layout
+
+\begin_layout Plain Layout
+
+        else if (token == "amostra:") {
+\end_layout
+
+\begin_layout Plain Layout
+
+            iss >> nomeAmostra;
+\end_layout
+
+\begin_layout Plain Layout
+
+        }
+\end_layout
+
+\begin_layout Plain Layout
+
+        else if (token == "profundidade:") {
+\end_layout
+
+\begin_layout Plain Layout
+
+            iss >> profundidade;
+\end_layout
+
+\begin_layout Plain Layout
+
+        }
+\end_layout
+
+\begin_layout Plain Layout
+
+        else if (token == "porosidade:") {
+\end_layout
+
+\begin_layout Plain Layout
+
+            iss >> porosidade;
+\end_layout
+
+\begin_layout Plain Layout
+
+        }
+\end_layout
+
+\begin_layout Plain Layout
+
+        else {
+\end_layout
+
+\begin_layout Plain Layout
+
+            std::string mineral = token;
+\end_layout
+
+\begin_layout Plain Layout
+
+            float perc;
+\end_layout
+
+\begin_layout Plain Layout
+
+            iss >> perc;
+\end_layout
+
+\begin_layout Plain Layout
+
+            minerais[mineral] = perc;
+\end_layout
+
+\begin_layout Plain Layout
+
+        }
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    salvarAmostraSeValida();
+\end_layout
+
+\begin_layout Plain Layout
+
+    return amostras;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+void CInput::ParseCSVLine(const std::string& line,
+ std::map<std::string,
+ float>& mineralsOut) {
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::stringstream ss(line);
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::string token;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    while (std::getline(ss,
+ token,
+ ',')) {
+\end_layout
+
+\begin_layout Plain Layout
+
+        std::string mineral = token;
+\end_layout
+
+\begin_layout Plain Layout
+
+        float perc = 0.0f;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+        if (std::getline(ss,
+ token,
+ ','))
+\end_layout
+
+\begin_layout Plain Layout
+
+            perc = std::stof(token);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+        mineralsOut[mineral] = perc;
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[style=myCppStyle,
+ caption={src/CReservoirData.cpp}]
+\end_layout
+
+\begin_layout Plain Layout
+
+#include "CReservoirData.h"
+\end_layout
+
+\begin_layout Plain Layout
+
+#include <iostream>
+\end_layout
+
+\begin_layout Plain Layout
+
+#include <iomanip>
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+void CReservoirData::AddSample(const CAmostra& amostra,
+ const CElasticCalculator::Result& resultado) {
+\end_layout
+
+\begin_layout Plain Layout
+
+    m_amostras.push_back({amostra,
+ resultado});
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+const std::vector<CReservoirData::EnrichedSample>& CReservoirData::GetSamples() const {
+\end_layout
+
+\begin_layout Plain Layout
+
+    return m_amostras;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+void CReservoirData::PrintSummary() const {
+\end_layout
+
+\begin_layout Plain Layout
+
+    if (m_amostras.empty()) {
+\end_layout
+
+\begin_layout Plain Layout
+
+        std::cout << "
+\backslash
+n[INFO] Nenhuma amostra para exibir.
+\backslash
+n";
+\end_layout
+
+\begin_layout Plain Layout
+
+        return;
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    const int LARGURA_NOME = 12;
+\end_layout
+
+\begin_layout Plain Layout
+
+    const int LARGURA_PROF = 18;
+\end_layout
+
+\begin_layout Plain Layout
+
+    const int LARGURA_PORO = 16;
+\end_layout
+
+\begin_layout Plain Layout
+
+    const int LARGURA_K = 29;
+\end_layout
+
+\begin_layout Plain Layout
+
+    const int LARGURA_G = 24;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::cout << "
+\backslash
+n" << std::left
+\end_layout
+
+\begin_layout Plain Layout
+
+              << std::setw(LARGURA_NOME) << "Nome" << "| "
+\end_layout
+
+\begin_layout Plain Layout
+
+              << std::setw(LARGURA_PROF) << "Profundidade (m)" << "| "
+\end_layout
+
+\begin_layout Plain Layout
+
+              << std::setw(LARGURA_PORO) << "Porosidade (%)" << "| "
+\end_layout
+
+\begin_layout Plain Layout
+
+              << std::setw(LARGURA_K) << "Compressibilidade K (GPa)" << "| "
+\end_layout
+
+\begin_layout Plain Layout
+
+              << std::setw(LARGURA_G) << "Cisalhamento G (GPa)" << std::endl;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::cout << std::string(LARGURA_NOME,
+ '-') << "|-"
+\end_layout
+
+\begin_layout Plain Layout
+
+              << std::string(LARGURA_PROF,
+ '-') << "|-"
+\end_layout
+
+\begin_layout Plain Layout
+
+              << std::string(LARGURA_PORO,
+ '-') << "|-"
+\end_layout
+
+\begin_layout Plain Layout
+
+              << std::string(LARGURA_K,
+ '-') << "|-"
+\end_layout
+
+\begin_layout Plain Layout
+
+              << std::string(LARGURA_G,
+ '-') << std::endl;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::cout << std::fixed << std::setprecision(2);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    for (const auto& s :
+ m_amostras) {
+\end_layout
+
+\begin_layout Plain Layout
+
+        std::cout << std::left
+\end_layout
+
+\begin_layout Plain Layout
+
+                  << std::setw(LARGURA_NOME) << s.amostra.NomeAmostra() << "| "
+\end_layout
+
+\begin_layout Plain Layout
+
+                  << std::setw(LARGURA_PROF) << s.amostra.Profundidade() << "| "
+\end_layout
+
+\begin_layout Plain Layout
+
+                  << std::setw(LARGURA_PORO) << s.amostra.Porosidade() << "| "
+\end_layout
+
+\begin_layout Plain Layout
+
+                  << std::setw(LARGURA_K) << s.resultado.bulkHill << "| "
+\end_layout
+
+\begin_layout Plain Layout
+
+                  << std::setw(LARGURA_G) << s.resultado.shearHill << std::endl;
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+void CReservoirData::GetKGVsDepth(std::vector<float>& depth,
+\end_layout
+
+\begin_layout Plain Layout
+
+                                  std::vector<float>& bulkHill,
+\end_layout
+
+\begin_layout Plain Layout
+
+                                  std::vector<float>& shearHill) const {
+\end_layout
+
+\begin_layout Plain Layout
+
+    depth.clear();
+ bulkHill.clear();
+ shearHill.clear();
+\end_layout
+
+\begin_layout Plain Layout
+
+    for (const auto& s :
+ m_amostras) {
+\end_layout
+
+\begin_layout Plain Layout
+
+        depth.push_back(s.amostra.Profundidade());
+\end_layout
+
+\begin_layout Plain Layout
+
+        bulkHill.push_back(s.resultado.bulkHill);
+\end_layout
+
+\begin_layout Plain Layout
+
+        shearHill.push_back(s.resultado.shearHill);
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+void CReservoirData::GetKGVsPorosity(std::vector<float>& phi,
+\end_layout
+
+\begin_layout Plain Layout
+
+                                     std::vector<float>& bulkHill,
+\end_layout
+
+\begin_layout Plain Layout
+
+                                     std::vector<float>& shearHill) const {
+\end_layout
+
+\begin_layout Plain Layout
+
+    phi.clear();
+ bulkHill.clear();
+ shearHill.clear();
+\end_layout
+
+\begin_layout Plain Layout
+
+    for (const auto& s :
+ m_amostras) {
+\end_layout
+
+\begin_layout Plain Layout
+
+        phi.push_back(s.amostra.Porosidade());
+\end_layout
+
+\begin_layout Plain Layout
+
+        bulkHill.push_back(s.resultado.bulkHill);
+\end_layout
+
+\begin_layout Plain Layout
+
+        shearHill.push_back(s.resultado.shearHill);
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+void CReservoirData::GetKGVsDepthFull(std::vector<float>& depth,
+\end_layout
+
+\begin_layout Plain Layout
+
+                                      std::vector<float>& kV,
+ std::vector<float>& kR,
+ std::vector<float>& kH,
+\end_layout
+
+\begin_layout Plain Layout
+
+                                      std::vector<float>& gV,
+ std::vector<float>& gR,
+ std::vector<float>& gH) const {
+\end_layout
+
+\begin_layout Plain Layout
+
+    depth.clear();
+ kV.clear();
+ kR.clear();
+ kH.clear();
+ gV.clear();
+ gR.clear();
+ gH.clear();
+\end_layout
+
+\begin_layout Plain Layout
+
+    for (const auto& s :
+ m_amostras) {
+\end_layout
+
+\begin_layout Plain Layout
+
+        depth.push_back(s.amostra.Profundidade());
+\end_layout
+
+\begin_layout Plain Layout
+
+        kV.push_back(s.resultado.bulkVoigt);
+\end_layout
+
+\begin_layout Plain Layout
+
+        kR.push_back(s.resultado.bulkReuss);
+\end_layout
+
+\begin_layout Plain Layout
+
+        kH.push_back(s.resultado.bulkHill);
+\end_layout
+
+\begin_layout Plain Layout
+
+        gV.push_back(s.resultado.shearVoigt);
+\end_layout
+
+\begin_layout Plain Layout
+
+        gR.push_back(s.resultado.shearReuss);
+\end_layout
+
+\begin_layout Plain Layout
+
+        gH.push_back(s.resultado.shearHill);
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+void CReservoirData::GetKGVsPorosityFull(std::vector<float>& phi,
+\end_layout
+
+\begin_layout Plain Layout
+
+                                         std::vector<float>& kV,
+ std::vector<float>& kR,
+ std::vector<float>& kH,
+\end_layout
+
+\begin_layout Plain Layout
+
+                                         std::vector<float>& gV,
+ std::vector<float>& gR,
+ std::vector<float>& gH) const {
+\end_layout
+
+\begin_layout Plain Layout
+
+    phi.clear();
+ kV.clear();
+ kR.clear();
+ kH.clear();
+ gV.clear();
+ gR.clear();
+ gH.clear();
+\end_layout
+
+\begin_layout Plain Layout
+
+    for (const auto& s :
+ m_amostras) {
+\end_layout
+
+\begin_layout Plain Layout
+
+        phi.push_back(s.amostra.Porosidade());
+\end_layout
+
+\begin_layout Plain Layout
+
+        kV.push_back(s.resultado.bulkVoigt);
+\end_layout
+
+\begin_layout Plain Layout
+
+        kR.push_back(s.resultado.bulkReuss);
+\end_layout
+
+\begin_layout Plain Layout
+
+        kH.push_back(s.resultado.bulkHill);
+\end_layout
+
+\begin_layout Plain Layout
+
+        gV.push_back(s.resultado.shearVoigt);
+\end_layout
+
+\begin_layout Plain Layout
+
+        gR.push_back(s.resultado.shearReuss);
+\end_layout
+
+\begin_layout Plain Layout
+
+        gH.push_back(s.resultado.shearHill);
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+std::set<std::string> CReservoirData::ObterNomesDeMineraisUnicos() const {
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::set<std::string> nomesUnicos;
+\end_layout
+
+\begin_layout Plain Layout
+
+    for (const auto& s :
+ m_amostras) {
+\end_layout
+
+\begin_layout Plain Layout
+
+        auto minerais = s.amostra.Minerais();
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+        for (const auto& parMineral :
+ minerais) {
+\end_layout
+
+\begin_layout Plain Layout
+
+            nomesUnicos.insert(parMineral.first);
+\end_layout
+
+\begin_layout Plain Layout
+
+        }
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+    return nomesUnicos;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsection{Motor de Cálculo (Física de Rochas)}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[style=myCppStyle,
+ caption={src/CBulkCalculator.cpp}]
+\end_layout
+
+\begin_layout Plain Layout
+
+#include "CBulkCalculator.h"
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+CBulkCalculator::CBulkCalculator(const CMineralDatabase& db)
+\end_layout
+
+\begin_layout Plain Layout
+
+    :
+ m_db(db) {}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+float CBulkCalculator::CalcVoigt(const std::map<std::string,
+ float>& composicao) const {
+\end_layout
+
+\begin_layout Plain Layout
+
+    float soma = 0.0f;
+\end_layout
+
+\begin_layout Plain Layout
+
+    for (const auto& [nome,
+ frac] :
+ composicao)
+\end_layout
+
+\begin_layout Plain Layout
+
+        soma += (frac / 100.0f) * m_db.GetBulkModulus(nome);
+\end_layout
+
+\begin_layout Plain Layout
+
+    return soma;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+float CBulkCalculator::CalcReuss(const std::map<std::string,
+ float>& composicao) const {
+\end_layout
+
+\begin_layout Plain Layout
+
+    float inv = 0.0f;
+\end_layout
+
+\begin_layout Plain Layout
+
+    for (const auto& [nome,
+ frac] :
+ composicao)
+\end_layout
+
+\begin_layout Plain Layout
+
+        inv += (frac / 100.0f) / m_db.GetBulkModulus(nome);
+\end_layout
+
+\begin_layout Plain Layout
+
+    return (inv > 0.0f) ?
+ 1.0f / inv :
+ -1.0f;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[style=myCppStyle,
+ caption={src/CShearCalculator.cpp}]
+\end_layout
+
+\begin_layout Plain Layout
+
+#include "CShearCalculator.h"
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+CShearCalculator::CShearCalculator(const CMineralDatabase& db)
+\end_layout
+
+\begin_layout Plain Layout
+
+    :
+ m_db(db) {}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+float CShearCalculator::CalcVoigt(const std::map<std::string,
+ float>& composicao) const {
+\end_layout
+
+\begin_layout Plain Layout
+
+    float soma = 0.0f;
+\end_layout
+
+\begin_layout Plain Layout
+
+    for (const auto& [nome,
+ frac] :
+ composicao)
+\end_layout
+
+\begin_layout Plain Layout
+
+        soma += (frac / 100.0f) * m_db.GetShearModulus(nome);
+\end_layout
+
+\begin_layout Plain Layout
+
+    return soma;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+float CShearCalculator::CalcReuss(const std::map<std::string,
+ float>& composicao) const {
+\end_layout
+
+\begin_layout Plain Layout
+
+    float inv = 0.0f;
+\end_layout
+
+\begin_layout Plain Layout
+
+    for (const auto& [nome,
+ frac] :
+ composicao)
+\end_layout
+
+\begin_layout Plain Layout
+
+        inv += (frac / 100.0f) / m_db.GetShearModulus(nome);
+\end_layout
+
+\begin_layout Plain Layout
+
+    return (inv > 0.0f) ?
+ 1.0f / inv :
+ -1.0f;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[style=myCppStyle,
+ caption={src/CElasticCalculator.cpp}]
+\end_layout
+
+\begin_layout Plain Layout
+
+#include "CElasticCalculator.h"
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+CElasticCalculator::CElasticCalculator(const CMineralDatabase& db)
+\end_layout
+
+\begin_layout Plain Layout
+
+    :
+ m_bulkCalc(db),
+ m_shearCalc(db) {}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+CElasticCalculator::Result CElasticCalculator::Calculate(const CAmostra& amostra) const {
+\end_layout
+
+\begin_layout Plain Layout
+
+    Result r;
+\end_layout
+
+\begin_layout Plain Layout
+
+    const auto& composicao = amostra.Minerais();
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    r.bulkVoigt  = m_bulkCalc.CalcVoigt(composicao);
+\end_layout
+
+\begin_layout Plain Layout
+
+    r.bulkReuss  = m_bulkCalc.CalcReuss(composicao);
+\end_layout
+
+\begin_layout Plain Layout
+
+    r.bulkHill   = (r.bulkVoigt + r.bulkReuss) / 2.0f;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    r.shearVoigt = m_shearCalc.CalcVoigt(composicao);
+\end_layout
+
+\begin_layout Plain Layout
+
+    r.shearReuss = m_shearCalc.CalcReuss(composicao);
+\end_layout
+
+\begin_layout Plain Layout
+
+    r.shearHill  = (r.shearVoigt + r.shearReuss) / 2.0f;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    return r;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsection{Visualização e Orquestração}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[style=myCppStyle,
+ caption={src/CPlotManager.cpp}]
+\end_layout
+
+\begin_layout Plain Layout
+
+#include "CPlotManager.h"
+\end_layout
+
+\begin_layout Plain Layout
+
+#include <fstream>
+\end_layout
+
+\begin_layout Plain Layout
+
+#include <sstream>
+\end_layout
+
+\begin_layout Plain Layout
+
+#include <iomanip>
+\end_layout
+
+\begin_layout Plain Layout
+
+#include <cstdlib>
+\end_layout
+
+\begin_layout Plain Layout
+
+#include <cstdio>
+\end_layout
+
+\begin_layout Plain Layout
+
+#include <iostream>
+\end_layout
+
+\begin_layout Plain Layout
+
+#include <vector>
+\end_layout
+
+\begin_layout Plain Layout
+
+#include <filesystem>
+\end_layout
+
+\begin_layout Plain Layout
+
+#include <chrono> 
+\end_layout
+
+\begin_layout Plain Layout
+
+#include <ctime>   
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+static std::string getCurrentTimestamp() {
+\end_layout
+
+\begin_layout Plain Layout
+
+    auto now = std::chrono::system_clock::now();
+\end_layout
+
+\begin_layout Plain Layout
+
+    auto in_time_t = std::chrono::system_clock::to_time_t(now);
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::stringstream ss;
+\end_layout
+
+\begin_layout Plain Layout
+
+    ss << std::put_time(std::localtime(&in_time_t),
+ "%Y%m%d_%H%M%S");
+\end_layout
+
+\begin_layout Plain Layout
+
+    return ss.str();
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+CPlotManager::CPlotManager() {
+\end_layout
+
+\begin_layout Plain Layout
+
+    m_outputPath = "../test/plots/";
+\end_layout
+
+\begin_layout Plain Layout
+
+    try {
+\end_layout
+
+\begin_layout Plain Layout
+
+        if (!std::filesystem::exists(m_outputPath)) {
+\end_layout
+
+\begin_layout Plain Layout
+
+            std::filesystem::create_directories(m_outputPath);
+\end_layout
+
+\begin_layout Plain Layout
+
+        }
+\end_layout
+
+\begin_layout Plain Layout
+
+    } catch (const std::exception& e) {
+\end_layout
+
+\begin_layout Plain Layout
+
+        std::cerr << "Erro ao criar diretorio de plots:
+ " << e.what() << std::endl;
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+void CPlotManager::ExportCurve(const std::string& filename,
+ const std::vector<double>& x,
+ const std::vector<double>& y) const {
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::ofstream file(m_outputPath + filename);
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+    for (size_t i = 0;
+ i < x.size();
+ ++i)
+\end_layout
+
+\begin_layout Plain Layout
+
+        file << std::fixed << std::setprecision(6) << x[i] << " " << y[i] << "
+\backslash
+n";
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+void CPlotManager::GeneratePlotScript(const std::string& filenameGp,
+\end_layout
+
+\begin_layout Plain Layout
+
+                                      const std::string& outputPng,
+\end_layout
+
+\begin_layout Plain Layout
+
+                                      const std::string& title,
+\end_layout
+
+\begin_layout Plain Layout
+
+                                      const std::string& xlabel,
+\end_layout
+
+\begin_layout Plain Layout
+
+                                      const std::string& ylabel,
+\end_layout
+
+\begin_layout Plain Layout
+
+                                      const std::vector<std::string>& datFiles,
+\end_layout
+
+\begin_layout Plain Layout
+
+                                      const std::vector<std::string>& legends,
+\end_layout
+
+\begin_layout Plain Layout
+
+                                      bool displayOnScreen) const {
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::vector<std::string> estilos = {
+\end_layout
+
+\begin_layout Plain Layout
+
+        "with lines lt 1 lw 2 dashtype 2",
+\end_layout
+
+\begin_layout Plain Layout
+
+        "with lines lt 2 lw 2 dashtype 3",
+\end_layout
+
+\begin_layout Plain Layout
+
+        "with lines lt 3 lw 2 dashtype 1"
+\end_layout
+
+\begin_layout Plain Layout
+
+    };
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::ofstream gp(m_outputPath + filenameGp);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    gp << "set terminal pngcairo size 800,600 enhanced font 'Arial,10'
+\backslash
+n";
+\end_layout
+
+\begin_layout Plain Layout
+
+    gp << "set output '" << m_outputPath + outputPng << "'
+\backslash
+n";
+\end_layout
+
+\begin_layout Plain Layout
+
+    gp << "set xlabel '" << xlabel << "'
+\backslash
+n";
+\end_layout
+
+\begin_layout Plain Layout
+
+    gp << "set ylabel '" << ylabel << "'
+\backslash
+n";
+\end_layout
+
+\begin_layout Plain Layout
+
+    gp << "set title '" << title << "'
+\backslash
+n";
+\end_layout
+
+\begin_layout Plain Layout
+
+    gp << "set grid
+\backslash
+n";
+\end_layout
+
+\begin_layout Plain Layout
+
+    gp << "plot 
+\backslash
+
+\backslash
+
+\backslash
+n";
+\end_layout
+
+\begin_layout Plain Layout
+
+    for (size_t i = 0;
+ i < datFiles.size();
+ ++i) {
+\end_layout
+
+\begin_layout Plain Layout
+
+        gp << "'" << m_outputPath + datFiles[i] << "' using 1:2 title '" << legends[i] << "' " << estilos[i];
+\end_layout
+
+\begin_layout Plain Layout
+
+        if (i < datFiles.size() - 1) gp << ",
+ 
+\backslash
+
+\backslash
+
+\backslash
+n";
+\end_layout
+
+\begin_layout Plain Layout
+
+        else gp << "
+\backslash
+n";
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+    gp << "set output
+\backslash
+n";
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    if (displayOnScreen) {
+\end_layout
+
+\begin_layout Plain Layout
+
+        gp << "set terminal wxt size 800,600
+\backslash
+n";
+\end_layout
+
+\begin_layout Plain Layout
+
+        gp << "replot
+\backslash
+n";
+\end_layout
+
+\begin_layout Plain Layout
+
+        gp << "pause -1 'Pressione Enter no terminal para fechar o grafico'
+\backslash
+n";
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+    gp.close();
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::string cmd = "gnuplot 
+\backslash
+"" + m_outputPath + filenameGp + "
+\backslash
+"";
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    system(cmd.c_str());
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::remove((m_outputPath + filenameGp).c_str());
+\end_layout
+
+\begin_layout Plain Layout
+
+    for (const auto& f :
+ datFiles) std::remove((m_outputPath + f).c_str());
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+void CPlotManager::PlotPorosityProfile(const CReservoirData& data,
+ bool displayOnScreen) {
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::vector<float> phi,
+ kV,
+ kR,
+ kH,
+ gV,
+ gR,
+ gH;
+\end_layout
+
+\begin_layout Plain Layout
+
+    data.GetKGVsPorosityFull(phi,
+ kV,
+ kR,
+ kH,
+ gV,
+ gR,
+ gH);
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::vector<double> x(phi.begin(),
+ phi.end());
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    ExportCurve("k_voigt_phi.dat",
+ x,
+ {kV.begin(),
+ kV.end()});
+\end_layout
+
+\begin_layout Plain Layout
+
+    ExportCurve("k_reuss_phi.dat",
+ x,
+ {kR.begin(),
+ kR.end()});
+\end_layout
+
+\begin_layout Plain Layout
+
+    ExportCurve("k_hill_phi.dat",
+  x,
+ {kH.begin(),
+ kH.end()});
+\end_layout
+
+\begin_layout Plain Layout
+
+    ExportCurve("g_voigt_phi.dat",
+ x,
+ {gV.begin(),
+ gV.end()});
+\end_layout
+
+\begin_layout Plain Layout
+
+    ExportCurve("g_reuss_phi.dat",
+ x,
+ {gR.begin(),
+ gR.end()});
+\end_layout
+
+\begin_layout Plain Layout
+
+    ExportCurve("g_hill_phi.dat",
+  x,
+ {gH.begin(),
+ gH.end()});
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::string timestamp = getCurrentTimestamp();
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    GeneratePlotScript("K_vs_porosidade.gp",
+ "K_vs_porosidade_" + timestamp + ".png",
+\end_layout
+
+\begin_layout Plain Layout
+
+                       "Compressibilidade vs Porosidade",
+\end_layout
+
+\begin_layout Plain Layout
+
+                       "Porosidade (%)",
+ "K (GPa)",
+\end_layout
+
+\begin_layout Plain Layout
+
+                       {"k_voigt_phi.dat",
+ "k_reuss_phi.dat",
+ "k_hill_phi.dat"},
+\end_layout
+
+\begin_layout Plain Layout
+
+                       {"Voigt",
+ "Reuss",
+ "Hill"},
+ displayOnScreen);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    GeneratePlotScript("G_vs_porosidade.gp",
+ "G_vs_porosidade_" + timestamp + ".png",
+\end_layout
+
+\begin_layout Plain Layout
+
+                       "Cisalhamento vs Porosidade",
+\end_layout
+
+\begin_layout Plain Layout
+
+                       "Porosidade (%)",
+ "G (GPa)",
+\end_layout
+
+\begin_layout Plain Layout
+
+                       {"g_voigt_phi.dat",
+ "g_reuss_phi.dat",
+ "g_hill_phi.dat"},
+\end_layout
+
+\begin_layout Plain Layout
+
+                       {"Voigt",
+ "Reuss",
+ "Hill"},
+ displayOnScreen);
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+void CPlotManager::PlotDepthProfile(const CReservoirData& data,
+ bool displayOnScreen) {
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::vector<float> depth,
+ kV,
+ kR,
+ kH,
+ gV,
+ gR,
+ gH;
+\end_layout
+
+\begin_layout Plain Layout
+
+    data.GetKGVsDepthFull(depth,
+ kV,
+ kR,
+ kH,
+ gV,
+ gR,
+ gH);
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::vector<double> x(depth.begin(),
+ depth.end());
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    ExportCurve("k_voigt_depth.dat",
+ x,
+ {kV.begin(),
+ kV.end()});
+\end_layout
+
+\begin_layout Plain Layout
+
+    ExportCurve("k_reuss_depth.dat",
+ x,
+ {kR.begin(),
+ kR.end()});
+\end_layout
+
+\begin_layout Plain Layout
+
+    ExportCurve("k_hill_depth.dat",
+  x,
+ {kH.begin(),
+ kH.end()});
+\end_layout
+
+\begin_layout Plain Layout
+
+    ExportCurve("g_voigt_depth.dat",
+ x,
+ {gV.begin(),
+ gV.end()});
+\end_layout
+
+\begin_layout Plain Layout
+
+    ExportCurve("g_reuss_depth.dat",
+ x,
+ {gR.begin(),
+ gR.end()});
+\end_layout
+
+\begin_layout Plain Layout
+
+    ExportCurve("g_hill_depth.dat",
+  x,
+ {gH.begin(),
+ gH.end()});
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::string timestamp = getCurrentTimestamp();
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    GeneratePlotScript("perfil_K_vs_profundidade.gp",
+ "perfil_K_vs_profundidade_" + timestamp + ".png",
+\end_layout
+
+\begin_layout Plain Layout
+
+                       "Perfil de Compressibilidade",
+\end_layout
+
+\begin_layout Plain Layout
+
+                       "Profundidade (m)",
+ "K (GPa)",
+\end_layout
+
+\begin_layout Plain Layout
+
+                       {"k_voigt_depth.dat",
+ "k_reuss_depth.dat",
+ "k_hill_depth.dat"},
+\end_layout
+
+\begin_layout Plain Layout
+
+                       {"Voigt",
+ "Reuss",
+ "Hill"},
+ displayOnScreen);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    GeneratePlotScript("perfil_G_vs_profundidade.gp",
+ "perfil_G_vs_profundidade_" + timestamp + ".png",
+\end_layout
+
+\begin_layout Plain Layout
+
+                       "Perfil de Cisalhamento",
+\end_layout
+
+\begin_layout Plain Layout
+
+                       "Profundidade (m)",
+ "G (GPa)",
+\end_layout
+
+\begin_layout Plain Layout
+
+                       {"g_voigt_depth.dat",
+ "g_reuss_depth.dat",
+ "g_hill_depth.dat"},
+\end_layout
+
+\begin_layout Plain Layout
+
+                       {"Voigt",
+ "Reuss",
+ "Hill"},
+ displayOnScreen);
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+void CPlotManager::PlotVariationByMineral(const CMineralDatabase& db,
+\end_layout
+
+\begin_layout Plain Layout
+
+                                        const std::string& principal,
+\end_layout
+
+\begin_layout Plain Layout
+
+                                        const std::string& secundario,
+\end_layout
+
+\begin_layout Plain Layout
+
+                                        bool displayOnScreen) {
+\end_layout
+
+\begin_layout Plain Layout
+
+    if (!db.HasMineral(principal) || !db.HasMineral(secundario)) {
+\end_layout
+
+\begin_layout Plain Layout
+
+        std::cerr << "[ERRO] Um ou ambos os minerais nao estao na base de dados.
+\backslash
+n";
+\end_layout
+
+\begin_layout Plain Layout
+
+        return;
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::vector<double> perc,
+ kV,
+ kR,
+ kH,
+ gV,
+ gR,
+ gH;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    for (int p = 0;
+ p <= 100;
+ p += 5) {
+\end_layout
+
+\begin_layout Plain Layout
+
+        float fPri = 100.0f - p;
+\end_layout
+
+\begin_layout Plain Layout
+
+        float fSec = p;
+\end_layout
+
+\begin_layout Plain Layout
+
+        float kp = db.GetBulkModulus(principal),
+ gp = db.GetShearModulus(principal);
+\end_layout
+
+\begin_layout Plain Layout
+
+        float ks = db.GetBulkModulus(secundario),
+ gs = db.GetShearModulus(secundario);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+        float kv = (fPri * kp + fSec * ks) / 100.0f;
+\end_layout
+
+\begin_layout Plain Layout
+
+        float gv = (fPri * gp + fSec * gs) / 100.0f;
+\end_layout
+
+\begin_layout Plain Layout
+
+        float kr = 1.0f / ((fPri / 100.0f) / kp + (fSec / 100.0f) / ks);
+\end_layout
+
+\begin_layout Plain Layout
+
+        float gr = 1.0f / ((fPri / 100.0f) / gp + (fSec / 100.0f) / gs);
+\end_layout
+
+\begin_layout Plain Layout
+
+        float kh = (kv + kr) / 2.0f;
+\end_layout
+
+\begin_layout Plain Layout
+
+        float gh = (gv + gr) / 2.0f;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+        perc.push_back(fSec);
+\end_layout
+
+\begin_layout Plain Layout
+
+        kV.push_back(kv);
+ kR.push_back(kr);
+ kH.push_back(kh);
+\end_layout
+
+\begin_layout Plain Layout
+
+        gV.push_back(gv);
+ gR.push_back(gr);
+ gH.push_back(gh);
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::string base = "var_" + principal + "_vs_" + secundario;
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::string timestamp = getCurrentTimestamp();
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    ExportCurve(base + "_k_voigt.dat",
+ perc,
+ kV);
+\end_layout
+
+\begin_layout Plain Layout
+
+    ExportCurve(base + "_k_reuss.dat",
+ perc,
+ kR);
+\end_layout
+
+\begin_layout Plain Layout
+
+    ExportCurve(base + "_k_hill.dat",
+  perc,
+ kH);
+\end_layout
+
+\begin_layout Plain Layout
+
+    ExportCurve(base + "_g_voigt.dat",
+ perc,
+ gV);
+\end_layout
+
+\begin_layout Plain Layout
+
+    ExportCurve(base + "_g_reuss.dat",
+ perc,
+ gR);
+\end_layout
+
+\begin_layout Plain Layout
+
+    ExportCurve(base + "_g_hill.dat",
+  perc,
+ gH);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    GeneratePlotScript(base + "_K.gp",
+ base + "_K_" + timestamp + ".png",
+\end_layout
+
+\begin_layout Plain Layout
+
+                       "Variacao de K - fixando " + principal,
+\end_layout
+
+\begin_layout Plain Layout
+
+                       "% " + secundario,
+ "K (GPa)",
+\end_layout
+
+\begin_layout Plain Layout
+
+                       {base + "_k_voigt.dat",
+ base + "_k_reuss.dat",
+ base + "_k_hill.dat"},
+\end_layout
+
+\begin_layout Plain Layout
+
+                       {"Voigt",
+ "Reuss",
+ "Hill"},
+ displayOnScreen);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    GeneratePlotScript(base + "_G.gp",
+ base + "_G_" + timestamp + ".png",
+\end_layout
+
+\begin_layout Plain Layout
+
+                       "Variacao de G - fixando " + principal,
+\end_layout
+
+\begin_layout Plain Layout
+
+                       "% " + secundario,
+ "G (GPa)",
+\end_layout
+
+\begin_layout Plain Layout
+
+                       {base + "_g_voigt.dat",
+ base + "_g_reuss.dat",
+ base + "_g_hill.dat"},
+\end_layout
+
+\begin_layout Plain Layout
+
+                       {"Voigt",
+ "Reuss",
+ "Hill"},
+ displayOnScreen);
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[style=myCppStyle,
+ caption={src/CSimulador.cpp}]
+\end_layout
+
+\begin_layout Plain Layout
+
+#include "CSimulador.h"
+\end_layout
+
+\begin_layout Plain Layout
+
+#include <iostream>
+\end_layout
+
+\begin_layout Plain Layout
+
+#include <limits>
+\end_layout
+
+\begin_layout Plain Layout
+
+#include <cctype>
+\end_layout
+
+\begin_layout Plain Layout
+
+#include <vector>
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+CSimulador::CSimulador()
+\end_layout
+
+\begin_layout Plain Layout
+
+    :
+ m_database("../database/minerais.csv"),
+\end_layout
+
+\begin_layout Plain Layout
+
+      m_calculator(m_database),
+\end_layout
+
+\begin_layout Plain Layout
+
+      m_running(true),
+\end_layout
+
+\begin_layout Plain Layout
+
+      m_displayGraphsOnScreen(true)
+\end_layout
+
+\begin_layout Plain Layout
+
+{}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+void CSimulador::Run() {
+\end_layout
+
+\begin_layout Plain Layout
+
+    Initialize();
+\end_layout
+
+\begin_layout Plain Layout
+
+    while (m_running)
+\end_layout
+
+\begin_layout Plain Layout
+
+        Menu();
+\end_layout
+
+\begin_layout Plain Layout
+
+    Finalize();
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+void CSimulador::Initialize() {
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::cout << "[INFO] Inicializando...
+\backslash
+n";
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+void CSimulador::Finalize() {
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::cout << "[INFO] Finalizando aplicacao...
+\backslash
+n";
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+void CSimulador::ConfigureGraphDisplay() {
+\end_layout
+
+\begin_layout Plain Layout
+
+    char choice;
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::cout << "Deseja que os graficos sejam exibidos na tela (alem de salvos)?
+ (S/N):
+ ";
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::cin >> choice;
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(),
+ '
+\backslash
+n');
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    if (toupper(choice) == 'S') {
+\end_layout
+
+\begin_layout Plain Layout
+
+        m_displayGraphsOnScreen = true;
+\end_layout
+
+\begin_layout Plain Layout
+
+        std::cout << "[OK] Exibicao de graficos na tela ATIVADA.
+\backslash
+n";
+\end_layout
+
+\begin_layout Plain Layout
+
+    } else if (toupper(choice) == 'N') {
+\end_layout
+
+\begin_layout Plain Layout
+
+        m_displayGraphsOnScreen = false;
+\end_layout
+
+\begin_layout Plain Layout
+
+        std::cout << "[OK] Exibicao de graficos na tela DESATIVADA.
+\backslash
+n";
+\end_layout
+
+\begin_layout Plain Layout
+
+    } else {
+\end_layout
+
+\begin_layout Plain Layout
+
+        std::cout << "[ERRO] Opcao invalida!
+ A configuracao nao foi alterada.
+\backslash
+n";
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+void CSimulador::Menu() {
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::cout << "
+\backslash
+n--- MENU ---
+\backslash
+n";
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::cout << "1.
+ Inserir nova amostra manualmente
+\backslash
+n";
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::cout << "2.
+ Carregar amostra de arquivo
+\backslash
+n";
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::cout << "3.
+ Ver resumo das amostras
+\backslash
+n";
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::cout << "4.
+ Gerar graficos:
+ profundidade e porosidade
+\backslash
+n";
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::cout << "5.
+ Gerar grafico de variacao mineralogica
+\backslash
+n";
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::cout << "6.
+ Configuracao:
+ Exibir graficos na tela (Atual:
+ " << (m_displayGraphsOnScreen ?
+ "Sim" :
+ "Nao") << ")
+\backslash
+n";
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::cout << "7.
+ Sair
+\backslash
+n";
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::cout << "Escolha:
+ ";
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    int opcao;
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::cin >> opcao;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    if (std::cin.fail()) {
+\end_layout
+
+\begin_layout Plain Layout
+
+        std::cin.clear();
+\end_layout
+
+\begin_layout Plain Layout
+
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(),
+ '
+\backslash
+n');
+\end_layout
+
+\begin_layout Plain Layout
+
+        std::cout << "Opcao invalida.
+\backslash
+n";
+\end_layout
+
+\begin_layout Plain Layout
+
+        return;
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(),
+ '
+\backslash
+n');
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    switch (opcao) {
+\end_layout
+
+\begin_layout Plain Layout
+
+        case 1:
+ {
+\end_layout
+
+\begin_layout Plain Layout
+
+            CAmostra amostra = m_inputManager.PromptManualInput();
+\end_layout
+
+\begin_layout Plain Layout
+
+            auto resultado = m_calculator.Calculate(amostra);
+\end_layout
+
+\begin_layout Plain Layout
+
+            m_reservoirData.AddSample(amostra,
+ resultado);
+\end_layout
+
+\begin_layout Plain Layout
+
+            break;
+\end_layout
+
+\begin_layout Plain Layout
+
+        }
+\end_layout
+
+\begin_layout Plain Layout
+
+        case 2:
+ {
+\end_layout
+
+\begin_layout Plain Layout
+
+            std::string caminho;
+\end_layout
+
+\begin_layout Plain Layout
+
+            std::cout << "Caminho do arquivo (.txt ou .csv):
+ ";
+\end_layout
+
+\begin_layout Plain Layout
+
+            std::getline(std::cin,
+ caminho);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+            std::vector<CAmostra> amostras = m_inputManager.ReadMultipleFromFile(caminho);
+\end_layout
+
+\begin_layout Plain Layout
+
+            for (const auto& amostra :
+ amostras) {
+\end_layout
+
+\begin_layout Plain Layout
+
+                auto resultado = m_calculator.Calculate(amostra);
+\end_layout
+
+\begin_layout Plain Layout
+
+                m_reservoirData.AddSample(amostra,
+ resultado);
+\end_layout
+
+\begin_layout Plain Layout
+
+                m_inputManager.PrintSampleInput(amostra);
+\end_layout
+
+\begin_layout Plain Layout
+
+            }
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+            std::cout << "[OK] " << amostras.size() << " amostra(s) carregada(s).
+\backslash
+n";
+\end_layout
+
+\begin_layout Plain Layout
+
+            break;
+\end_layout
+
+\begin_layout Plain Layout
+
+        }
+\end_layout
+
+\begin_layout Plain Layout
+
+        case 3:
+\end_layout
+
+\begin_layout Plain Layout
+
+            m_reservoirData.PrintSummary();
+\end_layout
+
+\begin_layout Plain Layout
+
+            break;
+\end_layout
+
+\begin_layout Plain Layout
+
+        case 4:
+\end_layout
+
+\begin_layout Plain Layout
+
+            m_plotManager.PlotDepthProfile(m_reservoirData,
+ m_displayGraphsOnScreen);
+\end_layout
+
+\begin_layout Plain Layout
+
+            m_plotManager.PlotPorosityProfile(m_reservoirData,
+ m_displayGraphsOnScreen);
+\end_layout
+
+\begin_layout Plain Layout
+
+            std::cout << "
+\backslash
+n[OK] Graficos salvos em .png.
+ Exibicao na tela:
+ " << (m_displayGraphsOnScreen ?
+ "Ativada" :
+ "Desativada") << ".
+\backslash
+n";
+\end_layout
+
+\begin_layout Plain Layout
+
+            break;
+\end_layout
+
+\begin_layout Plain Layout
+
+        case 5:
+ {
+\end_layout
+
+\begin_layout Plain Layout
+
+            auto nomesDosMinerais = m_reservoirData.ObterNomesDeMineraisUnicos();
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+            if (nomesDosMinerais.empty()) {
+\end_layout
+
+\begin_layout Plain Layout
+
+                std::cout << "
+\backslash
+n[INFO] Nao ha minerais nas amostras para analisar.
+\backslash
+n";
+\end_layout
+
+\begin_layout Plain Layout
+
+                break;
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+            }
+\end_layout
+
+\begin_layout Plain Layout
+
+            
+\end_layout
+
+\begin_layout Plain Layout
+
+            std::cout << "
+\backslash
+n--- Minerais Disponiveis nas Amostras ---
+\backslash
+n";
+\end_layout
+
+\begin_layout Plain Layout
+
+            for (const auto& nome :
+ nomesDosMinerais) {
+\end_layout
+
+\begin_layout Plain Layout
+
+                std::cout << "  - " << nome << std::endl;
+\end_layout
+
+\begin_layout Plain Layout
+
+            }
+\end_layout
+
+\begin_layout Plain Layout
+
+            std::cout << "-----------------------------------------
+\backslash
+n";
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+            std::string principal,
+ secundario;
+\end_layout
+
+\begin_layout Plain Layout
+
+            std::cout << "Mineral predominante:
+ ";
+\end_layout
+
+\begin_layout Plain Layout
+
+            std::getline(std::cin,
+ principal);
+\end_layout
+
+\begin_layout Plain Layout
+
+            std::cout << "Mineral secundario:
+ ";
+\end_layout
+
+\begin_layout Plain Layout
+
+            std::getline(std::cin,
+ secundario);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+            m_plotManager.PlotVariationByMineral(m_database,
+ principal,
+ secundario,
+ m_displayGraphsOnScreen);
+\end_layout
+
+\begin_layout Plain Layout
+
+            std::cout << "
+\backslash
+n[OK] Graficos salvos em .png.
+ Exibicao na tela:
+ " << (m_displayGraphsOnScreen ?
+ "Ativada" :
+ "Desativada") << ".
+\backslash
+n";
+\end_layout
+
+\begin_layout Plain Layout
+
+            break;
+\end_layout
+
+\begin_layout Plain Layout
+
+        }
+\end_layout
+
+\begin_layout Plain Layout
+
+        case 6:
+\end_layout
+
+\begin_layout Plain Layout
+
+            ConfigureGraphDisplay();
+\end_layout
+
+\begin_layout Plain Layout
+
+            break;
+\end_layout
+
+\begin_layout Plain Layout
+
+        case 7:
+\end_layout
+
+\begin_layout Plain Layout
+
+            m_running = false;
+\end_layout
+
+\begin_layout Plain Layout
+
+            break;
+\end_layout
+
+\begin_layout Plain Layout
+
+        default:
+\end_layout
+
+\begin_layout Plain Layout
+
+            std::cout << "Opcao invalida.
+\backslash
+n";
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

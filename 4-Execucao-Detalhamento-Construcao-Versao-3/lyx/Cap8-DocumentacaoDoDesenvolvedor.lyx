@@ -1,0 +1,527 @@
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children no
+\language brazilian
+\language_package default
+\inputencoding utf8
+\fontencoding auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement class
+\float_alignment class
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\index Index
+\shortcut idx
+\color #008080
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tablestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content true
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+chapter{Documentação para o Desenvolvedor}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Este capítulo destina-se a orientar futuros mantenedores e desenvolvedores sobre o ambiente necessário para compilar,
+ executar e estender o software 
+\backslash
+textbf{PoreElasticCalculator (PEC)}.
+ Diferente dos manuais de usuário,
+ que focam na operação,
+ esta seção detalha os requisitos técnicos e as diretrizes para a evolução do sistema.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+section{Dependências e Ambiente de Desenvolvimento}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Para garantir a compilação correta e o funcionamento integral do software,
+ o ambiente de desenvolvimento deve atender aos seguintes pré-requisitos:
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item 
+\backslash
+textbf{Compilador C++ Moderno:} O código utiliza recursos da norma C++17 (ISO/IEC 14882:2017).
+ É necessário um compilador compatível:
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+begin{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+        
+\backslash
+item 
+\backslash
+textbf{Linux/Unix:} GCC (
+\backslash
+textit{GNU Compiler Collection}) versão 9.0 ou superior (pacote 
+\backslash
+texttt{g++}).
+\end_layout
+
+\begin_layout Plain Layout
+
+        
+\backslash
+item 
+\backslash
+textbf{macOS:} Clang (via Xcode Command Line Tools).
+\end_layout
+
+\begin_layout Plain Layout
+
+        
+\backslash
+item 
+\backslash
+textbf{Windows:} MSVC (Visual Studio 2019+) ou MinGW-w64.
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+end{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item 
+\backslash
+textbf{Sistema de Build (CMake):} O projeto utiliza o CMake (versão mínima 3.15) para orquestração da compilação multiplataforma.
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item 
+\backslash
+textbf{Ferramenta de Visualização (Gnuplot):} O software depende do Gnuplot para a renderização dos gráficos.
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+begin{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+        
+\backslash
+item O executável 
+\backslash
+texttt{gnuplot} deve estar instalado e acessível através da variável de ambiente 
+\backslash
+texttt{PATH} do sistema operacional.
+\end_layout
+
+\begin_layout Plain Layout
+
+        
+\backslash
+item Site oficial:
+ 
+\backslash
+url{http://www.gnuplot.info/}
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+end{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item 
+\backslash
+textbf{Bibliotecas Internas:} Não há dependência de bibliotecas gráficas externas (como 
+\backslash
+texttt{CGnuplot}).
+ A integração é realizada nativamente pela classe interna 
+\backslash
+texttt{CPlotManager},
+ que gera scripts 
+\backslash
+texttt{.gp} e invoca o processo do Gnuplot via chamadas de sistema (
+\backslash
+texttt{std::system}),
+ garantindo leveza e portabilidade.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+section{Sugestões para Trabalhos Futuros}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Seguindo as diretrizes de melhoria contínua e visando a expansão da aplicabilidade do PEC na indústria e na academia,
+ sugerem-se as seguintes implementações para versões futuras:
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsection*{1.
+ Implementação de Interface Gráfica (GUI)}
+\end_layout
+
+\begin_layout Plain Layout
+
+A versão atual opera via Interface de Linha de Comando (CLI).
+ Recomenda-se o desenvolvimento de uma interface gráfica amigável utilizando o framework 
+\backslash
+textbf{Qt} (C++).
+ Isso permitiria:
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item Visualização de gráficos em tempo real dentro da própria janela da aplicação (sem janelas pop-up externas).
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item Tabelas editáveis para entrada de dados de minerais,
+ substituindo a edição manual de arquivos CSV.
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item Melhor experiência de usuário (UX) para profissionais não familiarizados com o terminal.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsection*{2.
+ Novos Modelos de Física de Rochas}
+\end_layout
+
+\begin_layout Plain Layout
+
+O núcleo de cálculo atual implementa as médias de Voigt-Reuss-Hill.
+ Para aumentar a precisão em cenários geológicos complexos,
+ sugere-se a inclusão de:
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item 
+\backslash
+textbf{Limites de Hashin-Shtrikman:} Para fornecer intervalos de confiança mais estreitos e realistas para compósitos isotrópicos.
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item 
+\backslash
+textbf{Substituição de Fluidos de Gassmann:} Para modelar o efeito da saturação de fluidos (água,
+ óleo,
+ gás) nos módulos elásticos,
+ essencial para a análise de reservatórios em produção.
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item 
+\backslash
+textbf{Modelo de Kuster-Toksöz:} Para considerar o efeito da geometria dos poros (aspect ratio) na elasticidade da rocha.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsection*{3.
+ Otimização de Performance e Paralelismo}
+\end_layout
+
+\begin_layout Plain Layout
+
+Embora eficiente,
+ o processamento atual é sequencial.
+ Para lidar com arquivos de log de poço contendo milhões de pontos de dados (High-Resolution Logs),
+ recomenda-se:
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item Implementação de processamento paralelo utilizando 
+\backslash
+textbf{OpenMP} ou a biblioteca de threads padrão do C++ (
+\backslash
+texttt{<thread>},
+ 
+\backslash
+texttt{<future>}).
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item Otimização do parser de entrada (
+\backslash
+texttt{CInput}) para leitura de grandes volumes de dados via 
+\backslash
+textit{memory mapping}.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsection*{4.
+ Testes Automatizados}
+\end_layout
+
+\begin_layout Plain Layout
+
+Adoção de um framework de testes unitários,
+ como o 
+\backslash
+textbf{Google Test},
+ para garantir a estabilidade do código à medida que novas funcionalidades forem adicionadas,
+ prevenindo regressões nos cálculos matemáticos.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

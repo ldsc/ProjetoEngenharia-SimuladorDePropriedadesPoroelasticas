@@ -1,0 +1,1897 @@
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children no
+\language brazilian
+\language_package default
+\inputencoding utf8
+\fontencoding auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement class
+\float_alignment class
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\index Index
+\shortcut idx
+\color #008080
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tablestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content true
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+chapter{Projeto 
+\backslash
+label{chap:Projeto-do-Sistema}}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+lhead{
+\backslash
+thechapter - Projeto} 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Neste capítulo do projeto de engenharia veremos questões associadas
+\end_layout
+
+\begin_layout Plain Layout
+
+ao projeto do sistema,
+ incluindo protocolos,
+ recursos,
+ plataformas
+\end_layout
+
+\begin_layout Plain Layout
+
+suportadas,
+ implicações nos diagramas feitos anteriormente,
+ diagramas
+\end_layout
+
+\begin_layout Plain Layout
+
+de componentes e implantação.
+ Na segunda parte revisamos os diagramas
+\end_layout
+
+\begin_layout Plain Layout
+
+levando em conta as decisões do projeto do sistema.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+section{Projeto do Sistema
+\backslash
+index{Projeto do sistema}
+\backslash
+label{sec:Projeto-do-sistema}}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Depois da análise orientada a objeto desenvolve-se o projeto do sistema,
+\end_layout
+
+\begin_layout Plain Layout
+
+qual envolve etapas como a definição dos protocolos,
+ da interface
+\end_layout
+
+\begin_layout Plain Layout
+
+API,
+ o uso de recursos,
+ a subdivisão do sistema em subsistemas,
+ a
+\end_layout
+
+\begin_layout Plain Layout
+
+alocação dos subsistemas ao hardware e a seleção das estruturas de
+\end_layout
+
+\begin_layout Plain Layout
+
+controle,
+ a seleção das plataformas do sistema,
+ das bibliotecas externas,
+\end_layout
+
+\begin_layout Plain Layout
+
+dos padrões de projeto,
+ além da tomada de decisões conceituais e políticas
+\end_layout
+
+\begin_layout Plain Layout
+
+que formam a infraestrutura do projeto.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Deve-se definir padrões de documentação,
+ padrões para o nome das classes,
+\end_layout
+
+\begin_layout Plain Layout
+
+padrões de retorno e de parâmetros em métodos,
+ características da
+\end_layout
+
+\begin_layout Plain Layout
+
+interface do usuário e características de desempenho.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+O projeto do sistema é a estratégia de alto nível para resolver o problema e elaborar uma
+\end_layout
+
+\begin_layout Plain Layout
+
+solução.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{enumerate}
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item Protocolos
+\backslash
+index{Protocolos}
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+begin{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+        
+\backslash
+item O sistema é concebido para ser uma aplicação desktop autônoma,
+ com capacidade de importar dados e exportar resultados.
+ A comunicação com dispositivos externos (como sensores laboratoriais,
+ espectrômetros,
+ etc.) não será necessária nesta primeira versão.
+ No entanto,
+ o software deverá:
+\end_layout
+
+\begin_layout Plain Layout
+
+        
+\backslash
+begin{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+            
+\backslash
+item Ler arquivos de entrada com composições mineralógicas em formatos abertos,
+ preferencialmente .csv e .xlsx
+\end_layout
+
+\begin_layout Plain Layout
+
+            
+\backslash
+item Exportar os resultados dos cálculos em formatos igualmente abertos em .txt (relatórios simples);
+ .csv (planilhas com resultados);
+ .png (gráficos e visualizações)
+\end_layout
+
+\begin_layout Plain Layout
+
+        
+\backslash
+end{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+        
+\backslash
+item O sistema será implementado seguindo o paradigma de programação orientada a objetos,
+ sendo os principais componentes do sistema representados como objetos com responsabilidades bem definidas.
+\end_layout
+
+\begin_layout Plain Layout
+
+        
+\end_layout
+
+\begin_layout Plain Layout
+
+        A comunicação entre objetos seguirá os princípios do acoplamento fraco e alta coesão,
+ utilizando:
+\end_layout
+
+\begin_layout Plain Layout
+
+        
+\backslash
+begin{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+            
+\backslash
+item Chamadas diretas de métodos
+\end_layout
+
+\begin_layout Plain Layout
+
+            
+\backslash
+item Passagem de parâmetros por instância (composição e agregação)
+\end_layout
+
+\begin_layout Plain Layout
+
+            
+\backslash
+item Padrão de projeto MVC (Model-View-Controller),
+ separando:
+ Modelos físicos e matemáticos (Model);
+ Interface com o usuário (View);
+ Lógica de controle e fluxo de dados (Controller)
+\end_layout
+
+\begin_layout Plain Layout
+
+        
+\backslash
+end{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+        
+\backslash
+item O sistema utilizará os seguintes formatos abertos para arquivos de entrada:
+\end_layout
+
+\begin_layout Plain Layout
+
+        
+\backslash
+begin{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+            
+\backslash
+item .csv:
+ para dados de composição mineralógica,
+ módulos dos minerais,
+ nomes de fases,
+ etc.
+\end_layout
+
+\begin_layout Plain Layout
+
+            
+\backslash
+item .json:
+ (opcional) para configurações de execução (modelo a usar,
+ limites,
+ parâmetros fixos)
+\end_layout
+
+\begin_layout Plain Layout
+
+        
+\backslash
+end{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+        
+\backslash
+item O sistema utilizará os seguintes formatos abertos para arquivos de saída:
+\end_layout
+
+\begin_layout Plain Layout
+
+        
+\backslash
+begin{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+            
+\backslash
+item .csv:
+ resultados tabulares
+\end_layout
+
+\begin_layout Plain Layout
+
+            
+\backslash
+item .txt:
+ logs e relatórios legíveis
+\end_layout
+
+\begin_layout Plain Layout
+
+            
+\backslash
+item .png / .pdf:
+ gráficos comparativos
+\end_layout
+
+\begin_layout Plain Layout
+
+        
+\backslash
+end{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+end{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item Recursos
+\backslash
+index{Recursos}
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+begin{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+        
+\backslash
+item O sistema utiliza um banco de dados embutido contendo as propriedades elásticas conhecidas dos minerais (módulo de compressibilidade K,
+ módulo de cisalhamento G,
+ profundidade da amostra,
+ porosidade).
+ Este banco de dados permite a automação da busca de propriedades físicas a partir da identificação do nome do mineral,
+ eliminando a necessidade de inserção manual dos parâmetros.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+        Exemplo de estrutura da tabela minerais:
+\end_layout
+
+\begin_layout Plain Layout
+
+        
+\end_layout
+
+\begin_layout Plain Layout
+
+        
+\backslash
+begin{table}[h!]
+\end_layout
+
+\begin_layout Plain Layout
+
+        
+\backslash
+centering
+\end_layout
+
+\begin_layout Plain Layout
+
+        
+\backslash
+begin{tabular}{lcc}
+\end_layout
+
+\begin_layout Plain Layout
+
+        
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+        
+\backslash
+textbf{nome} & 
+\backslash
+textbf{k} & 
+\backslash
+textbf{g} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+        
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+        albita    & 55 & 29.5 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+        anidrita  & 55 & 30   
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+        anortita  & 84 & 40   
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+        aragonita & 47 & 38.5 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+        
+\backslash
+vdots    & 
+\backslash
+vdots & 
+\backslash
+vdots 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+        
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+        
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+        
+\backslash
+end{table}
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+end{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item Plataformas
+\backslash
+index{Plataformas}
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+begin{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+        
+\backslash
+item Padrão de Nomes
+\end_layout
+
+\begin_layout Plain Layout
+
+        
+\backslash
+begin{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+            
+\backslash
+item Classes:
+ Utilizam o prefixo C seguido pelo formato PascalCase (ex:
+ CInput,
+ CSimulador).
+\end_layout
+
+\begin_layout Plain Layout
+
+            
+\backslash
+item Métodos e Funções:
+ Adotam o formato PascalCase (ex:
+ ParseSampleBlock,
+ GetBulkModulus).
+\end_layout
+
+\begin_layout Plain Layout
+
+            
+\backslash
+item Variáveis Membro (Atributos):
+ São prefixadas com m$_$ e seguem o formato camelCase (ex:
+ m$_$reservatorio,
+ m$_$database).
+\end_layout
+
+\begin_layout Plain Layout
+
+        
+\backslash
+end{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+end{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item Padrão de retorno e parâmetros
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+begin{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+        
+\backslash
+item Retorno de Dados:
+ Os métodos que realizam cálculos ou processamentos retornam,
+ preferencialmente,
+ objetos que encapsulam os resultados,
+ como instâncias de classes (CAmostra,
+ Result) ou coleções padrão (std::vector).
+\end_layout
+
+\begin_layout Plain Layout
+
+        
+\backslash
+item Tratamento de Erros:
+ Em caso de falhas,
+ como a não localização de um mineral na base de dados,
+ o sistema adota a estratégia de notificar o erro através de mensagens no fluxo de erro padrão (std::cerr),
+ permitindo que a execução prossiga de forma controlada.
+ A implementação de um sistema de exceções customizadas é vislumbrada como um aprimoramento futuro para um tratamento de erros ainda mais robusto.
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+end{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{enumerate}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+section{Projeto Orientado a Objeto -- POO
+\backslash
+index{POO}
+\backslash
+index{Projeto orientado a objeto}
+\backslash
+label{sec:Projeto-orientado-a-objeto}}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+O projeto orientado a objeto é a etapa posterior ao projeto do sistema.
+ Baseia-se na análise,
+ mas considera as decisões do projeto do sistema.
+ Acrescenta à análise desenvolvida as características da plataforma escolhida (hardware,
+ sistema operacional e linguagem de programação).
+ Passa pelo maior detalhamento do funcionamento do software,
+ acrescentando atributos e métodos que envolvem a solução de problemas específicos não identificados durante a análise.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Envolve a otimização da estrutura de dados e dos algoritmos,
+ a minimização do tempo de execução,
+ de memória e de custos.
+ Existe um desvio de ênfase para os conceitos da plataforma selecionada.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsubsection*{Efeitos do projeto no modelo estrutural}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item Neste projeto,
+ o modelo estrutural foi enriquecido com a inclusão de componentes da Biblioteca Padrão (STL) do C++.
+ Pacotes como 
+\backslash
+texttt{<vector>},
+ 
+\backslash
+texttt{<string>},
+ 
+\backslash
+texttt{<map>},
+ 
+\backslash
+texttt{<fstream>} e 
+\backslash
+texttt{<sstream>} foram fundamentais para a implementação das estruturas de dados e das operações de entrada/saída.
+ Adicionalmente,
+ a decisão de utilizar a ferramenta externa Gnuplot para a visualização de dados introduziu uma dependência de sistema,
+ refletida na arquitetura através da classe 
+\backslash
+texttt{CPlotManager},
+ cuja responsabilidade é fazer a interface com este subsistema.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item A escolha da linguagem C++ e de suas bibliotecas padrão resultou na concretização de classes e associações.
+ Por exemplo,
+ a classe 
+\backslash
+texttt{CInput} utiliza 
+\backslash
+texttt{std::ifstream} para a leitura de arquivos,
+ e a 
+\backslash
+texttt{CPlotManager} emprega 
+\backslash
+texttt{std::ofstream} para gerar os scripts 
+\backslash
+texttt{.gp} e os arquivos de dados 
+\backslash
+texttt{.dat}.
+ A classe 
+\backslash
+texttt{CAmostra} utiliza 
+\backslash
+texttt{std::map<std::string,
+ float>} para materializar a associação entre a amostra e sua composição mineralógica,
+ uma decisão de projeto que garante eficiência na busca por minerais.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item A plataforma escolhida impõe a dependência de um compilador C++11 (ou superior) para garantir a compatibilidade com os recursos da STL utilizados.
+ A interação com o Gnuplot estabelece a restrição de que este software deve estar instalado e acessível no 
+\backslash
+texttt{PATH} do sistema operacional para que a funcionalidade de plotagem de gráficos opere corretamente.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsubsection*{Efeitos do projeto no modelo dinâmico}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item A escolha da plataforma C++ e da biblioteca padrão influenciou diretamente os diagramas de sequência.
+ Uma operação como "processar amostras" se desdobra em uma sequência detalhada:
+ o objeto 
+\backslash
+texttt{CSimulador} invoca 
+\backslash
+texttt{CInput::ReadFile},
+ que internamente utiliza 
+\backslash
+texttt{std::ifstream} para ler o arquivo de entrada.
+ Para cada bloco de amostra lido,
+ 
+\backslash
+texttt{CSimulador} instancia 
+\backslash
+texttt{CAmostra} e invoca 
+\backslash
+texttt{CElasticCalculator::Calculate}.
+ Este,
+ por sua vez,
+ interage com 
+\backslash
+texttt{CMineralDatabase} para obter as propriedades de cada mineral antes de retornar o resultado.
+ Este nível de detalhe é uma consequência direta das decisões de projeto.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item A classe 
+\backslash
+texttt{CSimulador} implementa um laço de execução em seu método 
+\backslash
+texttt{Run()},
+ que opera com base em um menu interativo gerenciado pelo método 
+\backslash
+texttt{Menu()}.
+ Este comportamento pode ser modelado por um diagrama de máquina de estados,
+ onde cada opção do menu representa uma transição para um estado diferente da aplicação (ex:
+ "Carregando Dados",
+ "Calculando Propriedades",
+ "Gerando Gráficos",
+ "Finalizado").
+ A análise inicial poderia não ter previsto este nível de interação,
+ que foi adicionado durante o projeto para melhorar a usabilidade da ferramenta.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsubsection*{Efeitos do projeto nos atributos}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item Neste projeto,
+ a transição da análise para o projeto introduziu atributos específicos da implementação.
+ A classe 
+\backslash
+texttt{CMineralDatabase},
+ por exemplo,
+ possui o atributo 
+\backslash
+texttt{m
+\backslash
+_databaseFilePath},
+ que armazena o caminho para o arquivo 
+\backslash
+texttt{.csv},
+ um detalhe de implementação para o acesso ao disco.
+ Da mesma forma,
+ as classes 
+\backslash
+texttt{CElasticCalculator},
+ 
+\backslash
+texttt{CBulkCalculator} e CShearCalculator contêm uma referência constante à base de dados (
+\backslash
+texttt{m
+\backslash
+_db}),
+ um ponteiro de implementação que otimiza o acesso aos dados dos minerais sem a necessidade de recarregá-los.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsubsection*{Efeitos do projeto nos métodos}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item Os métodos da classe 
+\backslash
+texttt{CPlotManager} são um claro exemplo do impacto da plataforma escolhida.
+ A necessidade de interagir com o Gnuplot levou à criação de métodos como 
+\backslash
+texttt{ExportCurve},
+ que realiza acesso a disco para criar arquivos 
+\backslash
+texttt{.dat},
+ e 
+\backslash
+texttt{GeneratePlotScript},
+ que não apenas escreve um script em um arquivo,
+ mas também executa um comando de sistema (
+\backslash
+texttt{system()}) para invocar um processo externo.
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item No sistema,
+ observa-se a distinção entre métodos políticos e de processamento.
+ O método 
+\backslash
+texttt{CSimulador::Menu()} é eminentemente político,
+ orquestrando o fluxo de controle da aplicação com base na entrada do usuário.
+ Em contrapartida,
+ os métodos 
+\backslash
+texttt{CalculateVoigt},
+ 
+\backslash
+texttt{CalculateReuss} e 
+\backslash
+texttt{CalculateHill} nas classes 
+\backslash
+texttt{CBulkCalculator} e 
+\backslash
+texttt{CShearCalculator} são puramente de processamento,
+ focados na execução otimizada de fórmulas matemáticas.
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item Os métodos implementados respondem diretamente às responsabilidades de suas classes.
+ A responsabilidade da 
+\backslash
+texttt{CReservoirData} é armazenar e fornecer dados agregados.
+ Seus métodos,
+ como 
+\backslash
+texttt{GetKGVsDepth} e 
+\backslash
+texttt{GetKGVsPorosity},
+ cumprem precisamente esta função,
+ preparando os dados no formato exato que a 
+\backslash
+texttt{CPlotManager} necessita.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsubsection*{Efeitos do projeto nas heranças}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item Neste projeto,
+ optou-se pela 
+\backslash
+textbf{composição em detrimento da herança}.
+ Não há hierarquias de herança,
+ uma decisão de projeto deliberada que favorece a flexibilidade e um acoplamento mais fraco.
+ Por exemplo,
+ a classe 
+\backslash
+texttt{CElasticCalculator} 
+\backslash
+textit{contém} instâncias de 
+\backslash
+texttt{CBulkCalculator} e 
+\backslash
+texttt{CShearCalculator},
+ em vez de herdar delas.
+ Esta abordagem simplifica o design,
+ pois as responsabilidades de cálculo são delegadas a objetos especializados.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsubsection*{Efeitos do projeto nas associações}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item As associações foram implementadas utilizando os contêineres da STL.
+ A associação "um-para-muitos" entre 
+\backslash
+texttt{CReservoirData} e 
+\backslash
+texttt{CAmostra} é materializada por um std::vector<Enriched Sample>.
+ Esta escolha permite o armazenamento ordenado e o acesso indexado às amostras processadas.
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item A associação entre uma 
+\backslash
+texttt{CAmostra} e seus minerais é implementada com um 
+\backslash
+texttt{std::map
+\backslash
+allowbreak<
+\backslash
+allowbreak std::string,
+\backslash
+allowbreak float
+\backslash
+allowbreak>}.
+ Este "dicionário" é ideal,
+ pois usa o nome do mineral como chave para um acesso rápido (complexidade logarítmica) à sua proporção,
+ além de garantir a unicidade.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsubsection*{Efeitos do projeto nas otimizações}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item A principal otimização no design de dados é o uso de 
+\backslash
+texttt{std::map} na classe 
+\backslash
+texttt{CMineralDatabase} para armazenar os minerais.
+ Isso garante que a busca por um mineral durante os cálculos seja realizada em tempo logarítmico,
+ o que é significativamente mais eficiente do que uma busca linear.
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item O sistema opera de forma sequencial.
+ Uma futura otimização poderia envolver a utilização de concorrência (
+\backslash
+texttt{std::thread} ou 
+\backslash
+texttt{std::async}) para processar múltiplas amostras em paralelo,
+ otimizando o uso de processadores multi-core.
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item O design plano e com baixo acoplamento,
+ onde 
+\backslash
+texttt{CSimulador} mantém referências diretas aos subsistemas,
+ já previne caminhos de acesso longos,
+ tornando desnecessária a adição de associações extras para fins de otimização.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+section{Diagrama de Componentes
+\backslash
+index{Diagrama de componentes}
+\backslash
+label{sec:Diagrama-de-componentes}}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Segue o diagrama de componentes:
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{figure}[H]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{centering}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[width=1
+\backslash
+textwidth]{imagens/Componentes.png}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\backslash
+end{centering}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+caption{Diagrama de componentes
+\backslash
+label{cap:Diagrama-de-componentes}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{figure}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+section{Diagrama de Implantação
+\backslash
+index{Diagrama de implantação}
+\backslash
+index{Diagrama de execução}
+\backslash
+label{sec:Diagrama-de-execu=0000E7=0000E3o}}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+O diagrama de implantação é um diagrama de alto nível que inclui relações entre o sistema e o hardware e que se preocupa com os aspectos da arquitetura computacional escolhida.
+ Seu enfoque é o hardware,
+ a configuração dos nós em tempo de execução.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+O diagrama de implantação deve incluir os elementos necessários para que o sistema seja colocado em funcionamento:
+ computador,
+ periféricos,
+ processadores,
+ dispositivos,
+ nós,
+ relacionamentos de dependência,
+ associação,
+ componentes,
+ subsistemas,
+ restrições e notas.
+   
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Neste projeto,
+ o sistema de cálculo poroelástico foi concebido para ser executado em um ambiente de workstation local,
+ como um computador pessoal ou um servidor de menor porte,
+ sem a necessidade de uma infraestrutura de cluster distribuído.
+ A interação com o usuário ocorre através da interface de linha de comando,
+ e a geração de gráficos depende da instalação local do Gnuplot.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{figure}[H]
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+centering % O ambiente centering é preferível a 
+\backslash
+begin{centering}
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+includegraphics[angle=90,
+ height=0.6
+\backslash
+textheight]{imagens/Implatacao.png}
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+caption{Diagrama de implantação}
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+label{cap:Diagrama-de-implantacao}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{figure}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+% --- AQUI ENTRA A SUBSEÇÃO SOLICITADA ---
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsection{Lista de características 
+\backslash
+textless
+\backslash
+textless features
+\backslash
+textgreater
+\backslash
+textgreater}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Após a análise dos requisitos e considerando a natureza acadêmica e didática do projeto,
+ a implementação foi dividida em duas versões principais,
+ culminando na seguinte lista de funcionalidades:
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsubsection*{Versão 1.0 - Núcleo de Cálculo Poroelástico}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item 
+\backslash
+textbf{Cálculo dos Módulos Elásticos:} O sistema deve ser capaz de calcular os módulos de compressibilidade (K) e de cisalhamento (G) efetivos de um compósito mineral utilizando as médias de Voigt,
+ Reuss e Hill.
+\end_layout
+
+\begin_layout Plain Layout
+
+        
+\backslash
+subitem 
+\backslash
+textit{Classes implementadas:} 
+\backslash
+texttt{CElasticCalculator},
+ 
+\backslash
+texttt{CBulkCalculator},
+ 
+\backslash
+texttt{CShearCalculator}.
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item 
+\backslash
+textbf{Gerenciamento da Base de Dados de Minerais:} O sistema deve carregar e gerenciar uma base de dados de minerais a partir de um arquivo externo (
+\backslash
+texttt{.csv}),
+ permitindo a consulta das propriedades elásticas de cada mineral pelo nome.
+\end_layout
+
+\begin_layout Plain Layout
+
+        
+\backslash
+subitem 
+\backslash
+textit{Classe implementada:} 
+\backslash
+texttt{CMineralDatabase}.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item 
+\backslash
+textbf{Leitura de Arquivo de Entrada Simplificado:} O sistema deve ser capaz de ler um arquivo de texto com a definição de uma única amostra de rocha,
+ incluindo sua composição mineralógica e porosidade.
+\end_layout
+
+\begin_layout Plain Layout
+
+        
+\backslash
+subitem 
+\backslash
+textit{Classe implementada:} 
+\backslash
+texttt{CInput}.
+\end_layout
+
+\begin_layout Plain Layout
+
+        
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item 
+\backslash
+textbf{Visualização Gráfica:} O sistema deve gerar gráficos que correlacionem as propriedades elásticas calculadas com a variação da composição entre dois minerais.
+\end_layout
+
+\begin_layout Plain Layout
+
+        
+\backslash
+subitem 
+\backslash
+textit{Classe implementada:} 
+\backslash
+texttt{CPlotManager}.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item 
+\backslash
+textbf{Orquestração Central:} O sistema deve possuir uma classe principal para coordenar o fluxo de execução,
+ desde a leitura dos dados até a apresentação dos resultados.
+\end_layout
+
+\begin_layout Plain Layout
+
+        
+\backslash
+subitem 
+\backslash
+textit{Classe implementada:} 
+\backslash
+texttt{CSimulador}.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsubsection*{Versão 2.0 - Arquitetura Refinada e Análise Multi-Amostra}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item 
+\backslash
+textbf{Abstração da Entidade Amostra:} Para aprimorar a coesão e o encapsulamento,
+ o conceito de "amostra de rocha" foi abstraído em uma classe própria,
+ responsável por conter todos os seus dados característicos.
+\end_layout
+
+\begin_layout Plain Layout
+
+        
+\backslash
+subitem 
+\backslash
+textit{Classe implementada:} 
+\backslash
+texttt{CAmostra}.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item 
+\backslash
+textbf{Abstração da Entidade Mineral:} De forma análoga,
+ a entidade "mineral" foi encapsulada em sua própria classe,
+ refinando a estrutura da base de dados e tornando o código mais claro e orientado a objeto.
+\end_layout
+
+\begin_layout Plain Layout
+
+        
+\backslash
+subitem 
+\backslash
+textit{Classe implementada:} 
+\backslash
+texttt{CMineral}.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item 
+\backslash
+textbf{Processamento de Múltiplas Amostras:} O sistema foi aprimorado para ler e processar arquivos de entrada contendo a definição de múltiplas amostras de diferentes profundidades e porosidades.
+\end_layout
+
+\begin_layout Plain Layout
+
+        
+\backslash
+subitem 
+\backslash
+textit{Evolução da classe:} 
+\backslash
+texttt{CInput}.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item 
+\backslash
+textbf{Gerenciamento de Dados de Reservatório:} Foi introduzida uma classe para agregar e gerenciar o conjunto de todas as amostras processadas e seus respectivos resultados,
+ facilitando a análise consolidada.
+\end_layout
+
+\begin_layout Plain Layout
+
+        
+\backslash
+subitem 
+\backslash
+textit{Classe implementada:} 
+\backslash
+texttt{CReservoirData}.
+\end_layout
+
+\begin_layout Plain Layout
+
+        
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item 
+\backslash
+textbf{Geração de Perfis de Profundidade e Porosidade:} A capacidade de visualização foi expandida para permitir a plotagem de perfis contínuos,
+ mostrando a variação dos módulos elásticos (K e G) em função da profundidade ou da porosidade para o conjunto de amostras analisadas.
+\end_layout
+
+\begin_layout Plain Layout
+
+        
+\backslash
+subitem 
+\backslash
+textit{Evolução da classe:} 
+\backslash
+texttt{CPlotManager}.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{itemize}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

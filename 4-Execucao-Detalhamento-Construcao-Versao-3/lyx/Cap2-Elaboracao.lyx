@@ -1,0 +1,756 @@
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children no
+\language brazilian
+\language_package default
+\inputencoding utf8
+\fontencoding auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement class
+\float_alignment class
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\index Index
+\shortcut idx
+\color #008080
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tablestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content true
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lhead{
+\backslash
+thechapter
+\backslash
+space - Elaboração}  
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+chapter{Elaboração
+\backslash
+index{Elaboração}
+\backslash
+label{sec:Elabora=0000E7=0000E3o}}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+section{Análise de domínio
+\backslash
+label{sec:An=0000E1lise-de-dom=0000EDnio}}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Após estudo dos requisitos/especificações do sistema,
+ algumas entrevistas,
+ estudos na biblioteca e disciplinas do curso foi possível identificar nosso domínio de trabalho:
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+item Área de aplicação:
+ Engenharia de Petróleo,
+ Petrofísica,
+ Geomecânica
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+item Problema central:
+ Determinar propriedades elástcias (módulo de cisalhamento e compressibilidade) de rochas com composições mineralógicas variadas,
+ algo comum em formações sedimentares.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+section{Formulação teórica
+\backslash
+label{sec:Formula=0000E7=0000E3o-te=0000F3rica}}
+\end_layout
+
+\begin_layout Plain Layout
+
+A determinação das propriedades elásticas efetivas de rochas com múltiplos constituintes minerais exige o uso de modelos de homogeneização que aproximem o comportamento macroscópico do meio composto.
+ Neste trabalho,
+ são utilizados os modelos de Voigt-Reuss-Hill (VRH) e os limites de Hashin-Shtrikman (HS) para a estimativa do módulo de compressibilidade K e do módulo de cisalhamento G da rocha.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsection{Modelo de Voigt-Reuss-Hill (VRH)}
+\end_layout
+
+\begin_layout Plain Layout
+
+O modelo de Voigt assume deformação uniforme entre os constituintes da mistura,
+ resultando em uma média aritmética ponderada das propriedades dos minerais:
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{equation}
+\end_layout
+
+\begin_layout Plain Layout
+
+K_V = 
+\backslash
+sum_{i=1}^{n} f_i K_i
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{equation}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{equation}
+\end_layout
+
+\begin_layout Plain Layout
+
+G_V = 
+\backslash
+sum_{i=1}^{n} f_i G_i
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{equation}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Já o modelo de Reuss considera tensão uniforme entre os constituintes,
+ levando a uma média harmônica ponderada:
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{equation}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+frac{1}{K_R} = 
+\backslash
+sum_{i=1}^{n} 
+\backslash
+frac{f_i}{K_i}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{equation}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{equation}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+frac{1}{G_R} = 
+\backslash
+sum_{i=1}^{n} 
+\backslash
+frac{f_i}{G_i}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{equation}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+A média de Voigt-Reuss-Hill (VRH) é obtida como a média aritmética simples entre os valores de Voigt e Reuss:
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{equation}
+\end_layout
+
+\begin_layout Plain Layout
+
+K_{VRH} = 
+\backslash
+frac{K_V + K_R}{2}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{equation}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{equation}
+\end_layout
+
+\begin_layout Plain Layout
+
+G_{VRH} = 
+\backslash
+frac{G_V + G_R}{2}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{equation}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsection{Limites de Hashin-Shtrikman (HS)}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Os limites de Hashin-Shtrikman oferecem uma estimativa teórica rigorosa dos valores mínimo e máximo possíveis para as propriedades elásticas de materiais isotrópicos compostos por duas ou mais fases.
+ Supondo $K_1$ e $G_1$ como os módulos do mineral com maior rigidez e $K_2$ e $G_2$ como os módulos do mineral mais fraco,
+ com frações volumétricas $f_1$ e $f_2$,
+ os limites são dados por:
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{equation}
+\end_layout
+
+\begin_layout Plain Layout
+
+K_{HS}^{+} = K_2 + 
+\backslash
+frac{f_1}{
+\backslash
+dfrac{1}{K_1 - K_2} + 
+\backslash
+dfrac{f_2}{K_2 + 
+\backslash
+dfrac{4}{3}G_2}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{equation}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{equation}
+\end_layout
+
+\begin_layout Plain Layout
+
+G_{HS}^{+} = G_2 + 
+\backslash
+frac{f_1}{
+\backslash
+dfrac{1}{G_1 - G_2} + 
+\backslash
+dfrac{f_2}{G_2 + 
+\backslash
+zeta}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{equation}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{equation}
+\end_layout
+
+\begin_layout Plain Layout
+
+K_{HS}^{-} = K_1 + 
+\backslash
+frac{f_2}{
+\backslash
+dfrac{1}{K_2 - K_1} + 
+\backslash
+dfrac{f_1}{K_1 + 
+\backslash
+dfrac{4}{3}G_1}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{equation}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{equation}
+\end_layout
+
+\begin_layout Plain Layout
+
+G_{HS}^{-} = G_1 + 
+\backslash
+frac{f_2}{
+\backslash
+dfrac{1}{G_2 - G_1} + 
+\backslash
+dfrac{f_1}{G_1 + 
+\backslash
+zeta'}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{equation}
+\end_layout
+
+\begin_layout Plain Layout
+
+Onde:
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{equation}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+zeta = 
+\backslash
+frac{G_2(9K_2 + 8G_2)}{6(K_2 + 2G_2)}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+quad ;
+ 
+\backslash
+quad
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+zeta' = 
+\backslash
+frac{G_1(9K_1 + 8G_1)}{6(K_1 + 2G_1)}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{equation}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Esses limites fornecem uma faixa possível para as propriedades efetivas,
+ sendo úteis para validar os resultados obtidos com modelos mais simplificados como VRH.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+section{Identificação de pacotes -- assuntos}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Este projeto fundamenta-se em um conjunto de pacotes teóricos e computacionais voltados para o estudo das propriedades elásticas de rochas com múltiplas composições mineralógicas.
+ A seguir são descritos os principais pacotes envolvidos,
+ com sua respectiva função no desenvolvimento do modelo.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+item Rock Physics:
+ Conjunto de teorias que conectam propriedades elásticas da rocha (como módulo de cisalhamento e compressibilidade) com suas características petrofísicas,
+ como composição mineralógica,
+ porosidade e saturação.
+ Este pacote fornece a base conceitual para a formulação dos modelos de mistura empregados neste trabalho.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+item Mineral Physics:
+ Ramo que estuda as propriedades físicas dos minerais puros,
+ como o módulo de compressibilidade (K) e o módulo de cisalhamento (G).
+ Esses valores são fundamentais como dados de entrada para os modelos de homogeneização.
+ Os dados típicos são obtidos da literatura especializada.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+item Método de homogeneização que fornece uma média das propriedades elásticas baseada em hipóteses de deformação (Voigt) e tensão (Reuss) uniformes.
+ A média de Voigt-Reuss-Hill representa uma estimativa intermediária entre os extremos teóricos.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+item Gnuplot,
+ ferramenta de visualização utilizada para representar graficamente os resultados dos modelos,
+ como comparação entre VRH e HS,
+ análises de sensibilidade e tendências com variação mineralógica.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+item Teoria dos meios efetivos:
+ Pacote teórico que abrange todos os modelos de homogeneização para materiais compostos,
+ como VRH,
+ HS,
+ DEM (Differential Effective Medium) e outros.
+ Justifica conceitualmente o uso dos modelos implementados neste trabalho.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+section{Diagrama de pacotes -- assuntos
+\backslash
+label{sec:
+ Diagrama de pacotes =002013 assuntos}}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{figure}[H]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{centering}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[width=1
+\backslash
+textwidth]{imagens/Pacotes.jpeg }
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\backslash
+end{centering}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+caption{Diagrama de Pacotes
+\backslash
+label{fig:Diagrama-de-Pacotes}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{figure}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

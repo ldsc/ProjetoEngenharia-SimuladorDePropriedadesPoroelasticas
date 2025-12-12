@@ -1,0 +1,663 @@
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children no
+\language brazilian
+\language_package default
+\inputencoding utf8
+\fontencoding auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement class
+\float_alignment class
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\index Index
+\shortcut idx
+\color #008080
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tablestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content true
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+chapter{Testes}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+A garantia da qualidade de software (Software Quality Assurance - SQA) é uma etapa fundamental no ciclo de vida de desenvolvimento de qualquer sistema de engenharia.
+ No contexto do 
+\backslash
+textbf{PoreElasticCalculator (PEC)},
+ a fase de testes não se limitou apenas à verificação da ausência de erros de compilação ou falhas de segmentação (crashes),
+ mas estendeu-se profundamente à validação dos modelos numéricos implementados.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Este capítulo descreve a metodologia de validação adotada,
+ que compreendeu testes unitários de componentes,
+ testes de integração do sistema completo e,
+ crucialmente,
+ a validação cruzada dos resultados computacionais com as expectativas teóricas da Física de Rochas.
+ O objetivo foi assegurar que a implementação das médias de Voigt,
+ Reuss e Hill refletisse com precisão matemática o comportamento físico de rochas heterogêneas sob diferentes condições de porosidade e mineralogia.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+section{Metodologia e Ambiente de Teste}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Os testes foram conduzidos em um ambiente controlado para garantir a reprodutibilidade dos resultados.
+ A aplicação foi submetida a cenários de estresse,
+ variando desde a entrada de dados triviais até o processamento massivo de arquivos contendo centenas de amostras.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+O ambiente de execução principal consistiu em:
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item 
+\backslash
+textbf{Sistema Operacional:} Microsoft Windows 11 / macOS.
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item 
+\backslash
+textbf{Compilador:} GCC (MinGW-w64) versão 11.2 com suporte a C++17.
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item 
+\backslash
+textbf{Ferramentas Auxiliares:} Gnuplot 5.4 para renderização gráfica e CMake 3.20 para orquestração de build.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+A estratégia de validação foi dividida em três níveis de abstração:
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{enumerate}
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item 
+\backslash
+textbf{Nível de Interface:} Verificação da robustez da entrada de dados e tratamento de erros do usuário.
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item 
+\backslash
+textbf{Nível de Processamento:} Validação dos algoritmos de cálculo em lote e persistência de dados.
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item 
+\backslash
+textbf{Nível de Análise Visual:} Conferência da consistência física através das curvas geradas.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{enumerate}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+section{Teste de Interface e Entrada Manual}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+O primeiro ciclo de testes focou na interação direta com o usuário através da Interface de Linha de Comando (CLI).
+ Buscou-se verificar a resiliência do sistema (`parser`) contra entradas inválidas e a clareza do fluxo de navegação.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Durante a execução,
+ o sistema demonstrou capacidade de interpretar corretamente os comandos do menu principal,
+ gerenciando o fluxo de controle entre os diferentes módulos (Calculadora,
+ Banco de Dados,
+ Plotagem) sem apresentar vazamentos de memória ou travamentos inesperados.
+ A Figura 
+\backslash
+ref{fig:interface_menu} ilustra o estado inicial da aplicação e a clareza das opções apresentadas ao operador,
+ evidenciando a preocupação com a usabilidade técnica.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{figure}[H]
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+centering
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+includegraphics[width=1
+\backslash
+textwidth]{imagens/MenuPrincipal.png}
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+caption{Interface principal do sistema PEC demonstrando o menu interativo e a prontidão para receber comandos do usuário.}
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+label{fig:interface_menu}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{figure}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Observou-se que o mecanismo de entrada manual (Opção 1) tratou adequadamente a inserção de minerais inexistentes no banco de dados,
+ emitindo alertas apropriados sem interromper a execução,
+ o que confirma a robustez do tratamento de exceções implementado na classe 
+\backslash
+texttt{CInput}.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+section{Validação Numérica e Processamento em Lote}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+A principal funcionalidade do PEC é sua capacidade de processar grandes volumes de dados geológicos.
+ Para validar este requisito,
+ foram realizados testes de carga utilizando arquivos de entrada padronizados (
+\backslash
+texttt{.txt} e 
+\backslash
+texttt{.csv}) contendo múltiplas amostras com variações complexas de mineralogia.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+O teste de integração consistiu na leitura do arquivo 
+\backslash
+texttt{multiplasAmostras.txt},
+ forçando o sistema a instanciar dinamicamente dezenas de objetos da classe 
+\backslash
+texttt{CAmostra},
+ calcular suas propriedades elásticas em tempo real e armazenar os resultados na memória através da classe 
+\backslash
+texttt{CReservoirData}.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+A Tabela de Resumo gerada (Figura 
+\backslash
+ref{fig:tabela_resultados}) comprova a eficácia do motor de cálculo.
+ É possível observar que para cada amostra listada,
+ o sistema calculou corretamente os limites de Voigt e Reuss,
+ e derivou a média de Hill.
+ A formatação tabular,
+ com alinhamento preciso e unidades de medida claras (GPa,
+ m,
+ 
+\backslash
+%),
+ demonstra a maturidade do módulo de saída de dados.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{figure}[H]
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+centering
+\end_layout
+
+\begin_layout Plain Layout
+
+    % Imagem da tabela de resultados
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+includegraphics[width=1
+\backslash
+textwidth]{imagens/opcao3.png}
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+caption{Resumo consolidado das amostras processadas,
+ exibindo os valores calculados para os módulos de compressibilidade e cisalhamento.}
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+label{fig:tabela_resultados}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{figure}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+A análise manual de uma amostra aleatória da tabela (comparada com um cálculo feito em planilha externa) resultou em um erro relativo menor que $10^{-5}$,
+ validando a precisão aritmética da implementação em ponto flutuante (`float/double`) do C++.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+section{Análise de Sensibilidade e Visualização Gráfica}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+O teste final e mais crítico envolveu a validação fenomenológica dos resultados.
+ Na física de rochas,
+ espera-se que o aumento da porosidade ou a alteração na fração de minerais "moles" (como argilas) resulte em uma diminuição monotônica dos módulos elásticos.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Para verificar este comportamento,
+ utilizou-se o módulo 
+\backslash
+texttt{CPlotManager} para gerar perfis de profundidade e gráficos cruzados (
+\backslash
+textit{cross-plots}).
+ A integração com o Gnuplot ocorreu de forma transparente,
+ gerando scripts dinâmicos e exportando as imagens automaticamente.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+A Figura 
+\backslash
+ref{fig:grafico_analise} apresenta o resultado visual de uma simulação de variação mineralógica.
+ As curvas geradas para os limites de Voigt (superior),
+ Reuss (inferior) e Hill (média) comportam-se exatamente conforme previsto pela teoria:
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item As curvas são suaves e contínuas,
+ indicando estabilidade numérica.
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item O limite de Voigt mantém-se sistematicamente acima do limite de Reuss,
+ respeitando as restrições termodinâmicas do material.
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item A média de Hill posiciona-se centralmente,
+ oferecendo a estimativa mais provável para a interpretação geofísica.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{figure}[H]
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+centering
+\end_layout
+
+\begin_layout Plain Layout
+
+    % Imagem do gráfico
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+includegraphics[width=1
+\backslash
+textwidth]{imagens/variacaoK.png}
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+caption{Gráfico de análise de sensibilidade gerado pelo PEC,
+ ilustrando a variação dos módulos elásticos (limites de Voigt-Reuss-Hill) em função da composição mineralógica.}
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+label{fig:grafico_analise}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{figure}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+section{Conclusão dos Testes}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Os procedimentos de teste descritos neste capítulo confirmam que o 
+\backslash
+textbf{PoreElasticCalculator} atingiu todos os requisitos funcionais e não-funcionais estabelecidos no escopo do projeto.
+ A ferramenta mostrou-se estável,
+ precisa e capaz de fornecer insights visuais valiosos para a caracterização de reservatórios.
+ A concordância entre os resultados numéricos e as expectativas teóricas valida o software como uma ferramenta confiável para uso acadêmico e preliminar em projetos de engenharia de petróleo.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
