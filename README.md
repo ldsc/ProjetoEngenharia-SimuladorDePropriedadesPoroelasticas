@@ -45,14 +45,14 @@
 
 # Nome do Software:
 
--   **PEC - Poro Elastic Calculator**
+-   **PEC - Pore Elastic Calculator**
 
 
 <a id="org78f2222"></a>
 
 # Resumo e/ou informação extra:
 
--   O **PEC (Poro Elastic Calculator)** é uma ferramenta computacional robusta desenvolvida em C++ voltada para a área de Física de Rochas e Geomecânica.
+-   O **PEC (Pore Elastic Calculator)** é uma ferramenta computacional robusta desenvolvida em C++ voltada para a área de Física de Rochas e Geomecânica.
 -   O software calcula as propriedades elásticas efetivas (**Módulo de Compressibilidade - K** e **Módulo de Cisalhamento - G**) de rochas porosas com base em sua composição mineralógica e porosidade.
 -   Utiliza as teorias clássicas de meio efetivo (EMT) de **Voigt** (limite superior), **Reuss** (limite inferior) e **Hill** (média aritmética) para fornecer estimativas confiáveis.
 -   O sistema inclui geração automática de gráficos de alta qualidade (perfis de profundidade, crossplots K x Porosidade e análises de sensibilidade mineralógica) utilizando o **Gnuplot** como motor de renderização backend.
@@ -78,7 +78,7 @@
 # Autores de Contato:
 
 -   Matheus Sousa Bastos <matheus.bastos@lenep.uenf.br>
--   Nicolau Azevedo Prates <nicolau.prates@lenep.uenf.br>
+-   Nicolau Azevedo Prates <nicolauprates@lenep.uenf.br>
 
 
 <a id="orgbcb907a"></a>
@@ -116,7 +116,7 @@
 
 # Paradigmas:
 
--   **Orientação a Objetos (OOP):** Utilização de classes para encapsulamento de entidades (Amostra, Mineral) e controladores.
+-   **Orientação a Objetos (POO):** Utilização de classes para encapsulamento de entidades (Amostra, Mineral) e controladores.
 -   **Design Patterns:**
     -   *Facade:* Na classe `CSimulador` para orquestrar o sistema.
     -   *Strategy:* Na classe `CElasticCalculator` para implementar diferentes algoritmos de física.
