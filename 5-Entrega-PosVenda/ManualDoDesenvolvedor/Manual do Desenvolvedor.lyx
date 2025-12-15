@@ -1,0 +1,1691 @@
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+
+\usepackage{array}
+\usepackage{float}
+\usepackage{booktabs} 
+\usepackage{amsmath}  
+\usepackage{indentfirst}
+\usepackage{xcolor}  
+
+
+\usepackage[a4paper, tmargin=20mm, bmargin=20mm, lmargin=30mm, rmargin=25mm]{geometry}
+
+
+\usepackage{csvsimple} 
+
+
+\usepackage{tikz}
+\usetikzlibrary{positioning, shapes.geometric, arrows}
+
+\tikzstyle{block} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=blue!20]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+
+\usepackage{listings}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.95}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle} 
+
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{} 
+\setlength{\headheight}{15pt} 
+
+
+\fancyhead[RE,LO]{\footnotesize \textbf{PEC - Manual do Desenvolvedor}}
+
+
+\fancyfoot[C]{\thepage}
+
+
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+
+\fancypagestyle{plain}{
+  \fancyhf{} 
+  \fancyfoot[C]{\thepage} 
+  \renewcommand{\headrulewidth}{0pt}
+}
+
+\usepackage{setspace}
+\onehalfspacing
+
+\usepackage[hidelinks]{hyperref} 
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children no
+\language brazilian
+\language_package default
+\inputencoding utf8
+\fontencoding auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement class
+\float_alignment class
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\index Index
+\shortcut idx
+\color #008080
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tablestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content true
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+% Logo
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename pec_logo_trans.png
+	width 80text%
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+[1cm]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+% Título
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\series bold
+\size largest
+Manual do Desenvolvedor
+\series default
+\size default
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+[0.5cm]
+\end_layout
+
+\end_inset
+
+ 
+\size large
+V 3.0
+\size default
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+[1cm]
+\end_layout
+
+\end_inset
+
+ 
+\size large
+Set/2025
+\size default
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+[1cm]
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+% --- SEÇÕES DO MANUAL ---
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Introdução
+\end_layout
+
+\begin_layout Standard
+O software 
+\series bold
+PoreElasticCalculator
+\series default
+ (PEC) foi desenvolvido em C++ como uma ferramenta robusta para o cálculo dos módulos elásticos efetivos —
+ Módulo de Compressibilidade (
+\begin_inset Formula $K$
+\end_inset
+
+) e Módulo de Cisalhamento (
+\begin_inset Formula $G$
+\end_inset
+
+) —
+ de amostras de rochas com diferentes composições mineralógicas.
+ Utilizando as médias de Voigt,
+ Reuss e Hill,
+ o programa oferece uma análise precisa dos limites teóricos e da estimativa empírica das propriedades da rocha.
+\end_layout
+
+\begin_layout Standard
+O objetivo deste manual é fornecer um guia denso e completo para desenvolvedores que desejam entender,
+ manter e estender a funcionalidade do PEC.
+ O documento detalha a arquitetura do software,
+ a estrutura do projeto,
+ os processos de compilação multiplataforma e as convenções de código adotadas.
+\end_layout
+
+\begin_layout Section
+Funcionalidades Principais
+\end_layout
+
+\begin_layout Standard
+O programa oferece um conjunto completo de funcionalidades através de uma interface de linha de comando interativa:
+ 
+\end_layout
+
+\begin_layout Itemize
+Inserção manual de dados de amostras diretamente no terminal.
+ 
+\end_layout
+
+\begin_layout Itemize
+Carregamento em lote de múltiplas amostras a partir de arquivos de texto (
+\family typewriter
+.txt
+\family default
+) com formato estruturado.
+ 
+\end_layout
+
+\begin_layout Itemize
+Cálculo automático dos módulos elásticos 
+\begin_inset Formula $K$
+\end_inset
+
+ e 
+\begin_inset Formula $G$
+\end_inset
+
+ para os limites de Voigt,
+ Reuss e a média de Hill.
+ 
+\end_layout
+
+\begin_layout Itemize
+Geração de um sumário tabular com as propriedades de entrada e os resultados calculados para todas as amostras.
+ 
+\end_layout
+
+\begin_layout Itemize
+Criação de gráficos de alta qualidade utilizando o 
+\family typewriter
+gnuplot
+\family default
+ para a visualização de dados,
+ incluindo:
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Perfis de 
+\begin_inset Formula $K$
+\end_inset
+
+ e 
+\begin_inset Formula $G$
+\end_inset
+
+ em função da profundidade.
+ 
+\end_layout
+
+\begin_layout Itemize
+Perfis de 
+\begin_inset Formula $K$
+\end_inset
+
+ e 
+\begin_inset Formula $G$
+\end_inset
+
+ em função da porosidade.
+ 
+\end_layout
+
+\begin_layout Itemize
+Análise de sensibilidade para a variação da proporção entre dois minerais.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Configuração em tempo de execução para habilitar ou desabilitar a exibição dos gráficos na tela,
+ enquanto o salvamento em arquivo 
+\family typewriter
+.png
+\family default
+ é sempre garantido em um diretório de saída configurável.
+ 
+\end_layout
+
+\begin_layout Itemize
+Nomenclatura única para arquivos de gráficos baseada em timestamp,
+ prevenindo a sobrescrita de resultados.
+ 
+\end_layout
+
+\begin_layout Section
+Requisitos de Sistema
+\end_layout
+
+\begin_layout Standard
+Para a compilação e execução correta do programa,
+ o ambiente do desenvolvedor deve atender aos seguintes requisitos:
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Sistema Operacional:
+
+\series default
+ Windows 10/11,
+ Linux (e.g.,
+ Ubuntu 20.04+) ou macOS.
+ O projeto é totalmente multiplataforma.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Compilador C++:
+
+\series default
+ Um compilador moderno com suporte ao padrão C++17 ou superior.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+Windows:
+
+\series default
+ MSVC (incluso no Visual Studio Build Tools) ou MinGW-w64 (g++).
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Linux:
+
+\series default
+ g++ 
+\begin_inset Formula $\geq$
+\end_inset
+
+ 9.0.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+macOS:
+
+\series default
+ Clang (Xcode Command Line Tools).
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+CMake:
+
+\series default
+ Sistema de automação de compilação,
+ versão 
+\begin_inset Formula $\geq$
+\end_inset
+
+ 3.15.
+ Essencial para a compilação do projeto.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Gnuplot:
+
+\series default
+ Software para a geração de gráficos.
+ Deve estar instalado e com seu diretório executável adicionado à variável de ambiente 
+\family typewriter
+PATH
+\family default
+ do sistema.
+ 
+\end_layout
+
+\begin_layout Section
+Instalação e Compilação
+\end_layout
+
+\begin_layout Standard
+O projeto utiliza CMake para gerenciar o processo de compilação,
+ garantindo portabilidade e simplicidade.
+ O método recomendado é o uso do CMake.
+\end_layout
+
+\begin_layout Subsection
+Método Padrão (CMake)
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Clone o Repositório:
+
+\series default
+ Obtenha o código-fonte do projeto.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Instale os Pré-requisitos:
+
+\series default
+ Certifique-se de que o compilador C++,
+ CMake e Gnuplot estão instalados e acessíveis no 
+\family typewriter
+PATH
+\family default
+ do sistema.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Crie o Diretório de Build:
+
+\series default
+ A partir da raiz do projeto (
+\family typewriter
+PEC_v3
+\family default
+),
+ execute:
+ 
+\begin_inset listings
+lstparams "language=bash,caption={Criando o diretório de build},style=mystyle"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+mkdir build
+\end_layout
+
+\begin_layout Plain Layout
+
+cd build
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Configure o Projeto:
+
+\series default
+ A estrutura de compilação é criada com base no seu sistema operacional.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+Para Linux/macOS ou Windows com MinGW/g++:
+
+\series default
+ 
+\begin_inset listings
+lstparams "language=bash,caption={Configurando com CMake (MinGW/Linux/macOS)},style=mystyle"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+# Para Linux ou macOS:
+\end_layout
+
+\begin_layout Plain Layout
+
+cmake ..
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Para Windows usando g++ (MinGW):
+\end_layout
+
+\begin_layout Plain Layout
+
+cmake -G "MinGW Makefiles" ..
+\end_layout
+
+\begin_layout Plain Layout
+
+                
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Para Windows com Visual Studio (MSVC):
+
+\series default
+ Abra o 
+\series bold
+Developer Command Prompt for VS 2022
+\series default
+ e execute:
+ 
+\begin_inset listings
+lstparams "language=bash,caption={Configurando com CMake (MSVC)},style=mystyle"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+cmake ..
+\end_layout
+
+\begin_layout Plain Layout
+
+                
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Compile o Código-fonte:
+
+\series default
+ Ainda no diretório 
+\family typewriter
+build
+\family default
+,
+ execute:
+ 
+\begin_inset listings
+lstparams "language=bash,caption={Compilando o projeto},style=mystyle"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+cmake --build .
+\end_layout
+
+\begin_layout Plain Layout
+
+        
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Resultado:
+
+\series default
+ O executável 
+\family typewriter
+PoreElasticCalculator
+\family default
+ (ou 
+\family typewriter
+PoreElasticCalculator.exe
+\family default
+ no Windows) será criado dentro da pasta 
+\family typewriter
+build
+\family default
+.
+ 
+\end_layout
+
+\begin_layout Section
+Estrutura do Projeto
+\end_layout
+
+\begin_layout Standard
+O projeto é organizado em uma estrutura de diretórios clara e lógica para separar o código-fonte,
+ os cabeçalhos,
+ os dados e os arquivos de build.
+ 
+\end_layout
+
+\begin_layout Verbatim
+PEC_v3/
+\end_layout
+
+\begin_layout Verbatim
+|
+\end_layout
+
+\begin_layout Verbatim
++-- build/              // (Criado pelo dev) Arquivos de compilacao e executavel
+\end_layout
+
+\begin_layout Verbatim
++-- database/           // Arquivos de dados,
+ como a base de minerais
+\end_layout
+
+\begin_layout Verbatim
+|   +-- minerais.csv
+\end_layout
+
+\begin_layout Verbatim
+|
+\end_layout
+
+\begin_layout Verbatim
++-- include/            // Arquivos de cabecalho (.h) das classes
+\end_layout
+
+\begin_layout Verbatim
+|   +-- CAmostra.h
+\end_layout
+
+\begin_layout Verbatim
+|   +-- CMineral.h
+\end_layout
+
+\begin_layout Verbatim
+|   ...
+ (outras classes)
+\end_layout
+
+\begin_layout Verbatim
+|
+\end_layout
+
+\begin_layout Verbatim
++-- src/                // Arquivos de implementacao (.cpp)
+\end_layout
+
+\begin_layout Verbatim
+|   +-- CAmostra.cpp
+\end_layout
+
+\begin_layout Verbatim
+|   +-- CMineral.cpp
+\end_layout
+
+\begin_layout Verbatim
+|   ...
+ (outras classes)
+\end_layout
+
+\begin_layout Verbatim
+|
+\end_layout
+
+\begin_layout Verbatim
++-- test/               // Arquivos de entrada para testes e saida de plots
+\end_layout
+
+\begin_layout Verbatim
+|   +-- multiplasAmostras.txt
+\end_layout
+
+\begin_layout Verbatim
+|   +-- Plots/          // (Criado pelo app) Graficos gerados
+\end_layout
+
+\begin_layout Verbatim
+|
+\end_layout
+
+\begin_layout Verbatim
++-- CMakeLists.txt      // Script principal de configuracao do CMake
+\end_layout
+
+\begin_layout Verbatim
++-- main.cpp            // Ponto de entrada da aplicacao
+\end_layout
+
+\begin_layout Section
+Arquitetura do Software
+\end_layout
+
+\begin_layout Standard
+O software é projetado com base nos princípios da Programação Orientada a Objetos (OOP),
+ com cada classe possuindo uma responsabilidade única e bem definida.
+\end_layout
+
+\begin_layout Subsection
+Diagrama de Classes
+\end_layout
+
+\begin_layout Standard
+O diagrama abaixo ilustra as principais classes e suas interações.
+ A classe 
+\family typewriter
+CSimulador
+\family default
+ atua como o orquestrador principal da aplicação.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[
+\end_layout
+
+\begin_layout Plain Layout
+
+node distance=1.5cm and 2cm,
+\end_layout
+
+\begin_layout Plain Layout
+
+block/.style={rectangle,
+ rounded corners,
+ minimum width=3.2cm,
+ minimum height=1cm,
+ text centered,
+ draw=black,
+ fill=blue!20},
+\end_layout
+
+\begin_layout Plain Layout
+
+arrow/.style={thick,->,>=stealth}
+\end_layout
+
+\begin_layout Plain Layout
+
+]
+\end_layout
+
+\begin_layout Plain Layout
+
+% Nós
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (main) [block,
+ fill=red!20] {main.cpp};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (sim) [block,
+ below=of main] {CSimulador};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (data) [block,
+ below left=of sim,
+ xshift=1cm] {CReservoirData};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (plot) [block,
+ below right=of sim,
+ xshift=-1cm] {CPlotManager};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (mdb) [block,
+ below=of sim] {CMineralDatabase};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (amostra) [block,
+ below=of data] {CAmostra};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (mineral) [block,
+ below=of mdb] {CMineral};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+% Setas
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw [arrow] (main) -- (sim);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw [arrow] (sim) -- (data);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw [arrow] (sim) -- (plot);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw [arrow] (sim) -- (mdb);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw [arrow] (data) -- (amostra);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw [arrow] (amostra) -- (mineral);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw [arrow] (mdb) -- (mineral);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Diagrama simplificado da arquitetura de classes.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Descrição das Classes Principais
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+CSimulador
+\family default
+:
+ A classe central que gerencia o fluxo da aplicação.
+ É responsável por exibir o menu,
+ processar a entrada do usuário e coordenar as ações entre as outras classes.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+CReservoirData
+\family default
+:
+ Container de dados que armazena e gerencia a lista de todas as amostras carregadas na sessão.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+CAmostra
+\family default
+:
+ Modela uma única amostra de rocha,
+ contendo suas propriedades como nome,
+ profundidade,
+ porosidade e a composição mineralógica.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+CMineralDatabase
+\family default
+:
+ Responsável por carregar e fornecer acesso aos dados elásticos dos minerais a partir do arquivo 
+\family typewriter
+minerais.csv
+\family default
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+CMineral
+\family default
+:
+ Representa um mineral individual com seus módulos K e G.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+CPlotManager
+\family default
+:
+ Encapsula toda a lógica para a geração de gráficos.
+ Interage com o 
+\family typewriter
+gnuplot
+\family default
+ para criar scripts,
+ salvar os gráficos em arquivos 
+\family typewriter
+.png
+\family default
+ e exibi-los na tela.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+CElasticCalculator
+\family default
+:
+ Classe (e suas derivadas 
+\family typewriter
+CBulkCalculator
+\family default
+,
+ 
+\family typewriter
+CShearCalculator
+\family default
+) que contém a lógica matemática para calcular os módulos elásticos efetivos usando as médias de Voigt,
+ Reuss e Hill.
+ 
+\end_layout
+
+\begin_layout Section
+Base de Dados de Minerais
+\end_layout
+
+\begin_layout Standard
+A flexibilidade do programa é garantida por uma base de dados externa.
+ Segue abaixo a lista completa dos minerais presentes no nosso banco de dados padrão.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{table}[H]
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+centering
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+caption{Base de dados dos minerais disponíveis}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+csvautobooktabular[separator=comma]{database/minerais_atualizado.csv}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{table}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Base de dados dos minerais disponíveis
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para estender a base,
+ basta editar o arquivo 
+\family typewriter
+database/minerais.csv
+\family default
+,
+ adicionando novas linhas no formato:
+ 
+\family typewriter
+nome_mineral,valor_K,valor_G
+\family default
+.
+\end_layout
+
+\begin_layout Section
+Guia de Uso Detalhado
+\end_layout
+
+\begin_layout Standard
+Para iniciar o programa,
+ execute o arquivo gerado na compilação.
+ O menu interativo principal será exibido.
+\end_layout
+
+\begin_layout Subsection
+Opção 2:
+ Carregar amostra de arquivo
+\end_layout
+
+\begin_layout Standard
+Permite o carregamento em lote.
+ O arquivo deve seguir um formato estruturado,
+ onde cada amostra é um bloco de dados.
+ 
+\begin_inset listings
+lstparams "language=bash,caption={Exemplo de formato para o arquivo de entrada (`input.txt`)}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+reservatorio:
+ Bacia_Campos
+\end_layout
+
+\begin_layout Plain Layout
+
+amostra:
+ Amostra_A1
+\end_layout
+
+\begin_layout Plain Layout
+
+profundidade:
+ 2500
+\end_layout
+
+\begin_layout Plain Layout
+
+porosidade:
+ 15.2
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+quartzo 70
+\end_layout
+
+\begin_layout Plain Layout
+
+albita 20
+\end_layout
+
+\begin_layout Plain Layout
+
+kerogenio 10
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+reservatorio:
+ Bacia_Campos
+\end_layout
+
+\begin_layout Plain Layout
+
+amostra:
+ Amostra_A2
+\end_layout
+
+\begin_layout Plain Layout
+
+profundidade:
+ 2550
+\end_layout
+
+\begin_layout Plain Layout
+
+porosidade:
+ 14.8
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+quartzo 65
+\end_layout
+
+\begin_layout Plain Layout
+
+albita 25
+\end_layout
+
+\begin_layout Plain Layout
+
+kerogenio 10
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Opção 3:
+ Ver resumo das amostras
+\end_layout
+
+\begin_layout Standard
+Exibe uma tabela consolidada no console com as informações de todas as amostras carregadas e os resultados dos módulos calculados.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename opcao3.png
+	width 100text%
+
+\end_inset
+
+ 
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Exemplo da tabela com o resumo das amostras.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Opção 4 e 5:
+ Geração de Gráficos
+\end_layout
+
+\begin_layout Standard
+Gera e salva os gráficos na pasta 
+\family typewriter
+test/Plots/
+\family default
+.
+ Se a exibição estiver ativa,
+ as janelas são abertas sequencialmente e fechadas ao pressionar Enter no terminal.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename perfil_G_vs_profundidade.png
+	width 70text%
+
+\end_inset
+
+ 
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Exemplo de gráfico gerado para profundidade.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename var_quartzo_vs_kerogenio_G.png
+	width 70text%
+
+\end_inset
+
+ 
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Exemplo de gráfico gerado para variação mineralógica.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Guia para Extensões Futuras
+\end_layout
+
+\begin_layout Standard
+A arquitetura modular do PEC foi projetada para facilitar a adição de novas funcionalidades.
+\end_layout
+
+\begin_layout Subsection
+Adicionando um Novo Modelo de Cálculo
+\end_layout
+
+\begin_layout Standard
+Para implementar um novo método de cálculo de módulo elástico (e.g.,
+ Média de Hashin-Shtrikman):
+ 
+\end_layout
+
+\begin_layout Enumerate
+Crie uma nova função dentro da classe 
+\family typewriter
+CElasticCalculator
+\family default
+ (ou suas derivadas) que implemente a nova equação.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Adicione um campo ao struct de resultados em 
+\family typewriter
+CReservoirData.h
+\family default
+ para armazenar o novo valor.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Modifique a função 
+\family typewriter
+CReservoirData::PrintSummary()
+\family default
+ em 
+\family typewriter
+CReservoirData.cpp
+\family default
+ para exibir o novo resultado na tabela de resumo.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Atualize a classe 
+\family typewriter
+CPlotManager
+\family default
+ para incluir a nova curva nos gráficos,
+ se desejado.
+ 
+\end_layout
+
+\begin_layout Subsection
+Adicionando um Novo Tipo de Gráfico
+\end_layout
+
+\begin_layout Standard
+Para criar um novo tipo de gráfico:
+ 
+\end_layout
+
+\begin_layout Enumerate
+Adicione uma nova opção no menu da classe 
+\family typewriter
+CSimulador
+\family default
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Crie uma nova função pública na classe 
+\family typewriter
+CPlotManager
+\family default
+ (e.g.,
+ 
+\family typewriter
+PlotNovaAnalise(...)
+\family default
+).
+ 
+\end_layout
+
+\begin_layout Enumerate
+Dentro desta nova função,
+ implemente a lógica para extrair os dados necessários de 
+\family typewriter
+CReservoirData
+\family default
+ e chame a função privada 
+\family typewriter
+GeneratePlotScript
+\family default
+ com os parâmetros apropriados.
+ 
+\end_layout
+
+\end_body
+\end_document
